@@ -1,0 +1,374 @@
+{
+  "common": {
+    "loading": "Ładowanie...",
+    "error": "Błąd",
+    "search": "Szukaj",
+    "user": "Użytkownik",
+    "home": "Strona główna",
+    "about": "O nas",
+    "contact": "Kontakt",
+    "termsOfUse": "Warunki użytkowania",
+    "privacyPolicy": "Polityka prywatności",
+    "links": "Linki",
+    "legal": "Informacje prawne",
+    "copyright": "© 2025 Bajki na dobranoc. Wszystkie prawa zastrzeżone.",
+    "createdWithLove": "Stworzone z miłością dla dzieci i ich rodziców",
+    "breadcrumbs": "Nawigacja okruszkowa"
+  },
+  "header": {
+    "brandName": "Bajkowe Opowieści",
+    "stories": "Bajki",
+    "adventures": "Przygody",
+    "friendship": "Przyjaźń",
+    "animals": "Zwierzęta"
+  },
+  "home": {
+    "title": "Bajki na dobranoc - Fascynujące historie dla dzieci",
+    "description": "Czytaj najlepsze bajki na dobranoc dla dzieci. Fascynujące historie z pięknymi ilustracjami dla różnych grup wiekowych.",
+    "keywords": "bajki na dobranoc, bajki dla dzieci, historie dla dzieci, bajki z obrazkami",
+    "welcomeTitle": "Witamy w świecie bajek!",
+    "welcomeDescription": "Fascynujące historie dla dzieci z pięknymi ilustracjami. Czytaj bajki na dobranoc i wyrusz w magiczne przygody.",
+    "allStories": "Wszystkie bajki",
+    "categories": "Kategorie",
+    "loadingStories": "Ładowanie bajek...",
+    "errorLoadingData": "Błąd ładowania danych:"
+  },
+  "stories": {
+    "title": "Bajki - Bajki na dobranoc",
+    "description": "Przeglądaj wszystkie kategorie bajek i znajdź idealną historię dla swojego dziecka.",
+    "keywords": "bajki, kategorie bajek, historie dla dzieci, bajki na dobranoc",
+    "pageTitle": "Wszystkie kategorie bajek",
+    "pageDescription": "Wybierz kategorię, która Cię interesuje i odkryj magiczne historie dla dzieci.",
+    "categories": "Kategorie bajek",
+    "loadingTags": "Ładowanie kategorii...",
+    "errorLoadingTags": "Błąd ładowania kategorii:"
+  },
+  "search": {
+    "title": "Szukaj - Bajki na dobranoc",
+    "description": "Znajdź idealną bajkę dla swojego dziecka. Szukaj według tytułu, opisu lub treści.",
+    "keywords": "szukaj bajek, wyszukiwanie bajek, bajki dla dzieci, bajki na dobranoc",
+    "pageTitle": "Szukaj bajek",
+    "pageDescription": "Wprowadź słowa kluczowe, aby znaleźć bajki, które Cię interesują.",
+    "resultsFor": "Wyniki wyszukiwania dla",
+    "resultsDescription": "Znalezione bajki pasujące do Twojego wyszukiwania.",
+    "searching": "Szukam...",
+    "error": "Błąd wyszukiwania:",
+    "noResults": "Nie znaleziono wyników",
+    "noResultsDescription": "Spróbuj użyć innych słów kluczowych lub przeglądaj wszystkie dostępne bajki.",
+    "browseAllStories": "Przeglądaj wszystkie bajki",
+    "foundResults": "Znaleziono {count} wyników dla \"{query}\"",
+    "minutes": "min"
+  },
+  "storiesByTag": {
+    "title": "Bajki",
+    "description": "Bajki w kategorii",
+    "keywords": "bajki, kategoria",
+    "storiesTitle": "Bajki",
+    "storiesInCategory": "Bajki w kategorii",
+    "storiesCount": "Znaleziono bajek",
+    "loading": "Ładowanie bajek...",
+    "tagNotFound": "Kategoria nie została znaleziona",
+    "backToStories": "Wróć do bajek"
+  },
+  "about": {
+    "title": "O nas - Bajki na dobranoc",
+    "description": "Dowiedz się więcej o projekcie Bajki na dobranoc. Naszą misją jest tworzenie wysokiej jakości historii dla dzieci do rodzinnego czytania.",
+    "keywords": "o nas, misja, bajki, historie dla dzieci, rodzinne czytanie",
+    "pageTitle": "O projekcie \"Bajki na dobranoc\"",
+    "pageDescription": "Tworzymy świat magicznych historii, które pomagają dzieciom rozwijać wyobraźnię, uczyć się dobroci i zasypiać z uśmiechem na twarzy.",
+    "missionTitle": "Nasza misja",
+    "missionDescription1": "Wierzymy, że każda bajka to nie tylko historia przed snem, ale możliwość dla dziecka poznania świata, rozwoju empatii i kreatywnego myślenia.",
+    "missionDescription2": "Naszym celem jest stworzenie bezpiecznej, wysokiej jakości i dostępnej przestrzeni do rodzinnego czytania, gdzie każde dziecko znajdzie historię dla siebie.",
+    "createdWithLove": "Tworzymy z miłością",
+    "valuesTitle": "Nasze wartości",
+    "values": {
+      "quality": "Jakość i bezpieczeństwo treści",
+      "imagination": "Rozwój wyobraźni i kreatywności",
+      "accessibility": "Dostępność dla wszystkich rodzin",
+      "family": "Wartości rodzinne i tradycje"
+    },
+    "storyTitle": "Jak wszystko się zaczęło",
+    "storyDescription": "Historia naszego projektu rozpoczęła się od prostej idei — stworzenia miejsca, gdzie rodzice mogą znaleźć wysokiej jakości bajki dla swoich dzieci.",
+    "steps": {
+      "idea": {
+        "title": "Pomysł",
+        "description": "Uświadomienie, że wysokiej jakości historie dla dzieci powinny być dostępne dla każdego dziecka"
+      },
+      "development": {
+        "title": "Rozwój",
+        "description": "Tworzenie platformy z wygodnym interfejsem i wysokiej jakości treścią"
+      },
+      "growth": {
+        "title": "Wzrost",
+        "description": "Ciągłe rozszerzanie biblioteki i ulepszanie doświadczeń użytkownika"
+      }
+    },
+    "featuresTitle": "Co oferujemy",
+    "featuresDescription": "Nasza platforma została stworzona z uwzględnieniem potrzeb współczesnych rodzin",
+    "features": {
+      "library": {
+        "title": "Bogata biblioteka",
+        "description": "Setki bajek i historii dla dzieci w różnym wieku, od klasycznych po współczesne"
+      },
+      "search": {
+        "title": "Wygodne wyszukiwanie",
+        "description": "Łatwo znajdź historie według tematów, wieku i preferencji swojego dziecka"
+      },
+      "illustrations": {
+        "title": "Piękne ilustracje",
+        "description": "Każda historia towarzyszy wysokiej jakości obrazom, które rozwijają wyobraźnię"
+      },
+      "safety": {
+        "title": "Bezpieczeństwo",
+        "description": "Cała treść jest dokładnie sprawdzana i odpowiednia dla dzieci w każdym wieku"
+      },
+      "love": {
+        "title": "Stworzone z miłością",
+        "description": "Każda historia jest wybierana i adaptowana z troską o dzieci i ich rozwój"
+      },
+      "speed": {
+        "title": "Szybkie ładowanie",
+        "description": "Zoptymalizowana platforma działa szybko na wszystkich urządzeniach"
+      }
+    },
+    "team": {
+      "title": "Nasz zespół",
+      "description": "Jesteśmy zespołem entuzjastów, którzy wierzą w siłę dobrych historii",
+      "members": {
+        "anna": {
+          "name": "Anna",
+          "role": "Założycielka projektu",
+          "description": "Pedagog i mama dwojga dzieci, która wie, jak ważne jest wysokiej jakości czytanie"
+        },
+        "michal": {
+          "name": "Michał",
+          "role": "Dyrektor techniczny",
+          "description": "Tworzy technologie, które sprawiają, że czytanie jest wygodne i przyjemne"
+        },
+        "elena": {
+          "name": "Elena",
+          "role": "Redaktor treści",
+          "description": "Wybiera i adaptuje historie, aby były interesujące i użyteczne"
+        }
+      }
+    },
+    "cta": {
+      "title": "Dołącz do naszej społeczności",
+      "description": "Czytaj bajki, dziel się wrażeniami i pomagaj nam tworzyć lepsze treści dla dzieci",
+      "startReading": "Zacznij czytać",
+      "contactUs": "Skontaktuj się z nami"
+    }
+  },
+  "footer": {
+    "title": "Bajki na dobranoc",
+    "description": "Tworzymy świat magicznych historii dla dzieci i ich rodziców. Każda bajka to podróż w świat wyobraźni i dobroci."
+  },
+  "contact": {
+    "title": "Kontakt - Bajki na dobranoc",
+    "description": "Skontaktuj się z nami. Jesteśmy tutaj, aby pomóc i odpowiedzieć na wszystkie pytania dotyczące naszych bajek.",
+    "keywords": "kontakt, pomoc, pytania, bajki, wsparcie",
+    "pageTitle": "Skontaktuj się z nami",
+    "pageDescription": "Masz pytania lub sugestie? Chętnie Cię wysłuchamy!",
+    "form": {
+      "name": "Imię",
+      "email": "Email",
+      "subject": "Temat",
+      "message": "Wiadomość",
+      "send": "Wyślij wiadomość",
+      "namePlaceholder": "Twoje imię",
+      "emailPlaceholder": "twoj@email.com",
+      "subjectPlaceholder": "Temat wiadomości",
+      "messagePlaceholder": "Twoja wiadomość..."
+    },
+    "info": {
+      "title": "Informacje kontaktowe",
+      "email": "Email",
+      "responseTime": "Czas odpowiedzi",
+      "support": "Wsparcie",
+      "socialMedia": "Media społecznościowe",
+      "socialMediaDescription": "Śledź nasze aktualizacje",
+      "responseTimeValue": "W ciągu 24 godzin"
+    },
+    "faq": {
+      "title": "Często zadawane pytania",
+      "addStory": {
+        "question": "Jak dodać nową bajkę?",
+        "answer": "Wyślij nam email z opisem bajki, a rozważymy możliwość jej dodania."
+      },
+      "useStories": {
+        "question": "Czy można używać waszych bajek?",
+        "answer": "Wszystkie bajki są dostępne do użytku osobistego. Do użytku komercyjnego skontaktuj się z nami."
+      }
+    },
+    "form": {
+      "title": "Wyślij wiadomość",
+      "successMessage": "Dziękujemy! Twoja wiadomość została wysłana. Odpowiemy Ci wkrótce.",
+      "nameLabel": "Imię *",
+      "emailLabel": "Email *",
+      "subjectLabel": "Temat *",
+      "messageLabel": "Wiadomość *",
+      "submitButton": "Wyślij wiadomość",
+      "submitting": "Wysyłanie..."
+    }
+  },
+  "terms": {
+    "title": "Warunki użytkowania - Bajki na dobranoc",
+    "description": "Przeczytaj warunki użytkowania naszej platformy z bajkami dla dzieci.",
+    "keywords": "warunki użytkowania, regulamin, bajki, zasady",
+    "pageTitle": "Warunki użytkowania",
+    "lastUpdated": "Ostatnia aktualizacja: 1 stycznia 2025",
+    "sections": {
+      "acceptance": {
+        "title": "Akceptacja warunków",
+        "content": "Korzystając z naszej platformy, akceptujesz te warunki użytkowania."
+      },
+      "service": {
+        "title": "Opis serwisu",
+        "content": "Platforma \"Bajki na dobranoc\" zapewnia dostęp do kolekcji bajek i historii dla dzieci, przeznaczonych do czytania dzieciom przed snem. Nasz serwis obejmuje:",
+        "features": "Bibliotekę bajek i historii, Kategoryzację według tematów i grup wiekowych, Możliwość wyszukiwania i filtrowania treści, Dostęp do ilustracji i obrazów"
+      },
+      "usage": {
+        "title": "Prawa do użytkowania",
+        "content": "Zapewniamy Ci ograniczone, niewyłączne, nieprzenoszalne prawo do korzystania z Platformy w celach osobistych, niekomercyjnych przy przestrzeganiu niniejszych Warunków.",
+        "allowed": "Dozwolone:",
+        "allowedItems": "Czytanie bajek dzieciom, Używanie treści do celów edukacyjnych, Udostępnianie linków do naszej Platformy, Drukowanie bajek do użytku osobistego",
+        "prohibited": "Zabronione:",
+        "prohibitedItems": "Komercyjne wykorzystanie treści bez zgody, Kopiowanie i rozpowszechnianie treści w celach komercyjnych, Modyfikowanie lub tworzenie prac pochodnych, Używanie zautomatyzowanych narzędzi do zbierania treści"
+      },
+      "stories": {
+        "title": "O bajkach na platformie",
+        "content": "Bajki na stronie stanowią opracowania na podstawie znanych bajek znajdujących się w domenie publicznej (public domain). Opracowanie zostało wykonane tak, aby maksymalnie pasować do określonych ram wiekowych, jednak rodzice powinni zapoznać się z tekstem i samodzielnie zdecydować, czy jest odpowiedni dla dziecka, zanim go przeczytają lub dadzą swojemu dziecku do czytania. Opracowanie zostało wykonane zarówno przy pomocy oprogramowania, jak i przy pomocy recenzji człowieka."
+      },
+      "intellectual": {
+        "title": "Własność intelektualna",
+        "content": "Cała treść na Platformie, w tym, ale nie ograniczając się do, teksty, obrazy, ilustracje, projekt, oprogramowanie i bazy danych, jest chroniona prawami własności intelektualnej.",
+        "copyright": "Prawa autorskie do bajek należą do ich autorów lub znajdują się w domenie publicznej. Dokładamy wszelkich starań, aby przestrzegać praw autorskich i prosimy o zgłaszanie wszelkich naruszeń."
+      },
+      "liability": {
+        "title": "Ograniczenie odpowiedzialności",
+        "content": "Platforma jest udostępniana \"w stanie obecnym\" bez żadnych gwarancji. Nie ponosimy odpowiedzialności za:",
+        "items": "Wszelkie błędy lub nieścisłości w treści, Przerwy w działaniu Platformy, Utratę danych lub awarie techniczne, Działania osób trzecich, Wszelkie pośrednie lub przypadkowe szkody"
+      },
+      "privacy": {
+        "title": "Prywatność",
+        "content": "Korzystanie z Platformy jest również regulowane przez naszą Politykę prywatności, która jest integralną częścią niniejszych Warunków."
+      },
+      "changes": {
+        "title": "Zmiany warunków",
+        "content": "Zastrzegamy sobie prawo do zmiany niniejszych Warunków w dowolnym momencie. Zmiany wchodzą w życie z chwilą ich opublikowania na Platformie. Kontynuowanie korzystania z Platformy po wprowadzeniu zmian oznacza akceptację nowych warunków."
+      },
+      "termination": {
+        "title": "Zakończenie korzystania",
+        "content": "Możemy zawiesić lub zakończyć dostęp do Platformy w dowolnym momencie bez wcześniejszego powiadomienia w przypadku naruszenia niniejszych Warunków lub z innych powodów."
+      },
+      "law": {
+        "title": "Prawo właściwe",
+        "content": "Niniejsze Warunki są regulowane prawem polskim. Wszelkie spory są rozstrzygane zgodnie z właściwym prawem."
+      },
+      "contact": {
+        "title": "Informacje kontaktowe",
+        "content": "Jeśli masz pytania dotyczące niniejszych Warunków, skontaktuj się z nami:",
+        "email": "Email:",
+        "address": "Adres:",
+        "phone": "Telefon:"
+      },
+      "effective": {
+        "content": "Niniejsze Warunki użytkowania wchodzą w życie z chwilą ich opublikowania i obowiązują do ich uchylenia lub zmiany."
+      }
+    }
+  },
+  "privacy": {
+    "title": "Polityka prywatności - Bajki na dobranoc",
+    "description": "Dowiedz się, jak chronimy Twoją prywatność na naszej platformie z bajkami.",
+    "keywords": "polityka prywatności, ochrona danych, prywatność, bajki",
+    "pageTitle": "Polityka prywatności",
+    "lastUpdated": "Ostatnia aktualizacja: 1 stycznia 2025",
+    "sections": {
+      "introduction": {
+        "title": "Wprowadzenie",
+        "content": "Platforma \"Bajki na dobranoc\" (dalej — \"my\", \"nasza\", \"Platforma\") szanuje Twoją prywatność i zobowiązuje się chronić Twoje dane osobowe. Niniejsza Polityka prywatności wyjaśnia, jak zbieramy, wykorzystujemy, przechowujemy i chronimy informacje o Tobie.",
+        "agreement": "Korzystając z naszej Platformy, zgadzasz się z praktykami opisanymi w niniejszej Polityce prywatności."
+      },
+      "collection": {
+        "title": "Informacje, które zbieramy",
+        "provided": {
+          "title": "Informacje, które nam podajesz",
+          "content": "Możemy zbierać informacje, które dobrowolnie nam przekazujesz:",
+          "items": "Imię i informacje kontaktowe (przy wysyłaniu wiadomości przez formularz kontaktowy), Wiadomości i opinie, które nam wysyłasz, Informacje, które podajesz przy rejestracji (jeśli taka funkcja zostanie dodana)"
+        },
+        "automatic": {
+          "title": "Automatycznie zbierane informacje",
+          "content": "Podczas odwiedzania naszej Platformy automatycznie zbieramy pewne informacje:",
+          "items": "Logi serwera: adres IP, typ przeglądarki, system operacyjny, czas dostępu, Pliki cookie: małe pliki, które pomagają poprawić działanie Platformy, Analityka: informacje o tym, jak korzystasz z naszej Platformy, Urządzenie: informacje o Twoim urządzeniu i przeglądarce"
+        }
+      },
+      "usage": {
+        "title": "Jak wykorzystujemy Twoje informacje",
+        "content": "Wykorzystujemy zebrane informacje do następujących celów:",
+        "items": "Świadczenie i poprawa naszych usług, Odpowiadanie na Twoje pytania i opinie, Analiza korzystania z Platformy w celu poprawy doświadczeń użytkownika, Zapewnienie bezpieczeństwa i zapobieganie oszustwom, Przestrzeganie zobowiązań prawnych, Wysyłanie ważnych powiadomień o zmianach w naszych usługach"
+      },
+      "sharing": {
+        "title": "Udostępnianie informacji osobom trzecim",
+        "content": "Nie sprzedajemy, nie wynajmujemy ani nie przekazujemy Twoich danych osobowych osobom trzecim, z wyjątkiem następujących przypadków:",
+        "items": "Z Twoją zgodą: gdy wyraźnie pozwalasz nam udostępnić informacje, Dostawcy usług: zaufani partnerzy, którzy pomagają nam świadczyć usługi, Wymagania prawne: gdy jest to wymagane przez prawo lub w celu ochrony naszych praw, Bezpieczeństwo: w celu zapobiegania oszustwom lub zapewnienia bezpieczeństwa"
+      },
+      "cookies": {
+        "title": "Pliki cookie i technologie śledzenia",
+        "content": "Używamy plików cookie i podobnych technologii do:",
+        "items": "Zapamiętywania Twoich preferencji, Analizy korzystania z Platformy, Poprawy wydajności, Personalizacji treści",
+        "management": "Możesz zarządzać ustawieniami plików cookie w swojej przeglądarce. Pamiętaj, że wyłączenie plików cookie może wpłynąć na funkcjonalność Platformy."
+      },
+      "security": {
+        "title": "Bezpieczeństwo danych",
+        "content": "Podejmujemy rozsądne środki w celu ochrony Twoich danych osobowych:",
+        "items": "Używanie szyfrowania do przesyłania danych, Regularne aktualizacje systemów bezpieczeństwa, Ograniczony dostęp do danych osobowych, Monitorowanie systemów pod kątem podejrzanej aktywności",
+        "note": "Jednak żadna metoda przesyłania przez internet lub przechowywania elektronicznego nie jest w 100% bezpieczna. Dążymy do używania komercyjnie akceptowalnych środków ochrony Twoich danych osobowych."
+      },
+      "storage": {
+        "title": "Przechowywanie danych",
+        "content": "Przechowujemy Twoje dane osobowe tylko przez czas niezbędny do osiągnięcia celów opisanych w niniejszej Polityce prywatności lub zgodnie z wymaganiami prawa.",
+        "deletion": "Gdy nie potrzebujemy już Twoich danych osobowych, bezpiecznie je usuwamy lub anonimizujemy."
+      },
+      "rights": {
+        "title": "Twoje prawa",
+        "content": "W zależności od Twojej lokalizacji, możesz mieć następujące prawa w odniesieniu do swoich danych osobowych:",
+        "items": "Prawo dostępu: otrzymać kopię swoich danych osobowych, Prawo do sprostowania: poprawić nieścisłe lub niepełne informacje, Prawo do usunięcia: usunąć swoje dane osobowe, Prawo do ograniczenia: ograniczyć przetwarzanie swoich informacji, Prawo do przenoszenia: otrzymać swoje informacje w ustrukturyzowanym formacie, Prawo do sprzeciwu: sprzeciwić się przetwarzaniu swoich informacji"
+      },
+      "children": {
+        "title": "Dzieci i prywatność",
+        "content": "Nasza Platforma jest przeznaczona do użytku rodzinnego, ale nie zbieramy celowo danych osobowych od dzieci poniżej 13 roku życia bez zgody rodziców lub opiekunów.",
+        "removal": "Jeśli dowiemy się, że zebraliśmy dane osobowe od dziecka poniżej 13 roku życia bez odpowiedniej zgody, natychmiast usuniemy te informacje."
+      },
+      "international": {
+        "title": "Międzynarodowe przekazywanie danych",
+        "content": "Twoje informacje mogą być przekazywane i przetwarzane w krajach innych niż Twój kraj zamieszkania. Podejmujemy środki, aby zapewnić, że takie przekazywanie jest zgodne z obowiązującym prawem o ochronie danych."
+      },
+      "changes": {
+        "title": "Zmiany w polityce prywatności",
+        "content": "Możemy od czasu do czasu aktualizować niniejszą Politykę prywatności. Powiadomimy Cię o wszelkich istotnych zmianach, publikując nową wersję na naszej Platformie i aktualizując datę \"Ostatnia aktualizacja\".",
+        "recommendation": "Zalecamy regularne przeglądanie niniejszej Polityki prywatności, aby być na bieżąco z tym, jak chronimy Twoje informacje."
+      },
+      "contact": {
+        "title": "Informacje kontaktowe",
+        "content": "Jeśli masz pytania lub obawy dotyczące niniejszej Polityki prywatności, skontaktuj się z nami:",
+        "email": "Email:",
+        "address": "Adres:",
+        "phone": "Telefon:"
+      },
+      "effective": {
+        "content": "Niniejsza Polityka prywatności wchodzi w życie z chwilą jej opublikowania i obowiązuje do jej uchylenia lub zmiany."
+      }
+    }
+  },
+  "story": {
+    "readMore": "Czytaj dalej",
+    "backToStories": "Powrót do bajek",
+    "relatedStories": "Podobne bajki",
+    "categories": "Kategorie",
+    "readingTime": "Czas czytania"
+  },
+  "tag": {
+    "storiesInCategory": "Bajki w kategorii",
+    "noStories": "Brak bajek w tej kategorii"
+  }
+} 

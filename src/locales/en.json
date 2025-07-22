@@ -1,0 +1,374 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "search": "Search",
+    "user": "User",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy",
+    "links": "Links",
+    "legal": "Legal",
+    "copyright": "© 2025 Bedtime Stories. All rights reserved.",
+    "createdWithLove": "Created with love for children and their parents",
+    "breadcrumbs": "Breadcrumb navigation"
+  },
+  "header": {
+    "brandName": "Dreamy Tales",
+    "stories": "Stories",
+    "adventures": "Adventures",
+    "friendship": "Friendship",
+    "animals": "Animals"
+  },
+  "home": {
+    "title": "Bedtime Stories - Engaging Stories for Children",
+    "description": "Read the best bedtime stories for children. Engaging stories with beautiful illustrations for different age groups.",
+    "keywords": "bedtime stories, children's stories, stories for children, stories with pictures",
+    "welcomeTitle": "Welcome to the world of stories!",
+    "welcomeDescription": "Engaging stories for children with beautiful illustrations. Read bedtime stories and embark on magical adventures.",
+    "allStories": "All Stories",
+    "categories": "Categories",
+    "loadingStories": "Loading stories...",
+    "errorLoadingData": "Error loading data:"
+  },
+  "stories": {
+    "title": "Stories - Bedtime Stories",
+    "description": "Browse all story categories and find the perfect story for your child.",
+    "keywords": "stories, story categories, children's stories, bedtime stories",
+    "pageTitle": "All Story Categories",
+    "pageDescription": "Choose a category that interests you and discover magical stories for children.",
+    "categories": "Story Categories",
+    "loadingTags": "Loading categories...",
+    "errorLoadingTags": "Error loading categories:"
+  },
+  "search": {
+    "title": "Search - Bedtime Stories",
+    "description": "Find the perfect story for your child. Search by title, description, or content.",
+    "keywords": "search stories, story search, children's stories, bedtime stories",
+    "pageTitle": "Search Stories",
+    "pageDescription": "Enter keywords to find stories that interest you.",
+    "resultsFor": "Search results for",
+    "resultsDescription": "Found stories matching your search.",
+    "searching": "Searching...",
+    "error": "Search error:",
+    "noResults": "No results found",
+    "noResultsDescription": "Try using different keywords or browse all available stories.",
+    "browseAllStories": "Browse all stories",
+    "foundResults": "Found {count} results for \"{query}\"",
+    "minutes": "min"
+  },
+  "storiesByTag": {
+    "title": "Stories",
+    "description": "Stories in category",
+    "keywords": "stories, category",
+    "storiesTitle": "Stories",
+    "storiesInCategory": "Stories in category",
+    "storiesCount": "Stories found",
+    "loading": "Loading stories...",
+    "tagNotFound": "Category not found",
+    "backToStories": "Back to stories"
+  },
+  "about": {
+    "title": "About Us - Bedtime Stories",
+    "description": "Learn more about the Bedtime Stories project. Our mission is to create high-quality children's stories for family reading.",
+    "keywords": "about us, mission, stories, children's stories, family reading",
+    "pageTitle": "About the \"Bedtime Stories\" Project",
+    "pageDescription": "We create a world of magical stories that help children develop imagination, learn kindness, and fall asleep with a smile on their face.",
+    "missionTitle": "Our Mission",
+    "missionDescription1": "We believe that every story is not just a bedtime tale, but an opportunity for a child to explore the world, develop empathy, and creative thinking.",
+    "missionDescription2": "Our goal is to create a safe, high-quality, and accessible space for family reading where every child will find a story they love.",
+    "createdWithLove": "Created with love",
+    "valuesTitle": "Our Values",
+    "values": {
+      "quality": "Quality and content safety",
+      "imagination": "Development of imagination and creativity",
+      "accessibility": "Accessibility for all families",
+      "family": "Family values and traditions"
+    },
+    "storyTitle": "How It All Started",
+    "storyDescription": "The history of our project began with a simple idea — to create a place where parents can find high-quality stories for their children.",
+    "steps": {
+      "idea": {
+        "title": "Idea",
+        "description": "Realization that high-quality children's stories should be available to every child"
+      },
+      "development": {
+        "title": "Development",
+        "description": "Creating a platform with a convenient interface and high-quality content"
+      },
+      "growth": {
+        "title": "Growth",
+        "description": "Continuous expansion of the library and improvement of user experience"
+      }
+    },
+    "featuresTitle": "What We Offer",
+    "featuresDescription": "Our platform is created with the needs of modern families in mind",
+    "features": {
+      "library": {
+        "title": "Rich Library",
+        "description": "Hundreds of stories and tales for children of different ages, from classic to modern"
+      },
+      "search": {
+        "title": "Convenient Search",
+        "description": "Easily find stories by topics, age, and your child's preferences"
+      },
+      "illustrations": {
+        "title": "Beautiful Illustrations",
+        "description": "Every story is accompanied by high-quality images that develop imagination"
+      },
+      "safety": {
+        "title": "Safety",
+        "description": "All content is carefully checked and suitable for children of all ages"
+      },
+      "love": {
+        "title": "Created with Love",
+        "description": "Every story is selected and adapted with care for children and their development"
+      },
+      "speed": {
+        "title": "Fast Loading",
+        "description": "Optimized platform works fast on all devices"
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "description": "We are a team of enthusiasts who believe in the power of good stories",
+      "members": {
+        "anna": {
+          "name": "Anna",
+          "role": "Project Founder",
+          "description": "Educator and mother of two children who knows how important quality reading is"
+        },
+        "michal": {
+          "name": "Michael",
+          "role": "Technical Director",
+          "description": "Creates technologies that make reading convenient and enjoyable"
+        },
+        "elena": {
+          "name": "Elena",
+          "role": "Content Editor",
+          "description": "Selects and adapts stories to make them interesting and useful"
+        }
+      }
+    },
+    "cta": {
+      "title": "Join Our Community",
+      "description": "Read stories, share impressions and help us create better content for children",
+      "startReading": "Start Reading",
+      "contactUs": "Contact Us"
+    }
+  },
+  "footer": {
+    "title": "Bedtime Stories",
+    "description": "We create a world of magical stories for children and their parents. Every story is a journey into the world of imagination and kindness."
+  },
+  "contact": {
+    "title": "Contact - Bedtime Stories",
+    "description": "Contact us. We are here to help and answer all questions about our stories.",
+    "keywords": "contact, help, questions, stories, support",
+    "pageTitle": "Contact Us",
+    "pageDescription": "Have questions or suggestions? We'd love to hear from you!",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "your@email.com",
+      "subjectPlaceholder": "Message subject",
+      "messagePlaceholder": "Your message..."
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "responseTime": "Response Time",
+      "support": "Support",
+      "socialMedia": "Social Media",
+      "socialMediaDescription": "Follow our updates",
+      "responseTimeValue": "Within 24 hours"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "addStory": {
+        "question": "How to add a new story?",
+        "answer": "Send us an email with a description of the story and we will consider adding it."
+      },
+      "useStories": {
+        "question": "Can I use your stories?",
+        "answer": "All stories are available for personal use. For commercial use, please contact us."
+      }
+    },
+    "form": {
+      "title": "Send Message",
+      "successMessage": "Thank you! Your message has been sent. We will respond to you soon.",
+      "nameLabel": "Name *",
+      "emailLabel": "Email *",
+      "subjectLabel": "Subject *",
+      "messageLabel": "Message *",
+      "submitButton": "Send Message",
+      "submitting": "Sending..."
+    }
+  },
+  "terms": {
+    "title": "Terms of Use - Bedtime Stories",
+    "description": "Read the terms of use for our children's stories platform.",
+    "keywords": "terms of use, rules, stories, guidelines",
+    "pageTitle": "Terms of Use",
+    "lastUpdated": "Last updated: January 1, 2025",
+    "sections": {
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "By using our platform, you accept these terms of use."
+      },
+      "service": {
+        "title": "Service Description",
+        "content": "The \"Bedtime Stories\" platform provides access to a collection of children's stories and tales, designed for reading to children before bedtime. Our service includes:",
+        "features": "Library of stories and tales, Categorization by topics and age groups, Ability to search and filter content, Access to illustrations and images"
+      },
+      "usage": {
+        "title": "Usage Rights",
+        "content": "We grant you a limited, non-exclusive, non-transferable right to use the Platform for personal, non-commercial purposes in compliance with these Terms.",
+        "allowed": "Allowed:",
+        "allowedItems": "Reading stories to children, Using content for educational purposes, Sharing links to our Platform, Printing stories for personal use",
+        "prohibited": "Prohibited:",
+        "prohibitedItems": "Commercial use of content without permission, Copying and distributing content for commercial purposes, Modifying or creating derivative works, Using automated tools to collect content"
+      },
+      "stories": {
+        "title": "About Stories on the Platform",
+        "content": "Stories on the website are adaptations based on well-known stories that are in the public domain. The adaptation is made to maximally fit the designated age ranges, however parents should familiarize themselves with the text and independently decide whether it is suitable for their child before reading it or giving it to their child to read. The adaptation is made both with the help of software and with the help of human review."
+      },
+      "intellectual": {
+        "title": "Intellectual Property",
+        "content": "All content on the Platform, including but not limited to texts, images, illustrations, design, software and databases, is protected by intellectual property laws.",
+        "copyright": "Copyright to stories belongs to their authors or is in the public domain. We make every effort to respect copyright and ask to report any violations."
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "content": "The Platform is provided \"as is\" without any warranties. We are not responsible for:",
+        "items": "Any errors or inaccuracies in content, Platform downtime, Data loss or technical failures, Actions of third parties, Any indirect or incidental damages"
+      },
+      "privacy": {
+        "title": "Privacy",
+        "content": "Use of the Platform is also governed by our Privacy Policy, which is an integral part of these Terms."
+      },
+      "changes": {
+        "title": "Changes to Terms",
+        "content": "We reserve the right to change these Terms at any time. Changes take effect from the moment they are published on the Platform. Continued use of the Platform after changes are made means acceptance of new terms."
+      },
+      "termination": {
+        "title": "Termination of Use",
+        "content": "We may suspend or terminate access to the Platform at any time without prior notice in case of violation of these Terms or for other reasons."
+      },
+      "law": {
+        "title": "Applicable Law",
+        "content": "These Terms are governed by Polish law. Any disputes are resolved in accordance with applicable law."
+      },
+      "contact": {
+        "title": "Contact Information",
+        "content": "If you have questions about these Terms, please contact us:",
+        "email": "Email:",
+        "address": "Address:",
+        "phone": "Phone:"
+      },
+      "effective": {
+        "content": "These Terms of Use take effect from the moment they are published and remain in force until they are repealed or changed."
+      }
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy - Bedtime Stories",
+    "description": "Learn how we protect your privacy on our stories platform.",
+    "keywords": "privacy policy, data protection, privacy, stories",
+    "pageTitle": "Privacy Policy",
+    "lastUpdated": "Last updated: January 1, 2025",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "content": "The \"Bedtime Stories\" platform (hereinafter — \"we\", \"our\", \"Platform\") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, store, and protect information about you.",
+        "agreement": "By using our Platform, you agree to the practices described in this Privacy Policy."
+      },
+      "collection": {
+        "title": "Information We Collect",
+        "provided": {
+          "title": "Information You Provide to Us",
+          "content": "We may collect information that you voluntarily provide to us:",
+          "items": "Name and contact information (when sending messages through the contact form), Messages and feedback you send to us, Information you provide during registration (if such functionality is added)"
+        },
+        "automatic": {
+          "title": "Automatically Collected Information",
+          "content": "When visiting our Platform, we automatically collect certain information:",
+          "items": "Server logs: IP address, browser type, operating system, access time, Cookies: small files that help improve Platform functionality, Analytics: information about how you use our Platform, Device: information about your device and browser"
+        }
+      },
+      "usage": {
+        "title": "How We Use Your Information",
+        "content": "We use the collected information for the following purposes:",
+        "items": "Providing and improving our services, Responding to your questions and feedback, Analyzing Platform usage to improve user experience, Ensuring security and preventing fraud, Compliance with legal obligations, Sending important notifications about changes to our services"
+      },
+      "sharing": {
+        "title": "Sharing Information with Third Parties",
+        "content": "We do not sell, rent, or transfer your personal information to third parties, except in the following cases:",
+        "items": "With your consent: when you explicitly allow us to share information, Service providers: trusted partners who help us provide services, Legal requirements: when required by law or to protect our rights, Security: to prevent fraud or ensure security"
+      },
+      "cookies": {
+        "title": "Cookies and Tracking Technologies",
+        "content": "We use cookies and similar technologies to:",
+        "items": "Remember your preferences, Analyze Platform usage, Improve performance, Personalize content",
+        "management": "You can manage cookie settings in your browser. Note that disabling cookies may affect Platform functionality."
+      },
+      "security": {
+        "title": "Data Security",
+        "content": "We take reasonable measures to protect your personal information:",
+        "items": "Using encryption for data transmission, Regular security system updates, Limited access to personal information, Monitoring systems for suspicious activity",
+        "note": "However, no method of transmission over the internet or electronic storage is 100% secure. We strive to use commercially acceptable means to protect your personal information."
+      },
+      "storage": {
+        "title": "Data Storage",
+        "content": "We store your personal information only for the time necessary to achieve the purposes described in this Privacy Policy or in accordance with legal requirements.",
+        "deletion": "When we no longer need your personal information, we securely delete or anonymize it."
+      },
+      "rights": {
+        "title": "Your Rights",
+        "content": "Depending on your location, you may have the following rights regarding your personal information:",
+        "items": "Right of access: receive a copy of your personal information, Right to rectification: correct inaccurate or incomplete information, Right to erasure: delete your personal information, Right to restriction: limit processing of your information, Right to portability: receive your information in a structured format, Right to object: object to processing of your information"
+      },
+      "children": {
+        "title": "Children and Privacy",
+        "content": "Our Platform is intended for family use, but we do not knowingly collect personal information from children under 13 without parental or guardian consent.",
+        "removal": "If we learn that we have collected personal information from a child under 13 without appropriate consent, we will immediately delete this information."
+      },
+      "international": {
+        "title": "International Data Transfer",
+        "content": "Your information may be transferred and processed in countries other than your country of residence. We take measures to ensure that such transfer complies with applicable data protection laws."
+      },
+      "changes": {
+        "title": "Changes to Privacy Policy",
+        "content": "We may update this Privacy Policy from time to time. We will notify you of any material changes by posting a new version on our Platform and updating the \"Last updated\" date.",
+        "recommendation": "We recommend regularly reviewing this Privacy Policy to stay informed about how we protect your information."
+      },
+      "contact": {
+        "title": "Contact Information",
+        "content": "If you have questions or concerns about this Privacy Policy, please contact us:",
+        "email": "Email:",
+        "address": "Address:",
+        "phone": "Phone:"
+      },
+      "effective": {
+        "content": "This Privacy Policy takes effect from the moment it is published and remains in force until it is repealed or changed."
+      }
+    }
+  },
+  "story": {
+    "readMore": "Read More",
+    "backToStories": "Back to Stories",
+    "relatedStories": "Related Stories",
+    "categories": "Categories",
+    "readingTime": "Reading Time"
+  },
+  "tag": {
+    "storiesInCategory": "Stories in Category",
+    "noStories": "No stories in this category"
+  }
+} 
