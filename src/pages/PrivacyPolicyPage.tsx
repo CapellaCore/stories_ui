@@ -55,8 +55,8 @@ const PrivacyPolicyPage: React.FC = () => {
             <div className="mb-6">
               <Breadcrumbs 
                 items={[
-                  { name: 'Główna', path: '/' },
-                  { name: 'Polityka prywatności', path: '/privacy-policy', isCurrent: true }
+                  { name: t('common.home'), path: '/' },
+                                      { name: t('privacy.pageTitle'), path: '/privacy-policy', isCurrent: true }
                 ]}
               />
             </div>

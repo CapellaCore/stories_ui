@@ -85,13 +85,13 @@ const StoriesByTagPage: React.FC = () => {
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Główna",
+              "name": t('common.home'),
               "item": "https://bedtime-stories.com"
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Bajki",
+              "name": t('header.stories'),
               "item": "https://bedtime-stories.com/stories"
             },
             {
@@ -111,8 +111,8 @@ const StoriesByTagPage: React.FC = () => {
           <div className="px-4 py-3">
             <Breadcrumbs 
               items={[
-                { name: 'Główna', path: '/' },
-                { name: 'Bajki', path: '/stories' },
+                { name: t('common.home'), path: '/' },
+                { name: t('header.stories'), path: '/stories' },
                 { name: tag.name, path: `/stories/${tag.slug}`, isCurrent: true }
               ]}
             />

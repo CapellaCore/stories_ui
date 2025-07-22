@@ -78,13 +78,13 @@ const StoriesPage: React.FC = () => {
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Główna",
+              "name": t('common.home'),
               "item": "https://bedtime-stories.com"
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Bajki",
+              "name": t('header.stories'),
               "item": "https://bedtime-stories.com/stories"
             }
           ]
@@ -98,8 +98,8 @@ const StoriesPage: React.FC = () => {
           <div className="px-4 py-3">
             <Breadcrumbs 
               items={[
-                { name: 'Główna', path: '/' },
-                { name: 'Bajki', path: '/stories', isCurrent: true }
+                { name: t('common.home'), path: '/' },
+                { name: t('header.stories'), path: '/stories', isCurrent: true }
               ]}
             />
           </div>
@@ -121,9 +121,9 @@ const StoriesPage: React.FC = () => {
                   style={{ backgroundColor: '#6366f1' }}
                 >
                   <div className="text-4xl mb-2">📚</div>
-                  <div className="text-sm text-center px-2">Wszystkie</div>
+                  <div className="text-sm text-center px-2">{t('stories.pageTitle')}</div>
                 </div>
-                <p className="text-[#101619] text-base font-medium leading-normal">Wszystkie</p>
+                <p className="text-[#101619] text-base font-medium leading-normal">{t('stories.pageTitle')}</p>
               </Link>
               
               {/* Other categories */}

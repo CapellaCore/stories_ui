@@ -55,8 +55,8 @@ const TermsOfUsePage: React.FC = () => {
             <div className="mb-6">
               <Breadcrumbs 
                 items={[
-                  { name: 'Główna', path: '/' },
-                  { name: 'Warunki użytkowania', path: '/terms-of-use', isCurrent: true }
+                  { name: t('common.home'), path: '/' },
+                                      { name: t('terms.pageTitle'), path: '/terms-of-use', isCurrent: true }
                 ]}
               />
             </div>

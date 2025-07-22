@@ -18,12 +18,12 @@ interface TranslationProviderProps {
 }
 
 export const TranslationProvider: React.FC<TranslationProviderProps> = ({ children }) => {
-  const [language, setLanguageState] = useState<string>('pl');
-  const [translations, setTranslations] = useState<Translations>(plTranslations);
+  const [language, setLanguageState] = useState<string>('en');
+  const [translations, setTranslations] = useState<Translations>(enTranslations);
 
   useEffect(() => {
     // Load language preference from localStorage
-    const savedLanguage = localStorage.getItem('language') || 'pl';
+    const savedLanguage = localStorage.getItem('language') || 'en';
     setLanguageState(savedLanguage);
   }, []);
 

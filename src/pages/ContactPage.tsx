@@ -86,8 +86,8 @@ const ContactPage: React.FC = () => {
             <div className="mb-6">
               <Breadcrumbs 
                 items={[
-                  { name: 'Główna', path: '/' },
-                  { name: 'Kontakt', path: '/contact', isCurrent: true }
+                  { name: t('common.home'), path: '/' },
+                                      { name: t('contact.pageTitle'), path: '/contact', isCurrent: true }
                 ]}
               />
             </div>

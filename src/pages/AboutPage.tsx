@@ -55,8 +55,8 @@ const AboutPage: React.FC = () => {
             <div className="mb-6">
               <Breadcrumbs 
                 items={[
-                  { name: 'Główna', path: '/' },
-                  { name: 'O nas', path: '/about', isCurrent: true }
+                  { name: t('common.home'), path: '/' },
+                                      { name: t('about.pageTitle'), path: '/about', isCurrent: true }
                 ]}
               />
             </div>

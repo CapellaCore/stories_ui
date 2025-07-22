@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useStory } from '../hooks/useStories';
 import { useStories } from '../hooks/useStories';
+import { useTranslation } from '../contexts/TranslationContext';
 import StoryImage from '../components/StoryImage';
 import LoadingSpinner from '../components/LoadingSpinner';
 import Breadcrumbs, { BreadcrumbItem } from '../components/Breadcrumbs';
@@ -12,12 +13,13 @@ const StoryPage: React.FC = () => {
   const { tagSlug, storySlug } = useParams<{ tagSlug: string; storySlug: string }>();
   const { story, loading, error } = useStory(storySlug || '');
   const { stories: allStories } = useStories();
+  const { t } = useTranslation();
 
   if (loading) {
     return (
       <div className="px-40 flex flex-1 justify-center py-5">
         <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
-          <LoadingSpinner message="Ładowanie bajki..." size="large" />
+          <LoadingSpinner message={t('common.loading')} size="large" />
         </div>
       </div>
     );
@@ -29,10 +31,10 @@ const StoryPage: React.FC = () => {
         <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
           <div className="flex items-center justify-center h-64">
             <div className="text-lg text-red-600">
-              {error || 'Bajka nie została znaleziona'}
+              {error || t('common.error')}
             </div>
             <Link to="/" className="mt-4 text-blue-600 hover:underline">
-              Wróć do strony głównej
+              {t('common.home')}
             </Link>
           </div>
         </div>
@@ -83,10 +85,10 @@ const StoryPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{story.title} - Сказки на ночь</title>
+        <title>{story.title} - {t('home.title')}</title>
         <meta name="description" content={story.description} />
-        <meta name="keywords" content={`сказки на ночь, ${story.tags.join(', ')}, детские сказки`} />
-        <meta property="og:title" content={`${story.title} - Сказки на ночь`} />
+        <meta name="keywords" content={`${t('home.keywords')}, ${story.tags.join(', ')}`} />
+        <meta property="og:title" content={`${story.title} - ${t('home.title')}`} />
         <meta property="og:description" content={story.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://bedtime-stories.com/stories/all/${story.slug}`} />
@@ -104,15 +106,15 @@ const StoryPage: React.FC = () => {
           "image": story.images.length > 0 ? story.images[0].src : undefined,
           "author": {
             "@type": "Organization",
-            "name": "Сказки на ночь"
+            "name": t('header.brandName')
           },
           "creator": {
             "@type": "Organization",
-            "name": "Сказки на ночь"
+            "name": t('header.brandName')
           },
           "publisher": {
             "@type": "Organization",
-            "name": "Сказки на ночь",
+            "name": t('header.brandName'),
             "logo": {
               "@type": "ImageObject",
               "url": "https://bedtime-stories.com/logo.png"
@@ -141,19 +143,19 @@ const StoryPage: React.FC = () => {
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Główna",
+              "name": t('common.home'),
               "item": "https://bedtime-stories.com"
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Bajki",
+              "name": t('header.stories'),
               "item": "https://bedtime-stories.com/stories"
             },
             {
               "@type": "ListItem",
               "position": 3,
-              "name": "Wszystkie",
+              "name": t('stories.pageTitle'),
               "item": "https://bedtime-stories.com/stories/all"
             },
             {
@@ -275,9 +277,9 @@ const StoryPage: React.FC = () => {
           <div className="px-4 py-3">
             <Breadcrumbs 
               items={[
-                { name: 'Główna', path: '/' },
-                { name: 'Bajki', path: '/stories' },
-                { name: 'Wszystkie', path: '/stories/all' },
+                { name: t('common.home'), path: '/' },
+                { name: t('header.stories'), path: '/stories' },
+                { name: t('stories.pageTitle'), path: '/stories/all' },
                 { name: story.title, path: `/stories/all/${story.slug}`, isCurrent: true }
               ]}
             />
@@ -301,7 +303,7 @@ const StoryPage: React.FC = () => {
                   <div className="flex items-center gap-4 text-sm opacity-90">
                     <span className="flex items-center gap-1">
                       <span>⏱️</span>
-                      <span>{story.readingTime} min</span>
+                      <span>{story.readingTime} {t('search.minutes')}</span>
                     </span>
                     <span className="flex items-center gap-1">
                       <span>👶</span>
@@ -319,7 +321,7 @@ const StoryPage: React.FC = () => {
                 <div className="flex items-center justify-center gap-4 text-sm opacity-90">
                   <span className="flex items-center gap-1">
                     <span>⏱️</span>
-                    <span>{story.readingTime} min</span>
+                    <span>{story.readingTime} {t('search.minutes')}</span>
                   </span>
                   <span className="flex items-center gap-1">
                     <span>👶</span>
@@ -338,7 +340,7 @@ const StoryPage: React.FC = () => {
             </div>
           </div>
           
-          <h2 className="text-[#101619] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Więcej bajek</h2>
+          <h2 className="text-[#101619] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">{t('story.relatedStories')}</h2>
           <StoriesList 
             stories={allStories.filter(s => s.slug !== story.slug).slice(0, 3)} 
             tagSlug="all" 
