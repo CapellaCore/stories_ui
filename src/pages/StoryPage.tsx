@@ -47,6 +47,9 @@ const StoryPage: React.FC = () => {
     const paragraphs = story.content.split('\n\n');
     const images = [...story.images].sort((a, b) => a.position - b.position);
     
+    // Skip the first image since it's already shown in the hero section
+    const imagesInText = images.slice(1);
+    
     let currentImageIndex = 0;
     let currentPosition = 0;
     
@@ -56,18 +59,20 @@ const StoryPage: React.FC = () => {
       
       const imagesInParagraph: React.ReactNode[] = [];
       
-      while (currentImageIndex < images.length && 
-             images[currentImageIndex].position <= currentPosition) {
-        const image = images[currentImageIndex];
+      while (currentImageIndex < imagesInText.length && 
+             imagesInText[currentImageIndex].position <= currentPosition) {
+        const image = imagesInText[currentImageIndex];
         imagesInParagraph.push(
           <div key={image.id} className="my-8 text-center">
-            <StoryImage
-              src={image.src}
-              alt={image.alt}
-              className="rounded-lg shadow-md mx-auto max-w-full h-auto"
-              width={800}
-              height={600}
-            />
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-md mx-auto max-w-4xl">
+              <StoryImage
+                src={image.src}
+                alt={image.alt}
+                className="absolute inset-0 w-full h-full object-cover"
+                width={832}
+                height={468}
+              />
+            </div>
           </div>
         );
         currentImageIndex++;
