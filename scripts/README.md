@@ -1,57 +1,93 @@
-# Database Setup Scripts
+# Scripts Documentation
 
-This directory contains scripts to programmatically create and seed your Supabase database using the API.
+## Sitemap Generation
 
-## Prerequisites
+This project includes comprehensive sitemap generation functionality for better SEO.
 
-1. **Install dependencies:**
+### Available Scripts
+
+1. **`npm run generate-sitemap`** - Generates a static sitemap.xml file in the public directory
+2. **`npm run build-with-sitemap`** - Builds the project and generates the sitemap
+
+### Sitemap Features
+
+The sitemap includes:
+
+- **Static Pages**: Home, Stories, Search, About, Contact, Terms, Privacy Policy
+- **Dynamic Tag Pages**: All story tag pages (e.g., `/stories/fantasy`)
+- **Dynamic Story Pages**: All individual story pages (e.g., `/stories/all/story-slug`)
+
+### Sitemap Structure
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://bedtime-stories.com/</loc>
+    <lastmod>2024-01-01T00:00:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- More URLs... -->
+</urlset>
+```
+
+### Priority Levels
+
+- **1.0**: Homepage
+- **0.9**: Stories listing pages
+- **0.8**: Tag pages
+- **0.7**: Individual story pages, Search page
+- **0.6**: About page
+- **0.5**: Contact page
+- **0.3**: Legal pages (Terms, Privacy)
+
+### Change Frequencies
+
+- **daily**: Homepage, Stories pages
+- **weekly**: Tag pages, Search page
+- **monthly**: Individual stories, About, Contact
+- **yearly**: Legal pages
+
+### Dynamic Sitemap Access
+
+The sitemap is also available dynamically at:
+- `/sitemap.xml` - XML format
+- `/sitemap.json` - JSON format
+
+### Robots.txt
+
+The robots.txt file is configured to:
+- Allow crawling of all public content
+- Disallow admin and private areas
+- Reference the sitemap location
+- Set a crawl delay for server respect
+
+### Usage
+
+1. **Generate static sitemap**:
    ```bash
-   npm install
+   npm run generate-sitemap
    ```
 
-2. **Set up your `.env.local` file** with your Supabase credentials:
-   ```env
-   REACT_APP_SUPABASE_URL=your_supabase_project_url_here
-   REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key_here
+2. **Build with sitemap**:
+   ```bash
+   npm run build-with-sitemap
    ```
 
-## Available Scripts
+3. **Access dynamic sitemap**:
+   - Visit `/sitemap.xml` in your browser
+   - Visit `/sitemap.json` for JSON format
 
-### Option 1: Using npm script (Recommended)
-```bash
-npm run setup-db
-```
+### Configuration
 
-### Option 2: Direct execution
-```bash
-node scripts/setup-database.js
-```
+The sitemap configuration can be modified in:
+- `scripts/generate-sitemap.js` - Static generation script
+- `src/services/sitemap.ts` - Dynamic generation service
 
-## What the script does
+### SEO Benefits
 
-1. **Creates tables** from `database/schema.sql`
-2. **Seeds data** from `database/seed.sql`
-3. **Handles errors** gracefully and provides feedback
-
-## Alternative: Manual SQL Execution
-
-If you prefer to run SQL manually, you can:
-
-1. Go to your Supabase dashboard
-2. Navigate to SQL Editor
-3. Copy and paste the contents of `database/schema.sql`
-4. Execute the SQL
-5. Copy and paste the contents of `database/seed.sql`
-6. Execute the SQL
-
-## Troubleshooting
-
-- **Permission errors**: Make sure your Supabase anon key has the necessary permissions
-- **SQL errors**: Check that your Supabase project supports the SQL features used in the schema
-- **Network errors**: Verify your Supabase URL and internet connection
-
-## Security Notes
-
-- The anon key is safe to use in client-side code
-- Never commit your `.env.local` file to version control
-- The script uses the anon key for database operations (read-only by default) 
+- Helps search engines discover all pages
+- Provides crawl priority information
+- Indicates content update frequency
+- Improves search engine indexing 

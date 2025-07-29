@@ -13,6 +13,7 @@ import ContactPage from './pages/ContactPage';
 import TermsOfUsePage from './pages/TermsOfUsePage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import AboutPage from './pages/AboutPage';
+import Sitemap from './components/Sitemap';
 import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
@@ -34,6 +35,8 @@ function App() {
                   <Route path="/terms-of-use" element={<TermsOfUsePage />} />
                   <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
                   <Route path="/about" element={<AboutPage />} />
+                  <Route path="/sitemap.xml" element={<Sitemap format="xml" />} />
+                  <Route path="/sitemap.json" element={<Sitemap format="json" />} />
                 </Routes>
                 <Footer />
               </div>
