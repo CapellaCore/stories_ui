@@ -43,7 +43,7 @@ const StoriesPage: React.FC = () => {
         <meta property="og:title" content={t('stories.title')} />
         <meta property="og:description" content={t('stories.description')} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://bedtime-stories.com/stories" />
+        <meta property="og:url" content="https://timetosleep.org/stories" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -52,7 +52,7 @@ const StoriesPage: React.FC = () => {
           "@type": "CollectionPage",
           "name": t('stories.title'),
           "description": t('stories.description'),
-          "url": "https://bedtime-stories.com/stories",
+          "url": "https://timetosleep.org/stories",
           "mainEntity": {
             "@type": "ItemList",
             "itemListElement": tags.map((tag, index) => ({
@@ -61,7 +61,7 @@ const StoriesPage: React.FC = () => {
               "item": {
                 "@type": "CreativeWork",
                 "name": tag.name,
-                "url": `https://bedtime-stories.com/stories/${tag.slug}`,
+                "url": `https://timetosleep.org/stories/${tag.slug}`,
                 "genre": "Children's Literature"
               }
             }))
@@ -79,13 +79,13 @@ const StoriesPage: React.FC = () => {
               "@type": "ListItem",
               "position": 1,
               "name": t('common.home'),
-              "item": "https://bedtime-stories.com"
+              "item": "https://timetosleep.org"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": t('header.stories'),
-              "item": "https://bedtime-stories.com/stories"
+              "item": "https://timetosleep.org/stories"
             }
           ]
         })}

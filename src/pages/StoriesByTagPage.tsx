@@ -5,7 +5,7 @@ import { useTranslation } from '../contexts/TranslationContext';
 import { useStoriesByTag } from '../hooks/useStories';
 import { useTag } from '../hooks/useTags';
 import LoadingSpinner from '../components/LoadingSpinner';
-import Breadcrumbs, { BreadcrumbItem } from '../components/Breadcrumbs';
+import Breadcrumbs from '../components/Breadcrumbs';
 import StoriesList from '../components/StoriesList';
 
 const StoriesByTagPage: React.FC = () => {
@@ -50,7 +50,7 @@ const StoriesByTagPage: React.FC = () => {
         <meta property="og:title" content={`${tag.name} - ${t('storiesByTag.title')}`} />
         <meta property="og:description" content={`${t('storiesByTag.description')} ${tag.name}. ${tag.description}`} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://bedtime-stories.com/stories/${tag.slug}`} />
+        <meta property="og:url" content={`https://timetosleep.org/stories/${tag.slug}`} />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -59,7 +59,7 @@ const StoriesByTagPage: React.FC = () => {
           "@type": "CollectionPage",
           "name": `${tag.name} - ${t('storiesByTag.storiesTitle')}`,
           "description": tag.description,
-          "url": `https://bedtime-stories.com/stories/${tag.slug}`,
+          "url": `https://timetosleep.org/stories/${tag.slug}`,
           "mainEntity": {
             "@type": "ItemList",
             "itemListElement": filteredStories.map((story, index) => ({
@@ -68,7 +68,7 @@ const StoriesByTagPage: React.FC = () => {
               "item": {
                 "@type": "CreativeWork",
                 "name": story.title,
-                "url": `https://bedtime-stories.com/stories/${tag.slug}/${story.slug}`,
+                "url": `https://timetosleep.org/stories/${tag.slug}/${story.slug}`,
                 "genre": "Children's Literature"
               }
             }))
@@ -86,19 +86,19 @@ const StoriesByTagPage: React.FC = () => {
               "@type": "ListItem",
               "position": 1,
               "name": t('common.home'),
-              "item": "https://bedtime-stories.com"
+              "item": "https://timetosleep.org"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": t('header.stories'),
-              "item": "https://bedtime-stories.com/stories"
+              "item": "https://timetosleep.org/stories"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": tag.name,
-              "item": `https://bedtime-stories.com/stories/${tag.slug}`
+              "item": `https://timetosleep.org/stories/${tag.slug}`
             }
           ]
         })}

@@ -1,3 +1,5 @@
+# robots.txt for Time to Sleep - Bedtime Stories for Your Children
+
 User-agent: *
 Allow: /
 
@@ -6,17 +8,18 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
 
-# Allow important directories
+# Allow important pages
 Allow: /stories/
-Allow: /images/
 Allow: /search
+Allow: /about
+Allow: /contact
 
-# Crawl delay (optional - be respectful to server)
-Crawl-delay: 1
+# Sitemap location
+Sitemap: https://timetosleep.org/sitemap.xml
 
-# Sitemaps
-Sitemap: https://bedtime-stories.com/sitemap.xml
+# Additional sitemaps (if needed)
+# Sitemap: https://timetosleep.org/sitemap-stories.xml
+# Sitemap: https://timetosleep.org/sitemap-tags.xml
 
-# Additional sitemaps for different content types (if needed in future)
-# Sitemap: https://bedtime-stories.com/sitemap-stories.xml
-# Sitemap: https://bedtime-stories.com/sitemap-tags.xml 
+# Crawl delay (optional)
+Crawl-delay: 1 

@@ -11,44 +11,44 @@
     "privacyPolicy": "Privacy Policy",
     "links": "Links",
     "legal": "Legal",
-    "copyright": "© 2025 Bedtime Stories. All rights reserved.",
+    "copyright": "© 2025 Time to Sleep. All rights reserved.",
     "createdWithLove": "Created with love for children and their parents",
     "breadcrumbs": "Breadcrumb navigation"
   },
   "header": {
-    "brandName": "Dreamy Tales",
+    "brandName": "Time to Sleep",
     "stories": "Stories",
     "adventures": "Adventures",
     "friendship": "Friendship",
     "animals": "Animals"
   },
   "home": {
-    "title": "Bedtime Stories - Engaging Stories for Children",
-    "description": "Read the best bedtime stories for children. Engaging stories with beautiful illustrations for different age groups.",
-    "keywords": "bedtime stories, children's stories, stories for children, stories with pictures",
-    "welcomeTitle": "Welcome to the world of stories!",
-    "welcomeDescription": "Engaging stories for children with beautiful illustrations. Read bedtime stories and embark on magical adventures.",
+    "title": "Time to Sleep - Bedtime Stories for Your Children",
+    "description": "Time to Sleep - Bedtime Stories for Your Children. Discover magical stories with beautiful illustrations perfect for family reading and helping children fall asleep peacefully.",
+    "keywords": "bedtime stories, children's stories, stories for children, stories with pictures, time to sleep, family reading",
+    "welcomeTitle": "Welcome to Time to Sleep!",
+    "welcomeDescription": "Discover magical bedtime stories with beautiful illustrations. Perfect for family reading and helping children fall asleep peacefully.",
     "allStories": "All Stories",
     "categories": "Categories",
     "loadingStories": "Loading stories...",
     "errorLoadingData": "Error loading data:"
   },
   "stories": {
-    "title": "Stories - Bedtime Stories",
-    "description": "Browse all story categories and find the perfect story for your child.",
-    "keywords": "stories, story categories, children's stories, bedtime stories",
+    "title": "Stories - Time to Sleep",
+    "description": "Browse all story categories and find the perfect bedtime story for your child on Time to Sleep.",
+    "keywords": "stories, story categories, children's stories, bedtime stories, time to sleep",
     "pageTitle": "All Story Categories",
-    "pageDescription": "Choose a category that interests you and discover magical stories for children.",
+    "pageDescription": "Choose a category that interests you and discover magical stories for children on Time to Sleep.",
     "categories": "Story Categories",
     "loadingTags": "Loading categories...",
     "errorLoadingTags": "Error loading categories:"
   },
   "search": {
-    "title": "Search - Bedtime Stories",
-    "description": "Find the perfect story for your child. Search by title, description, or content.",
-    "keywords": "search stories, story search, children's stories, bedtime stories",
+    "title": "Search - Time to Sleep",
+    "description": "Find the perfect bedtime story for your child on Time to Sleep. Search by title, description, or content.",
+    "keywords": "search stories, story search, children's stories, bedtime stories, time to sleep",
     "pageTitle": "Search Stories",
-    "pageDescription": "Enter keywords to find stories that interest you.",
+    "pageDescription": "Enter keywords to find stories that interest you on Time to Sleep.",
     "resultsFor": "Search results for",
     "resultsDescription": "Found stories matching your search.",
     "searching": "Searching...",
@@ -62,7 +62,7 @@
   "storiesByTag": {
     "title": "Stories",
     "description": "Stories in category",
-    "keywords": "stories, category",
+    "keywords": "stories, category, time to sleep",
     "storiesTitle": "Stories",
     "storiesInCategory": "Stories in category",
     "storiesCount": "Stories found",
@@ -71,14 +71,14 @@
     "backToStories": "Back to stories"
   },
   "about": {
-    "title": "About Us - Bedtime Stories",
-    "description": "Learn more about the Bedtime Stories project. Our mission is to create high-quality children's stories for family reading.",
-    "keywords": "about us, mission, stories, children's stories, family reading",
-    "pageTitle": "About the \"Bedtime Stories\" Project",
-    "pageDescription": "We create a world of magical stories that help children develop imagination, learn kindness, and fall asleep with a smile on their face.",
+    "title": "About Us - Time to Sleep",
+    "description": "Learn more about Time to Sleep. Our mission is to create high-quality bedtime stories for children and families.",
+    "keywords": "about us, mission, stories, children's stories, family reading, time to sleep",
+    "pageTitle": "About Time to Sleep",
+    "pageDescription": "We create a world of magical bedtime stories that help children develop imagination, learn kindness, and fall asleep peacefully with a smile on their face.",
     "missionTitle": "Our Mission",
-    "missionDescription1": "We believe that every story is not just a bedtime tale, but an opportunity for a child to explore the world, develop empathy, and creative thinking.",
-    "missionDescription2": "Our goal is to create a safe, high-quality, and accessible space for family reading where every child will find a story they love.",
+    "missionDescription1": "We believe that every bedtime story is not just a tale before sleep, but an opportunity for a child to explore the world, develop empathy, and creative thinking.",
+    "missionDescription2": "Our goal is to create a safe, high-quality, and accessible space for family reading where every child will find a story they love on Time to Sleep.",
     "createdWithLove": "Created with love",
     "valuesTitle": "Our Values",
     "values": {
@@ -88,11 +88,11 @@
       "family": "Family values and traditions"
     },
     "storyTitle": "How It All Started",
-    "storyDescription": "The history of our project began with a simple idea — to create a place where parents can find high-quality stories for their children.",
+    "storyDescription": "The history of Time to Sleep began with a simple idea — to create a place where parents can find high-quality bedtime stories for their children.",
     "steps": {
       "idea": {
         "title": "Idea",
-        "description": "Realization that high-quality children's stories should be available to every child"
+        "description": "Realization that high-quality children's bedtime stories should be available to every child"
       },
       "development": {
         "title": "Development",
@@ -104,15 +104,15 @@
       }
     },
     "featuresTitle": "What We Offer",
-    "featuresDescription": "Our platform is created with the needs of modern families in mind",
+    "featuresDescription": "Time to Sleep is created with the needs of modern families in mind",
     "features": {
       "library": {
         "title": "Rich Library",
-        "description": "Hundreds of stories and tales for children of different ages, from classic to modern"
+        "description": "Hundreds of bedtime stories and tales for children of different ages, from classic to modern"
       },
       "search": {
         "title": "Convenient Search",
-        "description": "Easily find stories by topics, age, and your child's preferences"
+        "description": "Easily find bedtime stories by topics, age, and your child's preferences"
       },
       "illustrations": {
         "title": "Beautiful Illustrations",
@@ -133,42 +133,42 @@
     },
     "team": {
       "title": "Our Team",
-      "description": "We are a team of enthusiasts who believe in the power of good stories",
+      "description": "We are a team of enthusiasts who believe in the power of good bedtime stories",
       "members": {
         "anna": {
           "name": "Anna",
           "role": "Project Founder",
-          "description": "Educator and mother of two children who knows how important quality reading is"
+          "description": "Educator and mother of two children who knows how important quality bedtime reading is"
         },
         "michal": {
           "name": "Michael",
           "role": "Technical Director",
-          "description": "Creates technologies that make reading convenient and enjoyable"
+          "description": "Creates technologies that make bedtime reading convenient and enjoyable"
         },
         "elena": {
           "name": "Elena",
           "role": "Content Editor",
-          "description": "Selects and adapts stories to make them interesting and useful"
+          "description": "Selects and adapts stories to make them interesting and useful for bedtime"
         }
       }
     },
     "cta": {
       "title": "Join Our Community",
-      "description": "Read stories, share impressions and help us create better content for children",
+      "description": "Read bedtime stories, share impressions and help us create better content for children",
       "startReading": "Start Reading",
       "contactUs": "Contact Us"
     }
   },
   "footer": {
-    "title": "Bedtime Stories",
-    "description": "We create a world of magical stories for children and their parents. Every story is a journey into the world of imagination and kindness."
+    "title": "Time to Sleep",
+    "description": "We create a world of magical bedtime stories for children and their parents. Every story is a journey into the world of imagination and kindness."
   },
   "contact": {
-    "title": "Contact - Bedtime Stories",
-    "description": "Contact us. We are here to help and answer all questions about our stories.",
-    "keywords": "contact, help, questions, stories, support",
+    "title": "Contact - Time to Sleep",
+    "description": "Contact Time to Sleep. We are here to help and answer all questions about our bedtime stories.",
+    "keywords": "contact, help, questions, stories, support, time to sleep",
     "pageTitle": "Contact Us",
-    "pageDescription": "Have questions or suggestions? We'd love to hear from you!",
+    "pageDescription": "Have questions or suggestions about Time to Sleep? We'd love to hear from you!",
     "form": {
       "name": "Name",
       "email": "Email",
@@ -193,11 +193,11 @@
       "title": "Frequently Asked Questions",
       "addStory": {
         "question": "How to add a new story?",
-        "answer": "Send us an email with a description of the story and we will consider adding it."
+        "answer": "Send us an email with a description of the story and we will consider adding it to Time to Sleep."
       },
       "useStories": {
         "question": "Can I use your stories?",
-        "answer": "All stories are available for personal use. For commercial use, please contact us."
+        "answer": "All stories on Time to Sleep are available for personal use. For commercial use, please contact us."
       }
     },
     "form": {
@@ -212,54 +212,54 @@
     }
   },
   "terms": {
-    "title": "Terms of Use - Bedtime Stories",
-    "description": "Read the terms of use for our children's stories platform.",
-    "keywords": "terms of use, rules, stories, guidelines",
+    "title": "Terms of Use - Time to Sleep",
+    "description": "Read the terms of use for Time to Sleep, our children's bedtime stories platform.",
+    "keywords": "terms of use, rules, stories, guidelines, time to sleep",
     "pageTitle": "Terms of Use",
     "lastUpdated": "Last updated: January 1, 2025",
     "sections": {
       "acceptance": {
         "title": "Acceptance of Terms",
-        "content": "By using our platform, you accept these terms of use."
+        "content": "By using Time to Sleep, you accept these terms of use."
       },
       "service": {
         "title": "Service Description",
-        "content": "The \"Bedtime Stories\" platform provides access to a collection of children's stories and tales, designed for reading to children before bedtime. Our service includes:",
-        "features": "Library of stories and tales, Categorization by topics and age groups, Ability to search and filter content, Access to illustrations and images"
+        "content": "Time to Sleep provides access to a collection of children's bedtime stories and tales, designed for reading to children before bedtime. Our service includes:",
+        "features": "Library of bedtime stories and tales, Categorization by topics and age groups, Ability to search and filter content, Access to illustrations and images"
       },
       "usage": {
         "title": "Usage Rights",
-        "content": "We grant you a limited, non-exclusive, non-transferable right to use the Platform for personal, non-commercial purposes in compliance with these Terms.",
+        "content": "We grant you a limited, non-exclusive, non-transferable right to use Time to Sleep for personal, non-commercial purposes in compliance with these Terms.",
         "allowed": "Allowed:",
-        "allowedItems": "Reading stories to children, Using content for educational purposes, Sharing links to our Platform, Printing stories for personal use",
+        "allowedItems": "Reading bedtime stories to children, Using content for educational purposes, Sharing links to Time to Sleep, Printing stories for personal use",
         "prohibited": "Prohibited:",
         "prohibitedItems": "Commercial use of content without permission, Copying and distributing content for commercial purposes, Modifying or creating derivative works, Using automated tools to collect content"
       },
       "stories": {
-        "title": "About Stories on the Platform",
-        "content": "Stories on the website are adaptations based on well-known stories that are in the public domain. The adaptation is made to maximally fit the designated age ranges, however parents should familiarize themselves with the text and independently decide whether it is suitable for their child before reading it or giving it to their child to read. The adaptation is made both with the help of software and with the help of human review."
+        "title": "About Stories on Time to Sleep",
+        "content": "Stories on Time to Sleep are adaptations based on well-known stories that are in the public domain. The adaptation is made to maximally fit the designated age ranges, however parents should familiarize themselves with the text and independently decide whether it is suitable for their child before reading it or giving it to their child to read. The adaptation is made both with the help of software and with the help of human review."
       },
       "intellectual": {
         "title": "Intellectual Property",
-        "content": "All content on the Platform, including but not limited to texts, images, illustrations, design, software and databases, is protected by intellectual property laws.",
+        "content": "All content on Time to Sleep, including but not limited to texts, images, illustrations, design, software and databases, is protected by intellectual property laws.",
         "copyright": "Copyright to stories belongs to their authors or is in the public domain. We make every effort to respect copyright and ask to report any violations."
       },
       "liability": {
         "title": "Limitation of Liability",
-        "content": "The Platform is provided \"as is\" without any warranties. We are not responsible for:",
+        "content": "Time to Sleep is provided \"as is\" without any warranties. We are not responsible for:",
         "items": "Any errors or inaccuracies in content, Platform downtime, Data loss or technical failures, Actions of third parties, Any indirect or incidental damages"
       },
       "privacy": {
         "title": "Privacy",
-        "content": "Use of the Platform is also governed by our Privacy Policy, which is an integral part of these Terms."
+        "content": "Use of Time to Sleep is also governed by our Privacy Policy, which is an integral part of these Terms."
       },
       "changes": {
         "title": "Changes to Terms",
-        "content": "We reserve the right to change these Terms at any time. Changes take effect from the moment they are published on the Platform. Continued use of the Platform after changes are made means acceptance of new terms."
+        "content": "We reserve the right to change these Terms at any time. Changes take effect from the moment they are published on Time to Sleep. Continued use of the platform after changes are made means acceptance of new terms."
       },
       "termination": {
         "title": "Termination of Use",
-        "content": "We may suspend or terminate access to the Platform at any time without prior notice in case of violation of these Terms or for other reasons."
+        "content": "We may suspend or terminate access to Time to Sleep at any time without prior notice in case of violation of these Terms or for other reasons."
       },
       "law": {
         "title": "Applicable Law",
@@ -278,16 +278,16 @@
     }
   },
   "privacy": {
-    "title": "Privacy Policy - Bedtime Stories",
-    "description": "Learn how we protect your privacy on our stories platform.",
-    "keywords": "privacy policy, data protection, privacy, stories",
+    "title": "Privacy Policy - Time to Sleep",
+    "description": "Learn how we protect your privacy on Time to Sleep, our bedtime stories platform.",
+    "keywords": "privacy policy, data protection, privacy, stories, time to sleep",
     "pageTitle": "Privacy Policy",
     "lastUpdated": "Last updated: January 1, 2025",
     "sections": {
       "introduction": {
         "title": "Introduction",
-        "content": "The \"Bedtime Stories\" platform (hereinafter — \"we\", \"our\", \"Platform\") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, store, and protect information about you.",
-        "agreement": "By using our Platform, you agree to the practices described in this Privacy Policy."
+        "content": "Time to Sleep (hereinafter — \"we\", \"our\", \"Platform\") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, store, and protect information about you.",
+        "agreement": "By using Time to Sleep, you agree to the practices described in this Privacy Policy."
       },
       "collection": {
         "title": "Information We Collect",
@@ -298,14 +298,14 @@
         },
         "automatic": {
           "title": "Automatically Collected Information",
-          "content": "When visiting our Platform, we automatically collect certain information:",
-          "items": "Server logs: IP address, browser type, operating system, access time, Cookies: small files that help improve Platform functionality, Analytics: information about how you use our Platform, Device: information about your device and browser"
+          "content": "When visiting Time to Sleep, we automatically collect certain information:",
+          "items": "Server logs: IP address, browser type, operating system, access time, Cookies: small files that help improve Platform functionality, Analytics: information about how you use Time to Sleep, Device: information about your device and browser"
         }
       },
       "usage": {
         "title": "How We Use Your Information",
         "content": "We use the collected information for the following purposes:",
-        "items": "Providing and improving our services, Responding to your questions and feedback, Analyzing Platform usage to improve user experience, Ensuring security and preventing fraud, Compliance with legal obligations, Sending important notifications about changes to our services"
+        "items": "Providing and improving our bedtime stories service, Responding to your questions and feedback, Analyzing Platform usage to improve user experience, Ensuring security and preventing fraud, Compliance with legal obligations, Sending important notifications about changes to our services"
       },
       "sharing": {
         "title": "Sharing Information with Third Parties",
@@ -316,7 +316,7 @@
         "title": "Cookies and Tracking Technologies",
         "content": "We use cookies and similar technologies to:",
         "items": "Remember your preferences, Analyze Platform usage, Improve performance, Personalize content",
-        "management": "You can manage cookie settings in your browser. Note that disabling cookies may affect Platform functionality."
+        "management": "You can manage cookie settings in your browser. Note that disabling cookies may affect Time to Sleep functionality."
       },
       "security": {
         "title": "Data Security",
@@ -336,7 +336,7 @@
       },
       "children": {
         "title": "Children and Privacy",
-        "content": "Our Platform is intended for family use, but we do not knowingly collect personal information from children under 13 without parental or guardian consent.",
+        "content": "Time to Sleep is intended for family use, but we do not knowingly collect personal information from children under 13 without parental or guardian consent.",
         "removal": "If we learn that we have collected personal information from a child under 13 without appropriate consent, we will immediately delete this information."
       },
       "international": {
@@ -345,7 +345,7 @@
       },
       "changes": {
         "title": "Changes to Privacy Policy",
-        "content": "We may update this Privacy Policy from time to time. We will notify you of any material changes by posting a new version on our Platform and updating the \"Last updated\" date.",
+        "content": "We may update this Privacy Policy from time to time. We will notify you of any material changes by posting a new version on Time to Sleep and updating the \"Last updated\" date.",
         "recommendation": "We recommend regularly reviewing this Privacy Policy to stay informed about how we protect your information."
       },
       "contact": {

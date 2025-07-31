@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../contexts/TranslationContext';
 import { useSearch } from '../hooks/useStories';
 import LoadingSpinner from '../components/LoadingSpinner';
-import Breadcrumbs, { BreadcrumbItem } from '../components/Breadcrumbs';
+import Breadcrumbs from '../components/Breadcrumbs';
 import StoriesList from '../components/StoriesList';
 
 const SearchPage: React.FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const { t } = useTranslation();
   const query = searchParams.get('q') || '';
   const { stories, loading, error } = useSearch(query);
 
-  const breadcrumbs: BreadcrumbItem[] = [
+  const breadcrumbs = [
     { name: t('common.home'), path: '/' },
     { name: t('search.pageTitle'), path: '/search', isCurrent: true }
   ];
@@ -27,7 +27,7 @@ const SearchPage: React.FC = () => {
         <meta property="og:title" content={query ? `${t('search.resultsFor')} "${query}"` : t('search.pageTitle')} />
         <meta property="og:description" content={t('search.description')} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://bedtime-stories.com/search?q=${encodeURIComponent(query)}`} />
+        <meta property="og:url" content={`https://timetosleep.org/search?q=${encodeURIComponent(query)}`} />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -36,7 +36,7 @@ const SearchPage: React.FC = () => {
           "@type": "SearchResultsPage",
           "name": query ? `${t('search.resultsFor')} "${query}"` : t('search.pageTitle'),
           "description": t('search.description'),
-          "url": `https://bedtime-stories.com/search?q=${encodeURIComponent(query)}`,
+          "url": `https://timetosleep.org/search?q=${encodeURIComponent(query)}`,
           "mainEntity": {
             "@type": "ItemList",
             "numberOfItems": stories.length,
@@ -47,7 +47,7 @@ const SearchPage: React.FC = () => {
                 "@type": "CreativeWork",
                 "name": story.title,
                 "description": story.description,
-                "url": `https://bedtime-stories.com/stories/all/${story.slug}`,
+                "url": `https://timetosleep.org/stories/all/${story.slug}`,
                 "genre": story.tags.join(', '),
                 "audience": {
                   "@type": "Audience",
@@ -68,7 +68,7 @@ const SearchPage: React.FC = () => {
             "@type": "ListItem",
             "position": index + 1,
             "name": item.name,
-            "item": item.path === '/search' ? `https://bedtime-stories.com/search?q=${encodeURIComponent(query)}` : `https://bedtime-stories.com${item.path}`
+            "item": item.path === '/search' ? `https://timetosleep.org/search?q=${encodeURIComponent(query)}` : `https://timetosleep.org${item.path}`
           }))
         })}
         </script>

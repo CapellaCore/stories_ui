@@ -11,44 +11,44 @@
     "privacyPolicy": "Polityka prywatności",
     "links": "Linki",
     "legal": "Informacje prawne",
-    "copyright": "© 2025 Bajki na dobranoc. Wszystkie prawa zastrzeżone.",
+    "copyright": "© 2025 Time to Sleep. Wszystkie prawa zastrzeżone.",
     "createdWithLove": "Stworzone z miłością dla dzieci i ich rodziców",
     "breadcrumbs": "Nawigacja okruszkowa"
   },
   "header": {
-    "brandName": "Bajkowe Opowieści",
+    "brandName": "Time to Sleep",
     "stories": "Bajki",
     "adventures": "Przygody",
     "friendship": "Przyjaźń",
     "animals": "Zwierzęta"
   },
   "home": {
-    "title": "Bajki na dobranoc - Fascynujące historie dla dzieci",
-    "description": "Czytaj najlepsze bajki na dobranoc dla dzieci. Fascynujące historie z pięknymi ilustracjami dla różnych grup wiekowych.",
-    "keywords": "bajki na dobranoc, bajki dla dzieci, historie dla dzieci, bajki z obrazkami",
-    "welcomeTitle": "Witamy w świecie bajek!",
-    "welcomeDescription": "Fascynujące historie dla dzieci z pięknymi ilustracjami. Czytaj bajki na dobranoc i wyrusz w magiczne przygody.",
+    "title": "Time to Sleep - Bajki na dobranoc dla Twoich dzieci",
+    "description": "Time to Sleep - Bajki na dobranoc dla Twoich dzieci. Odkryj magiczne historie z pięknymi ilustracjami idealne do rodzinnego czytania i pomagające dzieciom spokojnie zasnąć.",
+    "keywords": "bajki na dobranoc, bajki dla dzieci, historie dla dzieci, bajki z obrazkami, time to sleep, rodzinne czytanie",
+    "welcomeTitle": "Witamy w Time to Sleep!",
+    "welcomeDescription": "Odkryj magiczne bajki na dobranoc z pięknymi ilustracjami. Idealne do rodzinnego czytania i pomagające dzieciom spokojnie zasnąć.",
     "allStories": "Wszystkie bajki",
     "categories": "Kategorie",
     "loadingStories": "Ładowanie bajek...",
     "errorLoadingData": "Błąd ładowania danych:"
   },
   "stories": {
-    "title": "Bajki - Bajki na dobranoc",
-    "description": "Przeglądaj wszystkie kategorie bajek i znajdź idealną historię dla swojego dziecka.",
-    "keywords": "bajki, kategorie bajek, historie dla dzieci, bajki na dobranoc",
+    "title": "Bajki - Time to Sleep",
+    "description": "Przeglądaj wszystkie kategorie bajek i znajdź idealną bajkę na dobranoc dla swojego dziecka na Time to Sleep.",
+    "keywords": "bajki, kategorie bajek, historie dla dzieci, bajki na dobranoc, time to sleep",
     "pageTitle": "Wszystkie kategorie bajek",
-    "pageDescription": "Wybierz kategorię, która Cię interesuje i odkryj magiczne historie dla dzieci.",
+    "pageDescription": "Wybierz kategorię, która Cię interesuje i odkryj magiczne historie dla dzieci na Time to Sleep.",
     "categories": "Kategorie bajek",
     "loadingTags": "Ładowanie kategorii...",
     "errorLoadingTags": "Błąd ładowania kategorii:"
   },
   "search": {
-    "title": "Szukaj - Bajki na dobranoc",
-    "description": "Znajdź idealną bajkę dla swojego dziecka. Szukaj według tytułu, opisu lub treści.",
-    "keywords": "szukaj bajek, wyszukiwanie bajek, bajki dla dzieci, bajki na dobranoc",
+    "title": "Szukaj - Time to Sleep",
+    "description": "Znajdź idealną bajkę na dobranoc dla swojego dziecka na Time to Sleep. Szukaj według tytułu, opisu lub treści.",
+    "keywords": "szukaj bajek, wyszukiwanie bajek, bajki dla dzieci, bajki na dobranoc, time to sleep",
     "pageTitle": "Szukaj bajek",
-    "pageDescription": "Wprowadź słowa kluczowe, aby znaleźć bajki, które Cię interesują.",
+    "pageDescription": "Wprowadź słowa kluczowe, aby znaleźć bajki, które Cię interesują na Time to Sleep.",
     "resultsFor": "Wyniki wyszukiwania dla",
     "resultsDescription": "Znalezione bajki pasujące do Twojego wyszukiwania.",
     "searching": "Szukam...",
@@ -62,7 +62,7 @@
   "storiesByTag": {
     "title": "Bajki",
     "description": "Bajki w kategorii",
-    "keywords": "bajki, kategoria",
+    "keywords": "bajki, kategoria, time to sleep",
     "storiesTitle": "Bajki",
     "storiesInCategory": "Bajki w kategorii",
     "storiesCount": "Znaleziono bajek",
@@ -71,14 +71,14 @@
     "backToStories": "Wróć do bajek"
   },
   "about": {
-    "title": "O nas - Bajki na dobranoc",
-    "description": "Dowiedz się więcej o projekcie Bajki na dobranoc. Naszą misją jest tworzenie wysokiej jakości historii dla dzieci do rodzinnego czytania.",
-    "keywords": "o nas, misja, bajki, historie dla dzieci, rodzinne czytanie",
-    "pageTitle": "O projekcie \"Bajki na dobranoc\"",
-    "pageDescription": "Tworzymy świat magicznych historii, które pomagają dzieciom rozwijać wyobraźnię, uczyć się dobroci i zasypiać z uśmiechem na twarzy.",
+    "title": "O nas - Time to Sleep",
+    "description": "Dowiedz się więcej o Time to Sleep. Naszą misją jest tworzenie wysokiej jakości bajek na dobranoc dla dzieci i rodzin.",
+    "keywords": "o nas, misja, bajki, historie dla dzieci, rodzinne czytanie, time to sleep",
+    "pageTitle": "O Time to Sleep",
+    "pageDescription": "Tworzymy świat magicznych bajek na dobranoc, które pomagają dzieciom rozwijać wyobraźnię, uczyć się dobroci i spokojnie zasypiać z uśmiechem na twarzy.",
     "missionTitle": "Nasza misja",
-    "missionDescription1": "Wierzymy, że każda bajka to nie tylko historia przed snem, ale możliwość dla dziecka poznania świata, rozwoju empatii i kreatywnego myślenia.",
-    "missionDescription2": "Naszym celem jest stworzenie bezpiecznej, wysokiej jakości i dostępnej przestrzeni do rodzinnego czytania, gdzie każde dziecko znajdzie historię dla siebie.",
+    "missionDescription1": "Wierzymy, że każda bajka na dobranoc to nie tylko historia przed snem, ale możliwość dla dziecka poznania świata, rozwoju empatii i kreatywnego myślenia.",
+    "missionDescription2": "Naszym celem jest stworzenie bezpiecznej, wysokiej jakości i dostępnej przestrzeni do rodzinnego czytania, gdzie każde dziecko znajdzie historię dla siebie na Time to Sleep.",
     "createdWithLove": "Tworzymy z miłością",
     "valuesTitle": "Nasze wartości",
     "values": {
@@ -88,11 +88,11 @@
       "family": "Wartości rodzinne i tradycje"
     },
     "storyTitle": "Jak wszystko się zaczęło",
-    "storyDescription": "Historia naszego projektu rozpoczęła się od prostej idei — stworzenia miejsca, gdzie rodzice mogą znaleźć wysokiej jakości bajki dla swoich dzieci.",
+    "storyDescription": "Historia Time to Sleep rozpoczęła się od prostej idei — stworzenia miejsca, gdzie rodzice mogą znaleźć wysokiej jakości bajki na dobranoc dla swoich dzieci.",
     "steps": {
       "idea": {
         "title": "Pomysł",
-        "description": "Uświadomienie, że wysokiej jakości historie dla dzieci powinny być dostępne dla każdego dziecka"
+        "description": "Uświadomienie, że wysokiej jakości bajki na dobranoc dla dzieci powinny być dostępne dla każdego dziecka"
       },
       "development": {
         "title": "Rozwój",
@@ -104,15 +104,15 @@
       }
     },
     "featuresTitle": "Co oferujemy",
-    "featuresDescription": "Nasza platforma została stworzona z uwzględnieniem potrzeb współczesnych rodzin",
+    "featuresDescription": "Time to Sleep zostało stworzone z uwzględnieniem potrzeb współczesnych rodzin",
     "features": {
       "library": {
         "title": "Bogata biblioteka",
-        "description": "Setki bajek i historii dla dzieci w różnym wieku, od klasycznych po współczesne"
+        "description": "Setki bajek na dobranoc i historii dla dzieci w różnym wieku, od klasycznych po współczesne"
       },
       "search": {
         "title": "Wygodne wyszukiwanie",
-        "description": "Łatwo znajdź historie według tematów, wieku i preferencji swojego dziecka"
+        "description": "Łatwo znajdź bajki na dobranoc według tematów, wieku i preferencji swojego dziecka"
       },
       "illustrations": {
         "title": "Piękne ilustracje",
@@ -133,42 +133,42 @@
     },
     "team": {
       "title": "Nasz zespół",
-      "description": "Jesteśmy zespołem entuzjastów, którzy wierzą w siłę dobrych historii",
+      "description": "Jesteśmy zespołem entuzjastów, którzy wierzą w siłę dobrych bajek na dobranoc",
       "members": {
         "anna": {
           "name": "Anna",
           "role": "Założycielka projektu",
-          "description": "Pedagog i mama dwojga dzieci, która wie, jak ważne jest wysokiej jakości czytanie"
+          "description": "Pedagog i mama dwojga dzieci, która wie, jak ważne jest wysokiej jakości czytanie przed snem"
         },
         "michal": {
           "name": "Michał",
           "role": "Dyrektor techniczny",
-          "description": "Tworzy technologie, które sprawiają, że czytanie jest wygodne i przyjemne"
+          "description": "Tworzy technologie, które sprawiają, że czytanie przed snem jest wygodne i przyjemne"
         },
         "elena": {
           "name": "Elena",
           "role": "Redaktor treści",
-          "description": "Wybiera i adaptuje historie, aby były interesujące i użyteczne"
+          "description": "Wybiera i adaptuje historie, aby były interesujące i użyteczne do czytania przed snem"
         }
       }
     },
     "cta": {
       "title": "Dołącz do naszej społeczności",
-      "description": "Czytaj bajki, dziel się wrażeniami i pomagaj nam tworzyć lepsze treści dla dzieci",
+      "description": "Czytaj bajki na dobranoc, dziel się wrażeniami i pomagaj nam tworzyć lepsze treści dla dzieci",
       "startReading": "Zacznij czytać",
       "contactUs": "Skontaktuj się z nami"
     }
   },
   "footer": {
-    "title": "Bajki na dobranoc",
-    "description": "Tworzymy świat magicznych historii dla dzieci i ich rodziców. Każda bajka to podróż w świat wyobraźni i dobroci."
+    "title": "Time to Sleep",
+    "description": "Tworzymy świat magicznych bajek na dobranoc dla dzieci i ich rodziców. Każda bajka to podróż w świat wyobraźni i dobroci."
   },
   "contact": {
-    "title": "Kontakt - Bajki na dobranoc",
-    "description": "Skontaktuj się z nami. Jesteśmy tutaj, aby pomóc i odpowiedzieć na wszystkie pytania dotyczące naszych bajek.",
-    "keywords": "kontakt, pomoc, pytania, bajki, wsparcie",
+    "title": "Kontakt - Time to Sleep",
+    "description": "Skontaktuj się z Time to Sleep. Jesteśmy tutaj, aby pomóc i odpowiedzieć na wszystkie pytania dotyczące naszych bajek na dobranoc.",
+    "keywords": "kontakt, pomoc, pytania, bajki, wsparcie, time to sleep",
     "pageTitle": "Skontaktuj się z nami",
-    "pageDescription": "Masz pytania lub sugestie? Chętnie Cię wysłuchamy!",
+    "pageDescription": "Masz pytania lub sugestie dotyczące Time to Sleep? Chętnie Cię wysłuchamy!",
     "form": {
       "name": "Imię",
       "email": "Email",
@@ -193,11 +193,11 @@
       "title": "Często zadawane pytania",
       "addStory": {
         "question": "Jak dodać nową bajkę?",
-        "answer": "Wyślij nam email z opisem bajki, a rozważymy możliwość jej dodania."
+        "answer": "Wyślij nam email z opisem bajki, a rozważymy możliwość jej dodania do Time to Sleep."
       },
       "useStories": {
         "question": "Czy można używać waszych bajek?",
-        "answer": "Wszystkie bajki są dostępne do użytku osobistego. Do użytku komercyjnego skontaktuj się z nami."
+        "answer": "Wszystkie bajki na Time to Sleep są dostępne do użytku osobistego. Do użytku komercyjnego skontaktuj się z nami."
       }
     },
     "form": {
@@ -212,54 +212,54 @@
     }
   },
   "terms": {
-    "title": "Warunki użytkowania - Bajki na dobranoc",
-    "description": "Przeczytaj warunki użytkowania naszej platformy z bajkami dla dzieci.",
-    "keywords": "warunki użytkowania, regulamin, bajki, zasady",
+    "title": "Warunki użytkowania - Time to Sleep",
+    "description": "Przeczytaj warunki użytkowania Time to Sleep, naszej platformy z bajkami na dobranoc dla dzieci.",
+    "keywords": "warunki użytkowania, regulamin, bajki, zasady, time to sleep",
     "pageTitle": "Warunki użytkowania",
     "lastUpdated": "Ostatnia aktualizacja: 1 stycznia 2025",
     "sections": {
       "acceptance": {
         "title": "Akceptacja warunków",
-        "content": "Korzystając z naszej platformy, akceptujesz te warunki użytkowania."
+        "content": "Korzystając z Time to Sleep, akceptujesz te warunki użytkowania."
       },
       "service": {
         "title": "Opis serwisu",
-        "content": "Platforma \"Bajki na dobranoc\" zapewnia dostęp do kolekcji bajek i historii dla dzieci, przeznaczonych do czytania dzieciom przed snem. Nasz serwis obejmuje:",
-        "features": "Bibliotekę bajek i historii, Kategoryzację według tematów i grup wiekowych, Możliwość wyszukiwania i filtrowania treści, Dostęp do ilustracji i obrazów"
+        "content": "Time to Sleep zapewnia dostęp do kolekcji bajek na dobranoc i historii dla dzieci, przeznaczonych do czytania dzieciom przed snem. Nasz serwis obejmuje:",
+        "features": "Bibliotekę bajek na dobranoc i historii, Kategoryzację według tematów i grup wiekowych, Możliwość wyszukiwania i filtrowania treści, Dostęp do ilustracji i obrazów"
       },
       "usage": {
         "title": "Prawa do użytkowania",
-        "content": "Zapewniamy Ci ograniczone, niewyłączne, nieprzenoszalne prawo do korzystania z Platformy w celach osobistych, niekomercyjnych przy przestrzeganiu niniejszych Warunków.",
+        "content": "Zapewniamy Ci ograniczone, niewyłączne, nieprzenoszalne prawo do korzystania z Time to Sleep w celach osobistych, niekomercyjnych przy przestrzeganiu niniejszych Warunków.",
         "allowed": "Dozwolone:",
-        "allowedItems": "Czytanie bajek dzieciom, Używanie treści do celów edukacyjnych, Udostępnianie linków do naszej Platformy, Drukowanie bajek do użytku osobistego",
+        "allowedItems": "Czytanie bajek na dobranoc dzieciom, Używanie treści do celów edukacyjnych, Udostępnianie linków do Time to Sleep, Drukowanie bajek do użytku osobistego",
         "prohibited": "Zabronione:",
         "prohibitedItems": "Komercyjne wykorzystanie treści bez zgody, Kopiowanie i rozpowszechnianie treści w celach komercyjnych, Modyfikowanie lub tworzenie prac pochodnych, Używanie zautomatyzowanych narzędzi do zbierania treści"
       },
       "stories": {
-        "title": "O bajkach na platformie",
-        "content": "Bajki na stronie stanowią opracowania na podstawie znanych bajek znajdujących się w domenie publicznej (public domain). Opracowanie zostało wykonane tak, aby maksymalnie pasować do określonych ram wiekowych, jednak rodzice powinni zapoznać się z tekstem i samodzielnie zdecydować, czy jest odpowiedni dla dziecka, zanim go przeczytają lub dadzą swojemu dziecku do czytania. Opracowanie zostało wykonane zarówno przy pomocy oprogramowania, jak i przy pomocy recenzji człowieka."
+        "title": "O bajkach na Time to Sleep",
+        "content": "Bajki na Time to Sleep stanowią opracowania na podstawie znanych bajek znajdujących się w domenie publicznej (public domain). Opracowanie zostało wykonane tak, aby maksymalnie pasować do określonych ram wiekowych, jednak rodzice powinni zapoznać się z tekstem i samodzielnie zdecydować, czy jest odpowiedni dla dziecka, zanim go przeczytają lub dadzą swojemu dziecku do czytania. Opracowanie zostało wykonane zarówno przy pomocy oprogramowania, jak i przy pomocy recenzji człowieka."
       },
       "intellectual": {
         "title": "Własność intelektualna",
-        "content": "Cała treść na Platformie, w tym, ale nie ograniczając się do, teksty, obrazy, ilustracje, projekt, oprogramowanie i bazy danych, jest chroniona prawami własności intelektualnej.",
+        "content": "Cała treść na Time to Sleep, w tym, ale nie ograniczając się do, teksty, obrazy, ilustracje, projekt, oprogramowanie i bazy danych, jest chroniona prawami własności intelektualnej.",
         "copyright": "Prawa autorskie do bajek należą do ich autorów lub znajdują się w domenie publicznej. Dokładamy wszelkich starań, aby przestrzegać praw autorskich i prosimy o zgłaszanie wszelkich naruszeń."
       },
       "liability": {
         "title": "Ograniczenie odpowiedzialności",
-        "content": "Platforma jest udostępniana \"w stanie obecnym\" bez żadnych gwarancji. Nie ponosimy odpowiedzialności za:",
-        "items": "Wszelkie błędy lub nieścisłości w treści, Przerwy w działaniu Platformy, Utratę danych lub awarie techniczne, Działania osób trzecich, Wszelkie pośrednie lub przypadkowe szkody"
+        "content": "Time to Sleep jest udostępniane \"w stanie obecnym\" bez żadnych gwarancji. Nie ponosimy odpowiedzialności za:",
+        "items": "Wszelkie błędy lub nieścisłości w treści, Przerwy w działaniu platformy, Utratę danych lub awarie techniczne, Działania osób trzecich, Wszelkie pośrednie lub przypadkowe szkody"
       },
       "privacy": {
         "title": "Prywatność",
-        "content": "Korzystanie z Platformy jest również regulowane przez naszą Politykę prywatności, która jest integralną częścią niniejszych Warunków."
+        "content": "Korzystanie z Time to Sleep jest również regulowane przez naszą Politykę prywatności, która jest integralną częścią niniejszych Warunków."
       },
       "changes": {
         "title": "Zmiany warunków",
-        "content": "Zastrzegamy sobie prawo do zmiany niniejszych Warunków w dowolnym momencie. Zmiany wchodzą w życie z chwilą ich opublikowania na Platformie. Kontynuowanie korzystania z Platformy po wprowadzeniu zmian oznacza akceptację nowych warunków."
+        "content": "Zastrzegamy sobie prawo do zmiany niniejszych Warunków w dowolnym momencie. Zmiany wchodzą w życie z chwilą ich opublikowania na Time to Sleep. Kontynuowanie korzystania z platformy po wprowadzeniu zmian oznacza akceptację nowych warunków."
       },
       "termination": {
         "title": "Zakończenie korzystania",
-        "content": "Możemy zawiesić lub zakończyć dostęp do Platformy w dowolnym momencie bez wcześniejszego powiadomienia w przypadku naruszenia niniejszych Warunków lub z innych powodów."
+        "content": "Możemy zawiesić lub zakończyć dostęp do Time to Sleep w dowolnym momencie bez wcześniejszego powiadomienia w przypadku naruszenia niniejszych Warunków lub z innych powodów."
       },
       "law": {
         "title": "Prawo właściwe",
@@ -278,16 +278,16 @@
     }
   },
   "privacy": {
-    "title": "Polityka prywatności - Bajki na dobranoc",
-    "description": "Dowiedz się, jak chronimy Twoją prywatność na naszej platformie z bajkami.",
-    "keywords": "polityka prywatności, ochrona danych, prywatność, bajki",
+    "title": "Polityka prywatności - Time to Sleep",
+    "description": "Dowiedz się, jak chronimy Twoją prywatność na Time to Sleep, naszej platformie z bajkami na dobranoc.",
+    "keywords": "polityka prywatności, ochrona danych, prywatność, bajki, time to sleep",
     "pageTitle": "Polityka prywatności",
     "lastUpdated": "Ostatnia aktualizacja: 1 stycznia 2025",
     "sections": {
       "introduction": {
         "title": "Wprowadzenie",
-        "content": "Platforma \"Bajki na dobranoc\" (dalej — \"my\", \"nasza\", \"Platforma\") szanuje Twoją prywatność i zobowiązuje się chronić Twoje dane osobowe. Niniejsza Polityka prywatności wyjaśnia, jak zbieramy, wykorzystujemy, przechowujemy i chronimy informacje o Tobie.",
-        "agreement": "Korzystając z naszej Platformy, zgadzasz się z praktykami opisanymi w niniejszej Polityce prywatności."
+        "content": "Time to Sleep (dalej — \"my\", \"nasza\", \"Platforma\") szanuje Twoją prywatność i zobowiązuje się chronić Twoje dane osobowe. Niniejsza Polityka prywatności wyjaśnia, jak zbieramy, wykorzystujemy, przechowujemy i chronimy informacje o Tobie.",
+        "agreement": "Korzystając z Time to Sleep, zgadzasz się z praktykami opisanymi w niniejszej Polityce prywatności."
       },
       "collection": {
         "title": "Informacje, które zbieramy",
@@ -298,14 +298,14 @@
         },
         "automatic": {
           "title": "Automatycznie zbierane informacje",
-          "content": "Podczas odwiedzania naszej Platformy automatycznie zbieramy pewne informacje:",
-          "items": "Logi serwera: adres IP, typ przeglądarki, system operacyjny, czas dostępu, Pliki cookie: małe pliki, które pomagają poprawić działanie Platformy, Analityka: informacje o tym, jak korzystasz z naszej Platformy, Urządzenie: informacje o Twoim urządzeniu i przeglądarce"
+          "content": "Podczas odwiedzania Time to Sleep automatycznie zbieramy pewne informacje:",
+          "items": "Logi serwera: adres IP, typ przeglądarki, system operacyjny, czas dostępu, Pliki cookie: małe pliki, które pomagają poprawić działanie Platformy, Analityka: informacje o tym, jak korzystasz z Time to Sleep, Urządzenie: informacje o Twoim urządzeniu i przeglądarce"
         }
       },
       "usage": {
         "title": "Jak wykorzystujemy Twoje informacje",
         "content": "Wykorzystujemy zebrane informacje do następujących celów:",
-        "items": "Świadczenie i poprawa naszych usług, Odpowiadanie na Twoje pytania i opinie, Analiza korzystania z Platformy w celu poprawy doświadczeń użytkownika, Zapewnienie bezpieczeństwa i zapobieganie oszustwom, Przestrzeganie zobowiązań prawnych, Wysyłanie ważnych powiadomień o zmianach w naszych usługach"
+        "items": "Świadczenie i poprawa naszego serwisu bajek na dobranoc, Odpowiadanie na Twoje pytania i opinie, Analiza korzystania z Platformy w celu poprawy doświadczeń użytkownika, Zapewnienie bezpieczeństwa i zapobieganie oszustwom, Przestrzeganie zobowiązań prawnych, Wysyłanie ważnych powiadomień o zmianach w naszych usługach"
       },
       "sharing": {
         "title": "Udostępnianie informacji osobom trzecim",
@@ -316,7 +316,7 @@
         "title": "Pliki cookie i technologie śledzenia",
         "content": "Używamy plików cookie i podobnych technologii do:",
         "items": "Zapamiętywania Twoich preferencji, Analizy korzystania z Platformy, Poprawy wydajności, Personalizacji treści",
-        "management": "Możesz zarządzać ustawieniami plików cookie w swojej przeglądarce. Pamiętaj, że wyłączenie plików cookie może wpłynąć na funkcjonalność Platformy."
+        "management": "Możesz zarządzać ustawieniami plików cookie w swojej przeglądarce. Pamiętaj, że wyłączenie plików cookie może wpłynąć na funkcjonalność Time to Sleep."
       },
       "security": {
         "title": "Bezpieczeństwo danych",
@@ -336,7 +336,7 @@
       },
       "children": {
         "title": "Dzieci i prywatność",
-        "content": "Nasza Platforma jest przeznaczona do użytku rodzinnego, ale nie zbieramy celowo danych osobowych od dzieci poniżej 13 roku życia bez zgody rodziców lub opiekunów.",
+        "content": "Time to Sleep jest przeznaczone do użytku rodzinnego, ale nie zbieramy celowo danych osobowych od dzieci poniżej 13 roku życia bez zgody rodziców lub opiekunów.",
         "removal": "Jeśli dowiemy się, że zebraliśmy dane osobowe od dziecka poniżej 13 roku życia bez odpowiedniej zgody, natychmiast usuniemy te informacje."
       },
       "international": {
@@ -345,7 +345,7 @@
       },
       "changes": {
         "title": "Zmiany w polityce prywatności",
-        "content": "Możemy od czasu do czasu aktualizować niniejszą Politykę prywatności. Powiadomimy Cię o wszelkich istotnych zmianach, publikując nową wersję na naszej Platformie i aktualizując datę \"Ostatnia aktualizacja\".",
+        "content": "Możemy od czasu do czasu aktualizować niniejszą Politykę prywatności. Powiadomimy Cię o wszelkich istotnych zmianach, publikując nową wersję na Time to Sleep i aktualizując datę \"Ostatnia aktualizacja\".",
         "recommendation": "Zalecamy regularne przeglądanie niniejszej Polityki prywatności, aby być na bieżąco z tym, jak chronimy Twoje informacje."
       },
       "contact": {

@@ -45,7 +45,7 @@ const HomePage: React.FC = () => {
         <meta property="og:title" content={t('home.title')} />
         <meta property="og:description" content={t('home.description')} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://bedtime-stories.com/" />
+        <meta property="og:url" content="https://timetosleep.org/" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -54,10 +54,10 @@ const HomePage: React.FC = () => {
           "@type": "WebSite",
           "name": t('home.title'),
           "description": t('home.description'),
-          "url": "https://bedtime-stories.com/",
+          "url": "https://timetosleep.org/",
           "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://bedtime-stories.com/search?q={search_term_string}",
+            "target": "https://timetosleep.org/search?q={search_term_string}",
             "query-input": "required name=search_term_string"
           }
         })}
@@ -73,7 +73,7 @@ const HomePage: React.FC = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Главная",
-              "item": "https://bedtime-stories.com"
+              "item": "https://timetosleep.org"
             }
           ]
         })}

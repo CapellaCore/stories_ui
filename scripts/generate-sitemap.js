@@ -2,7 +2,7 @@ const { SitemapStream, streamToPromise } = require('sitemap');
 const { createWriteStream } = require('fs');
 require('dotenv').config({ path: '.env.local' });
 
-const BASE_URL = 'https://bedtime-stories.com';
+const BASE_URL = 'https://timetosleep.org';
 
 // Static pages with their priorities and change frequencies
 const staticPages = [

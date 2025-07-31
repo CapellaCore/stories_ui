@@ -7,7 +7,7 @@ export interface SitemapUrl {
   lastmod?: string;
 }
 
-const BASE_URL = 'https://bedtime-stories.com';
+const BASE_URL = 'https://timetosleep.org';
 
 // Static pages configuration
 const STATIC_PAGES: SitemapUrl[] = [

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../contexts/TranslationContext';
-import Breadcrumbs, { BreadcrumbItem } from '../components/Breadcrumbs';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const AboutPage: React.FC = () => {
   const { t } = useTranslation();
@@ -12,13 +12,13 @@ const AboutPage: React.FC = () => {
         <title>{t('about.title')}</title>
         <meta name="description" content={t('about.description')} />
         <meta name="keywords" content={t('about.keywords')} />
-        <link rel="canonical" href="https://bedtime-stories.com/about" />
+        <link rel="canonical" href="https://timetosleep.org/about" />
         
         {/* Open Graph */}
         <meta property="og:title" content={t('about.title')} />
         <meta property="og:description" content={t('about.description')} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://bedtime-stories.com/about" />
+        <meta property="og:url" content="https://timetosleep.org/about" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
@@ -35,13 +35,13 @@ const AboutPage: React.FC = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Главная",
-              "item": "https://bedtime-stories.com"
+              "item": "https://timetosleep.org"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "О нас",
-              "item": "https://bedtime-stories.com/about"
+              "item": "https://timetosleep.org/about"
             }
           ]
         })}

@@ -34,7 +34,7 @@ const AdminPage: React.FC = () => {
   };
 
   const handleDeleteImage = async (imageId: string) => {
-    if (!confirm('Are you sure you want to delete this image?')) {
+    if (!window.confirm('Are you sure you want to delete this image?')) {
       return;
     }
 

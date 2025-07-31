@@ -6,11 +6,11 @@ import { useStories } from '../hooks/useStories';
 import { useTranslation } from '../contexts/TranslationContext';
 import StoryImage from '../components/StoryImage';
 import LoadingSpinner from '../components/LoadingSpinner';
-import Breadcrumbs, { BreadcrumbItem } from '../components/Breadcrumbs';
+import Breadcrumbs from '../components/Breadcrumbs';
 import StoriesList from '../components/StoriesList';
 
 const StoryPage: React.FC = () => {
-  const { tagSlug, storySlug } = useParams<{ tagSlug: string; storySlug: string }>();
+  const { storySlug } = useParams<{ tagSlug: string; storySlug: string }>();
   const { story, loading, error } = useStory(storySlug || '');
   const { stories: allStories } = useStories();
   const { t } = useTranslation();
@@ -98,7 +98,7 @@ const StoryPage: React.FC = () => {
         <meta property="og:title" content={`${story.title} - ${t('home.title')}`} />
         <meta property="og:description" content={story.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://bedtime-stories.com/stories/all/${story.slug}`} />
+        <meta property="og:url" content={`https://timetosleep.org/stories/all/${story.slug}`} />
         {sortedImages.length > 0 && (
           <meta property="og:image" content={sortedImages[0].src} />
         )}
@@ -124,7 +124,7 @@ const StoryPage: React.FC = () => {
             "name": t('header.brandName'),
             "logo": {
               "@type": "ImageObject",
-              "url": "https://bedtime-stories.com/logo.png"
+              "url": "https://timetosleep.org/logo.png"
             }
           },
           "dateCreated": story.createdAt,
@@ -136,7 +136,7 @@ const StoryPage: React.FC = () => {
           },
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `https://bedtime-stories.com/stories/all/${story.slug}`
+            "@id": `https://timetosleep.org/stories/all/${story.slug}`
           }
         })}
         </script>
@@ -151,25 +151,25 @@ const StoryPage: React.FC = () => {
               "@type": "ListItem",
               "position": 1,
               "name": t('common.home'),
-              "item": "https://bedtime-stories.com"
+              "item": "https://timetosleep.org"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": t('header.stories'),
-              "item": "https://bedtime-stories.com/stories"
+              "item": "https://timetosleep.org/stories"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": t('stories.pageTitle'),
-              "item": "https://bedtime-stories.com/stories/all"
+              "item": "https://timetosleep.org/stories/all"
             },
             {
               "@type": "ListItem",
               "position": 4,
               "name": story.title,
-              "item": `https://bedtime-stories.com/stories/all/${story.slug}`
+              "item": `https://timetosleep.org/stories/all/${story.slug}`
             }
           ]
         })}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../contexts/TranslationContext';
-import Breadcrumbs, { BreadcrumbItem } from '../components/Breadcrumbs';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const ContactPage: React.FC = () => {
   const { t } = useTranslation();
@@ -43,13 +43,13 @@ const ContactPage: React.FC = () => {
         <title>{t('contact.title')}</title>
         <meta name="description" content={t('contact.description')} />
         <meta name="keywords" content={t('contact.keywords')} />
-        <link rel="canonical" href="https://bedtime-stories.com/contact" />
+        <link rel="canonical" href="https://timetosleep.org/contact" />
         
         {/* Open Graph */}
         <meta property="og:title" content={t('contact.title')} />
         <meta property="og:description" content={t('contact.description')} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://bedtime-stories.com/contact" />
+        <meta property="og:url" content="https://timetosleep.org/contact" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
@@ -66,13 +66,13 @@ const ContactPage: React.FC = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Главная",
-              "item": "https://bedtime-stories.com"
+              "item": "https://timetosleep.org"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Контакты",
-              "item": "https://bedtime-stories.com/contact"
+              "item": "https://timetosleep.org/contact"
             }
           ]
         })}
@@ -121,7 +121,7 @@ const ContactPage: React.FC = () => {
                       </div>
                       <div>
                         <h3 className="text-lg font-medium text-gray-900">{t('contact.info.email')}</h3>
-                        <p className="text-gray-600">hello@bedtime-stories.com</p>
+                        <p className="text-gray-600">hello@timetosleep.org</p>
                       </div>
                     </div>
 

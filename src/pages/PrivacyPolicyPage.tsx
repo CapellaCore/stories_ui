@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../contexts/TranslationContext';
-import Breadcrumbs, { BreadcrumbItem } from '../components/Breadcrumbs';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const PrivacyPolicyPage: React.FC = () => {
   const { t } = useTranslation();
@@ -12,13 +12,13 @@ const PrivacyPolicyPage: React.FC = () => {
         <title>{t('privacy.title')}</title>
         <meta name="description" content={t('privacy.description')} />
         <meta name="keywords" content={t('privacy.keywords')} />
-        <link rel="canonical" href="https://bedtime-stories.com/privacy-policy" />
+        <link rel="canonical" href="https://timetosleep.org/privacy-policy" />
         
         {/* Open Graph */}
         <meta property="og:title" content={t('privacy.title')} />
         <meta property="og:description" content={t('privacy.description')} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://bedtime-stories.com/privacy-policy" />
+        <meta property="og:url" content="https://timetosleep.org/privacy-policy" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
@@ -35,13 +35,13 @@ const PrivacyPolicyPage: React.FC = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Главная",
-              "item": "https://bedtime-stories.com"
+              "item": "https://timetosleep.org"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Политика конфиденциальности",
-              "item": "https://bedtime-stories.com/privacy-policy"
+              "item": "https://timetosleep.org/privacy-policy"
             }
           ]
         })}
@@ -245,7 +245,7 @@ const PrivacyPolicyPage: React.FC = () => {
                   </p>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <p className="text-gray-700">
-                      <strong>{t('privacy.sections.contact.email')}</strong> privacy@bedtime-stories.com<br />
+                      <strong>{t('privacy.sections.contact.email')}</strong> privacy@timetosleep.org<br />
                       <strong>{t('privacy.sections.contact.address')}</strong> [Twój adres korespondencyjny]<br />
                       <strong>{t('privacy.sections.contact.phone')}</strong> [Twój telefon]
                     </p>

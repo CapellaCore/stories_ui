@@ -12,13 +12,13 @@ const TermsOfUsePage: React.FC = () => {
         <title>{t('terms.title')}</title>
         <meta name="description" content={t('terms.description')} />
         <meta name="keywords" content={t('terms.keywords')} />
-        <link rel="canonical" href="https://bedtime-stories.com/terms-of-use" />
+        <link rel="canonical" href="https://timetosleep.org/terms-of-use" />
         
         {/* Open Graph */}
         <meta property="og:title" content={t('terms.title')} />
         <meta property="og:description" content={t('terms.description')} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://bedtime-stories.com/terms-of-use" />
+        <meta property="og:url" content="https://timetosleep.org/terms-of-use" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
@@ -35,13 +35,13 @@ const TermsOfUsePage: React.FC = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Главная",
-              "item": "https://bedtime-stories.com"
+              "item": "https://timetosleep.org"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Условия использования",
-              "item": "https://bedtime-stories.com/terms-of-use"
+              "item": "https://timetosleep.org/terms-of-use"
             }
           ]
         })}
@@ -201,7 +201,7 @@ const TermsOfUsePage: React.FC = () => {
                   </p>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <p className="text-gray-700">
-                      <strong>{t('terms.sections.contact.email')}</strong> legal@bedtime-stories.com<br />
+                      <strong>{t('terms.sections.contact.email')}</strong> legal@timetosleep.org<br />
                       <strong>{t('terms.sections.contact.address')}</strong> [Twój adres prawny]<br />
                       <strong>{t('terms.sections.contact.phone')}</strong> [Twój telefon]
                     </p>
