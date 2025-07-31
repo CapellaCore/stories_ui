@@ -7,6 +7,20 @@ const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY!;
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
+// Helper function to transform story images
+const transformStoryImages = (images: any[]): StoryImage[] => {
+  return images?.map((img: any) => ({
+    id: img.id,
+    src: img.src,
+    alt: img.alt,
+    position: img.position,
+    fileName: img.file_name,
+    fileSize: img.file_size,
+    mimeType: img.mime_type,
+    storagePath: img.storage_path
+  })) || [];
+};
+
 // Stories API
 export const storiesApi = {
   // Get all stories
@@ -29,7 +43,11 @@ export const storiesApi = {
           id,
           src,
           alt,
-          position
+          position,
+          file_name,
+          file_size,
+          mime_type,
+          storage_path
         )
       `)
       .order('created_at', { ascending: false });
@@ -46,12 +64,7 @@ export const storiesApi = {
       description: story.description,
       content: story.content,
       tags: story.story_tags?.map((st: any) => st.tags.name) || [],
-      images: story.story_images?.map((img: any) => ({
-        id: img.id,
-        src: img.src,
-        alt: img.alt,
-        position: img.position
-      })) || [],
+      images: transformStoryImages(story.story_images),
       readingTime: story.reading_time,
       ageGroup: story.age_group,
       slug: story.slug,
@@ -80,7 +93,11 @@ export const storiesApi = {
           id,
           src,
           alt,
-          position
+          position,
+          file_name,
+          file_size,
+          mime_type,
+          storage_path
         )
       `)
       .eq('slug', slug)
@@ -100,12 +117,7 @@ export const storiesApi = {
       description: data.description,
       content: data.content,
       tags: data.story_tags?.map((st: any) => st.tags.name) || [],
-      images: data.story_images?.map((img: any) => ({
-        id: img.id,
-        src: img.src,
-        alt: img.alt,
-        position: img.position
-      })) || [],
+      images: transformStoryImages(data.story_images),
       readingTime: data.reading_time,
       ageGroup: data.age_group,
       slug: data.slug,
@@ -134,7 +146,11 @@ export const storiesApi = {
           id,
           src,
           alt,
-          position
+          position,
+          file_name,
+          file_size,
+          mime_type,
+          storage_path
         )
       `)
       .eq('id', id)
@@ -154,12 +170,7 @@ export const storiesApi = {
       description: data.description,
       content: data.content,
       tags: data.story_tags?.map((st: any) => st.tags.name) || [],
-      images: data.story_images?.map((img: any) => ({
-        id: img.id,
-        src: img.src,
-        alt: img.alt,
-        position: img.position
-      })) || [],
+      images: transformStoryImages(data.story_images),
       readingTime: data.reading_time,
       ageGroup: data.age_group,
       slug: data.slug,
@@ -188,7 +199,11 @@ export const storiesApi = {
           id,
           src,
           alt,
-          position
+          position,
+          file_name,
+          file_size,
+          mime_type,
+          storage_path
         )
       `)
       .eq('story_tags.tags.slug', tagSlug)
@@ -206,12 +221,7 @@ export const storiesApi = {
       description: story.description,
       content: story.content,
       tags: story.story_tags?.map((st: any) => st.tags.name) || [],
-      images: story.story_images?.map((img: any) => ({
-        id: img.id,
-        src: img.src,
-        alt: img.alt,
-        position: img.position
-      })) || [],
+      images: transformStoryImages(story.story_images),
       readingTime: story.reading_time,
       ageGroup: story.age_group,
       slug: story.slug,
@@ -240,7 +250,11 @@ export const storiesApi = {
           id,
           src,
           alt,
-          position
+          position,
+          file_name,
+          file_size,
+          mime_type,
+          storage_path
         )
       `)
       .eq('story_tags.tags.name', tagName)
@@ -258,12 +272,7 @@ export const storiesApi = {
       description: story.description,
       content: story.content,
       tags: story.story_tags?.map((st: any) => st.tags.name) || [],
-      images: story.story_images?.map((img: any) => ({
-        id: img.id,
-        src: img.src,
-        alt: img.alt,
-        position: img.position
-      })) || [],
+      images: transformStoryImages(story.story_images),
       readingTime: story.reading_time,
       ageGroup: story.age_group,
       slug: story.slug,
@@ -296,7 +305,11 @@ export const storiesApi = {
           id,
           src,
           alt,
-          position
+          position,
+          file_name,
+          file_size,
+          mime_type,
+          storage_path
         )
       `)
       .or(`title.ilike.%${query}%,description.ilike.%${query}%,content.ilike.%${query}%`)
@@ -314,12 +327,7 @@ export const storiesApi = {
       description: story.description,
       content: story.content,
       tags: story.story_tags?.map((st: any) => st.tags.name) || [],
-      images: story.story_images?.map((img: any) => ({
-        id: img.id,
-        src: img.src,
-        alt: img.alt,
-        position: img.position
-      })) || [],
+      images: transformStoryImages(story.story_images),
       readingTime: story.reading_time,
       ageGroup: story.age_group,
       slug: story.slug,
@@ -394,6 +402,6 @@ export const imagesApi = {
       throw error;
     }
 
-    return data || [];
+    return transformStoryImages(data || []);
   }
 }; 

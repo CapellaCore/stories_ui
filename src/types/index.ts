@@ -17,6 +17,10 @@ export interface StoryImage {
   src: string;
   alt: string;
   position: number; // позиция в тексте
+  fileName?: string;
+  fileSize?: number;
+  mimeType?: string;
+  storagePath?: string;
 }
 
 export interface Tag {

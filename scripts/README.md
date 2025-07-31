@@ -1,5 +1,20 @@
 # Scripts Documentation
 
+This directory contains utility scripts for database management, data migration, and maintenance.
+
+## Available Scripts
+
+### Database Management
+- **`setup-database-v2.js`** - Initial database setup and schema creation
+- **`cleanup-database.js`** - Analyze database for cleanup opportunities
+- **`delete-unmigrated-images.js`** - Remove unmigrated image records
+
+### Data Migration
+- **`migrate-images-to-storage.js`** - Migrate images from public folder to Supabase storage
+
+### SEO & Sitemap
+- **`generate-sitemap.js`** - Generate static sitemap.xml file
+
 ## Sitemap Generation
 
 This project includes comprehensive sitemap generation functionality for better SEO.
