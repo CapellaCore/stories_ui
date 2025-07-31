@@ -27,16 +27,19 @@ const StoryCard: React.FC<StoryCardProps> = ({ story, tagSlug = 'all', className
     ? `/stories/all/${story.slug}` 
     : `/stories/${tagSlug}/${story.slug}`;
 
+  // Sort images by position to ensure correct order
+  const sortedImages = [...story.images].sort((a, b) => a.position - b.position);
+
   return (
     <Link 
       to={storyUrl} 
       className={`flex h-full flex-1 flex-col gap-3 rounded-lg min-w-64 bg-white shadow-sm hover:shadow-md transition-shadow duration-200 ${className}`}
     >
       <div className="relative w-full aspect-video rounded-t-lg overflow-hidden">
-        {story.images.length > 0 ? (
+        {sortedImages.length > 0 ? (
           <StoryImage
-            src={story.images[0].src}
-            alt={story.images[0].alt || story.title}
+            src={sortedImages[0].src}
+            alt={sortedImages[0].alt || story.title}
             className="w-full h-full"
             width={320}
             height={180}

@@ -42,13 +42,15 @@ const StoryPage: React.FC = () => {
     );
   }
 
+  // Sort images by position to ensure correct order
+  const sortedImages = [...story.images].sort((a, b) => a.position - b.position);
+
   // Function to render content with images
   const renderContentWithImages = () => {
     const paragraphs = story.content.split('\n\n');
-    const images = [...story.images].sort((a, b) => a.position - b.position);
     
     // Skip the first image since it's already shown in the hero section
-    const imagesInText = images.slice(1);
+    const imagesInText = sortedImages.slice(1);
     
     let currentImageIndex = 0;
     let currentPosition = 0;
@@ -97,8 +99,8 @@ const StoryPage: React.FC = () => {
         <meta property="og:description" content={story.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://bedtime-stories.com/stories/all/${story.slug}`} />
-        {story.images.length > 0 && (
-          <meta property="og:image" content={story.images[0].src} />
+        {sortedImages.length > 0 && (
+          <meta property="og:image" content={sortedImages[0].src} />
         )}
         
         {/* Structured Data */}
@@ -108,7 +110,7 @@ const StoryPage: React.FC = () => {
           "@type": "CreativeWork",
           "name": story.title,
           "description": story.description,
-          "image": story.images.length > 0 ? story.images[0].src : undefined,
+          "image": sortedImages.length > 0 ? sortedImages[0].src : undefined,
           "author": {
             "@type": "Organization",
             "name": t('header.brandName')
@@ -292,11 +294,11 @@ const StoryPage: React.FC = () => {
           
           {/* Hero Image */}
           <div className="px-4 mb-6">
-            {story.images.length > 0 ? (
+            {sortedImages.length > 0 ? (
               <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg">
                 <StoryImage
-                  src={story.images[0].src}
-                  alt={story.images[0].alt || story.title}
+                  src={sortedImages[0].src}
+                  alt={sortedImages[0].alt || story.title}
                   className="w-full h-full object-cover"
                   width={960}
                   height={540}
