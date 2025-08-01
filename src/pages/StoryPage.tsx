@@ -122,7 +122,7 @@ const StoryPage: React.FC = () => {
             "name": t('header.brandName'),
             "logo": {
               "@type": "ImageObject",
-              "url": "https://timetosleep.org/logo.png"
+              "url": "https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg"
             }
           },
           "dateCreated": story.createdAt,
