@@ -59,8 +59,8 @@ const AdminPage: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="px-40 flex flex-1 justify-center py-5">
-        <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
+      <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
+        <div className="w-full max-w-[960px] flex flex-col flex-1">
           <LoadingSpinner message={t('common.loading')} size="large" />
         </div>
       </div>
@@ -75,8 +75,8 @@ const AdminPage: React.FC = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
-      <div className="px-40 flex flex-1 justify-center py-5">
-        <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
+      <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
+        <div className="w-full max-w-[960px] flex flex-col flex-1">
           {/* Breadcrumbs */}
           <div className="px-4 py-3">
             <Breadcrumbs 
@@ -88,10 +88,10 @@ const AdminPage: React.FC = () => {
           </div>
 
           <div className="px-4">
-            <h1 className="text-3xl font-bold mb-6">Admin - Image Management</h1>
+            <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Admin - Image Management</h1>
             
             {/* Story Selection */}
-            <div className="mb-6">
+            <div className="mb-4 md:mb-6">
               <label htmlFor="story-select" className="block text-sm font-medium text-gray-700 mb-2">
                 Select a story to manage images:
               </label>

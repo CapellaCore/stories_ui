@@ -79,25 +79,25 @@ const ContactPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-6 md:py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumbs */}
-            <div className="mb-6">
+            <div className="mb-4 md:mb-6">
               <Breadcrumbs 
                 items={[
                   { name: t('common.home'), path: '/' },
-                                      { name: t('contact.pageTitle'), path: '/contact', isCurrent: true }
+                  { name: t('contact.pageTitle'), path: '/contact', isCurrent: true }
                 ]}
               />
             </div>
             
             {/* Header */}
-            <div className="text-center mb-12">
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-8 md:mb-12">
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
                 {t('contact.pageTitle')}
               </h1>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-4">
                 {t('contact.pageDescription')}
               </p>
             </div>

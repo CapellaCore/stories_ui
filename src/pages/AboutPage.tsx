@@ -48,55 +48,55 @@ const AboutPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 py-12">
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 py-6 md:py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             {/* Breadcrumbs */}
-            <div className="mb-6">
+            <div className="mb-4 md:mb-6">
               <Breadcrumbs 
                 items={[
                   { name: t('common.home'), path: '/' },
-                                      { name: t('about.pageTitle'), path: '/about', isCurrent: true }
+                  { name: t('about.pageTitle'), path: '/about', isCurrent: true }
                 ]}
               />
             </div>
             
             {/* Header */}
-            <div className="text-center mb-16">
-              <h1 className="text-5xl font-bold text-gray-900 mb-6">
+            <div className="text-center mb-8 md:mb-16">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
                 {t('about.pageTitle')}
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
                 {t('about.pageDescription')}
               </p>
             </div>
 
             {/* Mission Section */}
-            <div className="bg-white rounded-2xl shadow-sm p-8 mb-12">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="bg-white rounded-2xl shadow-sm p-4 md:p-8 mb-8 md:mb-12">
+              <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">
                     {t('about.missionTitle')}
                   </h2>
-                  <p className="text-lg text-gray-700 mb-6">
+                  <p className="text-base md:text-lg text-gray-700 mb-4 md:mb-6">
                     {t('about.missionDescription1')}
                   </p>
-                  <p className="text-lg text-gray-700 mb-6">
+                  <p className="text-base md:text-lg text-gray-700 mb-4 md:mb-6">
                     {t('about.missionDescription2')}
                   </p>
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                      <svg className="w-5 h-5 md:w-6 md:h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                       </svg>
                     </div>
-                    <span className="text-lg font-medium text-gray-900">{t('about.createdWithLove')}</span>
+                    <span className="text-base md:text-lg font-medium text-gray-900">{t('about.createdWithLove')}</span>
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="bg-gradient-to-br from-purple-400 to-pink-400 rounded-2xl p-8 text-white">
-                    <h3 className="text-2xl font-bold mb-4">{t('about.valuesTitle')}</h3>
-                    <ul className="space-y-3">
+                  <div className="bg-gradient-to-br from-purple-400 to-pink-400 rounded-2xl p-4 md:p-8 text-white">
+                    <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">{t('about.valuesTitle')}</h3>
+                    <ul className="space-y-2 md:space-y-3">
                       <li className="flex items-center space-x-3">
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />

@@ -17,8 +17,8 @@ const StoryPage: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="px-40 flex flex-1 justify-center py-5">
-        <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
+      <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
+        <div className="w-full max-w-[960px] flex flex-col flex-1">
           <LoadingSpinner message={t('common.loading')} size="large" />
         </div>
       </div>
@@ -27,8 +27,8 @@ const StoryPage: React.FC = () => {
 
   if (error || !story) {
     return (
-      <div className="px-40 flex flex-1 justify-center py-5">
-        <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
+      <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
+        <div className="w-full max-w-[960px] flex flex-col flex-1">
           <div className="flex items-center justify-center h-64">
             <div className="text-lg text-red-600">
               {error || t('common.error')}
@@ -71,8 +71,6 @@ const StoryPage: React.FC = () => {
                 src={image.src}
                 alt={image.alt}
                 className="absolute inset-0 w-full h-full object-cover"
-                width={832}
-                height={468}
               />
             </div>
           </div>
@@ -278,8 +276,8 @@ const StoryPage: React.FC = () => {
         `}</style>
       </Helmet>
 
-      <div className="px-40 flex flex-1 justify-center py-5">
-        <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
+      <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
+        <div className="w-full max-w-[960px] flex flex-col flex-1">
           {/* Breadcrumbs */}
           <div className="px-4 py-3">
             <Breadcrumbs 
@@ -293,21 +291,19 @@ const StoryPage: React.FC = () => {
           </div>
           
           {/* Hero Image */}
-          <div className="px-4 mb-6">
+          <div className="px-4 mb-4 md:mb-6">
             {sortedImages.length > 0 ? (
               <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg">
                 <StoryImage
                   src={sortedImages[0].src}
                   alt={sortedImages[0].alt || story.title}
                   className="w-full h-full object-cover"
-                  width={960}
-                  height={540}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h1 className="text-3xl md:text-4xl font-bold mb-2">{story.title}</h1>
-                  <p className="text-lg opacity-90 mb-3">{story.description}</p>
-                  <div className="flex items-center gap-4 text-sm opacity-90">
+                <div className="absolute bottom-0 left-0 right-0 p-3 md:p-6 text-white">
+                  <h1 className="text-xl md:text-3xl lg:text-4xl font-bold mb-2">{story.title}</h1>
+                  <p className="text-sm md:text-lg opacity-90 mb-2 md:mb-3">{story.description}</p>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 md:gap-4 text-xs md:text-sm opacity-90">
                     <span className="flex items-center gap-1">
                       <span>⏱️</span>
                       <span>{story.readingTime} {t('search.minutes')}</span>
@@ -321,33 +317,33 @@ const StoryPage: React.FC = () => {
               </div>
             ) : (
               <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
-                              <div className="text-center text-white">
-                <div className="text-6xl mb-4">📖</div>
-                <h1 className="text-3xl md:text-4xl font-bold mb-2">{story.title}</h1>
-                <p className="text-lg opacity-90 mb-3">{story.description}</p>
-                <div className="flex items-center justify-center gap-4 text-sm opacity-90">
-                  <span className="flex items-center gap-1">
-                    <span>⏱️</span>
-                    <span>{story.readingTime} {t('search.minutes')}</span>
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <span>👶</span>
-                    <span>{story.ageGroup}</span>
-                  </span>
+                <div className="text-center text-white p-4">
+                  <div className="text-4xl md:text-6xl mb-2 md:mb-4">📖</div>
+                  <h1 className="text-xl md:text-3xl lg:text-4xl font-bold mb-2">{story.title}</h1>
+                  <p className="text-sm md:text-lg opacity-90 mb-2 md:mb-3">{story.description}</p>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-2 md:gap-4 text-xs md:text-sm opacity-90">
+                    <span className="flex items-center gap-1">
+                      <span>⏱️</span>
+                      <span>{story.readingTime} {t('search.minutes')}</span>
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <span>👶</span>
+                      <span>{story.ageGroup}</span>
+                    </span>
+                  </div>
                 </div>
-              </div>
               </div>
             )}
           </div>
           
           {/* Story Content */}
-          <div className="px-4 mb-8">
-            <div className="story-content-text max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-8">
+          <div className="px-4 mb-6 md:mb-8">
+            <div className="story-content-text max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-4 md:p-8">
               {renderContentWithImages()}
             </div>
           </div>
           
-          <h2 className="text-[#101619] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">{t('story.relatedStories')}</h2>
+          <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">{t('story.relatedStories')}</h2>
           <StoriesList 
             stories={allStories.filter(s => s.slug !== story.slug).slice(0, 3)} 
             tagSlug="all" 

@@ -48,56 +48,56 @@ const TermsOfUsePage: React.FC = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-gray-50 py-12">
+      <div className="min-h-screen bg-gray-50 py-6 md:py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumbs */}
-            <div className="mb-6">
+            <div className="mb-4 md:mb-6">
               <Breadcrumbs 
                 items={[
                   { name: t('common.home'), path: '/' },
-                                      { name: t('terms.pageTitle'), path: '/terms-of-use', isCurrent: true }
+                  { name: t('terms.pageTitle'), path: '/terms-of-use', isCurrent: true }
                 ]}
               />
             </div>
             
             {/* Header */}
-            <div className="text-center mb-12">
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-8 md:mb-12">
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
                 {t('terms.pageTitle')}
               </h1>
-              <p className="text-lg text-gray-600">
+              <p className="text-base md:text-lg text-gray-600">
                 {t('terms.lastUpdated')}
               </p>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm p-8">
-              <div className="prose prose-lg max-w-none">
-                <section className="mb-8">
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+            <div className="bg-white rounded-lg shadow-sm p-4 md:p-8">
+              <div className="prose prose-sm md:prose-lg max-w-none">
+                <section className="mb-6 md:mb-8">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 md:mb-4">
                     1. {t('terms.sections.acceptance.title')}
                   </h2>
-                  <p className="text-gray-700 mb-4">
+                  <p className="text-gray-700 mb-3 md:mb-4">
                     {t('terms.sections.acceptance.content')}
                   </p>
                 </section>
 
-                <section className="mb-8">
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                <section className="mb-6 md:mb-8">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 md:mb-4">
                     2. {t('terms.sections.service.title')}
                   </h2>
-                  <p className="text-gray-700 mb-4">
+                  <p className="text-gray-700 mb-3 md:mb-4">
                     {t('terms.sections.service.content')}
                   </p>
-                  <ul className="list-disc pl-6 text-gray-700 space-y-2">
+                  <ul className="list-disc pl-4 md:pl-6 text-gray-700 space-y-1 md:space-y-2">
                     {t('terms.sections.service.features').split(',').map((feature: string, index: number) => (
                       <li key={index}>{feature.trim()}</li>
                     ))}
                   </ul>
                 </section>
 
-                <section className="mb-8">
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                <section className="mb-6 md:mb-8">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 md:mb-4">
                     3. {t('terms.sections.usage.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
@@ -121,8 +121,8 @@ const TermsOfUsePage: React.FC = () => {
                   </ul>
                 </section>
 
-                <section className="mb-8">
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                <section className="mb-6 md:mb-8">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 md:mb-4">
                     4. {t('terms.sections.stories.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
@@ -130,8 +130,8 @@ const TermsOfUsePage: React.FC = () => {
                   </p>
                 </section>
 
-                <section className="mb-8">
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                <section className="mb-6 md:mb-8">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 md:mb-4">
                     5. {t('terms.sections.intellectual.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
@@ -142,8 +142,8 @@ const TermsOfUsePage: React.FC = () => {
                   </p>
                 </section>
 
-                <section className="mb-8">
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                <section className="mb-6 md:mb-8">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 md:mb-4">
                     6. {t('terms.sections.liability.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
@@ -156,8 +156,8 @@ const TermsOfUsePage: React.FC = () => {
                   </ul>
                 </section>
 
-                <section className="mb-8">
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                <section className="mb-6 md:mb-8">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 md:mb-4">
                     7. {t('terms.sections.privacy.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
@@ -165,8 +165,8 @@ const TermsOfUsePage: React.FC = () => {
                   </p>
                 </section>
 
-                <section className="mb-8">
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                <section className="mb-6 md:mb-8">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 md:mb-4">
                     8. {t('terms.sections.changes.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
@@ -174,8 +174,8 @@ const TermsOfUsePage: React.FC = () => {
                   </p>
                 </section>
 
-                <section className="mb-8">
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                <section className="mb-6 md:mb-8">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 md:mb-4">
                     9. {t('terms.sections.termination.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
@@ -183,8 +183,8 @@ const TermsOfUsePage: React.FC = () => {
                   </p>
                 </section>
 
-                <section className="mb-8">
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                <section className="mb-6 md:mb-8">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 md:mb-4">
                     10. {t('terms.sections.law.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
@@ -192,8 +192,8 @@ const TermsOfUsePage: React.FC = () => {
                   </p>
                 </section>
 
-                <section className="mb-8">
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                <section className="mb-6 md:mb-8">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 md:mb-4">
                     11. {t('terms.sections.contact.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">

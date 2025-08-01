@@ -41,8 +41,6 @@ const StoryCard: React.FC<StoryCardProps> = ({ story, tagSlug = 'all', className
             src={sortedImages[0].src}
             alt={sortedImages[0].alt || story.title}
             className="w-full h-full"
-            width={320}
-            height={180}
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white">

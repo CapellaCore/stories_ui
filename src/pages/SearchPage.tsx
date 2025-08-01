@@ -74,16 +74,18 @@ const SearchPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <div className="px-40 flex flex-1 justify-center py-5">
-        <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
-          <Breadcrumbs items={breadcrumbs} />
+      <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
+        <div className="w-full max-w-[960px] flex flex-col flex-1">
+          <div className="px-4 py-3">
+            <Breadcrumbs items={breadcrumbs} />
+          </div>
           
           <div className="flex flex-wrap justify-between gap-3 p-4">
-            <div className="flex min-w-72 flex-col gap-3">
-              <h1 className="text-[#101619] tracking-light text-[32px] font-bold leading-tight">
+            <div className="flex w-full md:min-w-72 flex-col gap-3">
+              <h1 className="text-[#101619] tracking-light text-xl md:text-2xl lg:text-[32px] font-bold leading-tight">
                 {query ? `${t('search.resultsFor')} "${query}"` : t('search.pageTitle')}
               </h1>
-              <p className="text-[#577c8e] text-sm font-normal leading-normal">
+              <p className="text-[#577c8e] text-sm md:text-base font-normal leading-normal">
                 {query ? t('search.resultsDescription') : t('search.pageDescription')}
               </p>
             </div>
@@ -105,34 +107,33 @@ const SearchPage: React.FC = () => {
 
           {!loading && !error && (
             <>
-              {query && stories.length === 0 && (
-                <div className="flex flex-col items-center justify-center py-12">
+              {stories.length === 0 ? (
+                <div className="flex flex-col items-center justify-center py-12 px-4">
                   <div className="text-6xl mb-4">🔍</div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">
                     {t('search.noResults')}
                   </h2>
-                  <p className="text-gray-600 text-center max-w-md">
+                  <p className="text-gray-600 text-center mb-6 max-w-md">
                     {t('search.noResultsDescription')}
                   </p>
                   <Link 
                     to="/stories" 
-                    className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
                   >
                     {t('search.browseAllStories')}
                   </Link>
                 </div>
-              )}
-
-              {stories.length > 0 && (
-                <>
-                  <div className="px-4 pb-3">
-                    <p className="text-gray-600">
-                      {t('search.foundResults').replace('{count}', stories.length.toString()).replace('{query}', query)}
-                    </p>
+              ) : (
+                <div className="px-4">
+                  <div className="mb-4 text-sm text-gray-600">
+                    {t('search.foundResults').replace('{count}', stories.length.toString()).replace('{query}', query)}
                   </div>
-                  
-                  <StoriesList stories={stories} tagSlug="all" showAll={true} maxVisible={6} />
-                </>
+                  <StoriesList 
+                    stories={stories} 
+                    tagSlug="search" 
+                    showAll={true}
+                  />
+                </div>
               )}
             </>
           )}

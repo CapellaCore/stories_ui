@@ -22,14 +22,14 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
 
   return (
     <nav 
-      className={`flex items-center space-x-2 text-sm text-gray-600 ${className}`}
+      className={`flex items-center flex-nowrap overflow-hidden text-sm text-gray-600 ${className}`}
       aria-label={t('common.breadcrumbs') || 'Breadcrumb navigation'}
     >
       {items.map((item, index) => (
         <React.Fragment key={item.path}>
           {index > 0 && (
             <svg 
-              className="w-4 h-4 text-gray-400" 
+              className="w-4 h-4 text-gray-400 flex-shrink-0" 
               fill="currentColor" 
               viewBox="0 0 20 20"
               aria-hidden="true"
@@ -44,15 +44,17 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
           
           {item.isCurrent ? (
             <span 
-              className="text-gray-900 font-medium"
+              className="text-gray-900 font-medium truncate min-w-0"
               aria-current="page"
+              title={item.name}
             >
               {item.name}
             </span>
           ) : (
             <Link
               to={item.path}
-              className="text-gray-600 hover:text-gray-900 hover:underline transition-colors"
+              className="text-gray-600 hover:text-gray-900 hover:underline transition-colors truncate min-w-0"
+              title={item.name}
             >
               {item.name}
             </Link>

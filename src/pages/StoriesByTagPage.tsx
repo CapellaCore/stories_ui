@@ -16,8 +16,8 @@ const StoriesByTagPage: React.FC = () => {
 
   if (tagLoading || storiesLoading) {
     return (
-      <div className="px-40 flex flex-1 justify-center py-5">
-        <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
+      <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
+        <div className="w-full max-w-[960px] flex flex-col flex-1">
           <LoadingSpinner message={t('storiesByTag.loading')} size="large" />
         </div>
       </div>
@@ -26,8 +26,8 @@ const StoriesByTagPage: React.FC = () => {
 
   if (tagError || storiesError || !tag) {
     return (
-      <div className="px-40 flex flex-1 justify-center py-5">
-        <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
+      <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
+        <div className="w-full max-w-[960px] flex flex-col flex-1">
           <div className="flex items-center justify-center h-64">
             <div className="text-lg text-red-600">
               {tagError || storiesError || t('storiesByTag.tagNotFound')}
@@ -105,8 +105,8 @@ const StoriesByTagPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <div className="px-40 flex flex-1 justify-center py-5">
-        <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
+      <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
+        <div className="w-full max-w-[960px] flex flex-col flex-1">
           {/* Breadcrumbs */}
           <div className="px-4 py-3">
             <Breadcrumbs 
@@ -119,14 +119,14 @@ const StoriesByTagPage: React.FC = () => {
           </div>
           
           <div className="flex flex-wrap justify-between gap-3 p-4">
-            <div className="flex min-w-72 flex-col gap-3">
-              <p className="text-[#101619] tracking-light text-[32px] font-bold leading-tight">{tag.name}</p>
-              <p className="text-[#577c8e] text-sm font-normal leading-normal">{tag.description}</p>
-              <p className="text-[#577c8e] text-sm font-normal leading-normal">{`${t('storiesByTag.storiesCount')}: ${filteredStories.length}`}</p>
+            <div className="flex w-full md:min-w-72 flex-col gap-3">
+              <h1 className="text-[#101619] tracking-light text-xl md:text-2xl lg:text-[32px] font-bold leading-tight">{tag.name}</h1>
+              <p className="text-[#577c8e] text-sm md:text-base font-normal leading-normal">{tag.description}</p>
+              <p className="text-[#577c8e] text-sm md:text-base font-normal leading-normal">{`${t('storiesByTag.storiesCount')}: ${filteredStories.length}`}</p>
             </div>
           </div>
           
-          <h2 className="text-[#101619] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
+          <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
             {`${t('storiesByTag.storiesInCategory')} "${tag.name}"`}
           </h2>
           <StoriesList stories={filteredStories} tagSlug={tag.slug} showAll={true} maxVisible={6} />

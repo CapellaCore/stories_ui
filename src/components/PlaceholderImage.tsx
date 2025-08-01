@@ -22,26 +22,15 @@ const PlaceholderImage: React.FC<PlaceholderImageProps> = ({
   
   return (
     <div 
-      className={`placeholder-image ${className}`}
+      className={`placeholder-image w-full h-full flex items-center justify-center rounded-lg text-white font-bold text-center p-4 shadow-lg ${className}`}
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
         backgroundColor: randomColor,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: '8px',
-        color: 'white',
-        fontSize: '1.2rem',
-        fontWeight: 'bold',
-        textAlign: 'center',
-        padding: '20px',
         boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
       }}
     >
       <div>
-        <div style={{ fontSize: '3rem', marginBottom: '10px' }}>🌙</div>
-        <div>{alt}</div>
+        <div className="text-4xl md:text-5xl mb-2 md:mb-3">🌙</div>
+        <div className="text-sm md:text-base">{alt}</div>
       </div>
     </div>
   );
