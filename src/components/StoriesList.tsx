@@ -75,7 +75,7 @@ const StoriesList: React.FC<StoriesListProps> = ({
   if (showAll) {
     return (
       <div className={className}>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 p-4">
           {visibleStories.map(story => (
             <StoryCard
               key={story.id}
@@ -88,7 +88,7 @@ const StoriesList: React.FC<StoriesListProps> = ({
           <div className="flex justify-center p-4">
             <button
               onClick={handleShowMore}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+              className="w-full md:w-auto px-4 md:px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm md:text-base"
             >
               Show More Stories ({stories.length - visibleCount} remaining)
             </button>
