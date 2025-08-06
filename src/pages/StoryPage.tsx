@@ -90,15 +90,23 @@ const StoryPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{story.title} - {t('home.title')}</title>
+        <title>{story.title}</title>
         <meta name="description" content={story.description} />
-        <meta name="keywords" content={`${t('home.keywords')}, ${story.tags.join(', ')}`} />
-        <meta property="og:title" content={`${story.title} - ${t('home.title')}`} />
+        <meta name="keywords" content={`${story.tags.join(', ')}`} />
+        <meta property="og:title" content={story.title} />
         <meta property="og:description" content={story.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://timetosleep.org/stories/all/${story.slug}`} />
         {sortedImages.length > 0 && (
           <meta property="og:image" content={sortedImages[0].src} />
+        )}
+        
+        {/* Twitter Card */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content={story.title} />
+        <meta property="twitter:description" content={story.description} />
+        {sortedImages.length > 0 && (
+          <meta property="twitter:image" content={sortedImages[0].src} />
         )}
         
         {/* Structured Data */}

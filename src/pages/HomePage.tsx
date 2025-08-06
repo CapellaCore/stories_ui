@@ -46,6 +46,13 @@ const HomePage: React.FC = () => {
         <meta property="og:description" content={t('home.description')} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://timetosleep.org/" />
+        <meta property="og:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
+        
+        {/* Twitter Card */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content={t('home.title')} />
+        <meta property="twitter:description" content={t('home.description')} />
+        <meta property="twitter:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
