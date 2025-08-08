@@ -43,9 +43,9 @@ export const useTag = (slug: string) => {
         if (slug === 'all') {
           setTag({
             id: 'all',
-            name: 'Wszystkie',
+            name: 'All',
             slug: 'all',
-            description: 'Wszystkie dostępne bajki',
+            description: 'All available stories',
             color: '#6366f1'
           });
         } else {
