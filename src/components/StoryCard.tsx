@@ -35,7 +35,7 @@ const StoryCard: React.FC<StoryCardProps> = ({ story, tagSlug = 'all', className
       to={storyUrl} 
       className={`flex h-full flex-1 flex-col gap-3 rounded-lg min-w-64 bg-white shadow-sm hover:shadow-md transition-shadow duration-200 ${className}`}
     >
-      <div className="relative w-full aspect-video rounded-t-lg overflow-hidden">
+      <div className="relative w-full aspect-[3/2] rounded-t-lg overflow-hidden">
         {sortedImages.length > 0 ? (
           <StoryImage
             src={sortedImages[0].src}

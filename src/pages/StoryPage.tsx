@@ -66,7 +66,7 @@ const StoryPage: React.FC = () => {
         const image = imagesInText[currentImageIndex];
         imagesInParagraph.push(
           <div key={image.id} className="my-8 text-center">
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-md mx-auto max-w-4xl">
+            <div className="relative w-full aspect-[3/2] rounded-lg overflow-hidden shadow-md mx-auto max-w-4xl">
               <StoryImage
                 src={image.src}
                 alt={image.alt}
@@ -301,7 +301,7 @@ const StoryPage: React.FC = () => {
           {/* Hero Image */}
           <div className="px-4 mb-4 md:mb-6">
             {sortedImages.length > 0 ? (
-              <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg">
+              <div className="relative w-full aspect-[3/2] rounded-lg overflow-hidden shadow-lg">
                 <StoryImage
                   src={sortedImages[0].src}
                   alt={sortedImages[0].alt || story.title}
@@ -324,7 +324,7 @@ const StoryPage: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
+              <div className="relative w-full aspect-[3/2] rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
                 <div className="text-center text-white p-4">
                   <div className="text-4xl md:text-6xl mb-2 md:mb-4">📖</div>
                   <h1 className="text-xl md:text-3xl lg:text-4xl font-bold mb-2">{story.title}</h1>
