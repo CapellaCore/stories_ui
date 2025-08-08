@@ -38,20 +38,9 @@ export const useTag = (slug: string) => {
       try {
         setLoading(true);
         setError(null);
-        
-        // If slug is "all", create a virtual "all" tag
-        if (slug === 'all') {
-          setTag({
-            id: 'all',
-            name: 'Wszystkie',
-            slug: 'all',
-            description: 'Wszystkie dostępne bajki',
-            color: '#6366f1'
-          });
-        } else {
-          const data = await tagsApi.getBySlug(slug);
-          setTag(data);
-        }
+
+        const data = await tagsApi.getBySlug(slug);
+        setTag(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to fetch tag');
         console.error('Error fetching tag:', err);

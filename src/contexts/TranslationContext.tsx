@@ -29,7 +29,9 @@ export const TranslationProvider: React.FC<TranslationProviderProps> = ({ childr
 
   useEffect(() => {
     // Update translations when language changes
-    const newTranslations = language === 'pl' ? plTranslations : enTranslations;
+    // Temporarily commented until we prepare Polish content.
+    // const newTranslations = language === 'pl' ? plTranslations : enTranslations;
+    const newTranslations = enTranslations;
     setTranslations(newTranslations);
     localStorage.setItem('language', language);
   }, [language]);
