@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import plTranslations from '../locales/pl.json';
+//import plTranslations from '../locales/pl.json';
 import enTranslations from '../locales/en.json';
 
-type Translations = typeof plTranslations;
+type Translations = typeof enTranslations;
 
 interface TranslationContextType {
   t: (key: string) => string;
