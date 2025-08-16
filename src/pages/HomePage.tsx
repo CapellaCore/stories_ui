@@ -6,11 +6,12 @@ import { useStories } from '../hooks/useStories';
 import { useTags } from '../hooks/useTags';
 import LoadingSpinner from '../components/LoadingSpinner';
 import StoriesList from '../components/StoriesList';
+import StoriesByTagPage from "./StoriesByTagPage";
 
 const HomePage: React.FC = () => {
   const { t } = useTranslation();
   const { stories, loading: storiesLoading, error: storiesError } = useStories();
-  const { tags, loading: tagsLoading, error: tagsError } = useTags();
+  const { loading: tagsLoading, error: tagsError } = useTags();
 
   if (storiesLoading || tagsLoading) {
     return (
@@ -79,7 +80,7 @@ const HomePage: React.FC = () => {
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Главная",
+              "name": "Main",
               "item": "https://timetosleep.org"
             }
           ]
@@ -95,25 +96,17 @@ const HomePage: React.FC = () => {
               <p className="text-[#577c8e] text-sm font-normal leading-normal">{t('home.welcomeDescription')}</p>
             </div>
           </div>
-          
-          <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">{t('home.allStories')}</h2>
-          <StoriesList stories={stories} tagSlug="all" showAll={true} maxVisible={6} />
-          
-          <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">{t('home.categories')}</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4 p-4">
-            {tags.map(tag => (
-              <Link key={tag.id} to={`/stories/${tag.slug}`} className="flex flex-col gap-3 md:gap-4 rounded-lg">
-                <div 
-                  className="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg flex flex-col items-center justify-center text-white"
-                  style={{ backgroundColor: tag.color }}
-                >
-                  <div className="text-2xl md:text-4xl mb-1 md:mb-2">📚</div>
-                  <div className="text-xs md:text-sm text-center px-1 md:px-2">{tag.name}</div>
-                </div>
-                <p className="text-[#101619] text-sm md:text-base font-medium leading-normal text-center">{tag.name}</p>
-              </Link>
-            ))}
-          </div>
+
+          <StoriesByTagPage tagSlug="animals" showAll={false} maxVisible={3} homePage = {true}/>
+          <StoriesByTagPage tagSlug="classic" showAll={false} maxVisible={3} homePage = {true}/>
+
+          <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
+            <Link to="/stories" className="hover:underline">
+              {t('home.allStories')}
+            </Link>
+          </h2>
+
+          <StoriesList stories={stories} showAll={false} maxVisible={3}/>
         </div>
       </div>
     </>

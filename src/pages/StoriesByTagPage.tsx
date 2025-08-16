@@ -1,139 +1,77 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../contexts/TranslationContext';
 import { useStoriesByTag } from '../hooks/useStories';
 import { useTag } from '../hooks/useTags';
 import LoadingSpinner from '../components/LoadingSpinner';
-import Breadcrumbs from '../components/Breadcrumbs';
 import StoriesList from '../components/StoriesList';
+import {Link} from "react-router-dom";
 
-const StoriesByTagPage: React.FC = () => {
-  const { tagSlug } = useParams<{ tagSlug: string }>();
+interface StoriesByTagSectionProps {
+  tagSlug: string;
+  showAll?: boolean;
+  maxVisible?: number;
+  homePage?: boolean;
+}
+
+const StoriesByTagSection: React.FC<StoriesByTagSectionProps> = ({
+  tagSlug,
+  showAll = false,
+  maxVisible = 3,
+  homePage = false
+}) => {
   const { t } = useTranslation();
-  const { tag, loading: tagLoading, error: tagError } = useTag(tagSlug || '');
-  const { stories: filteredStories, loading: storiesLoading, error: storiesError } = useStoriesByTag(tagSlug || '');
+  const { tag, loading: tagLoading, error: tagError } = useTag(tagSlug);
+  const { stories, loading: storiesLoading, error: storiesError } = useStoriesByTag(tagSlug);
 
   if (tagLoading || storiesLoading) {
-    return (
-      <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
-        <div className="w-full max-w-[960px] flex flex-col flex-1">
-          <LoadingSpinner message={t('storiesByTag.loading')} size="large" />
-        </div>
-      </div>
-    );
+    return <LoadingSpinner message={t('storiesByTag.loading')} size="large" />;
   }
 
   if (tagError || storiesError || !tag) {
     return (
-      <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
-        <div className="w-full max-w-[960px] flex flex-col flex-1">
-          <div className="flex items-center justify-center h-64">
-            <div className="text-lg text-red-600">
-              {tagError || storiesError || t('storiesByTag.tagNotFound')}
-            </div>
-            <Link to="/stories" className="mt-4 text-blue-600 hover:underline">
-              {t('storiesByTag.backToStories')}
-            </Link>
-          </div>
+        <div className="text-center text-red-600 p-4">
+          {tagError || storiesError || t('storiesByTag.tagNotFound')}
         </div>
-      </div>
     );
   }
 
-  return (
-    <>
-      <Helmet>
-        <title>{`${tag.name} - ${t('storiesByTag.title')}`}</title>
-        <meta name="description" content={`${t('storiesByTag.description')} ${tag.name}. ${tag.description}`} />
-        <meta name="keywords" content={`${t('storiesByTag.keywords')} ${tag.name}`} />
-        <meta property="og:title" content={`${tag.name} - ${t('storiesByTag.title')}`} />
-        <meta property="og:description" content={`${t('storiesByTag.description')} ${tag.name}. ${tag.description}`} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://timetosleep.org/stories/${tag.slug}`} />
-        
-        {/* Structured Data */}
-        <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "CollectionPage",
-          "name": `${tag.name} - ${t('storiesByTag.storiesTitle')}`,
-          "description": tag.description,
-          "url": `https://timetosleep.org/stories/${tag.slug}`,
-          "mainEntity": {
-            "@type": "ItemList",
-            "itemListElement": filteredStories.map((story, index) => ({
-              "@type": "ListItem",
-              "position": index + 1,
-              "item": {
-                "@type": "CreativeWork",
-                "name": story.title,
-                "url": `https://timetosleep.org/stories/${tag.slug}/${story.slug}`,
-                "genre": "Children's Literature"
-              }
-            }))
-          }
-        })}
-        </script>
-
-        {/* Breadcrumbs Structured Data */}
-        <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": t('common.home'),
-              "item": "https://timetosleep.org"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": t('header.stories'),
-              "item": "https://timetosleep.org/stories"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": tag.name,
-              "item": `https://timetosleep.org/stories/${tag.slug}`
-            }
-          ]
-        })}
-        </script>
-      </Helmet>
-
+  return homePage ? (
+      <section className="mb-10">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 px-4">
+              <div>
+                  <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight">
+                      <Link to={`/stories/${tag.slug}`} className="hover:underline">
+                          {tag.name}
+                      </Link>
+                  </h2>
+                  <p className="text-[#577c8e] text-sm md:text-base">{tag.description}</p>
+              </div>
+          </div>
+          <StoriesList
+              stories={stories}
+              tagSlug={tag.slug}
+              showAll={showAll}
+              maxVisible={maxVisible}
+              className="mt-4"
+          />
+      </section>
+  ) : (
       <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
-        <div className="w-full max-w-[960px] flex flex-col flex-1">
-          {/* Breadcrumbs */}
-          <div className="px-4 py-3">
-            <Breadcrumbs 
-              items={[
-                { name: t('common.home'), path: '/' },
-                { name: t('header.stories'), path: '/stories' },
-                { name: tag.name, path: `/stories/${tag.slug}`, isCurrent: true }
-              ]}
-            />
+          <div className="w-full max-w-[960px] flex flex-col flex-1">
+              <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
+                  {t('home.allStories')}
+              </h2>
+              <StoriesList
+                  stories={stories}
+                  tagSlug={tag.slug}
+                  showAll={showAll}
+                  maxVisible={maxVisible}
+                  className="mt-4"
+              />
           </div>
-          
-          <div className="flex flex-wrap justify-between gap-3 p-4">
-            <div className="flex w-full md:min-w-72 flex-col gap-3">
-              <h1 className="text-[#101619] tracking-light text-xl md:text-2xl lg:text-[32px] font-bold leading-tight">{tag.name}</h1>
-              <p className="text-[#577c8e] text-sm md:text-base font-normal leading-normal">{tag.description}</p>
-              <p className="text-[#577c8e] text-sm md:text-base font-normal leading-normal">{`${t('storiesByTag.storiesCount')}: ${filteredStories.length}`}</p>
-            </div>
-          </div>
-          
-          <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-            {`${t('storiesByTag.storiesInCategory')} "${tag.name}"`}
-          </h2>
-          <StoriesList stories={filteredStories} tagSlug={tag.slug} showAll={true} maxVisible={6} />
-        </div>
       </div>
-    </>
   );
 };
 
-export default StoriesByTagPage; 
+export default StoriesByTagSection;

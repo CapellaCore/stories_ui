@@ -26,8 +26,8 @@ interface StoriesListProps {
 }
 
 const StoriesList: React.FC<StoriesListProps> = ({ 
-  stories, 
-  tagSlug = 'all', 
+  stories,
+  tagSlug = 'all',
   className = '',
   showAll = false,
   maxVisible = 6

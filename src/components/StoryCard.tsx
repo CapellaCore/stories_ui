@@ -23,13 +23,10 @@ interface StoryCardProps {
 }
 
 const StoryCard: React.FC<StoryCardProps> = ({ story, tagSlug = 'all', className = '' }) => {
-  const storyUrl = tagSlug === 'all' 
-    ? `/stories/all/${story.slug}` 
-    : `/stories/${tagSlug}/${story.slug}`;
-
+  const storyUrl = `/stories/${tagSlug}/${story.slug}`;
   // Sort images by position to ensure correct order
   const sortedImages = [...story.images].sort((a, b) => a.position - b.position);
-
+  console.log(storyUrl)
   return (
     <Link 
       to={storyUrl} 

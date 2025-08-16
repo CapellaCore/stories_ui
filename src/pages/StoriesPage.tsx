@@ -1,14 +1,16 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
 import { useTranslation } from '../contexts/TranslationContext';
 import { useTags } from '../hooks/useTags';
 import LoadingSpinner from '../components/LoadingSpinner';
 import Breadcrumbs from '../components/Breadcrumbs';
+import StoriesList from "../components/StoriesList";
+import {useStories} from "../hooks/useStories";
 
 const StoriesPage: React.FC = () => {
   const { t } = useTranslation();
   const { tags, loading, error } = useTags();
+  const { stories } = useStories();
 
   if (loading) {
     return (
@@ -120,22 +122,8 @@ const StoriesPage: React.FC = () => {
               {t('stories.description')}
             </p>
           </div>
-
-          {/* Categories Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4 p-4">
-            {tags.map(tag => (
-              <Link key={tag.id} to={`/stories/${tag.slug}`} className="flex flex-col gap-3 md:gap-4 rounded-lg">
-                <div 
-                  className="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg flex flex-col items-center justify-center text-white"
-                  style={{ backgroundColor: tag.color }}
-                >
-                  <div className="text-2xl md:text-4xl mb-1 md:mb-2">📚</div>
-                  <div className="text-xs md:text-sm text-center px-1 md:px-2">{tag.name}</div>
-                </div>
-                <p className="text-[#101619] text-sm md:text-base font-medium leading-normal text-center">{tag.name}</p>
-              </Link>
-            ))}
-          </div>
+          <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">{t('home.allStories')}</h2>
+          <StoriesList stories={stories} showAll={true} maxVisible={3}/>
         </div>
       </div>
     </>
