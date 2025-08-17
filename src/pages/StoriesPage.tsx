@@ -6,6 +6,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import Breadcrumbs from '../components/Breadcrumbs';
 import StoriesList from "../components/StoriesList";
 import {useStories} from "../hooks/useStories";
+import { Link } from 'react-router-dom';
 
 const StoriesPage: React.FC = () => {
   const { t } = useTranslation();
@@ -122,8 +123,34 @@ const StoriesPage: React.FC = () => {
               {t('stories.description')}
             </p>
           </div>
-          <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">{t('home.allStories')}</h2>
-          <StoriesList stories={stories} showAll={true} maxVisible={3}/>
+                      {/* Tags Section */}
+            <div className="px-4 py-6">
+              <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-semibold leading-tight tracking-[-0.015em] mb-4">
+                {t('stories.categories')}
+              </h2>
+              <div className="flex flex-wrap gap-2 md:gap-3">
+                {tags.map((tagItem) => (
+                  <Link
+                    key={tagItem.id}
+                    to={`/stories/${tagItem.slug}`}
+                    className="inline-flex items-center px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-gray-700 border border-gray-200 hover:border-purple-300 hover:shadow-md hover:shadow-purple-100 hover:text-purple-700"
+                    style={{
+                      backgroundColor: tagItem.color + '10',
+                      borderColor: tagItem.color + '30',
+                    }}
+                  >
+                    <span 
+                      className="w-2 h-2 rounded-full mr-2 flex-shrink-0"
+                      style={{ backgroundColor: tagItem.color }}
+                    ></span>
+                    {tagItem.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">{t('home.allStories')}</h2>
+            <StoriesList stories={stories} showAll={true} maxVisible={6}/>
         </div>
       </div>
     </>

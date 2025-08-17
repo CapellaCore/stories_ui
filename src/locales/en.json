@@ -36,7 +36,7 @@
     "keywords": "stories, story categories, children's stories, bedtime stories, time to sleep",
     "pageTitle": "All Story Categories",
     "pageDescription": "Choose a category that interests you and discover magical stories for children on Time to Sleep.",
-    "categories": "Story Categories",
+    "categories": "Categories",
     "loadingTags": "Loading categories...",
     "errorLoadingTags": "Error loading categories:"
   },

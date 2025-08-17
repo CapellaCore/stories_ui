@@ -44,13 +44,17 @@ export const useTag = (slug: string) => {
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to fetch tag');
         console.error('Error fetching tag:', err);
+        setTag(null);
       } finally {
         setLoading(false);
       }
     };
 
-    if (slug) {
+    if (slug && slug.trim() !== '') {
       fetchTag();
+    } else {
+      setLoading(false);
+      setTag(null);
     }
   }, [slug]);
 

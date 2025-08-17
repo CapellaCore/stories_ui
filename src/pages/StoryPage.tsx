@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useStory } from '../hooks/useStories';
 import { useStories } from '../hooks/useStories';
+import { useTag } from '../hooks/useTags';
 import { useTranslation } from '../contexts/TranslationContext';
 import StoryImage from '../components/StoryImage';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -10,12 +11,18 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import StoriesList from '../components/StoriesList';
 
 const StoryPage: React.FC = () => {
-  const { storySlug } = useParams<{ tagSlug: string; storySlug: string }>();
+  const { tagSlug, storySlug } = useParams<{ tagSlug: string; storySlug: string }>();
   const { story, loading, error } = useStory(storySlug || '');
   const { stories: allStories } = useStories();
+  const { tag, loading: tagLoading } = useTag(tagSlug || '');
   const { t } = useTranslation();
 
-  if (loading) {
+  // Debug logging
+  console.log('StoryPage - tagSlug:', tagSlug);
+  console.log('StoryPage - tag:', tag);
+  console.log('StoryPage - tagLoading:', tagLoading);
+
+  if (loading || tagLoading) {
     return (
       <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
         <div className="w-full max-w-[960px] flex flex-col flex-1">
@@ -292,8 +299,8 @@ const StoryPage: React.FC = () => {
               items={[
                 { name: t('common.home'), path: '/' },
                 { name: t('header.stories'), path: '/stories' },
-                { name: t('stories.pageTitle'), path: '/stories/all' },
-                { name: story.title, path: `/stories/all/${story.slug}`, isCurrent: true }
+                { name: tag?.name || 'All Stories', path: `/stories/${tagSlug}` },
+                { name: story.title, path: `/stories/${tagSlug}/${story.slug}`, isCurrent: true }
               ]}
             />
           </div>

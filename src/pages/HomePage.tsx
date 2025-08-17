@@ -99,6 +99,7 @@ const HomePage: React.FC = () => {
 
           <StoriesByTagPage tagSlug="animals" showAll={false} maxVisible={3} homePage = {true}/>
           <StoriesByTagPage tagSlug="classic" showAll={false} maxVisible={3} homePage = {true}/>
+          <StoriesByTagPage tagSlug="originals" showAll={false} maxVisible={3} homePage = {true}/>
 
           <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
             <Link to="/stories" className="hover:underline">
