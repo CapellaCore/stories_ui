@@ -103,7 +103,7 @@ const StoryPage: React.FC = () => {
         <meta property="og:title" content={story.title} />
         <meta property="og:description" content={story.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://timetosleep.org/stories/all/${story.slug}`} />
+        <meta property="og:url" content={`https://timetosleep.org/stories/${story.slug}`} />
         {sortedImages.length > 0 && (
           <meta property="og:image" content={sortedImages[0].src} />
         )}
@@ -149,7 +149,7 @@ const StoryPage: React.FC = () => {
           },
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `https://timetosleep.org/stories/all/${story.slug}`
+            "@id": `https://timetosleep.org/stories/${story.slug}`
           }
         })}
         </script>
@@ -176,13 +176,13 @@ const StoryPage: React.FC = () => {
               "@type": "ListItem",
               "position": 3,
               "name": t('stories.pageTitle'),
-              "item": "https://timetosleep.org/stories/all"
+              "item": "https://timetosleep.org/stories"
             },
             {
               "@type": "ListItem",
               "position": 4,
               "name": story.title,
-              "item": `https://timetosleep.org/stories/all/${story.slug}`
+              "item": `https://timetosleep.org/stories/${story.slug}`
             }
           ]
         })}
@@ -359,9 +359,8 @@ const StoryPage: React.FC = () => {
           </div>
           
           <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">{t('story.relatedStories')}</h2>
-          <StoriesList 
-            stories={allStories.filter(s => s.slug !== story.slug).slice(0, 3)} 
-            tagSlug="all" 
+          <StoriesList
+            stories={allStories.filter(s => s.slug !== story.slug).slice(0, 3)}
           />
         </div>
       </div>

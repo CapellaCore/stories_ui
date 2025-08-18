@@ -30,7 +30,7 @@ The sitemap includes:
 
 - **Static Pages**: Home, Stories, Search, About, Contact, Terms, Privacy Policy
 - **Dynamic Tag Pages**: All story tag pages (e.g., `/stories/fantasy`)
-- **Dynamic Story Pages**: All individual story pages (e.g., `/stories/all/story-slug`)
+- **Dynamic Story Pages**: All individual story pages (e.g., `/stories/story-slug`)
 
 ### Sitemap Structure
 

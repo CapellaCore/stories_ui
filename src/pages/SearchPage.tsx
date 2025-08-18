@@ -54,7 +54,7 @@ const SearchPage: React.FC = () => {
                 "@type": "CreativeWork",
                 "name": story.title,
                 "description": story.description,
-                "url": `https://timetosleep.org/stories/all/${story.slug}`,
+                "url": `https://timetosleep.org/stories/${story.slug}`,
                 "genre": story.tags.join(', '),
                 "audience": {
                   "@type": "Audience",

@@ -27,7 +27,7 @@ interface StoriesListProps {
 
 const StoriesList: React.FC<StoriesListProps> = ({ 
   stories,
-  tagSlug = 'all',
+  tagSlug = '',
   className = '',
   showAll = false,
   maxVisible = 6
@@ -80,7 +80,7 @@ const StoriesList: React.FC<StoriesListProps> = ({
             <StoryCard
               key={story.id}
               story={story}
-              tagSlug={tagSlug}
+              tagSlug={tagSlug || story.tags[0]?.toLowerCase()}
             />
           ))}
         </div>
@@ -138,7 +138,7 @@ const StoriesList: React.FC<StoriesListProps> = ({
           <div key={story.id} className="flex-shrink-0 w-64">
             <StoryCard
               story={story}
-              tagSlug={tagSlug}
+              tagSlug={tagSlug || story.tags[0]?.toLowerCase()}
             />
           </div>
         ))}

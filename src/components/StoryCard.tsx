@@ -22,7 +22,7 @@ interface StoryCardProps {
   className?: string;
 }
 
-const StoryCard: React.FC<StoryCardProps> = ({ story, tagSlug = 'all', className = '' }) => {
+const StoryCard: React.FC<StoryCardProps> = ({ story, tagSlug = '', className = '' }) => {
   const storyUrl = `/stories/${tagSlug}/${story.slug}`;
   // Sort images by position to ensure correct order
   const sortedImages = [...story.images].sort((a, b) => a.position - b.position);
