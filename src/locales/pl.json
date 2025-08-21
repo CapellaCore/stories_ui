@@ -26,6 +26,7 @@
     "welcomeTitle": "Witamy w Time to Sleep!",
     "welcomeDescription": "Odkryj magiczne bajki na dobranoc z pięknymi ilustracjami. Idealne do rodzinnego czytania i pomagające dzieciom spokojnie zasnąć.",
     "allStories": "Wszystkie bajki",
+    "language": "Język",
     "categories": "Kategorie",
     "loadingStories": "Ładowanie bajek...",
     "errorLoadingData": "Błąd ładowania danych:"
@@ -175,7 +176,15 @@
       "namePlaceholder": "Twoje imię",
       "emailPlaceholder": "twoj@email.com",
       "subjectPlaceholder": "Temat wiadomości",
-      "messagePlaceholder": "Twoja wiadomość..."
+      "messagePlaceholder": "Twoja wiadomość...",
+      "title": "Wyślij wiadomość",
+      "successMessage": "Dziękujemy! Twoja wiadomość została wysłana. Odpowiemy Ci wkrótce.",
+      "nameLabel": "Imię *",
+      "emailLabel": "Email *",
+      "subjectLabel": "Temat *",
+      "messageLabel": "Wiadomość *",
+      "submitButton": "Wyślij wiadomość",
+      "submitting": "Wysyłanie..."
     },
     "info": {
       "title": "Informacje kontaktowe",
@@ -196,16 +205,6 @@
         "question": "Czy można używać waszych bajek?",
         "answer": "Wszystkie bajki na Time to Sleep są dostępne do użytku osobistego. Do użytku komercyjnego skontaktuj się z nami."
       }
-    },
-    "form": {
-      "title": "Wyślij wiadomość",
-      "successMessage": "Dziękujemy! Twoja wiadomość została wysłana. Odpowiemy Ci wkrótce.",
-      "nameLabel": "Imię *",
-      "emailLabel": "Email *",
-      "subjectLabel": "Temat *",
-      "messageLabel": "Wiadomość *",
-      "submitButton": "Wyślij wiadomość",
-      "submitting": "Wysyłanie..."
     }
   },
   "terms": {
@@ -265,9 +264,18 @@
       "contact": {
         "title": "Informacje kontaktowe",
         "content": "Jeśli masz pytania dotyczące niniejszych Warunków, skontaktuj się z nami:",
-        "email": "Email:",
-        "address": "Adres:",
-        "phone": "Telefon:"
+        "email": {
+          "value": "Email:",
+          "example": "legal@timetosleep.org"
+        },
+        "address":{
+          "value": "Adres:",
+          "example": "Twój adres prawny"
+        },
+        "phone": {
+          "value": "Telefon:",
+          "example": "Twój telefon"
+        }
       },
       "effective": {
         "content": "Niniejsze Warunki użytkowania wchodzą w życie z chwilą ich opublikowania i obowiązują do ich uchylenia lub zmiany."
@@ -348,9 +356,18 @@
       "contact": {
         "title": "Informacje kontaktowe",
         "content": "Jeśli masz pytania lub obawy dotyczące niniejszej Polityki prywatności, skontaktuj się z nami:",
-        "email": "Email:",
-        "address": "Adres:",
-        "phone": "Telefon:"
+        "email": {
+          "value": "Email:",
+          "example": "privacy@timetosleep.org"
+        },
+        "address":{
+          "value": "Adres:",
+          "example": "Twój adres korespondencyjny"
+        },
+        "phone": {
+          "value": "Telefon:",
+          "example": "Twój numer telefonu"
+        }
       },
       "effective": {
         "content": "Niniejsza Polityka prywatności wchodzi w życie z chwilą jej opublikowania i obowiązuje do jej uchylenia lub zmiany."

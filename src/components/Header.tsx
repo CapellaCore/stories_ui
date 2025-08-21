@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../contexts/TranslationContext';
+import LanguageSelector from "./LanguageSelector";
 import SearchInput from './SearchInput';
 
 const Header: React.FC = () => {
-  const { t } = useTranslation();
+  const { language, t } = useTranslation();
+  const prefix = language && language !== "en" ? `/${language}` : "";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   return (
@@ -19,7 +21,7 @@ const Header: React.FC = () => {
               className="w-full h-full"
             />
           </div>
-          <Link to="/" className="text-base md:text-lg font-bold leading-tight tracking-[-0.015em]">
+          <Link to={`${prefix}/`} className="text-base md:text-lg font-bold leading-tight tracking-[-0.015em]">
             {t('header.brandName')}
           </Link>
         </div>
@@ -48,31 +50,37 @@ const Header: React.FC = () => {
       {/* Desktop navigation */}
       <div className="hidden md:flex flex-1 justify-end gap-8">
         <div className="flex items-center gap-9">
-          <Link to="/stories" className="text-[#101619] text-sm font-medium leading-normal">
+          <LanguageSelector/>
+        </div>
+        <div className="flex items-center gap-9">
+          <Link to={`${prefix}/stories`} className="text-[#101619] text-sm font-medium leading-normal">
             {t('header.stories')}
           </Link>
         </div>
         <div className="flex gap-2">
-          <SearchInput />
+          <SearchInput/>
         </div>
       </div>
-      
+
       {/* Mobile navigation (collapsible) */}
       {isMobileMenuOpen && (
-        <div className="md:hidden w-full mt-3 pt-3 border-t border-gray-200">
-          <div className="flex flex-col gap-4">
-            <Link 
-              to="/stories" 
-              className="text-[#101619] text-sm font-medium leading-normal py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {t('header.stories')}
-            </Link>
-            <div className="w-full">
-              <SearchInput className="w-full" />
+          <div className="md:hidden w-full mt-3 pt-3 border-t border-gray-200">
+            <div className="flex items-center gap-9">
+              <LanguageSelector/>
+            </div>
+            <div className="flex flex-col gap-4">
+              <Link
+                  to={`${prefix}/stories`}
+                  className="text-[#101619] text-sm font-medium leading-normal py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('header.stories')}
+              </Link>
+              <div className="w-full">
+                <SearchInput className="w-full"/>
+              </div>
             </div>
           </div>
-        </div>
       )}
     </header>
   );

@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from '../contexts/TranslationContext';
 
 const Footer: React.FC = () => {
-  const { t } = useTranslation();
+  const { language, t } = useTranslation();
+  const prefix = language && language !== "en" ? `/${language}` : "";
   
   return (
     <footer className="bg-white border-t border-[#e9eff1] py-8 mt-auto">
@@ -34,17 +35,17 @@ const Footer: React.FC = () => {
             <h4 className="text-sm font-semibold text-[#101619] mb-3 uppercase tracking-wide">{t('common.links')}</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
+                <Link to={`${prefix}/`} className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
                   {t('common.home')}
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
+                <Link to={`${prefix}/about`} className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
                   {t('common.about')}
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
+                <Link to={`${prefix}/contact`} className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
                   {t('common.contact')}
                 </Link>
               </li>
@@ -56,12 +57,12 @@ const Footer: React.FC = () => {
             <h4 className="text-sm font-semibold text-[#101619] mb-3 uppercase tracking-wide">{t('common.legal')}</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/terms-of-use" className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
+                <Link to={`${prefix}/terms-of-use`} className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
                   {t('common.termsOfUse')}
                 </Link>
               </li>
               <li>
-                <Link to="/privacy-policy" className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
+                <Link to={`${prefix}/privacy-policy`} className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
                   {t('common.privacyPolicy')}
                 </Link>
               </li>

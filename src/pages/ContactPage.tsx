@@ -4,7 +4,9 @@ import { useTranslation } from '../contexts/TranslationContext';
 import Breadcrumbs from '../components/Breadcrumbs';
 
 const ContactPage: React.FC = () => {
-  const { t } = useTranslation();
+  const { language, t } = useTranslation();
+  const prefix = language && language !== "en" ? `/${language}` : "";
+  const baseUrl = 'https://timetosleep.org';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -43,13 +45,13 @@ const ContactPage: React.FC = () => {
         <title>{t('contact.title')}</title>
         <meta name="description" content={t('contact.description')} />
         <meta name="keywords" content={t('contact.keywords')} />
-        <link rel="canonical" href="https://timetosleep.org/contact" />
+        <link rel="canonical" href={`${baseUrl}${prefix}/contact`} />
         
         {/* Open Graph */}
         <meta property="og:title" content={t('contact.title')} />
         <meta property="og:description" content={t('contact.description')} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://timetosleep.org/contact" />
+        <meta property="og:url" content={`${baseUrl}${prefix}/contact`} />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
@@ -65,14 +67,14 @@ const ContactPage: React.FC = () => {
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Главная",
-              "item": "https://timetosleep.org"
+              "name": "Main",
+              "item": `${baseUrl}`
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Контакты",
-              "item": "https://timetosleep.org/contact"
+              "name": "Contact",
+              "item": `${baseUrl}${prefix}/contact`
             }
           ]
         })}
@@ -87,7 +89,7 @@ const ContactPage: React.FC = () => {
               <Breadcrumbs 
                 items={[
                   { name: t('common.home'), path: '/' },
-                  { name: t('contact.pageTitle'), path: '/contact', isCurrent: true }
+                  { name: t('contact.pageTitle'), path: `${prefix}/contact`, isCurrent: true }
                 ]}
               />
             </div>
@@ -240,12 +242,12 @@ const ContactPage: React.FC = () => {
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     >
-                      <option value="">Выберите тему</option>
-                      <option value="general">Общий вопрос</option>
-                      <option value="suggestion">Предложение</option>
-                      <option value="feedback">Отзыв</option>
-                      <option value="bug">Сообщить об ошибке</option>
-                      <option value="partnership">Сотрудничество</option>
+                      <option value="">Choose the topic</option>
+                      <option value="general">General</option>
+                      <option value="suggestion">Suggestion</option>
+                      <option value="feedback">Feedback</option>
+                      <option value="bug">Report a bug</option>
+                      <option value="partnership">Partnership</option>
                     </select>
                   </div>
 

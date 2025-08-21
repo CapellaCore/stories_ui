@@ -37,4 +37,9 @@ export interface SEOData {
   keywords: string[];
   ogImage?: string;
   canonicalUrl?: string;
-} 
+}
+
+export interface Locale {
+  code: string; // e.g. "en", "pl"
+  name: string; // e.g. "English", "Polish"
+}

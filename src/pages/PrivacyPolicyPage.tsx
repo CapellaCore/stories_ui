@@ -4,21 +4,24 @@ import { useTranslation } from '../contexts/TranslationContext';
 import Breadcrumbs from '../components/Breadcrumbs';
 
 const PrivacyPolicyPage: React.FC = () => {
-  const { t } = useTranslation();
-  
+  const { language, t } = useTranslation();
+  const prefix = language && language !== "en" ? `/${language}` : "";
+  const baseUrl = 'https://timetosleep.org';
+
+
   return (
     <>
       <Helmet>
         <title>{t('privacy.title')}</title>
         <meta name="description" content={t('privacy.description')} />
         <meta name="keywords" content={t('privacy.keywords')} />
-        <link rel="canonical" href="https://timetosleep.org/privacy-policy" />
+        <link rel="canonical" href={`${baseUrl}${prefix}/privacy-policy`} />
         
         {/* Open Graph */}
         <meta property="og:title" content={t('privacy.title')} />
         <meta property="og:description" content={t('privacy.description')} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://timetosleep.org/privacy-policy" />
+        <meta property="og:url" content={`${baseUrl}${prefix}/privacy-policy`} />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
@@ -34,14 +37,14 @@ const PrivacyPolicyPage: React.FC = () => {
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Главная",
-              "item": "https://timetosleep.org"
+              "name": "Main",
+              "item": `${baseUrl}`
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Политика конфиденциальности",
-              "item": "https://timetosleep.org/privacy-policy"
+              "name": "Privacy policy",
+              "item": `${baseUrl}${prefix}/privacy-policy`
             }
           ]
         })}
@@ -56,7 +59,7 @@ const PrivacyPolicyPage: React.FC = () => {
               <Breadcrumbs 
                 items={[
                   { name: t('common.home'), path: '/' },
-                  { name: t('privacy.pageTitle'), path: '/privacy-policy', isCurrent: true }
+                  { name: t('privacy.pageTitle'), path: `${prefix}/privacy-policy`, isCurrent: true }
                 ]}
               />
             </div>
@@ -245,9 +248,10 @@ const PrivacyPolicyPage: React.FC = () => {
                   </p>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <p className="text-gray-700">
-                      <strong>{t('privacy.sections.contact.email')}</strong> privacy@timetosleep.org<br />
-                      <strong>{t('privacy.sections.contact.address')}</strong> [Twój adres korespondencyjny]<br />
-                      <strong>{t('privacy.sections.contact.phone')}</strong> [Twój telefon]
+                      <strong>{t('privacy.sections.contact.email.value')}</strong> {t('privacy.sections.contact.email.example')}<br/>
+                      <strong>{t('privacy.sections.contact.address.value')}</strong> {t('privacy.sections.contact.address.example')}<br/>
+                      <strong>{t('privacy.sections.contact.phone.value')}</strong> {t('privacy.sections.contact.phone.example')}
+                      <br/>
                     </p>
                   </div>
                 </section>

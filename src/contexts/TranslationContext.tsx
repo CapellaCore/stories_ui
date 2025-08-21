@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import plTranslations from '../locales/pl.json';
 import enTranslations from '../locales/en.json';
+import {useParams} from "react-router-dom";
 
-type Translations = typeof plTranslations;
+type Translations = typeof enTranslations;
 
 interface TranslationContextType {
   t: (key: string) => string;
@@ -18,26 +18,35 @@ interface TranslationProviderProps {
 }
 
 export const TranslationProvider: React.FC<TranslationProviderProps> = ({ children }) => {
+  const { lang } = useParams<{ lang?: string }>();
   const [language, setLanguageState] = useState<string>('en');
   const [translations, setTranslations] = useState<Translations>(enTranslations);
 
+  // Sync language with URL parameter
   useEffect(() => {
-    // Load language preference from localStorage
-    const savedLanguage = localStorage.getItem('language') || 'en';
-    setLanguageState(savedLanguage);
-  }, []);
+    const newLanguage = lang || 'en'; // Default to 'en' if lang is undefined
+    setLanguageState(newLanguage);
+    localStorage.setItem('language', newLanguage); // Update localStorage
+  }, [lang]);
 
+  // Load translation file whenever language changes
   useEffect(() => {
-    // Update translations when language changes
-    // Temporarily commented until we prepare Polish content.
-    // const newTranslations = language === 'pl' ? plTranslations : enTranslations;
-    const newTranslations = enTranslations;
-    setTranslations(newTranslations);
-    localStorage.setItem('language', language);
+    const loadTranslations = async () => {
+      try {
+        const messages = await import(`../locales/${language}.json`);
+        setTranslations(messages.default);
+      } catch (err) {
+        console.error(`No translations found for: ${language}, falling back to English.`);
+        setTranslations(enTranslations);
+      }
+    };
+
+    loadTranslations();
   }, [language]);
 
   const setLanguage = (lang: string) => {
     setLanguageState(lang);
+    localStorage.setItem('language', lang);
   };
 
   const t = (key: string): string => {

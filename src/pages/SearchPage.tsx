@@ -9,14 +9,21 @@ import StoriesList from '../components/StoriesList';
 
 const SearchPage: React.FC = () => {
   const [searchParams] = useSearchParams();
-  const { t } = useTranslation();
+  const { language, t } = useTranslation();
+  const prefix = language && language !== "en" ? `/${language}` : "";
   const query = searchParams.get('q') || '';
   const { stories, loading, error } = useSearch(query);
 
-  const breadcrumbs = [
-    { name: t('common.home'), path: '/' },
-    { name: t('search.pageTitle'), path: '/search', isCurrent: true }
-  ];
+  const breadcrumbs = React.useMemo(() => [
+    { name: t('common.home'), path: `/` },
+    { name: t('search.pageTitle'), path: `${prefix}/search`, isCurrent: true }
+  ], [t, prefix]);
+
+  const baseUrl = 'https://timetosleep.org';
+  const searchUrl = React.useMemo(() => {
+    return `${baseUrl}${prefix}/search?q=${encodeURIComponent(query)}`;
+  }, [baseUrl, prefix, query]);
+
 
   return (
     <>
@@ -27,7 +34,7 @@ const SearchPage: React.FC = () => {
         <meta property="og:title" content={query ? `${t('search.resultsFor')} "${query}"` : t('search.pageTitle')} />
         <meta property="og:description" content={t('search.description')} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://timetosleep.org/search?q=${encodeURIComponent(query)}`} />
+        <meta property="og:url" content={searchUrl} />
         <meta property="og:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
         
         {/* Twitter Card */}
@@ -43,7 +50,7 @@ const SearchPage: React.FC = () => {
           "@type": "SearchResultsPage",
           "name": query ? `${t('search.resultsFor')} "${query}"` : t('search.pageTitle'),
           "description": t('search.description'),
-          "url": `https://timetosleep.org/search?q=${encodeURIComponent(query)}`,
+          "url": searchUrl,
           "mainEntity": {
             "@type": "ItemList",
             "numberOfItems": stories.length,
@@ -54,7 +61,7 @@ const SearchPage: React.FC = () => {
                 "@type": "CreativeWork",
                 "name": story.title,
                 "description": story.description,
-                "url": `https://timetosleep.org/stories/all/${story.slug}`,
+                "url": `${baseUrl}${prefix}/stories/${story.slug}`,
                 "genre": story.tags.join(', '),
                 "audience": {
                   "@type": "Audience",
@@ -75,7 +82,7 @@ const SearchPage: React.FC = () => {
             "@type": "ListItem",
             "position": index + 1,
             "name": item.name,
-            "item": item.path === '/search' ? `https://timetosleep.org/search?q=${encodeURIComponent(query)}` : `https://timetosleep.org${item.path}`
+            "item": `${baseUrl}${item.path}`
           }))
         })}
         </script>
@@ -124,7 +131,7 @@ const SearchPage: React.FC = () => {
                     {t('search.noResultsDescription')}
                   </p>
                   <Link 
-                    to="/stories" 
+                    to={`${prefix}/stories`}
                     className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
                   >
                     {t('search.browseAllStories')}

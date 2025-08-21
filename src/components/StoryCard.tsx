@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import StoryImage from './StoryImage';
+import {useTranslation} from "../contexts/TranslationContext";
 
 interface StoryCardProps {
   story: {
@@ -22,14 +23,12 @@ interface StoryCardProps {
   className?: string;
 }
 
-const StoryCard: React.FC<StoryCardProps> = ({ story, tagSlug = 'all', className = '' }) => {
-  const storyUrl = tagSlug === 'all' 
-    ? `/stories/all/${story.slug}` 
-    : `/stories/${tagSlug}/${story.slug}`;
-
+const StoryCard: React.FC<StoryCardProps> = ({ story,  className = '' }) => {
+  const { language, t } = useTranslation();
+  const prefix = language && language !== "en" ? `/${language}` : '';
+  const storyUrl = `${prefix}/stories/${story.tags[0].toLowerCase()}/${story.slug}`;
   // Sort images by position to ensure correct order
   const sortedImages = [...story.images].sort((a, b) => a.position - b.position);
-
   return (
     <Link 
       to={storyUrl} 

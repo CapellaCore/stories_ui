@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { Story, Tag, StoryImage } from '../types';
+import {Story, Tag, StoryImage, Locale} from '../types';
 
 // Create Supabase client
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL!;
@@ -404,4 +404,12 @@ export const imagesApi = {
 
     return transformStoryImages(data || []);
   }
-}; 
+};
+
+export const localesApi = {
+  async getAll(): Promise<Locale[]> {
+    const { data, error } = await supabase.from("locales").select("*");
+    if (error) throw error;
+    return data as Locale[];
+  },
+};

@@ -22,6 +22,30 @@ CREATE TABLE stories (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+CREATE TABLE tag_translation (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  tags_id UUID NOT NULL REFERENCES tags(id) ON DELETE CASCADE,
+  name VARCHAR(500) NOT NULL,
+  description VARCHAR(500) NOT NULL
+);
+-- Создание таблицы переводов en,pl,de..
+CREATE TABLE story_translation (
+   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+   story_id UUID NOT NULL REFERENCES stories(id) ON DELETE CASCADE,
+   language VARCHAR(255) NOT NULL,
+   title VARCHAR(255) NOT NULL,
+   description TEXT NOT NULL,
+   content TEXT NOT NULL,
+   reading_time INTEGER NOT NULL, -- в минутах
+   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+-- Создание таблицы локаль en,pl,de..
+CREATE TABLE locales (
+   code VARCHAR(500) NOT NULL,
+   name VARCHAR(500) NOT NULL
+);
+
 -- Создание таблицы изображений сказок
 CREATE TABLE story_images (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,

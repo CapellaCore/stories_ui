@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import StoryCard from './StoryCard';
+import {useTranslation} from "../contexts/TranslationContext";
 
 interface Story {
   id: string;
@@ -27,11 +28,12 @@ interface StoriesListProps {
 
 const StoriesList: React.FC<StoriesListProps> = ({ 
   stories, 
-  tagSlug = 'all', 
+  tagSlug = '',
   className = '',
   showAll = false,
   maxVisible = 6
 }) => {
+
   const [visibleCount, setVisibleCount] = useState(maxVisible);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -80,7 +82,6 @@ const StoriesList: React.FC<StoriesListProps> = ({
             <StoryCard
               key={story.id}
               story={story}
-              tagSlug={tagSlug}
             />
           ))}
         </div>
@@ -138,7 +139,6 @@ const StoriesList: React.FC<StoriesListProps> = ({
           <div key={story.id} className="flex-shrink-0 w-64">
             <StoryCard
               story={story}
-              tagSlug={tagSlug}
             />
           </div>
         ))}

@@ -13,7 +13,9 @@ const StoryPage: React.FC = () => {
   const { storySlug } = useParams<{ tagSlug: string; storySlug: string }>();
   const { story, loading, error } = useStory(storySlug || '');
   const { stories: allStories } = useStories();
-  const { t } = useTranslation();
+  const { language, t } = useTranslation();
+  const prefix = language && language !== "en" ? `/${language}` : "";
+  const baseUrl = 'https://timetosleep.org';
 
   if (loading) {
     return (
@@ -33,7 +35,7 @@ const StoryPage: React.FC = () => {
             <div className="text-lg text-red-600">
               {error || t('common.error')}
             </div>
-            <Link to="/" className="mt-4 text-blue-600 hover:underline">
+            <Link to={`${prefix}/`} className="mt-4 text-blue-600 hover:underline">
               {t('common.home')}
             </Link>
           </div>
@@ -96,7 +98,7 @@ const StoryPage: React.FC = () => {
         <meta property="og:title" content={story.title} />
         <meta property="og:description" content={story.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://timetosleep.org/stories/all/${story.slug}`} />
+        <meta property="og:url" content={`${baseUrl}${prefix}/stories/${story.slug}`} />
         {sortedImages.length > 0 && (
           <meta property="og:image" content={sortedImages[0].src} />
         )}
@@ -142,7 +144,7 @@ const StoryPage: React.FC = () => {
           },
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `https://timetosleep.org/stories/all/${story.slug}`
+            "@id": `${baseUrl}${prefix}/stories/${story.slug}`
           }
         })}
         </script>
@@ -157,25 +159,25 @@ const StoryPage: React.FC = () => {
               "@type": "ListItem",
               "position": 1,
               "name": t('common.home'),
-              "item": "https://timetosleep.org"
+              "item": `${baseUrl}`
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": t('header.stories'),
-              "item": "https://timetosleep.org/stories"
+              "item": `${baseUrl}${prefix}/stories`
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": t('stories.pageTitle'),
-              "item": "https://timetosleep.org/stories/all"
+              "item": `${baseUrl}${prefix}/stories`
             },
             {
               "@type": "ListItem",
               "position": 4,
               "name": story.title,
-              "item": `https://timetosleep.org/stories/all/${story.slug}`
+              "item": `${baseUrl}${prefix}/stories/${story.slug}`
             }
           ]
         })}
@@ -292,8 +294,7 @@ const StoryPage: React.FC = () => {
               items={[
                 { name: t('common.home'), path: '/' },
                 { name: t('header.stories'), path: '/stories' },
-                { name: t('stories.pageTitle'), path: '/stories/all' },
-                { name: story.title, path: `/stories/all/${story.slug}`, isCurrent: true }
+                { name: story.title, path: `${baseUrl}${prefix}/stories/${story.slug}`, isCurrent: true }
               ]}
             />
           </div>
@@ -352,10 +353,7 @@ const StoryPage: React.FC = () => {
           </div>
           
           <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">{t('story.relatedStories')}</h2>
-          <StoriesList 
-            stories={allStories.filter(s => s.slug !== story.slug).slice(0, 3)} 
-            tagSlug="all" 
-          />
+          <StoriesList stories={allStories.filter(s => s.slug !== story.slug).slice(0, 3)}/>
         </div>
       </div>
     </>

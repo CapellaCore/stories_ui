@@ -4,7 +4,9 @@ import { useTranslation } from '../contexts/TranslationContext';
 import Breadcrumbs from '../components/Breadcrumbs';
 
 const AboutPage: React.FC = () => {
-  const { t } = useTranslation();
+  const { language, t } = useTranslation();
+  const prefix = language && language !== "en" ? `/${language}` : "";
+  const baseUrl = 'https://timetosleep.org';
   
   return (
     <>
@@ -12,13 +14,13 @@ const AboutPage: React.FC = () => {
         <title>{t('about.title')}</title>
         <meta name="description" content={t('about.description')} />
         <meta name="keywords" content={t('about.keywords')} />
-        <link rel="canonical" href="https://timetosleep.org/about" />
+        <link rel="canonical" href={`${baseUrl}${prefix}/about`} />
         
         {/* Open Graph */}
         <meta property="og:title" content={t('about.title')} />
         <meta property="og:description" content={t('about.description')} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://timetosleep.org/about" />
+        <meta property="og:url" content={`${baseUrl}${prefix}/about`} />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
@@ -34,14 +36,14 @@ const AboutPage: React.FC = () => {
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Главная",
-              "item": "https://timetosleep.org"
+              "name": "Main",
+              "item": `${baseUrl}`
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "О нас",
-              "item": "https://timetosleep.org/about"
+              "name": "About us",
+              "item": `${baseUrl}${prefix}/about`
             }
           ]
         })}
@@ -56,7 +58,7 @@ const AboutPage: React.FC = () => {
               <Breadcrumbs 
                 items={[
                   { name: t('common.home'), path: '/' },
-                  { name: t('about.pageTitle'), path: '/about', isCurrent: true }
+                  { name: t('about.pageTitle'), path: `${prefix}/about`, isCurrent: true }
                 ]}
               />
             </div>

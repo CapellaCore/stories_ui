@@ -14,11 +14,13 @@ interface BreadcrumbsProps {
 }
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
 
   if (items.length <= 1) {
     return null;
   }
+  // Only prefix if language is not default
+  const prefix = language && language !== 'en' ? `/${language}` : '';
 
   return (
     <nav 
@@ -52,7 +54,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
             </span>
           ) : (
             <Link
-              to={item.path}
+                to={`${prefix}${item.path}`}
               className="text-gray-600 hover:text-gray-900 hover:underline transition-colors truncate min-w-0"
               title={item.name}
             >

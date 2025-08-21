@@ -8,7 +8,6 @@ const BASE_URL = 'https://timetosleep.org';
 const staticPages = [
   { url: '/', priority: 1.0, changefreq: 'daily' },
   { url: '/stories', priority: 0.9, changefreq: 'daily' },
-  { url: '/stories/all', priority: 0.9, changefreq: 'daily' },
   { url: '/search', priority: 0.7, changefreq: 'weekly' },
   { url: '/about', priority: 0.6, changefreq: 'monthly' },
   { url: '/contact', priority: 0.5, changefreq: 'monthly' },
@@ -110,7 +109,7 @@ async function generateSitemap() {
       stories = await storiesApi.getAll();
       stories.forEach(story => {
         sitemap.write({
-          url: `/stories/all/${story.slug}`,
+          url: `/stories/${story.slug}`,
           changefreq: 'monthly',
           priority: 0.7,
           lastmod: story.updatedAt || story.createdAt || new Date().toISOString()

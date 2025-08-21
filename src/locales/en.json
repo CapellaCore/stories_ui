@@ -26,9 +26,11 @@
     "welcomeTitle": "Welcome to Time to Sleep!",
     "welcomeDescription": "Discover magical bedtime stories with beautiful illustrations. Perfect for family reading and helping children fall asleep peacefully.",
     "allStories": "All Stories",
+    "language": "Language",
     "categories": "Categories",
     "loadingStories": "Loading stories...",
-    "errorLoadingData": "Error loading data:"
+    "errorLoadingData": "Error loading data:",
+    "loading": "Loading..."
   },
   "stories": {
     "title": "Stories - Time to Sleep",
@@ -175,7 +177,15 @@
       "namePlaceholder": "Your name",
       "emailPlaceholder": "your@email.com",
       "subjectPlaceholder": "Message subject",
-      "messagePlaceholder": "Your message..."
+      "messagePlaceholder": "Your message...",
+      "successMessage": "Thank you! Your message has been sent. We will respond to you soon.",
+      "title": "Send Message",
+      "nameLabel": "Name *",
+      "emailLabel": "Email *",
+      "subjectLabel": "Subject *",
+      "messageLabel": "Message *",
+      "submitButton": "Send Message",
+      "submitting": "Sending..."
     },
     "info": {
       "title": "Contact Information",
@@ -196,16 +206,6 @@
         "question": "Can I use your stories?",
         "answer": "All stories on Time to Sleep are available for personal use. For commercial use, please contact us."
       }
-    },
-    "form": {
-      "title": "Send Message",
-      "successMessage": "Thank you! Your message has been sent. We will respond to you soon.",
-      "nameLabel": "Name *",
-      "emailLabel": "Email *",
-      "subjectLabel": "Subject *",
-      "messageLabel": "Message *",
-      "submitButton": "Send Message",
-      "submitting": "Sending..."
     }
   },
   "terms": {
@@ -265,9 +265,18 @@
       "contact": {
         "title": "Contact Information",
         "content": "If you have questions about these Terms, please contact us:",
-        "email": "Email:",
-        "address": "Address:",
-        "phone": "Phone:"
+        "email": {
+          "value": "Email:",
+          "example": "legal@timetosleep.org"
+        },
+        "address":{
+          "value": "Address:",
+          "example": "Your mailing address"
+        },
+        "phone": {
+          "value": "Phone:",
+          "example": "Your phone number"
+        }
       },
       "effective": {
         "content": "These Terms of Use take effect from the moment they are published and remain in force until they are repealed or changed."
@@ -348,9 +357,18 @@
       "contact": {
         "title": "Contact Information",
         "content": "If you have questions or concerns about this Privacy Policy, please contact us:",
-        "email": "Email:",
-        "address": "Address:",
-        "phone": "Phone:"
+        "email": {
+          "value": "Email:",
+          "example": "privacy@timetosleep.org"
+        },
+        "address":{
+          "value": "Address:",
+          "example": "Your mailing address"
+        },
+        "phone": {
+          "value": "Phone:",
+          "example": "Your phone number"
+        }
       },
       "effective": {
         "content": "This Privacy Policy takes effect from the moment it is published and remains in force until it is repealed or changed."
