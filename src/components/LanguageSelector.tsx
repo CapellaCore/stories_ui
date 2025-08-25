@@ -25,7 +25,6 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ className }) => {
         if (newLang !== "en") {
             parts.unshift(newLang);
         }
-        const newPath = "/" + parts.join("/");
         navigate("/" + parts.join("/") + location.search, { replace: true });
     };
 

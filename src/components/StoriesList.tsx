@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import StoryCard from './StoryCard';
-import {useTranslation} from "../contexts/TranslationContext";
 
 interface Story {
   id: string;

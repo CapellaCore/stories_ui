@@ -1,6 +1,5 @@
 import {Story} from "../types";
 import StoriesList from "./StoriesList";
-import {Link} from "react-router-dom";
 
 interface StoriesListWrapperProps {
     stories: Story[];

@@ -46,11 +46,11 @@ const StoryPage: React.FC = () => {
 
   // Sort images by position to ensure correct order
   const sortedImages = [...story.images].sort((a, b) => a.position - b.position);
-
+  const tagSlug = story.tags?.[0]?.toLowerCase() || '';
+  const categoryName = story.tags?.[0]
   // Function to render content with images
   const renderContentWithImages = () => {
     const paragraphs = story.content.split('\n\n');
-    
     // Skip the first image since it's already shown in the hero section
     const imagesInText = sortedImages.slice(1);
     
@@ -98,7 +98,7 @@ const StoryPage: React.FC = () => {
         <meta property="og:title" content={story.title} />
         <meta property="og:description" content={story.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${baseUrl}${prefix}/stories/${story.slug}`} />
+        <meta property="og:url" content={`${baseUrl}${prefix}/stories/${tagSlug}/${story.slug}`} />
         {sortedImages.length > 0 && (
           <meta property="og:image" content={sortedImages[0].src} />
         )}
@@ -144,7 +144,7 @@ const StoryPage: React.FC = () => {
           },
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `${baseUrl}${prefix}/stories/${story.slug}`
+            "@id": `${baseUrl}${prefix}/stories/${tagSlug}/${story.slug}`
           }
         })}
         </script>
@@ -175,9 +175,15 @@ const StoryPage: React.FC = () => {
             },
             {
               "@type": "ListItem",
+              "position": 3,
+              "name": categoryName,
+              "item": `${baseUrl}${prefix}/stories/${tagSlug}`
+            },
+            {
+              "@type": "ListItem",
               "position": 4,
               "name": story.title,
-              "item": `${baseUrl}${prefix}/stories/${story.slug}`
+              "item": `${baseUrl}${prefix}/stories/${tagSlug}/${story.slug}`
             }
           ]
         })}
@@ -293,8 +299,9 @@ const StoryPage: React.FC = () => {
             <Breadcrumbs 
               items={[
                 { name: t('common.home'), path: '/' },
-                { name: t('header.stories'), path: '/stories' },
-                { name: story.title, path: `${baseUrl}${prefix}/stories/${story.slug}`, isCurrent: true }
+                { name: t('header.stories'), path: `/stories` },
+                { name: categoryName, path: `/stories/${tagSlug}` },
+                { name: story.title, path: `${baseUrl}${prefix}/stories/${tagSlug}/${story.slug}`, isCurrent: true }
               ]}
             />
           </div>

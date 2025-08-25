@@ -4,7 +4,7 @@ import { tagsApi } from '../services/supabase';
 import {useTranslation} from "../contexts/TranslationContext";
 
 export const useTags = () => {
-  const { language, t } = useTranslation();
+  const { language } = useTranslation();
   const [tags, setTags] = useState<Tag[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

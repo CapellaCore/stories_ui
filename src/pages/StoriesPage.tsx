@@ -49,7 +49,7 @@ const StoriesPage: React.FC = () => {
       "name": item.name,
       "item": `${baseUrl}${prefix}${item.path}`
     }))
-  }), [breadcrumbs]);
+  }), [breadcrumbs, prefix]);
 
   if (loading) {
     return (

@@ -38,7 +38,7 @@ export const TranslationProvider: React.FC<TranslationProviderProps> = ({ childr
       setLanguageState(lang);
       localStorage.setItem('language', lang);
     }
-  }, [lang]);
+  }, [language, lang]);
 
   // Load translation file whenever language changes
   useEffect(() => {

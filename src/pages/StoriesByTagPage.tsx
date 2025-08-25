@@ -92,7 +92,7 @@ const StoriesByTagSection: React.FC<StoriesByTagSectionProps> = ({
                 "item": {
                   "@type": "CreativeWork",
                   "name": story.title,
-                  "url": `https://timetosleep.org/stories/${tag.slug}/${story.slug}`,
+                  "url": `https://timetosleep.org/${prefix}stories/${tag.slug}/${story.slug}`,
                   "genre": "Children's Literature",
                   "description": story.description
                 }
@@ -117,13 +117,13 @@ const StoriesByTagSection: React.FC<StoriesByTagSectionProps> = ({
                 "@type": "ListItem",
                 "position": 2,
                 "name": t('header.stories'),
-                "item": "https://timetosleep.org/stories"
+                "item": `https://timetosleep.org/${prefix}stories`,
               },
               {
                 "@type": "ListItem",
                 "position": 3,
                 "name": tag.name,
-                "item": `https://timetosleep.org/stories/${tag.slug}`
+                "item": `https://timetosleep.org/${prefix}stories/${tag.slug}`
               }
             ]
           })}
@@ -134,11 +134,11 @@ const StoriesByTagSection: React.FC<StoriesByTagSectionProps> = ({
           <div className="w-full max-w-[960px] flex flex-col flex-1">
             {/* Breadcrumbs */}
             <div className="px-4 py-3">
-              <Breadcrumbs 
+              <Breadcrumbs
                 items={[
                   { name: t('common.home'), path: '/' },
-                  { name: t('header.stories'), path: '/stories' },
-                  { name: tag.name, path: `/stories/${tag.slug}`, isCurrent: true }
+                  { name: t('header.stories'), path: `${prefix}/stories` },
+                  { name: tag.name, path: `${prefix}/stories/${tag.slug}`, isCurrent: true }
                 ]}
               />
             </div>
