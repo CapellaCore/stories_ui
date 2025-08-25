@@ -1,53 +1,67 @@
-# Cache static assets for 1 year
+# Cache static assets for 1 year with aggressive caching
 *.js
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
 *.css
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
+# Cache images for 1 year with aggressive caching
 *.png
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
 *.jpg
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
 *.jpeg
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
 *.gif
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
 *.svg
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
 *.webp
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
 *.ico
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
+# Cache fonts for 1 year with aggressive caching
 *.woff
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
 *.woff2
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
 *.ttf
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
 *.eot
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
 
-# Cache HTML files for 1 hour
+# Cache HTML files for 1 hour (but allow revalidation)
 *.html
-  Cache-Control: public, max-age=3600
+  Cache-Control: public, max-age=3600, must-revalidate
 
-# Cache manifest and other config files for 1 day
+# Cache root page for 15 minutes (more aggressive for homepage)
+/
+  Cache-Control: public, max-age=900, must-revalidate
+
+# Cache manifest and other config files for 1 day with revalidation
 manifest.json
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 robots.txt
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 sitemap.xml
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Cache Supabase Storage images (if they have specific patterns)
+*.supabase.co/*
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
+
+# Cache all image URLs with query parameters
+*image*
+  Cache-Control: public, max-age=31536000, immutable, stale-while-revalidate=86400
