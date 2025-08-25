@@ -29,7 +29,8 @@
     "language": "Język",
     "categories": "Kategorie",
     "loadingStories": "Ładowanie bajek...",
-    "errorLoadingData": "Błąd ładowania danych:"
+    "errorLoadingData": "Błąd ładowania danych:",
+    "noStoriesAvailable": "Niestety nie ma jeszcze żadnej historii dla tego języka, ale pracujemy nad tym"
   },
   "stories": {
     "title": "Bajki - Time to Sleep",

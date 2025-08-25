@@ -26,7 +26,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ className }) => {
             parts.unshift(newLang);
         }
         const newPath = "/" + parts.join("/");
-        navigate(newPath + location.search); // preserve query params
+        navigate("/" + parts.join("/") + location.search, { replace: true });
     };
 
     return (

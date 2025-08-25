@@ -13,7 +13,8 @@ const SearchInput: React.FC<SearchInputProps> = ({
   placeholder,
   onSearch 
 }) => {
-  const { t } = useTranslation();
+  const { language, t } = useTranslation();
+  const prefix = language && language !== "en" ? `/${language}` : "";
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
   const [isExpanded, setIsExpanded] = useState(false);
@@ -25,7 +26,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
       if (onSearch) {
         onSearch(query.trim());
       } else {
-        navigate(`/search?q=${encodeURIComponent(query.trim())}`);
+        navigate(`${prefix}/search?q=${encodeURIComponent(query.trim())}`);
       }
       setIsExpanded(false);
     }

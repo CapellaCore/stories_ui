@@ -19,14 +19,25 @@ interface TranslationProviderProps {
 
 export const TranslationProvider: React.FC<TranslationProviderProps> = ({ children }) => {
   const { lang } = useParams<{ lang?: string }>();
-  const [language, setLanguageState] = useState<string>('en');
+  const [language, setLanguageState] = useState<string>(() => {
+    // 1. URL param if available
+    if (lang) return lang;
+
+    // 2. LocalStorage if previously saved
+    const stored = localStorage.getItem('language');
+    if (stored) return stored;
+
+    // 3. Default fallback
+    return 'en';
+  });
   const [translations, setTranslations] = useState<Translations>(enTranslations);
 
   // Sync language with URL parameter
   useEffect(() => {
-    const newLanguage = lang || 'en'; // Default to 'en' if lang is undefined
-    setLanguageState(newLanguage);
-    localStorage.setItem('language', newLanguage); // Update localStorage
+    if (lang && lang !== language) {
+      setLanguageState(lang);
+      localStorage.setItem('language', lang);
+    }
   }, [lang]);
 
   // Load translation file whenever language changes

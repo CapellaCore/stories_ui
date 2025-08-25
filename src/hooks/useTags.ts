@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Tag } from '../types';
 import { tagsApi } from '../services/supabase';
+import {useTranslation} from "../contexts/TranslationContext";
 
 export const useTags = () => {
+  const { language, t } = useTranslation();
   const [tags, setTags] = useState<Tag[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -12,7 +14,9 @@ export const useTags = () => {
       try {
         setLoading(true);
         setError(null);
-        const data = await tagsApi.getAll();
+        console.log(language);
+        const data = await tagsApi.getAllActualTags(language);
+        console.log(data);
         setTags(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to fetch tags');
@@ -23,12 +27,13 @@ export const useTags = () => {
     };
 
     fetchTags();
-  }, []);
+  }, [language]);
 
   return { tags, loading, error };
 };
 
 export const useTag = (slug: string) => {
+  const { language} = useTranslation();
   const [tag, setTag] = useState<Tag | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -39,7 +44,7 @@ export const useTag = (slug: string) => {
         setLoading(true);
         setError(null);
 
-        const data = await tagsApi.getBySlug(slug);
+        const data = await tagsApi.getBySlug(slug, language);
         setTag(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to fetch tag');
@@ -52,7 +57,7 @@ export const useTag = (slug: string) => {
     if (slug) {
       fetchTag();
     }
-  }, [slug]);
+  }, [slug, language]);
 
   return { tag, loading, error };
 }; 

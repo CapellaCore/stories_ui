@@ -31,6 +31,20 @@ export interface Tag {
   color: string;
 }
 
+export interface TagStory {
+  id: string;
+  name: string;
+  slug: string; // для URL
+  description: string;
+  color: string;
+  story_tags: StoryTag[];
+}
+
+export interface StoryTag {
+  story_id: string;
+  tag_id: string;
+}
+
 export interface SEOData {
   title: string;
   description: string;

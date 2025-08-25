@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Story } from '../types';
 import { storiesApi } from '../services/supabase';
+import {useTranslation} from "../contexts/TranslationContext";
 
 export const useStories = () => {
+  const { language } = useTranslation();
   const [stories, setStories] = useState<Story[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -12,7 +14,7 @@ export const useStories = () => {
       try {
         setLoading(true);
         setError(null);
-        const data = await storiesApi.getAll();
+        const data = await storiesApi.getAll(language);
         setStories(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to fetch stories');
@@ -23,7 +25,7 @@ export const useStories = () => {
     };
 
     fetchStories();
-  }, []);
+  }, [language]);
 
   return { stories, loading, error };
 };
@@ -57,6 +59,7 @@ export const useStory = (slug: string) => {
 };
 
 export const useStoriesByTag = (tagSlug: string) => {
+  const { language } = useTranslation();
   const [stories, setStories] = useState<Story[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -66,13 +69,13 @@ export const useStoriesByTag = (tagSlug: string) => {
       try {
         setLoading(true);
         setError(null);
-        
         // If tagSlug is "all", fetch all stories
         if (tagSlug === 'all') {
-          const data = await storiesApi.getAll();
+          const data = await storiesApi.getAll(language);
           setStories(data);
         } else {
-          const data = await storiesApi.getByTagSlug(tagSlug);
+          const data = await storiesApi.getByTagSlug(tagSlug, language);
+          console.log("byTag", data)
           setStories(data);
         }
       } catch (err) {
@@ -86,7 +89,7 @@ export const useStoriesByTag = (tagSlug: string) => {
     if (tagSlug) {
       fetchStoriesByTag();
     }
-  }, [tagSlug]);
+  }, [tagSlug, language]);
 
   return { stories, loading, error };
 };
