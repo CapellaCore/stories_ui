@@ -37,7 +37,7 @@ export const storageService = {
       const { error: uploadError } = await supabase.storage
         .from('story-images') // Your bucket name
         .upload(storagePath, file, {
-          cacheControl: '3600',
+          cacheControl: 'public, max-age=31536000, immutable',
           upsert: false
         });
 

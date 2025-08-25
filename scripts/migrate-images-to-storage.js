@@ -91,7 +91,7 @@ async function migrateImagesToStorage() {
             .from('story-images')
             .upload(storagePath, fileBuffer, {
               contentType: getMimeType(fileExtension),
-              cacheControl: '3600',
+              cacheControl: 'public, max-age=31536000, immutable',
               upsert: false
             });
 

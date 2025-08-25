@@ -49,6 +49,8 @@ const StoryImage: React.FC<StoryImageProps> = ({
           setImageError(true);
           setImageLoading(false);
         }}
+        loading="lazy"
+        decoding="async"
       />
     </div>
   );
