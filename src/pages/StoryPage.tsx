@@ -17,10 +17,6 @@ const StoryPage: React.FC = () => {
   const { tag, loading: tagLoading } = useTag(tagSlug || '');
   const { t } = useTranslation();
 
-  // Debug logging
-  console.log('StoryPage - tagSlug:', tagSlug);
-  console.log('StoryPage - tag:', tag);
-  console.log('StoryPage - tagLoading:', tagLoading);
 
   if (loading || tagLoading) {
     return (
@@ -101,10 +97,13 @@ const StoryPage: React.FC = () => {
         <meta name="description" content={story.description} />
         <meta name="keywords" content={`${story.tags.join(', ')}`} />
         <link rel="canonical" href={`https://timetosleep.org/stories/${tagSlug}/${storySlug}`} />
+        
+        {/* Open Graph */}
         <meta property="og:title" content={story.title} />
         <meta property="og:description" content={story.description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://timetosleep.org/stories/${story.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://timetosleep.org/stories/${tagSlug}/${storySlug}`} />
+        <meta property="og:site_name" content="Time to Sleep" />
         {sortedImages.length > 0 && (
           <meta property="og:image" content={sortedImages[0].src} />
         )}
@@ -113,9 +112,14 @@ const StoryPage: React.FC = () => {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content={story.title} />
         <meta property="twitter:description" content={story.description} />
+        <meta property="twitter:site" content="@timetosleep" />
         {sortedImages.length > 0 && (
           <meta property="twitter:image" content={sortedImages[0].src} />
         )}
+        
+        {/* Additional meta tags for better SEO */}
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="en" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -190,7 +194,7 @@ const StoryPage: React.FC = () => {
               "@type": "ListItem",
               "position": 4,
               "name": story.title,
-              "item": `https://timetosleep.org/stories/${story.slug}`
+              "item": `https://timetosleep.org/stories/${tagSlug}/${storySlug}`
             }
           ]
         })}

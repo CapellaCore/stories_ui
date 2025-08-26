@@ -44,17 +44,26 @@ const StoriesPage: React.FC = () => {
         <meta name="description" content={t('stories.description')} />
         <meta name="keywords" content={t('stories.keywords')} />
         <link rel="canonical" href="https://timetosleep.org/stories" />
+        
+        {/* Open Graph */}
         <meta property="og:title" content={t('stories.title')} />
         <meta property="og:description" content={t('stories.description')} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://timetosleep.org/stories" />
+        <meta property="og:site_name" content="Time to Sleep" />
         <meta property="og:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
         
         {/* Twitter Card */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content={t('stories.title')} />
         <meta property="twitter:description" content={t('stories.description')} />
+        <meta property="twitter:site" content="@timetosleep" />
         <meta property="twitter:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
+        
+        {/* Additional meta tags for better SEO */}
+        <meta name="author" content="Konstantin Dylko" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="en" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
