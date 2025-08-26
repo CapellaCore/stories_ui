@@ -110,6 +110,8 @@ export const storiesApi = {
       throw error;
     }
 
+
+
     // Transform the data to match our Story type
     return data?.map(story => ({
       id: story.id,

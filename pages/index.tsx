@@ -133,7 +133,7 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories, categories }) => {
                   </div>
                   <div className="mt-4">
                     <div className="flex overflow-x-auto gap-3 p-4">
-                      {animalStories.slice(0, 3).map(story => (
+                      {animalStories.slice(0, 12).map(story => (
                         <div key={story.id} className="flex-shrink-0 w-64">
                           <StoryCard story={story} tagSlug="animals" />
                         </div>
@@ -160,7 +160,7 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories, categories }) => {
                   </div>
                   <div className="mt-4">
                     <div className="flex overflow-x-auto gap-3 p-4">
-                      {classicStories.slice(0, 3).map(story => (
+                      {classicStories.slice(0, 12).map(story => (
                         <div key={story.id} className="flex-shrink-0 w-64">
                           <StoryCard story={story} tagSlug="classic" />
                         </div>
@@ -187,7 +187,7 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories, categories }) => {
                   </div>
                   <div className="mt-4">
                     <div className="flex overflow-x-auto gap-3 p-4">
-                      {originalStories.slice(0, 3).map(story => (
+                      {originalStories.slice(0, 12).map(story => (
                         <div key={story.id} className="flex-shrink-0 w-64">
                           <StoryCard story={story} tagSlug="originals" />
                         </div>
@@ -205,7 +205,7 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories, categories }) => {
               </h2>
               <div className="mt-4">
                 <div className="flex overflow-x-auto gap-3 p-4">
-                  {featuredStories.slice(0, 3).map(story => (
+                  {featuredStories.slice(0, 25).map(story => (
                     <div key={story.id} className="flex-shrink-0 w-64">
                       <StoryCard 
                         story={story} 
@@ -279,9 +279,11 @@ export const getStaticProps = async () => {
     const allStories = await storiesApi.getAll();
     const categories = await tagsApi.getAll();
 
+
+
     return {
       props: {
-        featuredStories: allStories.slice(0, 6), // Latest 6 stories
+        featuredStories: allStories.slice(0, 25), // Latest 25 stories
         categories
       },
       revalidate: 60 // Rebuild every 60 seconds

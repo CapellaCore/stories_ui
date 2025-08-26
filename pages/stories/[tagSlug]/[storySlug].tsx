@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import SimpleHeader from '../../../src/components/SimpleHeader';
 import SimpleFooter from '../../../src/components/SimpleFooter';
+import StoryContent from '../../../src/components/StoryContent';
 
 interface Story {
   id: string;
@@ -161,6 +162,86 @@ const StoryPage: React.FC<StoryPageProps> = ({ tagSlug, storySlug, story, tag })
           ]
         })}
         </script>
+
+        {/* Custom CSS for improved typography */}
+        <style>{`
+          .story-content-text {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #2d3748;
+            font-size: 1.125rem;
+          }
+          
+          .story-paragraph {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            text-indent: 2rem;
+            letter-spacing: 0.01em;
+            word-spacing: 0.05em;
+          }
+          
+
+          
+          .story-content-text h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+          }
+          
+          .story-content-text h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #4a5568;
+            margin: 1.5rem 0 0.75rem 0;
+          }
+          
+          .story-content-text strong {
+            color: #2d3748;
+            font-weight: 600;
+          }
+          
+          .story-content-text em {
+            font-style: italic;
+            color: #4a5568;
+          }
+          
+          .story-content-text blockquote {
+            border-left: 4px solid #4c51bf;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #4a5568;
+            background-color: #f7fafc;
+            padding: 1rem;
+            border-radius: 0.375rem;
+          }
+          
+          .story-content-text ul, .story-content-text ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+          }
+          
+          .story-content-text li {
+            margin-bottom: 0.5rem;
+          }
+          
+          @media (max-width: 768px) {
+            .story-content-text {
+              font-size: 1rem;
+              line-height: 1.7;
+            }
+            
+            .story-paragraph {
+              text-indent: 1.5rem;
+              margin-bottom: 1.25rem;
+            }
+            
+
+          }
+        `}</style>
       </Head>
 
       <div className="min-h-screen flex flex-col">
@@ -189,46 +270,69 @@ const StoryPage: React.FC<StoryPageProps> = ({ tagSlug, storySlug, story, tag })
               </div>
 
               {/* Hero Section */}
-              <div className="px-4 py-6">
-                <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-                  {/* Story Image */}
-                  {sortedImages.length > 0 && (
-                    <div className="relative w-full aspect-[3/2] overflow-hidden">
-                      <img
-                        src={sortedImages[0].src}
-                        alt={sortedImages[0].alt || story.title}
-                        className="w-full h-full object-cover"
-                      />
+              <div className="px-4 mb-4 md:mb-6">
+                {sortedImages.length > 0 ? (
+                  <div className="relative w-full aspect-[3/2] rounded-lg overflow-hidden shadow-lg">
+                    <img
+                      src={sortedImages[0].src}
+                      alt={sortedImages[0].alt || story.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-3 md:p-6 text-white">
+                      <h1 className="text-xl md:text-3xl lg:text-4xl font-bold mb-2">{story.title}</h1>
+                      <p className="text-sm md:text-lg opacity-90 mb-2 md:mb-3">{story.description}</p>
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 md:gap-4 text-xs md:text-sm opacity-90">
+                        <span className="flex items-center gap-1">
+                          <span>⏱️</span>
+                          <span>{story.readingTime} min</span>
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <span>👶</span>
+                          <span>{story.ageGroup}</span>
+                        </span>
+                        {story.tags.length > 0 && (
+                          <span className="flex items-center gap-1">
+                            <span>🏷️</span>
+                            <span>#{story.tags[0]}</span>
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  )}
-                  
-                  {/* Story Info */}
-                  <div className="p-6">
-                    <h1 className="text-[#101619] text-xl md:text-2xl lg:text-[32px] font-bold leading-tight tracking-[-0.015em] mb-4">
-                      {story.title}
-                    </h1>
-                    
-                    <div className="flex items-center gap-4 text-sm text-[#577c8e] mb-4">
-                      <span>⏱️ {story.readingTime} min</span>
-                      <span>👶 {story.ageGroup}</span>
-                      {story.tags.length > 0 && (
-                        <span className="text-blue-600">#{story.tags[0]}</span>
-                      )}
-                    </div>
-                    
-                    <p className="text-[#577c8e] text-sm md:text-base font-normal leading-normal mb-6">
-                      {story.description}
-                    </p>
                   </div>
-                </div>
+                ) : (
+                  <div className="relative w-full aspect-[3/2] rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
+                    <div className="text-center text-white p-4">
+                      <div className="text-4xl md:text-6xl mb-2 md:mb-4">📖</div>
+                      <h1 className="text-xl md:text-3xl lg:text-4xl font-bold mb-2">{story.title}</h1>
+                      <p className="text-sm md:text-lg opacity-90 mb-2 md:mb-3">{story.description}</p>
+                      <div className="flex flex-col sm:flex-row items-center justify-center gap-2 md:gap-4 text-xs md:text-sm opacity-90">
+                        <span className="flex items-center gap-1">
+                          <span>⏱️</span>
+                          <span>{story.readingTime} min</span>
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <span>👶</span>
+                          <span>{story.ageGroup}</span>
+                        </span>
+                        {story.tags.length > 0 && (
+                          <span className="flex items-center gap-1">
+                            <span>🏷️</span>
+                            <span>#{story.tags[0]}</span>
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Story Content */}
-              <div className="px-4 pb-8">
-                <div className="bg-white rounded-lg shadow-sm p-6">
-                  <div 
-                    className="prose prose-lg max-w-none text-[#101619]"
-                    dangerouslySetInnerHTML={{ __html: story.content }}
+              <div className="px-4 mb-6 md:mb-8">
+                <div className="story-content-text max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-4 md:p-8">
+                  <StoryContent 
+                    content={story.content}
+                    images={story.images}
                   />
                 </div>
               </div>
