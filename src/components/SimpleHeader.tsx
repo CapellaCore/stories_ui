@@ -9,11 +9,24 @@ const SimpleHeader: React.FC = () => {
       {/* Logo and brand section */}
       <div className="flex items-center gap-2 md:gap-4 text-[#101619] w-full md:w-auto justify-between md:justify-start">
         <div className="flex items-center gap-2 md:gap-4">
-          <div className="size-8 md:size-10">
+          <div 
+            className="size-8 md:size-10"
+            style={{
+              width: '2rem',
+              height: '2rem',
+              minWidth: '2rem',
+              minHeight: '2rem'
+            }}
+          >
             <img 
               src="/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" 
               alt="Time to Sleep Logo" 
               className="w-full h-full"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain'
+              }}
             />
           </div>
           <Link href="/" className="text-base md:text-lg font-bold leading-tight tracking-[-0.015em]">

@@ -1,9 +1,73 @@
+import React from 'react';
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* Critical CSS to prevent FOUC */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Prevent FOUC for logo and critical elements */
+            .size-8 {
+              width: 2rem !important;
+              height: 2rem !important;
+              min-width: 2rem !important;
+              min-height: 2rem !important;
+            }
+            
+            @media (min-width: 768px) {
+              .md\\:size-10 {
+                width: 2.5rem !important;
+                height: 2.5rem !important;
+                min-width: 2.5rem !important;
+                min-height: 2.5rem !important;
+              }
+            }
+            
+            /* Ensure images don't flash with wrong size */
+            img {
+              max-width: 100%;
+              height: auto;
+            }
+            
+            /* Prevent layout shift */
+            * {
+              box-sizing: border-box;
+            }
+            
+            /* Hide content until styles are loaded */
+            .fouc-fix {
+              visibility: hidden;
+            }
+            
+            /* Show content after styles are loaded */
+            .fouc-fix.loaded {
+              visibility: visible;
+            }
+          `
+        }} />
+        
+        {/* FOUC Prevention Script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Prevent FOUC by showing content after styles are loaded
+              document.addEventListener('DOMContentLoaded', function() {
+                // Add loaded class to body after a short delay
+                setTimeout(function() {
+                  document.body.classList.add('loaded');
+                }, 100);
+              });
+              
+              // Fallback: show content after 1 second if DOMContentLoaded doesn't fire
+              setTimeout(function() {
+                document.body.classList.add('loaded');
+              }, 1000);
+            `
+          }}
+        />
+        
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
@@ -44,7 +108,6 @@ export default function Document() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
           media="print"
-          onLoad="this.media='all'"
         />
         <noscript>
           <link
@@ -67,7 +130,7 @@ export default function Document() {
         />
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries" defer />
       </Head>
-      <body>
+      <body className="fouc-fix">
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

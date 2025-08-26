@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import SimpleHeader from '../../src/components/SimpleHeader';
 import SimpleFooter from '../../src/components/SimpleFooter';
+import LoadMoreButton from '../../src/components/LoadMoreButton';
 
 interface Story {
   id: string;
@@ -30,10 +31,25 @@ interface Tag {
 
 interface StoriesPageProps {
   categories: Tag[];
-  featuredStories: Story[];
+  allStories: Story[];
 }
 
-const StoriesPage: React.FC<StoriesPageProps> = ({ categories, featuredStories }) => {
+const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => {
+  const [displayedStories, setDisplayedStories] = useState(12);
+  const [loading, setLoading] = useState(false);
+
+  const handleLoadMore = () => {
+    setLoading(true);
+    // Simulate loading delay
+    setTimeout(() => {
+      setDisplayedStories(prev => Math.min(prev + 12, allStories.length));
+      setLoading(false);
+    }, 500);
+  };
+
+  const hasMore = displayedStories < allStories.length;
+  const currentStories = allStories.slice(0, displayedStories);
+
   return (
     <>
       <Head>
@@ -164,11 +180,11 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, featuredStories }
 
               {/* All Stories Section */}
               <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-                All Stories
+                All Stories ({allStories.length})
               </h2>
               <div className="px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-                  {featuredStories.slice(0, 25).map(story => (
+                  {currentStories.map(story => (
                     <StoryCard 
                       key={story.id}
                       story={story} 
@@ -176,6 +192,15 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, featuredStories }
                     />
                   ))}
                 </div>
+                
+                {/* Load More Button */}
+                <LoadMoreButton
+                  onLoadMore={handleLoadMore}
+                  hasMore={hasMore}
+                  loading={loading}
+                  totalItems={allStories.length}
+                  currentItems={currentStories.length}
+                />
               </div>
             </div>
           </div>
@@ -244,7 +269,7 @@ export const getStaticProps = async () => {
     return {
       props: {
         categories,
-        featuredStories: allStories.slice(0, 6) // Latest 6 stories
+        allStories // Pass all stories instead of just 6
       },
       revalidate: 60 // Rebuild every 60 seconds
     };
@@ -253,7 +278,7 @@ export const getStaticProps = async () => {
     return {
       props: {
         categories: [],
-        featuredStories: []
+        allStories: []
       },
       revalidate: 60
     };

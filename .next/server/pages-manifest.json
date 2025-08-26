@@ -2,8 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/stories/[tagSlug]/[storySlug]": "pages/stories/[tagSlug]/[storySlug].js",
   "/stories": "pages/stories.js",
-  "/": "pages/index.js",
   "/stories/[tagSlug]": "pages/stories/[tagSlug].js"
 }
