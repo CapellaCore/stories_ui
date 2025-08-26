@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../contexts/TranslationContext';
 import Breadcrumbs from '../components/Breadcrumbs';
+import { contactRequestsApi } from '../services/supabase';
 
 const ContactPage: React.FC = () => {
   const { t } = useTranslation();
@@ -26,15 +27,29 @@ const ContactPage: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Submit contact request to Supabase
+      await contactRequestsApi.create({
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message
+      });
+      
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
       
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
-    }, 1000);
+    } catch (error) {
+      console.error('Error submitting contact request:', error);
+      setSubmitStatus('error');
+      
+      // Reset error message after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -65,13 +80,13 @@ const ContactPage: React.FC = () => {
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Главная",
+              "name": t('common.home'),
               "item": "https://timetosleep.org"
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Контакты",
+              "name": t('contact.pageTitle'),
               "item": "https://timetosleep.org/contact"
             }
           ]
@@ -121,7 +136,7 @@ const ContactPage: React.FC = () => {
                       </div>
                       <div>
                         <h3 className="text-lg font-medium text-gray-900">{t('contact.info.email')}</h3>
-                        <p className="text-gray-600">hello@timetosleep.org</p>
+                        <p className="text-gray-600">timetosleep.org@gmail.com</p>
                       </div>
                     </div>
 
@@ -195,6 +210,23 @@ const ContactPage: React.FC = () => {
                   </div>
                 )}
 
+                {submitStatus === 'error' && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <div className="flex">
+                      <div className="flex-shrink-0">
+                        <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div className="ml-3">
+                        <p className="text-sm text-red-800">
+                          Failed to send message. Please try again or contact us directly at timetosleep.org@gmail.com
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -240,12 +272,12 @@ const ContactPage: React.FC = () => {
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     >
-                      <option value="">Выберите тему</option>
-                      <option value="general">Общий вопрос</option>
-                      <option value="suggestion">Предложение</option>
-                      <option value="feedback">Отзыв</option>
-                      <option value="bug">Сообщить об ошибке</option>
-                      <option value="partnership">Сотрудничество</option>
+                      <option value="">Select a topic</option>
+                      <option value="general">General question</option>
+                      <option value="suggestion">Suggestion</option>
+                      <option value="feedback">Feedback</option>
+                      <option value="bug">Report a bug</option>
+                      <option value="partnership">Partnership</option>
                     </select>
                   </div>
 

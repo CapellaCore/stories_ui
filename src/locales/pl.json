@@ -15,6 +15,12 @@
     "createdWithLove": "Stworzone z miłością dla dzieci i ich rodziców",
     "breadcrumbs": "Nawigacja okruszkowa"
   },
+  "consent": {
+    "message": "Używamy plików cookie i podobnych technologii, aby poprawić Twoje doświadczenie na naszej stronie. Kontynuując korzystanie z naszej strony, wyrażasz zgodę na używanie plików cookie.",
+    "learnMore": "Dowiedz się więcej",
+    "accept": "Akceptuj",
+    "decline": "Odrzuć"
+  },
   "header": {
     "brandName": "Time to Sleep",
     "stories": "Bajki"
@@ -167,11 +173,14 @@
     "pageTitle": "Skontaktuj się z nami",
     "pageDescription": "Masz pytania lub sugestie dotyczące Time to Sleep? Chętnie Cię wysłuchamy!",
     "form": {
-      "name": "Imię",
-      "email": "Email",
-      "subject": "Temat",
-      "message": "Wiadomość",
-      "send": "Wyślij wiadomość",
+      "title": "Wyślij wiadomość",
+      "successMessage": "Dziękujemy! Twoja wiadomość została wysłana. Odpowiemy Ci wkrótce.",
+      "nameLabel": "Imię *",
+      "emailLabel": "Email *",
+      "subjectLabel": "Temat *",
+      "messageLabel": "Wiadomość *",
+      "submitButton": "Wyślij wiadomość",
+      "submitting": "Wysyłanie...",
       "namePlaceholder": "Twoje imię",
       "emailPlaceholder": "twoj@email.com",
       "subjectPlaceholder": "Temat wiadomości",
@@ -196,16 +205,6 @@
         "question": "Czy można używać waszych bajek?",
         "answer": "Wszystkie bajki na Time to Sleep są dostępne do użytku osobistego. Do użytku komercyjnego skontaktuj się z nami."
       }
-    },
-    "form": {
-      "title": "Wyślij wiadomość",
-      "successMessage": "Dziękujemy! Twoja wiadomość została wysłana. Odpowiemy Ci wkrótce.",
-      "nameLabel": "Imię *",
-      "emailLabel": "Email *",
-      "subjectLabel": "Temat *",
-      "messageLabel": "Wiadomość *",
-      "submitButton": "Wyślij wiadomość",
-      "submitting": "Wysyłanie..."
     }
   },
   "terms": {
@@ -311,9 +310,15 @@
       },
       "cookies": {
         "title": "Pliki cookie i technologie śledzenia",
-        "content": "Używamy plików cookie i podobnych technologii do:",
-        "items": "Zapamiętywania Twoich preferencji, Analizy korzystania z Platformy, Poprawy wydajności, Personalizacji treści",
-        "management": "Możesz zarządzać ustawieniami plików cookie w swojej przeglądarce. Pamiętaj, że wyłączenie plików cookie może wpłynąć na funkcjonalność Time to Sleep."
+        "content": "Używamy plików cookie i podobnych technologii, aby poprawić Twoje doświadczenie na naszej stronie. Używamy CookieHub.com do zarządzania banerem zgody, aby przestrzegać wymagań GDPR. Nasz system zarządzania plikami cookie pozwala Ci kontrolować, które rodzaje plików cookie akceptujesz.",
+        "items": "Zapamiętywania Twoich preferencji, Analizy korzystania z Platformy, Poprawy wydajności, Personalizacji treści, Zapewnienia zgodności z GDPR",
+        "management": "Możesz zarządzać ustawieniami plików cookie przez nasz baner zgody CookieHub lub w ustawieniach przeglądarki. Pamiętaj, że wyłączenie niektórych plików cookie może wpłynąć na funkcjonalność Time to Sleep."
+      },
+      "analytics": {
+        "title": "Analityka i śledzenie",
+        "content": "Używamy Google Tag Manager i Google Analytics, aby poprawić doświadczenia użytkownika i zrozumieć, jak odwiedzający wchodzą w interakcję z naszą stroną. Te usługi pomagają nam:",
+        "items": "Analizować ruch na stronie i zachowanie użytkowników, Poprawiać wydajność i funkcjonalność strony, Rozumieć, które treści są najbardziej popularne, Optymalizować doświadczenia użytkownika na podstawie wzorców użytkowania",
+        "gdpr": "Wszystkie działania analityczne i śledzące są prowadzone zgodnie z wymaganiami GDPR i preferencjami zgody użytkownika zarządzanymi przez CookieHub."
       },
       "security": {
         "title": "Bezpieczeństwo danych",
@@ -347,7 +352,7 @@
       },
       "contact": {
         "title": "Informacje kontaktowe",
-        "content": "Jeśli masz pytania lub obawy dotyczące niniejszej Polityki prywatności, skontaktuj się z nami:",
+        "content": "Jeśli masz pytania lub obawy dotyczące niniejszej Polityki prywatności, lub jeśli masz jakiekolwiek problemy lub prośby związane z Twoimi danymi osobowymi, skontaktuj się z nami:",
         "email": "Email:",
         "address": "Adres:",
         "phone": "Telefon:"

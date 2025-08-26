@@ -24,6 +24,7 @@ const SearchPage: React.FC = () => {
         <title>{query ? `${t('search.resultsFor')} "${query}"` : t('search.pageTitle')}</title>
         <meta name="description" content={t('search.description')} />
         <meta name="keywords" content={t('search.keywords')} />
+        <link rel="canonical" href={`https://timetosleep.org/search?q=${encodeURIComponent(query)}`} />
         <meta property="og:title" content={query ? `${t('search.resultsFor')} "${query}"` : t('search.pageTitle')} />
         <meta property="og:description" content={t('search.description')} />
         <meta property="og:type" content="website" />

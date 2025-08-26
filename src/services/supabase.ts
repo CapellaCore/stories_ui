@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { Story, Tag, StoryImage } from '../types';
+import { Story, Tag, StoryImage, ContactRequest, CreateContactRequest } from '../types';
 
 // Create Supabase client
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL!;
@@ -403,5 +403,77 @@ export const imagesApi = {
     }
 
     return transformStoryImages(data || []);
+  }
+};
+
+// Contact Requests API
+export const contactRequestsApi = {
+  // Create a new contact request
+  async create(request: CreateContactRequest): Promise<ContactRequest> {
+    const { data, error } = await supabase
+      .from('contact_requests')
+      .insert({
+        name: request.name,
+        email: request.email,
+        subject: request.subject,
+        message: request.message
+      })
+      .select()
+      .single();
+
+    if (error) {
+      console.error('Error creating contact request:', error);
+      throw error;
+    }
+
+    return data;
+  },
+
+  // Get all contact requests (for admin use)
+  async getAll(): Promise<ContactRequest[]> {
+    const { data, error } = await supabase
+      .from('contact_requests')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Error fetching contact requests:', error);
+      throw error;
+    }
+
+    return data || [];
+  },
+
+  // Get contact request by ID
+  async getById(id: string): Promise<ContactRequest | null> {
+    const { data, error } = await supabase
+      .from('contact_requests')
+      .select('*')
+      .eq('id', id)
+      .single();
+
+    if (error) {
+      console.error('Error fetching contact request:', error);
+      throw error;
+    }
+
+    return data;
+  },
+
+  // Update contact request status
+  async updateStatus(id: string, status: ContactRequest['status']): Promise<ContactRequest> {
+    const { data, error } = await supabase
+      .from('contact_requests')
+      .update({ status })
+      .eq('id', id)
+      .select()
+      .single();
+
+    if (error) {
+      console.error('Error updating contact request status:', error);
+      throw error;
+    }
+
+    return data;
   }
 }; 

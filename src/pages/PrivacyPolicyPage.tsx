@@ -162,7 +162,24 @@ const PrivacyPolicyPage: React.FC = () => {
 
                 <section className="mb-8">
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                    6. {t('privacy.sections.security.title')}
+                    6. {t('privacy.sections.analytics.title')}
+                  </h2>
+                  <p className="text-gray-700 mb-4">
+                    {t('privacy.sections.analytics.content')}
+                  </p>
+                  <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+                    {t('privacy.sections.analytics.items').split(',').map((item: string, index: number) => (
+                      <li key={index}>{item.trim()}</li>
+                    ))}
+                  </ul>
+                  <p className="text-gray-700 mb-4">
+                    {t('privacy.sections.analytics.gdpr')}
+                  </p>
+                </section>
+
+                <section className="mb-8">
+                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                    7. {t('privacy.sections.security.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
                     {t('privacy.sections.security.content')}
@@ -179,7 +196,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
                 <section className="mb-8">
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                    7. {t('privacy.sections.storage.title')}
+                    8. {t('privacy.sections.storage.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
                     {t('privacy.sections.storage.content')}
@@ -191,7 +208,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
                 <section className="mb-8">
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                    8. {t('privacy.sections.rights.title')}
+                    9. {t('privacy.sections.rights.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
                     {t('privacy.sections.rights.content')}
@@ -205,7 +222,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
                 <section className="mb-8">
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                    9. {t('privacy.sections.children.title')}
+                    10. {t('privacy.sections.children.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
                     {t('privacy.sections.children.content')}
@@ -217,7 +234,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
                 <section className="mb-8">
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                    10. {t('privacy.sections.international.title')}
+                    11. {t('privacy.sections.international.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
                     {t('privacy.sections.international.content')}
@@ -226,7 +243,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
                 <section className="mb-8">
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                    11. {t('privacy.sections.changes.title')}
+                    12. {t('privacy.sections.changes.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
                     {t('privacy.sections.changes.content')}
@@ -238,16 +255,16 @@ const PrivacyPolicyPage: React.FC = () => {
 
                 <section className="mb-8">
                   <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                    12. {t('privacy.sections.contact.title')}
+                    13. {t('privacy.sections.contact.title')}
                   </h2>
                   <p className="text-gray-700 mb-4">
                     {t('privacy.sections.contact.content')}
                   </p>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <p className="text-gray-700">
-                      <strong>{t('privacy.sections.contact.email')}</strong> privacy@timetosleep.org<br />
-                      <strong>{t('privacy.sections.contact.address')}</strong> [Twój adres korespondencyjny]<br />
-                      <strong>{t('privacy.sections.contact.phone')}</strong> [Twój telefon]
+                      <strong>{t('privacy.sections.contact.email')}</strong> timetosleep.org@gmail.com<br />
+                      <strong>{t('privacy.sections.contact.address')}</strong> Konstantin Dylko<br />
+                      <strong>{t('privacy.sections.contact.phone')}</strong> Available upon request
                     </p>
                   </div>
                 </section>

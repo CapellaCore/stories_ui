@@ -100,6 +100,7 @@ const StoryPage: React.FC = () => {
         <title>{story.title}</title>
         <meta name="description" content={story.description} />
         <meta name="keywords" content={`${story.tags.join(', ')}`} />
+        <link rel="canonical" href={`https://timetosleep.org/stories/${tagSlug}/${storySlug}`} />
         <meta property="og:title" content={story.title} />
         <meta property="og:description" content={story.description} />
         <meta property="og:type" content="website" />
@@ -125,12 +126,12 @@ const StoryPage: React.FC = () => {
           "description": story.description,
           "image": sortedImages.length > 0 ? sortedImages[0].src : undefined,
           "author": {
-            "@type": "Organization",
-            "name": t('header.brandName')
+            "@type": "Person",
+            "name": "Konstantin Dylko"
           },
           "creator": {
-            "@type": "Organization",
-            "name": t('header.brandName')
+            "@type": "Person",
+            "name": "Konstantin Dylko"
           },
           "publisher": {
             "@type": "Organization",
@@ -145,11 +146,18 @@ const StoryPage: React.FC = () => {
           "genre": "Children's Literature",
           "audience": {
             "@type": "Audience",
-            "audienceType": "Children"
+            "audienceType": "Children",
+            "suggestedMinAge": story.ageGroup.split('-')[0],
+            "suggestedMaxAge": story.ageGroup.split('-')[1]
           },
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `https://timetosleep.org/stories/${story.slug}`
+            "@id": `https://timetosleep.org/stories/${tagSlug}/${storySlug}`
+          },
+          "url": `https://timetosleep.org/stories/${tagSlug}/${storySlug}`,
+          "isPartOf": {
+            "@type": "Collection",
+            "name": tag?.name || "Bedtime Stories"
           }
         })}
         </script>

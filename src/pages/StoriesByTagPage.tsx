@@ -64,6 +64,7 @@ const StoriesByTagSection: React.FC<StoriesByTagSectionProps> = ({
           <title>{tag.name} - {t('storiesByTag.title')}</title>
           <meta name="description" content={tag.description || `${t('storiesByTag.description')} ${tag.name}`} />
           <meta name="keywords" content={`${tag.name}, ${t('storiesByTag.keywords')}`} />
+          <link rel="canonical" href={`https://timetosleep.org/stories/${tag.slug}`} />
           <meta property="og:title" content={`${tag.name} - ${t('storiesByTag.title')}`} />
           <meta property="og:description" content={tag.description || `${t('storiesByTag.description')} ${tag.name}`} />
           <meta property="og:type" content="website" />

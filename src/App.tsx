@@ -9,9 +9,9 @@ import StoryPage from './pages/StoryPage';
 import StoriesPage from './pages/StoriesPage';
 import SearchPage from './pages/SearchPage';
 import ContactPage from './pages/ContactPage';
+import ContactRequestsPage from './pages/ContactRequestsPage';
 import TermsOfUsePage from './pages/TermsOfUsePage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
-import AboutPage from './pages/AboutPage';
 import AdminPage from './pages/AdminPage';
 import Sitemap from './components/Sitemap';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -38,9 +38,9 @@ function App() {
                   <Route path="/stories/:tagSlug/:storySlug" element={<StoryPage />} />
                   <Route path="/search" element={<SearchPage />} />
                   <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/contact-requests" element={<ContactRequestsPage />} />
                   <Route path="/terms-of-use" element={<TermsOfUsePage />} />
                   <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-                  <Route path="/about" element={<AboutPage />} />
                   <Route path="/admin" element={<AdminPage />} />
                   <Route path="/sitemap.xml" element={<Sitemap format="xml" />} />
                   <Route path="/sitemap.json" element={<Sitemap format="json" />} />

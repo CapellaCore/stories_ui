@@ -15,6 +15,12 @@
     "createdWithLove": "Created with love for children and their parents",
     "breadcrumbs": "Breadcrumb navigation"
   },
+  "consent": {
+    "message": "We use cookies and similar technologies to improve your experience on our website. By continuing to use our site, you consent to our use of cookies.",
+    "learnMore": "Learn more",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
   "header": {
     "brandName": "Time to Sleep",
     "stories": "Stories"
@@ -167,11 +173,14 @@
     "pageTitle": "Contact Us",
     "pageDescription": "Have questions or suggestions about Time to Sleep? We'd love to hear from you!",
     "form": {
-      "name": "Name",
-      "email": "Email",
-      "subject": "Subject",
-      "message": "Message",
-      "send": "Send Message",
+      "title": "Send Message",
+      "successMessage": "Thank you! Your message has been sent. We will respond to you soon.",
+      "nameLabel": "Name *",
+      "emailLabel": "Email *",
+      "subjectLabel": "Subject *",
+      "messageLabel": "Message *",
+      "submitButton": "Send Message",
+      "submitting": "Sending...",
       "namePlaceholder": "Your name",
       "emailPlaceholder": "your@email.com",
       "subjectPlaceholder": "Message subject",
@@ -196,16 +205,6 @@
         "question": "Can I use your stories?",
         "answer": "All stories on Time to Sleep are available for personal use. For commercial use, please contact us."
       }
-    },
-    "form": {
-      "title": "Send Message",
-      "successMessage": "Thank you! Your message has been sent. We will respond to you soon.",
-      "nameLabel": "Name *",
-      "emailLabel": "Email *",
-      "subjectLabel": "Subject *",
-      "messageLabel": "Message *",
-      "submitButton": "Send Message",
-      "submitting": "Sending..."
     }
   },
   "terms": {
@@ -213,7 +212,7 @@
     "description": "Read the terms of use for Time to Sleep, our children's bedtime stories platform.",
     "keywords": "terms of use, rules, stories, guidelines, time to sleep",
     "pageTitle": "Terms of Use",
-    "lastUpdated": "Last updated: January 1, 2025",
+    "lastUpdated": "Last updated: August 26, 2025",
     "sections": {
       "acceptance": {
         "title": "Acceptance of Terms",
@@ -228,18 +227,18 @@
         "title": "Usage Rights",
         "content": "We grant you a limited, non-exclusive, non-transferable right to use Time to Sleep for personal, non-commercial purposes in compliance with these Terms.",
         "allowed": "Allowed:",
-        "allowedItems": "Reading bedtime stories to children, Using content for educational purposes, Sharing links to Time to Sleep, Printing stories for personal use",
+        "allowedItems": "Reading bedtime stories to children for personal enjoyment, Using content for personal educational purposes, Sharing links to Time to Sleep, Printing stories for personal family use",
         "prohibited": "Prohibited:",
-        "prohibitedItems": "Commercial use of content without permission, Copying and distributing content for commercial purposes, Modifying or creating derivative works, Using automated tools to collect content"
+        "prohibitedItems": "Commercial use of content without explicit written consent from Konstantin Dylko, Copying and distributing content for commercial purposes, Modifying or creating derivative works, Using automated tools to collect content, Republishing content on other websites or platforms, Using content in books, apps, or other commercial products"
       },
       "stories": {
         "title": "About Stories on Time to Sleep",
-        "content": "Stories on Time to Sleep are adaptations based on well-known stories that are in the public domain. The adaptation is made to maximally fit the designated age ranges, however parents should familiarize themselves with the text and independently decide whether it is suitable for their child before reading it or giving it to their child to read. The adaptation is made both with the help of software and with the help of human review."
+        "content": "Stories on Time to Sleep are original adaptations and creations by Konstantin Dylko, inspired by classic themes and designed specifically for children. While some stories may be inspired by well-known themes, all content, including text, illustrations, and adaptations, is the original work of Konstantin Dylko and is protected by copyright. Parents should review the content to ensure it's appropriate for their child before reading."
       },
       "intellectual": {
         "title": "Intellectual Property",
         "content": "All content on Time to Sleep, including but not limited to texts, images, illustrations, design, software and databases, is protected by intellectual property laws.",
-        "copyright": "Copyright to stories belongs to their authors or is in the public domain. We make every effort to respect copyright and ask to report any violations."
+        "copyright": "All content on this website, including stories, illustrations, and adaptations, is the exclusive property of Konstantin Dylko and Time to Sleep. This content is protected by copyright laws and international treaties. Users may freely read and use the content for personal, non-commercial purposes, but copying, distributing, or commercially using this content without explicit written consent from Konstantin Dylko is strictly prohibited. Any unauthorized use, reproduction, or distribution of this content may result in legal action."
       },
       "liability": {
         "title": "Limitation of Liability",
@@ -279,7 +278,7 @@
     "description": "Learn how we protect your privacy on Time to Sleep, our bedtime stories platform.",
     "keywords": "privacy policy, data protection, privacy, stories, time to sleep",
     "pageTitle": "Privacy Policy",
-    "lastUpdated": "Last updated: January 1, 2025",
+    "lastUpdated": "Last updated: August 26, 2025",
     "sections": {
       "introduction": {
         "title": "Introduction",
@@ -311,9 +310,15 @@
       },
       "cookies": {
         "title": "Cookies and Tracking Technologies",
-        "content": "We use cookies and similar technologies to:",
-        "items": "Remember your preferences, Analyze Platform usage, Improve performance, Personalize content",
-        "management": "You can manage cookie settings in your browser. Note that disabling cookies may affect Time to Sleep functionality."
+        "content": "We use cookies and similar technologies to improve your experience on our website. We use CookieHub.com for consent banner management to comply with GDPR requirements. Our cookie management system allows you to control which types of cookies you accept.",
+        "items": "Remember your preferences, Analyze Platform usage, Improve performance, Personalize content, Ensure GDPR compliance",
+        "management": "You can manage cookie settings through our CookieHub consent banner or in your browser settings. Note that disabling certain cookies may affect Time to Sleep functionality."
+      },
+      "analytics": {
+        "title": "Analytics and Tracking",
+        "content": "We use Google Tag Manager and Google Analytics to improve user experience and understand how visitors interact with our website. These services help us:",
+        "items": "Analyze website traffic and user behavior, Improve website performance and functionality, Understand which content is most popular, Optimize user experience based on usage patterns",
+        "gdpr": "All analytics and tracking activities are conducted in compliance with GDPR requirements and user consent preferences managed through CookieHub."
       },
       "security": {
         "title": "Data Security",
@@ -347,7 +352,7 @@
       },
       "contact": {
         "title": "Contact Information",
-        "content": "If you have questions or concerns about this Privacy Policy, please contact us:",
+        "content": "If you have questions or concerns about this Privacy Policy, or if you have any issues or requests related to your personal data, please contact us:",
         "email": "Email:",
         "address": "Address:",
         "phone": "Phone:"

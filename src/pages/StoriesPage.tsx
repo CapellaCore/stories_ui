@@ -43,6 +43,7 @@ const StoriesPage: React.FC = () => {
         <title>{t('stories.title')}</title>
         <meta name="description" content={t('stories.description')} />
         <meta name="keywords" content={t('stories.keywords')} />
+        <link rel="canonical" href="https://timetosleep.org/stories" />
         <meta property="og:title" content={t('stories.title')} />
         <meta property="og:description" content={t('stories.description')} />
         <meta property="og:type" content="website" />

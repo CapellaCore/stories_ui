@@ -43,6 +43,7 @@ const HomePage: React.FC = () => {
         <title>{t('home.title')}</title>
         <meta name="description" content={t('home.description')} />
         <meta name="keywords" content={t('home.keywords')} />
+        <link rel="canonical" href="https://timetosleep.org/" />
         <meta property="og:title" content={t('home.title')} />
         <meta property="og:description" content={t('home.description')} />
         <meta property="og:type" content="website" />

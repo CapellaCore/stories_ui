@@ -201,9 +201,8 @@ const TermsOfUsePage: React.FC = () => {
                   </p>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <p className="text-gray-700">
-                      <strong>{t('terms.sections.contact.email')}</strong> legal@timetosleep.org<br />
-                      <strong>{t('terms.sections.contact.address')}</strong> [Twój adres prawny]<br />
-                      <strong>{t('terms.sections.contact.phone')}</strong> [Twój telefon]
+                    Konstantin Dylko<br />
+                    <strong>{t('terms.sections.contact.email')}</strong> timetosleep.org@gmail.com<br />  
                     </p>
                   </div>
                 </section>

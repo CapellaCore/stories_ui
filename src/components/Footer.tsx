@@ -39,11 +39,6 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
-                  {t('common.about')}
-                </Link>
-              </li>
-              <li>
                 <Link to="/contact" className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
                   {t('common.contact')}
                 </Link>

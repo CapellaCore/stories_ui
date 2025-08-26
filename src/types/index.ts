@@ -37,4 +37,24 @@ export interface SEOData {
   keywords: string[];
   ogImage?: string;
   canonicalUrl?: string;
+}
+
+export interface ContactRequest {
+  id: string;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  status: 'pending' | 'read' | 'replied' | 'archived';
+  ip_address?: string;
+  user_agent?: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface CreateContactRequest {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
 } 
