@@ -1,0 +1,461 @@
+{
+  "version": 4,
+  "routes": {
+    "/": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": null,
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/index.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": null,
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/animals": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/animals.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/classic": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/classic.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/originals": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/originals.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/animals/dog-and-the-shadow": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/animals/dog-and-the-shadow.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/originals/sharing-is-magic": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/originals/sharing-is-magic.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/originals/kind-dragon": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/originals/kind-dragon.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/originals/when-tim-lost-his-temper": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/originals/when-tim-lost-his-temper.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/originals/amys-first-day-at-school": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/originals/amys-first-day-at-school.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/originals/moon-and-sleepy-cat": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/originals/moon-and-sleepy-cat.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/originals/ella-and-cloud-factory": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/originals/ella-and-cloud-factory.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/originals/wandering-blanket": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/originals/wandering-blanket.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/originals/luna-reads-book-to-the-stars": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/originals/luna-reads-book-to-the-stars.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/animals/town-mouse-and-country-mouse": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/animals/town-mouse-and-country-mouse.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/animals/ugly-duckling": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/animals/ugly-duckling.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/animals/ant-and-greasshopper": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/animals/ant-and-greasshopper.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/animals/lion-and-mouse": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/animals/lion-and-mouse.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/animals/hare-and-tortoise": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/animals/hare-and-tortoise.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/animals/fox-and-crow": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/animals/fox-and-crow.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/classic/sleeping_beauty": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/classic/sleeping_beauty.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/classic/rapunzel": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/classic/rapunzel.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/classic/hansel-and-grethel": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/classic/hansel-and-grethel.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/classic/cinderella": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/classic/cinderella.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/classic/jack-and-the-beanstalk": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/classic/jack-and-the-beanstalk.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/classic/gingerbread-man": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/classic/gingerbread-man.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/classic/three-little-pigs": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/classic/three-little-pigs.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/classic/goldilocks": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/classic/goldilocks.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/classic/red-cap": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/classic/red-cap.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/originals/max-white-bears": {
+      "initialRevalidateSeconds": 60,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/stories/[tagSlug]/[storySlug]",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/originals/max-white-bears.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    }
+  },
+  "dynamicRoutes": {
+    "/stories/[tagSlug]": {
+      "routeRegex": "^/stories/([^/]+?)(?:/)?$",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/[tagSlug].json",
+      "fallback": null,
+      "dataRouteRegex": "^/_next/data/OZAvXK10FD\\-X2Whn9Asda/stories/([^/]+?)\\.json$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/stories/[tagSlug]/[storySlug]": {
+      "routeRegex": "^/stories/([^/]+?)/([^/]+?)(?:/)?$",
+      "dataRoute": "/_next/data/OZAvXK10FD-X2Whn9Asda/stories/[tagSlug]/[storySlug].json",
+      "fallback": null,
+      "dataRouteRegex": "^/_next/data/OZAvXK10FD\\-X2Whn9Asda/stories/([^/]+?)/([^/]+?)\\.json$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    }
+  },
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "73979146ef7bc5cb88162024264921e4",
+    "previewModeSigningKey": "11efda60c54fc0e7f92c6fdf6e081499e2567820852e76f6a235293d6fc480f2",
+    "previewModeEncryptionKey": "380c062a8078282eec53222249e1e14e2e4f0b7fc13e17d40cfc8dd4aa6dd351"
+  }
+}

@@ -1,9 +1,62 @@
 import { createClient } from '@supabase/supabase-js';
-import { Story, Tag, StoryImage, ContactRequest, CreateContactRequest } from '../types';
+
+// Type definitions
+interface Story {
+  id: string;
+  title: string;
+  description: string;
+  content: string;
+  tags: string[];
+  images: StoryImage[];
+  readingTime: number;
+  ageGroup: '3-5' | '6-8' | '9-12';
+  slug: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface StoryImage {
+  id: string;
+  src: string;
+  alt: string;
+  position: number;
+  fileName?: string;
+  fileSize?: number;
+  mimeType?: string;
+  storagePath?: string;
+}
+
+interface Tag {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  color: string;
+}
+
+interface ContactRequest {
+  id: string;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  status: 'pending' | 'read' | 'replied' | 'archived';
+  ip_address?: string;
+  user_agent?: string;
+  created_at: string;
+  updated_at: string;
+}
+
+interface CreateContactRequest {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
 
 // Create Supabase client
-const supabaseUrl = process.env.REACT_APP_SUPABASE_URL!;
-const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY!;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
 

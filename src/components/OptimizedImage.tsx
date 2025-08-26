@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import PlaceholderImage from './PlaceholderImage';
 
 interface OptimizedImageProps {
   src: string;
@@ -20,7 +19,6 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
 }) => {
   const [imageError, setImageError] = useState(false);
   const [imageLoading, setImageLoading] = useState(true);
-  const [imageLoaded, setImageLoaded] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -28,7 +26,6 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
     if (priority && src) {
       const img = new Image();
       img.onload = () => {
-        setImageLoaded(true);
         setImageLoading(false);
       };
       img.onerror = () => {
@@ -42,12 +39,12 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   // If image failed to load, show placeholder
   if (imageError) {
     return (
-      <PlaceholderImage
-        alt={alt}
-        className={className}
-        width={width}
-        height={height}
-      />
+      <div 
+        className={`${className} bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white rounded-lg`}
+        style={{ width: `${width}px`, height: `${height}px` }}
+      >
+        <div className="text-4xl mb-2">🌙</div>
+      </div>
     );
   }
 
@@ -67,7 +64,6 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         className={`optimized-image w-full h-full ${imageLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300 rounded-lg object-cover`}
         onLoad={() => {
           setImageLoading(false);
-          setImageLoaded(true);
         }}
         onError={() => {
           setImageError(true);

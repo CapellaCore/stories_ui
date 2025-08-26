@@ -1,0 +1,175 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ],
+      "regex": "^(?:/(.*))(?:/)?$"
+    },
+    {
+      "source": "/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^/static(?:/(.*))(?:/)?$"
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ],
+      "regex": "^/images(?:/(.*))(?:/)?$"
+    }
+  ],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [
+      {
+        "source": "/sitemap.xml",
+        "destination": "/api/sitemap",
+        "regex": "^/sitemap\\.xml(?:/)?$"
+      },
+      {
+        "source": "/sitemap.json",
+        "destination": "/api/sitemap-json",
+        "regex": "^/sitemap\\.json(?:/)?$"
+      }
+    ],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/stories/[tagSlug]",
+      "regex": "^/stories/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPtagSlug": "nxtPtagSlug"
+      },
+      "namedRegex": "^/stories/(?<nxtPtagSlug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/stories/[tagSlug]/[storySlug]",
+      "regex": "^/stories/([^/]+?)/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPtagSlug": "nxtPtagSlug",
+        "nxtPstorySlug": "nxtPstorySlug"
+      },
+      "namedRegex": "^/stories/(?<nxtPtagSlug>[^/]+?)/(?<nxtPstorySlug>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/privacy-policy",
+      "regex": "^/privacy\\-policy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy\\-policy(?:/)?$"
+    },
+    {
+      "page": "/search",
+      "regex": "^/search(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/search(?:/)?$"
+    },
+    {
+      "page": "/stories",
+      "regex": "^/stories(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/stories(?:/)?$"
+    },
+    {
+      "page": "/terms-of-use",
+      "regex": "^/terms\\-of\\-use(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/terms\\-of\\-use(?:/)?$"
+    }
+  ],
+  "dataRoutes": [
+    {
+      "page": "/",
+      "dataRouteRegex": "^/_next/data/OZAvXK10FD\\-X2Whn9Asda/index\\.json$"
+    },
+    {
+      "page": "/search",
+      "dataRouteRegex": "^/_next/data/OZAvXK10FD\\-X2Whn9Asda/search\\.json$"
+    },
+    {
+      "page": "/stories",
+      "dataRouteRegex": "^/_next/data/OZAvXK10FD\\-X2Whn9Asda/stories\\.json$"
+    },
+    {
+      "page": "/stories/[tagSlug]",
+      "routeKeys": {
+        "nxtPtagSlug": "nxtPtagSlug"
+      },
+      "dataRouteRegex": "^/_next/data/OZAvXK10FD\\-X2Whn9Asda/stories/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/OZAvXK10FD\\-X2Whn9Asda/stories/(?<nxtPtagSlug>[^/]+?)\\.json$"
+    },
+    {
+      "page": "/stories/[tagSlug]/[storySlug]",
+      "routeKeys": {
+        "nxtPtagSlug": "nxtPtagSlug",
+        "nxtPstorySlug": "nxtPstorySlug"
+      },
+      "dataRouteRegex": "^/_next/data/OZAvXK10FD\\-X2Whn9Asda/stories/([^/]+?)/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/OZAvXK10FD\\-X2Whn9Asda/stories/(?<nxtPtagSlug>[^/]+?)/(?<nxtPstorySlug>[^/]+?)\\.json$"
+    }
+  ],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

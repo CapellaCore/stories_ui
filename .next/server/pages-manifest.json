@@ -1,0 +1,14 @@
+{
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/contact": "pages/contact.html",
+  "/privacy-policy": "pages/privacy-policy.html",
+  "/terms-of-use": "pages/terms-of-use.html",
+  "/_error": "pages/_error.js",
+  "/stories": "pages/stories.js",
+  "/search": "pages/search.js",
+  "/stories/[tagSlug]": "pages/stories/[tagSlug].js",
+  "/stories/[tagSlug]/[storySlug]": "pages/stories/[tagSlug]/[storySlug].js",
+  "/": "pages/index.js",
+  "/404": "pages/404.html"
+}
