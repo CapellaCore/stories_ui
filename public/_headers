@@ -48,6 +48,18 @@
 /
   Cache-Control: public, max-age=900, must-revalidate
 
+# Service Worker caching
+sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Performance optimization headers
+*.js
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+
+*.css
+  X-Content-Type-Options: nosniff
+
 # Cache manifest and other config files for 1 day with revalidation
 manifest.json
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800

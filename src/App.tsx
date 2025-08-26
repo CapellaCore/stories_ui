@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { TranslationProvider } from './contexts/TranslationContext';
+import { measurePerformance, measurePageLoad } from './utils/performance';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -23,6 +24,12 @@ const StoriesByTagWrapper = () => {
 };
 
 function App() {
+  useEffect(() => {
+    // Initialize performance monitoring
+    measurePerformance();
+    measurePageLoad();
+  }, []);
+
   return (
     <TranslationProvider>
       <HelmetProvider>
