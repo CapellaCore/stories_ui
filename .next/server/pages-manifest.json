@@ -3,12 +3,12 @@
   "/_document": "pages/_document.js",
   "/contact": "pages/contact.html",
   "/privacy-policy": "pages/privacy-policy.html",
-  "/_error": "pages/_error.js",
   "/terms-of-use": "pages/terms-of-use.html",
-  "/search": "pages/search.js",
-  "/stories/[tagSlug]": "pages/stories/[tagSlug].js",
-  "/stories/[tagSlug]/[storySlug]": "pages/stories/[tagSlug]/[storySlug].js",
-  "/": "pages/index.js",
+  "/_error": "pages/_error.js",
   "/stories": "pages/stories.js",
+  "/search": "pages/search.js",
+  "/": "pages/index.js",
+  "/stories/[tagSlug]/[storySlug]": "pages/stories/[tagSlug]/[storySlug].js",
+  "/stories/[tagSlug]": "pages/stories/[tagSlug].js",
   "/404": "pages/404.html"
 }
