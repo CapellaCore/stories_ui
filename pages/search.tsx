@@ -72,6 +72,7 @@ const SearchPage: React.FC<SearchPageProps> = ({ initialStories, query: initialQ
     <>
       <Head>
         <title>Search - Time to Sleep</title>
+        <meta name="title" content="Search - Time to Sleep" />
         <meta name="description" content="Find the perfect bedtime story for your child on Time to Sleep. Search by title, description, or content." />
         <meta name="keywords" content="search stories, story search, children's stories, bedtime stories, time to sleep" />
         <link rel="canonical" href={`https://timetosleep.org/search${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ''}`} />

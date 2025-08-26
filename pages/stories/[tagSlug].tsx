@@ -73,7 +73,8 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tagSlug, tag, allSt
   return (
     <>
       <Head>
-        <title>{tag.name} - Stories</title>
+        <title>{`${tag.name} - Stories`}</title>
+        <meta name="title" content={`${tag.name} - Stories`} />
         <meta name="description" content={tag.description || `Stories in category ${tag.name}`} />
         <meta name="keywords" content={`${tag.name}, stories, category, time to sleep`} />
         <link rel="canonical" href={`https://timetosleep.org/stories/${tag.slug}`} />

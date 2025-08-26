@@ -62,7 +62,8 @@ const StoryPage: React.FC<StoryPageProps> = ({ tagSlug, storySlug, story, tag })
   return (
     <>
       <Head>
-        <title>{story.title} - Time to Sleep</title>
+        <title>{`${story.title} - Time to Sleep`}</title>
+        <meta name="title" content={`${story.title} - Time to Sleep`} />
         <meta name="description" content={story.description} />
         <meta name="keywords" content={story.tags.join(', ')} />
         <link rel="canonical" href={`https://timetosleep.org/stories/${tagSlug}/${storySlug}`} />

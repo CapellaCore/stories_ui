@@ -54,6 +54,7 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => 
     <>
       <Head>
         <title>Stories - Time to Sleep</title>
+        <meta name="title" content="Stories - Time to Sleep" />
         <meta name="description" content="Browse all story categories and find the perfect bedtime story for your child on Time to Sleep." />
         <meta name="keywords" content="stories, story categories, children's stories, bedtime stories, time to sleep" />
         <link rel="canonical" href="https://timetosleep.org/stories" />

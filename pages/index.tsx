@@ -50,6 +50,7 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories, categories }) => {
     <>
       <Head>
         <title>Time to Sleep - Bedtime Stories for Your Children</title>
+        <meta name="title" content="Time to Sleep - Bedtime Stories for Your Children" />
         <meta name="description" content="Time to Sleep - Bedtime Stories for Your Children. Discover magical stories with beautiful illustrations perfect for family reading and helping children fall asleep peacefully." />
         <meta name="keywords" content="bedtime stories, children's stories, stories for children, stories with pictures, time to sleep, family reading" />
         <link rel="canonical" href="https://timetosleep.org/" />

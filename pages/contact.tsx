@@ -44,6 +44,7 @@ const ContactPage: React.FC = () => {
     <>
       <Head>
         <title>Contact Us - Time to Sleep</title>
+        <meta name="title" content="Contact Us - Time to Sleep" />
         <meta name="description" content="Get in touch with us. We'd love to hear from you about our bedtime stories or any questions you might have." />
         <meta name="keywords" content="contact, contact us, feedback, questions, time to sleep, bedtime stories" />
         <link rel="canonical" href="https://timetosleep.org/contact" />

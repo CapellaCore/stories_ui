@@ -9,6 +9,7 @@ const PrivacyPolicyPage: React.FC = () => {
     <>
       <Head>
         <title>Privacy Policy - Time to Sleep</title>
+        <meta name="title" content="Privacy Policy - Time to Sleep" />
         <meta name="description" content="Privacy Policy for Time to Sleep. Learn how we collect, use, and protect your personal information on our bedtime stories website." />
         <meta name="keywords" content="privacy policy, data protection, GDPR, cookies, time to sleep, bedtime stories" />
         <link rel="canonical" href="https://timetosleep.org/privacy-policy" />

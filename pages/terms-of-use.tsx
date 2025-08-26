@@ -9,6 +9,7 @@ const TermsOfUsePage: React.FC = () => {
     <>
       <Head>
         <title>Terms of Use - Time to Sleep</title>
+        <meta name="title" content="Terms of Use - Time to Sleep" />
         <meta name="description" content="Terms of Use for Time to Sleep. Read our terms and conditions for using our bedtime stories website." />
         <meta name="keywords" content="terms of use, terms and conditions, legal, time to sleep, bedtime stories" />
         <link rel="canonical" href="https://timetosleep.org/terms-of-use" />
