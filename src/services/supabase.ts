@@ -55,13 +55,10 @@ interface CreateContactRequest {
 }
 
 // Create Supabase client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
-// Only create client if environment variables are available
-export const supabase = supabaseUrl && supabaseKey 
-  ? createClient(supabaseUrl, supabaseKey)
-  : null;
+export const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Helper function to transform story images
 const transformStoryImages = (images: any[]): StoryImage[] => {
@@ -81,11 +78,6 @@ const transformStoryImages = (images: any[]): StoryImage[] => {
 export const storiesApi = {
   // Get all stories
   async getAll(): Promise<Story[]> {
-    if (!supabase) {
-      console.warn('Supabase client not initialized - returning empty array');
-      return [];
-    }
-    
     const { data, error } = await supabase
       .from('stories')
       .select(`
@@ -136,11 +128,6 @@ export const storiesApi = {
 
   // Get story by slug
   async getBySlug(slug: string): Promise<Story | null> {
-    if (!supabase) {
-      console.warn('Supabase client not initialized - returning null');
-      return null;
-    }
-    
     const { data, error } = await supabase
       .from('stories')
       .select(`
@@ -194,11 +181,6 @@ export const storiesApi = {
 
   // Get story by ID (for backward compatibility)
   async getById(id: string): Promise<Story | null> {
-    if (!supabase) {
-      console.warn('Supabase client not initialized - returning null');
-      return null;
-    }
-    
     const { data, error } = await supabase
       .from('stories')
       .select(`
@@ -252,11 +234,6 @@ export const storiesApi = {
 
   // Get stories by tag slug
   async getByTagSlug(tagSlug: string): Promise<Story[]> {
-    if (!supabase) {
-      console.warn('Supabase client not initialized - returning empty array');
-      return [];
-    }
-    
     const { data, error } = await supabase
       .from('stories')
       .select(`
@@ -308,11 +285,6 @@ export const storiesApi = {
 
   // Get stories by tag name (for backward compatibility)
   async getByTag(tagName: string): Promise<Story[]> {
-    if (!supabase) {
-      console.warn('Supabase client not initialized - returning empty array');
-      return [];
-    }
-    
     const { data, error } = await supabase
       .from('stories')
       .select(`
@@ -365,11 +337,6 @@ export const storiesApi = {
   // Search stories by query
   async search(query: string): Promise<Story[]> {
     if (!query.trim()) {
-      return [];
-    }
-
-    if (!supabase) {
-      console.warn('Supabase client not initialized - returning empty array');
       return [];
     }
 
@@ -427,11 +394,6 @@ export const storiesApi = {
 export const tagsApi = {
   // Get all tags
   async getAll(): Promise<Tag[]> {
-    if (!supabase) {
-      console.warn('Supabase client not initialized - returning empty array');
-      return [];
-    }
-    
     const { data, error } = await supabase
       .from('tags')
       .select('*')
@@ -447,11 +409,6 @@ export const tagsApi = {
 
   // Get tag by slug
   async getBySlug(slug: string): Promise<Tag | null> {
-    if (!supabase) {
-      console.warn('Supabase client not initialized - returning null');
-      return null;
-    }
-    
     const { data, error } = await supabase
       .from('tags')
       .select('*')
@@ -468,11 +425,6 @@ export const tagsApi = {
 
   // Get tag by name (for backward compatibility)
   async getByName(name: string): Promise<Tag | null> {
-    if (!supabase) {
-      console.warn('Supabase client not initialized - returning null');
-      return null;
-    }
-    
     const { data, error } = await supabase
       .from('tags')
       .select('*')
@@ -492,11 +444,6 @@ export const tagsApi = {
 export const imagesApi = {
   // Get images for a story
   async getByStoryId(storyId: string): Promise<StoryImage[]> {
-    if (!supabase) {
-      console.warn('Supabase client not initialized - returning empty array');
-      return [];
-    }
-    
     const { data, error } = await supabase
       .from('story_images')
       .select('*')
@@ -516,11 +463,6 @@ export const imagesApi = {
 export const contactRequestsApi = {
   // Create a new contact request
   async create(request: CreateContactRequest): Promise<ContactRequest> {
-    if (!supabase) {
-      console.warn('Supabase client not initialized - throwing error');
-      throw new Error('Supabase client not initialized');
-    }
-    
     const { data, error } = await supabase
       .from('contact_requests')
       .insert({
@@ -542,11 +484,6 @@ export const contactRequestsApi = {
 
   // Get all contact requests (for admin use)
   async getAll(): Promise<ContactRequest[]> {
-    if (!supabase) {
-      console.warn('Supabase client not initialized - returning empty array');
-      return [];
-    }
-    
     const { data, error } = await supabase
       .from('contact_requests')
       .select('*')
@@ -562,11 +499,6 @@ export const contactRequestsApi = {
 
   // Get contact request by ID
   async getById(id: string): Promise<ContactRequest | null> {
-    if (!supabase) {
-      console.warn('Supabase client not initialized - returning null');
-      return null;
-    }
-    
     const { data, error } = await supabase
       .from('contact_requests')
       .select('*')
@@ -583,11 +515,6 @@ export const contactRequestsApi = {
 
   // Update contact request status
   async updateStatus(id: string, status: ContactRequest['status']): Promise<ContactRequest> {
-    if (!supabase) {
-      console.warn('Supabase client not initialized - throwing error');
-      throw new Error('Supabase client not initialized');
-    }
-    
     const { data, error } = await supabase
       .from('contact_requests')
       .update({ status })

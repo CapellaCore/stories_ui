@@ -5,7 +5,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": null,
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/index.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/index.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -19,7 +19,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": null,
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -33,7 +33,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/animals.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/animals.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -47,7 +47,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/classic.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/classic.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -61,7 +61,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/originals.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/originals.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -75,7 +75,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/animals/dog-and-the-shadow.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/animals/dog-and-the-shadow.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -89,7 +89,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/originals/sharing-is-magic.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/originals/sharing-is-magic.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -103,7 +103,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/originals/kind-dragon.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/originals/kind-dragon.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -117,7 +117,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/originals/when-tim-lost-his-temper.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/originals/when-tim-lost-his-temper.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -131,7 +131,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/originals/amys-first-day-at-school.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/originals/amys-first-day-at-school.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -145,7 +145,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/originals/moon-and-sleepy-cat.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/originals/moon-and-sleepy-cat.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -159,7 +159,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/originals/ella-and-cloud-factory.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/originals/ella-and-cloud-factory.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -173,7 +173,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/originals/wandering-blanket.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/originals/wandering-blanket.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -187,7 +187,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/originals/luna-reads-book-to-the-stars.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/originals/luna-reads-book-to-the-stars.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -201,7 +201,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/animals/town-mouse-and-country-mouse.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/animals/town-mouse-and-country-mouse.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -215,7 +215,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/animals/ugly-duckling.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/animals/ugly-duckling.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -229,7 +229,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/animals/ant-and-greasshopper.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/animals/ant-and-greasshopper.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -243,7 +243,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/animals/lion-and-mouse.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/animals/lion-and-mouse.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -257,7 +257,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/animals/hare-and-tortoise.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/animals/hare-and-tortoise.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -271,7 +271,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/animals/fox-and-crow.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/animals/fox-and-crow.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -285,7 +285,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/classic/sleeping_beauty.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/classic/sleeping_beauty.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -299,7 +299,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/classic/rapunzel.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/classic/rapunzel.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -313,7 +313,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/classic/hansel-and-grethel.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/classic/hansel-and-grethel.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -327,7 +327,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/classic/cinderella.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/classic/cinderella.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -341,7 +341,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/classic/jack-and-the-beanstalk.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/classic/jack-and-the-beanstalk.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -355,7 +355,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/classic/gingerbread-man.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/classic/gingerbread-man.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -369,7 +369,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/classic/three-little-pigs.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/classic/three-little-pigs.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -383,7 +383,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/classic/goldilocks.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/classic/goldilocks.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -397,7 +397,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/classic/red-cap.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/classic/red-cap.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -411,7 +411,7 @@
       "initialRevalidateSeconds": 60,
       "initialExpireSeconds": 31536000,
       "srcRoute": "/stories/[tagSlug]/[storySlug]",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/originals/max-white-bears.json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/originals/max-white-bears.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -425,9 +425,9 @@
   "dynamicRoutes": {
     "/stories/[tagSlug]": {
       "routeRegex": "^/stories/([^/]+?)(?:/)?$",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/[tagSlug].json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/[tagSlug].json",
       "fallback": null,
-      "dataRouteRegex": "^/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/([^/]+?)\\.json$",
+      "dataRouteRegex": "^/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/([^/]+?)\\.json$",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -439,9 +439,9 @@
     },
     "/stories/[tagSlug]/[storySlug]": {
       "routeRegex": "^/stories/([^/]+?)/([^/]+?)(?:/)?$",
-      "dataRoute": "/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/[tagSlug]/[storySlug].json",
+      "dataRoute": "/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/[tagSlug]/[storySlug].json",
       "fallback": null,
-      "dataRouteRegex": "^/_next/data/ZaTcH_2huIjHGZMBmmQBW/stories/([^/]+?)/([^/]+?)\\.json$",
+      "dataRouteRegex": "^/_next/data/qogqNOqaLLnKYcBX9LNIW/stories/([^/]+?)/([^/]+?)\\.json$",
       "allowHeader": [
         "host",
         "x-matched-path",

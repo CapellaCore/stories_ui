@@ -26,13 +26,6 @@ export const storageService = {
   // Upload image to Supabase storage
   async uploadImage({ file, storyId, alt, position }: UploadImageParams): Promise<UploadImageResult> {
     try {
-      if (!supabase) {
-        return {
-          success: false,
-          error: 'Supabase client not initialized'
-        };
-      }
-
       // Generate unique filename
       const fileExtension = file.name.split('.').pop();
       const uniqueFileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExtension}`;
@@ -121,13 +114,6 @@ export const storageService = {
   // Delete image from storage and database
   async deleteImage(imageId: string): Promise<{ success: boolean; error?: string }> {
     try {
-      if (!supabase) {
-        return {
-          success: false,
-          error: 'Supabase client not initialized'
-        };
-      }
-
       // Get image data first
       const { data: imageData, error: fetchError } = await supabase
         .from('story_images')
@@ -181,13 +167,6 @@ export const storageService = {
   // Delete all images for a story
   async deleteStoryImages(storyId: string): Promise<{ success: boolean; error?: string }> {
     try {
-      if (!supabase) {
-        return {
-          success: false,
-          error: 'Supabase client not initialized'
-        };
-      }
-
       // Get all images for the story
       const { data: images, error: fetchError } = await supabase
         .from('story_images')
@@ -245,10 +224,6 @@ export const storageService = {
   // Get storage usage for a story
   async getStoryStorageUsage(storyId: string): Promise<{ totalSize: number; imageCount: number }> {
     try {
-      if (!supabase) {
-        return { totalSize: 0, imageCount: 0 };
-      }
-
       const { data: images, error } = await supabase
         .from('story_images')
         .select('file_size')
