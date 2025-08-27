@@ -2,210 +2,238 @@
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
   <loc>https://timetosleep.org/</loc>
-  <lastmod>2025-08-18T07:05:49.620Z</lastmod>
+  <lastmod>2025-08-27T10:14:23.305Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>1.0</priority>
   
   </url>
   <url>
   <loc>https://timetosleep.org/stories</loc>
-  <lastmod>2025-08-18T07:05:49.621Z</lastmod>
+  <lastmod>2025-08-27T10:14:23.307Z</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.9</priority>
   
   </url>
   <url>
   <loc>https://timetosleep.org/search</loc>
-  <lastmod>2025-08-18T07:05:49.621Z</lastmod>
+  <lastmod>2025-08-27T10:14:23.307Z</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/about</loc>
-  <lastmod>2025-08-18T07:05:49.621Z</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.6</priority>
-  
-  </url>
-  <url>
   <loc>https://timetosleep.org/contact</loc>
-  <lastmod>2025-08-18T07:05:49.621Z</lastmod>
+  <lastmod>2025-08-27T10:14:23.307Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.5</priority>
   
   </url>
   <url>
   <loc>https://timetosleep.org/terms-of-use</loc>
-  <lastmod>2025-08-18T07:05:49.621Z</lastmod>
+  <lastmod>2025-08-27T10:14:23.307Z</lastmod>
   <changefreq>yearly</changefreq>
   <priority>0.3</priority>
   
   </url>
   <url>
   <loc>https://timetosleep.org/privacy-policy</loc>
-  <lastmod>2025-08-18T07:05:49.621Z</lastmod>
+  <lastmod>2025-08-27T10:14:23.307Z</lastmod>
   <changefreq>yearly</changefreq>
   <priority>0.3</priority>
   
   </url>
   <url>
   <loc>https://timetosleep.org/stories/animals</loc>
-  <lastmod>2025-08-18T07:05:49.880Z</lastmod>
+  <lastmod>2025-08-27T10:14:23.436Z</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
   
   </url>
   <url>
   <loc>https://timetosleep.org/stories/classic</loc>
-  <lastmod>2025-08-18T07:05:49.880Z</lastmod>
+  <lastmod>2025-08-27T10:14:23.436Z</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
   
   </url>
   <url>
   <loc>https://timetosleep.org/stories/originals</loc>
-  <lastmod>2025-08-18T07:05:49.880Z</lastmod>
+  <lastmod>2025-08-27T10:14:23.436Z</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.8</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/town-mouse-and-country-mouse</loc>
+  <loc>https://timetosleep.org/stories/animals/dog-and-the-shadow</loc>
+  <lastmod>2025-08-26T08:32:59.679Z</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  
+  </url>
+  <url>
+  <loc>https://timetosleep.org/stories/originals/sharing-is-magic</loc>
+  <lastmod>2025-08-25T12:37:54.024Z</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  
+  </url>
+  <url>
+  <loc>https://timetosleep.org/stories/originals/kind-dragon</loc>
+  <lastmod>2025-08-22T13:00:24.902Z</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  
+  </url>
+  <url>
+  <loc>https://timetosleep.org/stories/originals/when-tim-lost-his-temper</loc>
+  <lastmod>2025-08-21T13:03:37.256Z</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  
+  </url>
+  <url>
+  <loc>https://timetosleep.org/stories/originals/amys-first-day-at-school</loc>
+  <lastmod>2025-08-20T14:56:15.334Z</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  
+  </url>
+  <url>
+  <loc>https://timetosleep.org/stories/originals/moon-and-sleepy-cat</loc>
+  <lastmod>2025-08-19T13:59:38.175Z</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  
+  </url>
+  <url>
+  <loc>https://timetosleep.org/stories/originals/ella-and-cloud-factory</loc>
+  <lastmod>2025-08-18T14:52:35.434Z</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  
+  </url>
+  <url>
+  <loc>https://timetosleep.org/stories/originals/wandering-blanket</loc>
+  <lastmod>2025-08-18T09:29:40.535Z</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  
+  </url>
+  <url>
+  <loc>https://timetosleep.org/stories/originals/luna-reads-book-to-the-stars</loc>
+  <lastmod>2025-08-18T08:55:59.992Z</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  
+  </url>
+  <url>
+  <loc>https://timetosleep.org/stories/animals/town-mouse-and-country-mouse</loc>
   <lastmod>2025-08-16T12:17:07.665Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/ugly-duckling</loc>
+  <loc>https://timetosleep.org/stories/animals/ugly-duckling</loc>
   <lastmod>2025-08-14T12:19:04.563Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/ant-and-greasshopper</loc>
+  <loc>https://timetosleep.org/stories/animals/ant-and-greasshopper</loc>
   <lastmod>2025-08-14T09:15:45.166Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/lion-and-mouse</loc>
+  <loc>https://timetosleep.org/stories/animals/lion-and-mouse</loc>
   <lastmod>2025-08-14T08:33:39.090Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/hare-and-tortoise</loc>
+  <loc>https://timetosleep.org/stories/animals/hare-and-tortoise</loc>
   <lastmod>2025-08-14T08:33:39.090Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/fox-and-crow</loc>
+  <loc>https://timetosleep.org/stories/animals/fox-and-crow</loc>
   <lastmod>2025-08-14T08:33:39.090Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/sleeping_beauty</loc>
+  <loc>https://timetosleep.org/stories/classic/sleeping_beauty</loc>
   <lastmod>2025-08-14T08:33:39.090Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/rapunzel</loc>
+  <loc>https://timetosleep.org/stories/classic/rapunzel</loc>
   <lastmod>2025-08-14T08:33:39.090Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/hansel-and-grethel</loc>
+  <loc>https://timetosleep.org/stories/classic/hansel-and-grethel</loc>
   <lastmod>2025-08-14T08:33:39.090Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/cinderella</loc>
+  <loc>https://timetosleep.org/stories/classic/cinderella</loc>
   <lastmod>2025-08-14T09:01:41.208Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/jack-and-the-beanstalk</loc>
+  <loc>https://timetosleep.org/stories/classic/jack-and-the-beanstalk</loc>
   <lastmod>2025-08-14T08:33:39.090Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/gingerbread-man</loc>
+  <loc>https://timetosleep.org/stories/classic/gingerbread-man</loc>
   <lastmod>2025-08-14T08:33:39.090Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/three-little-pigs</loc>
+  <loc>https://timetosleep.org/stories/classic/three-little-pigs</loc>
   <lastmod>2025-08-14T08:33:39.090Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/goldilocks</loc>
+  <loc>https://timetosleep.org/stories/classic/goldilocks</loc>
   <lastmod>2025-08-14T08:33:39.090Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/red-cap</loc>
+  <loc>https://timetosleep.org/stories/classic/red-cap</loc>
   <lastmod>2025-08-14T08:33:39.090Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
   </url>
   <url>
-  <loc>https://timetosleep.org/stories/all/max-white-bears</loc>
-  <lastmod>2025-08-17T13:27:45.901Z</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-  
-  </url>
-  <url>
-  <loc>https://timetosleep.org/stories/all/max-super-puppy</loc>
-  <lastmod>2025-08-14T08:33:39.090Z</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-  
-  </url>
-  <url>
-  <loc>https://timetosleep.org/stories/all/seven-simeons</loc>
-  <lastmod>2025-08-14T08:33:39.090Z</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-  
-  </url>
-  <url>
-  <loc>https://timetosleep.org/stories/all/frog-pricess</loc>
-  <lastmod>2025-08-14T08:33:39.090Z</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-  
-  </url>
-  <url>
-  <loc>https://timetosleep.org/stories/all/volshebnyy-zamok</loc>
-  <lastmod>2025-08-14T08:33:39.090Z</lastmod>
+  <loc>https://timetosleep.org/stories/originals/max-white-bears</loc>
+  <lastmod>2025-08-18T09:14:58.945Z</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   
