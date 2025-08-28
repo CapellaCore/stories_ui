@@ -1,5 +1,6 @@
 # robots.txt for Time to Sleep - Bedtime Stories for Your Children
 # https://timetosleep.org
+# Updated: 2025-08-28 - Fixed sitemap and cache issues
 
 User-agent: *
 Allow: /

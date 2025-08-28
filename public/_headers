@@ -65,10 +65,10 @@ manifest.json
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 robots.txt
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, must-revalidate
 
 sitemap.xml
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, must-revalidate
 
 # Cache Supabase Storage images (if they have specific patterns)
 *.supabase.co/*
