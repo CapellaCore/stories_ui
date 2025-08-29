@@ -115,15 +115,11 @@ const StoryPage: React.FC = () => {
         <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "CreativeWork",
-          "name": story.title,
+          "@type": "Article",
+          "headline": story.title,
           "description": story.description,
           "image": sortedImages.length > 0 ? sortedImages[0].src : undefined,
           "author": {
-            "@type": "Organization",
-            "name": t('header.brandName')
-          },
-          "creator": {
             "@type": "Organization",
             "name": t('header.brandName')
           },
@@ -135,7 +131,7 @@ const StoryPage: React.FC = () => {
               "url": "https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg"
             }
           },
-          "dateCreated": story.createdAt,
+          "datePublished": story.createdAt,
           "dateModified": story.updatedAt,
           "genre": "Children's Literature",
           "audience": {

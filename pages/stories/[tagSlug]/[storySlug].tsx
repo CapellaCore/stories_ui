@@ -92,19 +92,16 @@ const StoryPage: React.FC<StoryPageProps> = ({ tagSlug, storySlug, story, tag })
         <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "CreativeWork",
-          "name": story.title,
+          "@type": "Article",
+          "headline": story.title,
           "description": story.description,
           "author": {
             "@type": "Person",
             "name": "Konstantin Dylko"
           },
-          "creator": {
-            "@type": "Person",
-            "name": "Konstantin Dylko"
-          },
           "datePublished": story.createdAt,
           "dateModified": story.updatedAt,
+          "articleSection": tag.name,
           "genre": "Children's Literature",
           "audience": {
             "@type": "Audience",

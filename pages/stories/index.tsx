@@ -93,8 +93,8 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => 
               "@type": "ListItem",
               "position": index + 1,
               "item": {
-                "@type": "CreativeWork",
-                "name": tag.name,
+                "@type": "Article",
+                "headline": tag.name,
                 "url": `https://timetosleep.org/stories/${tag.slug}`,
                 "genre": "Children's Literature"
               }

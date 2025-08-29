@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/stories/animals":{},"/stories/classic":{},"/stories/originals":{}},"dynamicRoutes":{"/stories/[tagSlug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/stories/[tagSlug]","routeRegex":"^\\/stories\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"fda167b77cdefbd218ed73512814a12f","previewModeSigningKey":"277b7a6395e0647cc3c5953d24c90717f78a4ae7e726a2e451324011155a47fd","previewModeEncryptionKey":"b0f0555f0478799648a1e2c70408f985908ba87147b556128f398f171191e92d"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "d3630796fc79eaafc3ac70ff6ec45260",
+    "previewModeSigningKey": "3e405d4dc2e3c20ed082c73cf2032c68897b6779b98fceec117620db81af784e",
+    "previewModeEncryptionKey": "a36e8223896583c909bbaf4dd1d76cd845136bb2941452ee75431bdd06bd04be"
+  }
+}

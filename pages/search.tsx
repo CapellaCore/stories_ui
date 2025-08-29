@@ -111,8 +111,8 @@ const SearchPage: React.FC<SearchPageProps> = ({ initialStories, query: initialQ
               "@type": "ListItem",
               "position": index + 1,
               "item": {
-                "@type": "CreativeWork",
-                "name": story.title,
+                "@type": "Article",
+                "headline": story.title,
                 "url": `https://timetosleep.org/stories/${story.tags[0]?.toLowerCase() || 'stories'}/${story.slug}`,
                 "genre": "Children's Literature",
                 "description": story.description
