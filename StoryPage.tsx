@@ -118,7 +118,7 @@ const StoryPage: React.FC = () => {
           "@type": "Article",
           "headline": story.title,
           "description": story.description,
-          "image": sortedImages.length > 0 ? sortedImages[0].src : undefined,
+          "image": sortedImages.length > 0 ? sortedImages[0].src : "https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg",
           "author": {
             "@type": "Organization",
             "name": t('header.brandName')

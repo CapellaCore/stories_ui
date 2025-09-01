@@ -115,7 +115,8 @@ const SearchPage: React.FC<SearchPageProps> = ({ initialStories, query: initialQ
                 "headline": story.title,
                 "url": `https://timetosleep.org/stories/${story.tags[0]?.toLowerCase() || 'stories'}/${story.slug}`,
                 "genre": "Children's Literature",
-                "description": story.description
+                "description": story.description,
+                "image": story.images.length > 0 ? story.images[0].src : "https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg"
               }
             }))
           }

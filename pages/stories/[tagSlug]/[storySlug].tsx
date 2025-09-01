@@ -95,6 +95,7 @@ const StoryPage: React.FC<StoryPageProps> = ({ tagSlug, storySlug, story, tag })
           "@type": "Article",
           "headline": story.title,
           "description": story.description,
+          "image": sortedImages.length > 0 ? sortedImages[0].src : "https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg",
           "author": {
             "@type": "Person",
             "name": "Konstantin Dylko"
