@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import SimpleHeader from '../src/components/SimpleHeader';
 import SimpleFooter from '../src/components/SimpleFooter';
+import { contactRequestsApi } from '../src/services/supabase';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -28,12 +29,18 @@ const ContactPage: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // In a real implementation, this would submit to Supabase
-      // For now, we'll simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Submit to Supabase using the contact requests API
+      await contactRequestsApi.create({
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message
+      });
+      
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
+      console.error('Error submitting contact form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
