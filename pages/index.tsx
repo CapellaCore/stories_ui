@@ -9,7 +9,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { GetStaticProps, GetStaticPropsContext } from 'next';
 
-const HomePage: React.FC<HomePageProps> = ({ featuredStories, categories }) => {
+const HomePage: React.FC<HomePageProps> = ({ featuredStories }) => {
   // Helper function to get stories by tag
   const getStoriesByTag = (tagSlug: string) => {
     return featuredStories.filter(story =>

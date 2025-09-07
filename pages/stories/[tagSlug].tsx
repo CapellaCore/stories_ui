@@ -10,7 +10,7 @@ import {useTranslation} from "next-i18next";
 import StoryCard from "../../src/components/StoryCard";
 import {StoriesByTagPageProps} from "../../src/types/interfaces";
 
-const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tagSlug, tag, allStories }) => {
+const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tag, allStories }) => {
   const [displayedStories, setDisplayedStories] = useState(12);
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation('common');

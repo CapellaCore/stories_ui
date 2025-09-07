@@ -58,17 +58,15 @@ export class SitemapService {
     const xmlHeader = '<?xml version="1.0" encoding="UTF-8"?>';
     const urlsetOpen = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
     const urlsetClose = '</urlset>';
-    
-    const urlEntries = urls.map(url => {
-      const urlElement = `<url>
-  <loc>${BASE_URL}${url.url}</loc>
-  ${url.lastmod ? `<lastmod>${url.lastmod}</lastmod>` : ''}
-  ${url.changefreq ? `<changefreq>${url.changefreq}</changefreq>` : ''}
-  ${url.priority ? `<priority>${url.priority}</priority>` : ''}
-</url>`;
-      return urlElement;
-    }).join('\n');
-    
+
+    const urlEntries = urls.map(url =>
+      `<url>
+            <loc>${BASE_URL}${url.url}</loc>
+            ${url.lastmod ? `<lastmod>${url.lastmod}</lastmod>` : ''}
+            ${url.changefreq ? `<changefreq>${url.changefreq}</changefreq>` : ''}
+            ${url.priority ? `<priority>${url.priority}</priority>` : ''}
+      </url>`
+    ).join('\n');
     return `${xmlHeader}\n${urlsetOpen}\n${urlEntries}\n${urlsetClose}`;
   }
   
