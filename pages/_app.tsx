@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { measurePerformance, measurePageLoad } from '../src/utils/performance';
 import { appWithTranslation } from 'next-i18next';
-//import {TranslationProvider} from "../src/contexts/TranslationContext";
 
 function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -45,9 +44,7 @@ function App({ Component, pageProps }: AppProps) {
           }
         `
       }} />
-        {/*<TranslationProvider>*/}
             <Component {...pageProps} />
-        {/*</TranslationProvider>*/}
     </>
   );
 }
