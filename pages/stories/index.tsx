@@ -4,35 +4,11 @@ import Link from 'next/link';
 import SimpleHeader from '../../src/components/SimpleHeader';
 import SimpleFooter from '../../src/components/SimpleFooter';
 import LoadMoreButton from '../../src/components/LoadMoreButton';
-
-interface Story {
-  id: string;
-  title: string;
-  description: string;
-  slug: string;
-  readingTime: number;
-  ageGroup: string;
-  tags: string[];
-  images: Array<{
-    id: string;
-    src: string;
-    alt: string;
-    position: number;
-  }>;
-}
-
-interface Tag {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  color: string;
-}
-
-interface StoriesPageProps {
-  categories: Tag[];
-  allStories: Story[];
-}
+import {StoriesPageProps} from "../../src/types/interfaces";
+import StoryCard from "../../src/components/StoryCard";
+import type {GetStaticProps, GetStaticPropsContext} from "next";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {useTranslation} from "next-i18next";
 
 const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => {
   const [displayedStories, setDisplayedStories] = useState(12);
@@ -49,6 +25,7 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => 
 
   const hasMore = displayedStories < allStories.length;
   const currentStories = allStories.slice(0, displayedStories);
+  const { t } = useTranslation('common');
 
   return (
     <>
@@ -113,13 +90,13 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => 
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Home",
+              "name": t("common.home"),
               "item": "https://timetosleep.org"
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Stories",
+              "name": t("header.stories"),
               "item": "https://timetosleep.org/stories"
             }
           ]
@@ -137,27 +114,27 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => 
               <div className="px-4 py-3">
                 <nav className="flex items-center space-x-2 text-sm text-[#577c8e]">
                   <Link href="/" className="hover:text-[#101619] transition-colors">
-                    Home
+                      {t("common.home")}
                   </Link>
                   <span>/</span>
-                  <span className="text-[#101619]">Stories</span>
+                  <span className="text-[#101619]">{t("header.stories")}</span>
                 </nav>
               </div>
 
               {/* Page Title */}
               <div className="px-4 py-3">
                 <h1 className="text-[#101619] text-xl md:text-2xl lg:text-[32px] font-bold leading-tight tracking-[-0.015em]">
-                  All Story Categories
+                    {t("stories.pageTitle")}
                 </h1>
                 <p className="text-[#577c8e] text-sm md:text-base font-normal leading-normal mt-2">
-                  Choose a category that interests you and discover magical stories for children on Time to Sleep.
+                    {t("stories.pageDescription")}
                 </p>
               </div>
 
               {/* Categories Section */}
               <div className="px-4 py-6">
                 <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-semibold leading-tight tracking-[-0.015em] mb-4">
-                  Categories
+                    {t("stories.categories")}
                 </h2>
                 <div className="flex flex-wrap gap-2 md:gap-3">
                   {categories.map((tagItem) => (
@@ -182,7 +159,7 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => 
 
               {/* All Stories Section */}
               <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-                All Stories ({allStories.length})
+                  {t("home.allStories")} ({allStories.length})
               </h2>
               <div className="px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
@@ -214,64 +191,21 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => 
   );
 };
 
-// StoryCard Component (same as homepage)
-const StoryCard: React.FC<{ story: Story; tagSlug: string }> = ({ story, tagSlug }) => {
-  const storyUrl = `/stories/${tagSlug}/${story.slug}`;
-  const sortedImages = [...story.images].sort((a, b) => a.position - b.position);
-
-  return (
-    <Link 
-      href={storyUrl} 
-      className="flex h-full flex-1 flex-col gap-3 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow duration-200"
-    >
-      <div className="relative w-full aspect-[3/2] rounded-t-lg overflow-hidden">
-        {sortedImages.length > 0 ? (
-          <img
-            src={sortedImages[0].src}
-            alt={sortedImages[0].alt || story.title}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <div className="w-full h-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white">
-            <div className="text-4xl mb-2">🌙</div>
-          </div>
-        )}
-        <div className="absolute top-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
-          ⏱️ {story.readingTime} min
-        </div>
-      </div>
-      <div className="p-3 flex flex-col gap-2">
-        <h3 className="text-[#101619] text-base font-semibold leading-tight line-clamp-2">
-          {story.title}
-        </h3>
-        <p className="text-[#577c8e] text-sm leading-normal line-clamp-2">
-          {story.description}
-        </p>
-        <div className="flex items-center gap-2 text-xs text-gray-500">
-          <span>👶 {story.ageGroup}</span>
-          {story.tags.length > 0 && (
-            <span className="text-blue-600">#{story.tags[0]}</span>
-          )}
-        </div>
-      </div>
-    </Link>
-  );
-};
-
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }: GetStaticPropsContext) => {
   try {
     // Import the API functions
     const { storiesApi } = await import('../../src/services/supabase');
     const { tagsApi } = await import('../../src/services/supabase');
 
     // Fetch data
-    const allStories = await storiesApi.getAll();
-    const categories = await tagsApi.getAll();
+    const allStories = await storiesApi.getAllByLanguage(locale ?? 'en');
+    const categories = await tagsApi.getAllActualTags(locale ?? 'en');
 
     return {
       props: {
         categories,
-        allStories // Pass all stories instead of just 6
+        allStories, // Pass all stories instead of just 6
+          ...(await serverSideTranslations(locale ?? 'en', ['common'])),
       },
       revalidate: 60 // Rebuild every 60 seconds
     };
@@ -280,7 +214,8 @@ export const getStaticProps = async () => {
     return {
       props: {
         categories: [],
-        allStories: []
+        allStories: [],
+          ...(await serverSideTranslations(locale ?? 'en', ['common'])),
       },
       revalidate: 60
     };

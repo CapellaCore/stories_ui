@@ -1,16 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
+import {useTranslation} from "next-i18next";
 
 const SimpleFooter: React.FC = () => {
+  const { t } = useTranslation('common');
   return (
     <footer className="bg-white border-t border-[#e9eff1] py-8 mt-auto">
       <div className="max-w-[960px] mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-6">
           {/* Main Info */}
           <div className="md:col-span-2">
-            <h3 className="text-lg font-semibold text-[#101619] mb-3">Time to Sleep</h3>
+            <h3 className="text-lg font-semibold text-[#101619] mb-3">{t('footer.title')}</h3>
             <p className="text-[#577c8e] text-sm mb-4">
-              We create a world of magical bedtime stories for children and their parents. Every story is a journey into the world of imagination and kindness.
+                {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-[#577c8e] hover:text-[#101619] transition-colors" aria-label="Instagram">
@@ -28,16 +30,16 @@ const SimpleFooter: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold text-[#101619] mb-3 uppercase tracking-wide">Links</h4>
+            <h4 className="text-sm font-semibold text-[#101619] mb-3 uppercase tracking-wide">{t('common.links')}</h4>
             <ul className="space-y-2">
               <li>
                 <Link href="/" className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
-                  Home
+                    {t('common.home')}
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
-                  Contact
+                    {t('common.contact')}
                 </Link>
               </li>
             </ul>
@@ -49,12 +51,12 @@ const SimpleFooter: React.FC = () => {
             <ul className="space-y-2">
               <li>
                 <Link href="/terms-of-use" className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
-                  Terms of Use
+                    {t('common.termsOfUse')}
                 </Link>
               </li>
               <li>
                 <Link href="/privacy-policy" className="text-[#577c8e] hover:text-[#101619] text-sm transition-colors">
-                  Privacy Policy
+                    {t('common.privacyPolicy')}
                 </Link>
               </li>
             </ul>
@@ -64,10 +66,10 @@ const SimpleFooter: React.FC = () => {
         {/* Bottom */}
         <div className="border-t border-[#e9eff1] pt-6 text-center">
           <p className="text-[#101619] text-sm font-medium leading-normal mb-2">
-            © 2025 Time to Sleep. All rights reserved.
+              {t('common.copyright')}
           </p>
           <p className="text-[#577c8e] text-sm font-normal leading-normal">
-            Created with love for children and their parents
+              {t('common.createdWithLove')}
           </p>
         </div>
       </div>

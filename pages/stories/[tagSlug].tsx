@@ -5,40 +5,15 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import SimpleHeader from '../../src/components/SimpleHeader';
 import SimpleFooter from '../../src/components/SimpleFooter';
 import LoadMoreButton from '../../src/components/LoadMoreButton';
-
-interface Story {
-  id: string;
-  title: string;
-  description: string;
-  slug: string;
-  readingTime: number;
-  ageGroup: string;
-  tags: string[];
-  images: Array<{
-    id: string;
-    src: string;
-    alt: string;
-    position: number;
-  }>;
-}
-
-interface Tag {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  color: string;
-}
-
-interface StoriesByTagPageProps {
-  tagSlug: string;
-  tag: Tag | null;
-  allStories: Story[];
-}
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {useTranslation} from "next-i18next";
+import StoryCard from "../../src/components/StoryCard";
+import {StoriesByTagPageProps} from "../../src/types/interfaces";
 
 const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tagSlug, tag, allStories }) => {
   const [displayedStories, setDisplayedStories] = useState(12);
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation('common');
 
   const handleLoadMore = () => {
     setLoading(true);
@@ -134,13 +109,13 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tagSlug, tag, allSt
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Home",
+              "name": t("common.home"),
               "item": "https://timetosleep.org"
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Stories",
+              "name": t("header.stories"),
               "item": "https://timetosleep.org/stories"
             },
             {
@@ -164,11 +139,11 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tagSlug, tag, allSt
               <div className="px-4 py-3">
                 <nav className="flex items-center space-x-2 text-sm text-[#577c8e]">
                   <Link href="/" className="hover:text-[#101619] transition-colors">
-                    Home
+                      {t("common.home")}
                   </Link>
                   <span>/</span>
                   <Link href="/stories" className="hover:text-[#101619] transition-colors">
-                    Stories
+                      {t("header.stories")}
                   </Link>
                   <span>/</span>
                   <span className="text-[#101619]">{tag.name}</span>
@@ -178,7 +153,7 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tagSlug, tag, allSt
               {/* Page Title */}
               <div className="px-4 py-3">
                 <h1 className="text-[#101619] text-xl md:text-2xl lg:text-[32px] font-bold leading-tight tracking-[-0.015em]">
-                  {tag.name}
+                    {tag.name}
                 </h1>
                 {tag.description && (
                   <p className="text-[#577c8e] text-sm md:text-base font-normal leading-normal mt-2">
@@ -189,7 +164,7 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tagSlug, tag, allSt
 
               {/* Stories Section */}
               <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-                Stories in category ({allStories.length})
+                  {t("storiesByTag.description")} ({allStories.length})
               </h2>
               <div className="px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
@@ -221,50 +196,6 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tagSlug, tag, allSt
   );
 };
 
-// StoryCard Component (same as other pages)
-const StoryCard: React.FC<{ story: Story; tagSlug: string }> = ({ story, tagSlug }) => {
-  const storyUrl = `/stories/${tagSlug}/${story.slug}`;
-  const sortedImages = [...story.images].sort((a, b) => a.position - b.position);
-
-  return (
-    <Link 
-      href={storyUrl} 
-      className="flex h-full flex-1 flex-col gap-3 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow duration-200"
-    >
-      <div className="relative w-full aspect-[3/2] rounded-t-lg overflow-hidden">
-        {sortedImages.length > 0 ? (
-          <img
-            src={sortedImages[0].src}
-            alt={sortedImages[0].alt || story.title}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <div className="w-full h-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white">
-            <div className="text-4xl mb-2">🌙</div>
-          </div>
-        )}
-        <div className="absolute top-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
-          ⏱️ {story.readingTime} min
-        </div>
-      </div>
-      <div className="p-3 flex flex-col gap-2">
-        <h3 className="text-[#101619] text-base font-semibold leading-tight line-clamp-2">
-          {story.title}
-        </h3>
-        <p className="text-[#577c8e] text-sm leading-normal line-clamp-2">
-          {story.description}
-        </p>
-        <div className="flex items-center gap-2 text-xs text-gray-500">
-          <span>👶 {story.ageGroup}</span>
-          {story.tags.length > 0 && (
-            <span className="text-blue-600">#{story.tags[0]}</span>
-          )}
-        </div>
-      </div>
-    </Link>
-  );
-};
-
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
     const { tagsApi } = await import('../../src/services/supabase');
@@ -287,7 +218,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 };
 
-export const getStaticProps: GetStaticProps<StoriesByTagPageProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<StoriesByTagPageProps> = async ({ params, locale }) => {
   try {
     const { tagSlug } = params as { tagSlug: string };
     
@@ -295,14 +226,15 @@ export const getStaticProps: GetStaticProps<StoriesByTagPageProps> = async ({ pa
     const { tagsApi } = await import('../../src/services/supabase');
 
     // Fetch tag and stories
-    const tag = await tagsApi.getBySlug(tagSlug);
-    const allStories = await storiesApi.getByTagSlug(tagSlug);
+    const tag = await tagsApi.getBySlugAndLocale(tagSlug, locale);
+    const allStories = await storiesApi.getByTagSlug(tagSlug, locale);
 
     return {
       props: {
         tagSlug,
         tag,
-        allStories // Pass all stories instead of just the ones that fit in initial view
+        allStories, // Pass all stories instead of just the ones that fit in initial view
+          ...(await serverSideTranslations(locale ?? 'en', ['common']))
       },
       revalidate: 60
     };
@@ -312,7 +244,8 @@ export const getStaticProps: GetStaticProps<StoriesByTagPageProps> = async ({ pa
       props: {
         tagSlug: '',
         tag: null,
-        allStories: []
+        allStories: [],
+          ...(await serverSideTranslations(locale ?? 'en', ['common'])),
       },
       revalidate: 60
     };

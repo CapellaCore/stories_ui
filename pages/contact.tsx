@@ -3,6 +3,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import SimpleHeader from '../src/components/SimpleHeader';
 import SimpleFooter from '../src/components/SimpleFooter';
+import {useTranslation} from "next-i18next";
+import type { GetStaticProps, GetStaticPropsContext } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +17,7 @@ const ContactPage: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const { t } = useTranslation('common');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -104,13 +109,13 @@ const ContactPage: React.FC = () => {
                 {
                   "@type": "ListItem",
                   "position": 1,
-                  "name": "Home",
+                  "name": t("common.home"),
                   "item": "https://timetosleep.org"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Contact",
+                  "name": t("common.contact"),
                   "item": "https://timetosleep.org/contact"
                 }
               ]
@@ -131,7 +136,7 @@ const ContactPage: React.FC = () => {
                   <ol className="inline-flex items-center space-x-1 md:space-x-3">
                     <li className="inline-flex items-center">
                       <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600">
-                        Home
+                          {t("common.home")}
                       </Link>
                     </li>
                     <li aria-current="page">
@@ -139,7 +144,7 @@ const ContactPage: React.FC = () => {
                         <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
                         </svg>
-                        <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2">Contact</span>
+                        <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2">{t("common.contact")}</span>
                       </div>
                     </li>
                   </ol>
@@ -150,10 +155,10 @@ const ContactPage: React.FC = () => {
               <div className="px-4 mb-8">
                 <div className="text-center">
                   <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                    Contact Us
+                      {t("contact.pageTitle")}
                   </h1>
                   <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                    We'd love to hear from you! Get in touch with us about our bedtime stories or any questions you might have.
+                      {t("contact.joinUsDescription")}
                   </p>
                 </div>
               </div>
@@ -162,24 +167,24 @@ const ContactPage: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   {/* Contact Form */}
                   <div className="bg-white rounded-lg shadow-sm p-6">
-                    <h2 className="text-xl font-semibold text-gray-900 mb-4">Send us a message</h2>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4">{t("contact.form.send")}</h2>
                     
                     {submitStatus === 'success' && (
                       <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-md">
-                        <p className="text-green-800">Thank you for your message! We'll get back to you soon.</p>
+                        <p className="text-green-800">{t("contact.form.successMessage")}</p>
                       </div>
                     )}
                     
                     {submitStatus === 'error' && (
                       <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-md">
-                        <p className="text-red-800">Sorry, there was an error sending your message. Please try again.</p>
+                        <p className="text-red-800">{t("contact.form.error")}</p>
                       </div>
                     )}
                     
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                          Name *
+                            {t("contact.form.nameLabel")}
                         </label>
                         <input
                           type="text"
@@ -189,13 +194,13 @@ const ContactPage: React.FC = () => {
                           onChange={handleInputChange}
                           required
                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="Your name"
+                          placeholder={t("contact.form.namePlaceholder")}
                         />
                       </div>
                       
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                          Email *
+                            {t("contact.form.emailLabel")}
                         </label>
                         <input
                           type="email"
@@ -205,13 +210,13 @@ const ContactPage: React.FC = () => {
                           onChange={handleInputChange}
                           required
                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="your.email@example.com"
+                          placeholder={t("contact.form.emailPlaceholder")}
                         />
                       </div>
                       
                       <div>
                         <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                          Subject *
+                            {t("contact.form.subjectLabel")}
                         </label>
                         <select
                           id="subject"
@@ -221,18 +226,18 @@ const ContactPage: React.FC = () => {
                           required
                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         >
-                          <option value="">Select a subject</option>
-                          <option value="general">General Inquiry</option>
-                          <option value="feedback">Feedback</option>
-                          <option value="suggestion">Story Suggestion</option>
-                          <option value="technical">Technical Issue</option>
-                          <option value="partnership">Partnership</option>
+                          <option value="">{t("contact.subjectOptions.select")}</option>
+                          <option value="general">{t("contact.subjectOptions.general")}</option>
+                          <option value="feedback">{t("contact.subjectOptions.feedback")}</option>
+                          <option value="suggestion">{t("contact.subjectOptions.suggestions")}</option>
+                          <option value="technical">{t("contact.subjectOptions.technical")}</option>
+                          <option value="partnership">{t("contact.subjectOptions.partnership")}</option>
                         </select>
                       </div>
                       
                       <div>
                         <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                          Message *
+                            {t("contact.form.messageLabel")}
                         </label>
                         <textarea
                           id="message"
@@ -242,7 +247,7 @@ const ContactPage: React.FC = () => {
                           required
                           rows={5}
                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="Tell us what's on your mind..."
+                          placeholder={t("contact.form.messagePlaceholder")}
                         />
                       </div>
                       
@@ -251,14 +256,14 @@ const ContactPage: React.FC = () => {
                         disabled={isSubmitting}
                         className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
                       >
-                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                        {isSubmitting ? t("contact.form.submitting") : t("contact.form.submitButton")}
                       </button>
                     </form>
                   </div>
                   
                   {/* Contact Information */}
                   <div className="bg-white rounded-lg shadow-sm p-6">
-                    <h2 className="text-xl font-semibold text-gray-900 mb-4">Get in touch</h2>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4">{t("contact.info.getInTouch")}</h2>
                     
                     <div className="space-y-4">
                       <div className="flex items-start space-x-3">
@@ -270,7 +275,7 @@ const ContactPage: React.FC = () => {
                           </div>
                         </div>
                         <div>
-                          <h3 className="text-sm font-medium text-gray-900">Email</h3>
+                          <h3 className="text-sm font-medium text-gray-900">{t("contact.form.email")}</h3>
                           <p className="text-sm text-gray-600">timetosleep.org@gmail.com</p>
                         </div>
                       </div>
@@ -298,22 +303,24 @@ const ContactPage: React.FC = () => {
                           </div>
                         </div>
                         <div>
-                          <h3 className="text-sm font-medium text-gray-900">Response Time</h3>
-                          <p className="text-sm text-gray-600">Usually within 24 hours</p>
+                          <h3 className="text-sm font-medium text-gray-900">{t("contact.info.responseTime")}</h3>
+                          <p className="text-sm text-gray-600">{t("contact.info.responseTimeValue")}</p>
                         </div>
                       </div>
                     </div>
-                    
-                    <div className="mt-8 p-4 bg-gray-50 rounded-md">
-                      <h3 className="text-sm font-medium text-gray-900 mb-2">What we can help with:</h3>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• Story suggestions and feedback</li>
-                        <li>• Technical issues with the website</li>
-                        <li>• Partnership opportunities</li>
-                        <li>• General questions about our stories</li>
-                        <li>• Privacy and data concerns</li>
-                      </ul>
-                    </div>
+
+                      <div className="mt-8 p-4 bg-gray-50 rounded-md">
+                          <h3 className="text-sm font-medium text-gray-900 mb-2">
+                              {t("contact.help.title")}
+                          </h3>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                              <li>• {t("contact.help.items.storySuggestions")}</li>
+                              <li>• {t("contact.help.items.technicalIssues")}</li>
+                              <li>• {t("contact.help.items.partnership")}</li>
+                              <li>• {t("contact.help.items.generalQuestions")}</li>
+                              <li>• {t("contact.help.items.privacyConcerns")}</li>
+                          </ul>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -326,5 +333,14 @@ const ContactPage: React.FC = () => {
     </>
   );
 };
+
+export const getStaticProps: GetStaticProps = async ({ locale }: GetStaticPropsContext) => {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+        }
+    };
+};
+
 
 export default ContactPage;

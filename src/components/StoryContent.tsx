@@ -1,16 +1,5 @@
 import React from 'react';
-
-interface StoryImage {
-  id: string;
-  src: string;
-  alt: string;
-  position: number;
-}
-
-interface StoryContentProps {
-  content: string;
-  images: StoryImage[];
-}
+import {StoryContentProps} from "../types/interfaces";
 
 const StoryContent: React.FC<StoryContentProps> = ({ content, images }) => {
   // Sort images by position and skip the first image (used in hero)

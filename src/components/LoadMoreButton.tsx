@@ -1,12 +1,5 @@
 import React from 'react';
-
-interface LoadMoreButtonProps {
-  onLoadMore: () => void;
-  hasMore: boolean;
-  loading: boolean;
-  totalItems: number;
-  currentItems: number;
-}
+import {LoadMoreButtonProps} from "../types/interfaces";
 
 const LoadMoreButton: React.FC<LoadMoreButtonProps> = ({
   onLoadMore,

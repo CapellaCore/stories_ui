@@ -3,37 +3,41 @@ import Head from 'next/head';
 import Link from 'next/link';
 import SimpleHeader from '../src/components/SimpleHeader';
 import SimpleFooter from '../src/components/SimpleFooter';
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import type {GetStaticProps, GetStaticPropsContext} from "next";
+import {useTranslation} from "next-i18next";
 
 const TermsOfUsePage: React.FC = () => {
+  const { t } = useTranslation('common');
   return (
     <>
       <Head>
-        <title>Terms of Use - Time to Sleep</title>
-        <meta name="title" content="Terms of Use - Time to Sleep" />
-        <meta name="description" content="Terms of Use for Time to Sleep. Read our terms and conditions for using our bedtime stories website." />
-        <meta name="keywords" content="terms of use, terms and conditions, legal, time to sleep, bedtime stories" />
+        <title>{t('terms.title')}</title>
+        <meta name="title" content={t('terms.title')} />
+        <meta name="description" content={t('terms.description')} />
+        <meta name="keywords" content={t('terms.keywords')} />
         <link rel="canonical" href="https://timetosleep.org/terms-of-use" />
-        
+
         {/* Open Graph */}
-        <meta property="og:title" content="Terms of Use - Time to Sleep" />
-        <meta property="og:description" content="Terms of Use for Time to Sleep. Read our terms and conditions for using our bedtime stories website." />
+        <meta property="og:title" content={t('terms.title')} />
+        <meta property="og:description" content={t('terms.description')} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://timetosleep.org/terms-of-use" />
         <meta property="og:site_name" content="Time to Sleep" />
         <meta property="og:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
-        
+
         {/* Twitter Card */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Terms of Use - Time to Sleep" />
-        <meta property="twitter:description" content="Terms of Use for Time to Sleep. Read our terms and conditions for using our bedtime stories website." />
+        <meta property="twitter:title" content={t('terms.title')} />
+        <meta property="twitter:description" content={t('terms.description')} />
         <meta property="twitter:site" content="@timetosleep" />
         <meta property="twitter:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
-        
+
         {/* Additional meta tags for better SEO */}
         <meta name="author" content="Konstantin Dylko" />
         <meta name="robots" content="index, follow" />
         <meta name="language" content="en" />
-        
+
         {/* Structured Data */}
         <script
           type="application/ld+json"
@@ -41,8 +45,8 @@ const TermsOfUsePage: React.FC = () => {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebPage",
-              "name": "Terms of Use - Time to Sleep",
-              "description": "Terms of Use for Time to Sleep. Read our terms and conditions for using our bedtime stories website.",
+              "name": t('terms.pageTitle'),
+              "description": t('terms.description'),
               "url": "https://timetosleep.org/terms-of-use",
               "mainEntity": {
                 "@type": "Organization",
@@ -68,13 +72,13 @@ const TermsOfUsePage: React.FC = () => {
                 {
                   "@type": "ListItem",
                   "position": 1,
-                  "name": "Home",
+                  "name": t('common.home'),
                   "item": "https://timetosleep.org"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Terms of Use",
+                  "name": t('common.termsOfUse'),
                   "item": "https://timetosleep.org/terms-of-use"
                 }
               ]
@@ -86,16 +90,16 @@ const TermsOfUsePage: React.FC = () => {
       <div className="relative flex size-full min-h-screen flex-col bg-gray-50 group/design-root overflow-x-hidden" style={{fontFamily: '"Plus Jakarta Sans", "Noto Sans", sans-serif'}}>
         <div className="layout-container flex h-full grow flex-col">
           <SimpleHeader />
-          
+
           <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
             <div className="w-full max-w-[960px] flex flex-col flex-1">
               {/* Breadcrumbs */}
               <div className="px-4 py-3">
-                <nav className="flex" aria-label="Breadcrumb">
+                <nav className="flex" aria-label={t('common.breadcrumbs')}>
                   <ol className="inline-flex items-center space-x-1 md:space-x-3">
                     <li className="inline-flex items-center">
                       <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600">
-                        Home
+                        {t('common.home')}
                       </Link>
                     </li>
                     <li aria-current="page">
@@ -103,140 +107,158 @@ const TermsOfUsePage: React.FC = () => {
                         <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
                         </svg>
-                        <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2">Terms of Use</span>
+                        <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2">
+                          {t('common.termsOfUse')}
+                        </span>
                       </div>
                     </li>
                   </ol>
                 </nav>
               </div>
-              
+
               {/* Page Header */}
               <div className="px-4 mb-8">
                 <div className="text-center">
                   <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                    Terms of Use
+                    {t('terms.pageTitle')}
                   </h1>
                   <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Please read these terms and conditions carefully before using our website.
+                    {t('terms.description')}
                   </p>
                   <div className="mt-4 text-sm text-gray-500">
-                    Last updated: January 2024
+                    {t('terms.lastUpdated')}
                   </div>
                 </div>
               </div>
-              
+
               {/* Content */}
               <div className="px-4">
                 <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
                   <div className="prose prose-lg max-w-none">
+                    {/* 1. Acceptance of Terms */}
                     <section className="mb-8">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Acceptance of Terms</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                        {t('terms.sections.acceptance.title')}
+                      </h2>
                       <p className="text-gray-700 mb-4">
-                        By accessing and using Time to Sleep (timetosleep.org), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+                        {t('terms.sections.acceptance.content')}
                       </p>
                     </section>
 
                     <section className="mb-8">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Intellectual Property Rights</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('terms.sections.intellectual.title')}</h2>
                       <p className="text-gray-700 mb-4">
-                        All content on this website, including but not limited to stories, text, graphics, images, and software, is the exclusive property of <strong>Konstantin Dylko</strong> and is protected by copyright laws.
+                        {t('terms.sections.intellectual.content')}
                       </p>
                       <p className="text-gray-700 mb-4">
-                        <strong>Important:</strong> The content on this website was created by Konstantin Dylko and is his property. It is not allowed to copy and commercially use this content without explicit consent from Konstantin Dylko.
+                        <strong>Important:</strong> {t('terms.sections.intellectual.restrictions')}
                       </p>
                       <p className="text-gray-700 mb-4">
-                        Users of the website can freely use the website to read the content for free, but they are not permitted to copy and spread the content without authorization.
+                        {t('terms.sections.intellectual.copyright')}
                       </p>
                     </section>
 
                     <section className="mb-8">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Permitted Use</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('terms.sections.usage.title')}</h2>
                       <p className="text-gray-700 mb-4">
-                        You may use this website for personal, non-commercial purposes only. You may:
+                        {t('terms.sections.usage.content')}
                       </p>
                       <ul className="list-disc pl-6 text-gray-700 mb-4">
-                        <li>Read stories for personal enjoyment</li>
-                        <li>Share links to our stories on social media</li>
-                        <li>Use the website for educational purposes (with proper attribution)</li>
+                        <li>{t('terms.sections.usage.read')}</li>
+                        <li>{t('terms.sections.usage.share')}</li>
+                        <li>{t('terms.sections.usage.educational')}</li>
                       </ul>
                     </section>
 
                     <section className="mb-8">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Prohibited Use</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('terms.sections.prohibited.title')}</h2>
                       <p className="text-gray-700 mb-4">
-                        You may not:
+                        {t('terms.sections.prohibited.content')}
                       </p>
                       <ul className="list-disc pl-6 text-gray-700 mb-4">
-                        <li>Copy, reproduce, or distribute any content without permission</li>
-                        <li>Use content for commercial purposes without written consent</li>
-                        <li>Modify, adapt, or create derivative works</li>
-                        <li>Remove or alter any copyright notices</li>
-                        <li>Use automated tools to scrape or collect content</li>
+                        <li>{t('terms.sections.prohibited.copy')}</li>
+                        <li>{t('terms.sections.prohibited.commercial')}</li>
+                        <li>{t('terms.sections.prohibited.modify')}</li>
+                        <li>{t('terms.sections.prohibited.copyrightNotices')}</li>
+                        <li>{t('terms.sections.prohibited.scrape')}</li>
                       </ul>
                     </section>
 
                     <section className="mb-8">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">5. User Conduct</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                        {t('terms.sections.conduct.title')}
+                      </h2>
                       <p className="text-gray-700 mb-4">
-                        When using our website, you agree to:
+                        {t('terms.sections.conduct.content')}
                       </p>
                       <ul className="list-disc pl-6 text-gray-700 mb-4">
-                        <li>Respect the intellectual property rights of others</li>
-                        <li>Not engage in any activity that could harm the website or other users</li>
-                        <li>Provide accurate information when contacting us</li>
-                        <li>Use the website in compliance with applicable laws</li>
+                        <li>{t('terms.sections.conduct.items.respectIp')}</li>
+                        <li>{t('terms.sections.conduct.items.noHarm')}</li>
+                        <li>{t('terms.sections.conduct.items.accurateInfo')}</li>
+                        <li>{t('terms.sections.conduct.items.complyLaws')}</li>
                       </ul>
                     </section>
 
+
                     <section className="mb-8">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Disclaimer</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                        {t('terms.sections.disclaimer.title')}
+                      </h2>
                       <p className="text-gray-700 mb-4">
-                        The content on this website is provided "as is" without any warranties. We do not guarantee that the content will be error-free or uninterrupted.
+                        {t('terms.sections.disclaimer.content')}
                       </p>
                     </section>
 
                     <section className="mb-8">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Limitation of Liability</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                        {t('terms.sections.liability.title')}
+                      </h2>
                       <p className="text-gray-700 mb-4">
-                        Time to Sleep and Konstantin Dylko shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the website.
+                        {t('terms.sections.liability.content')}
                       </p>
                     </section>
 
                     <section className="mb-8">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Contact Information</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                        {t('terms.sections.contact.title')}
+                      </h2>
                       <p className="text-gray-700 mb-4">
-                        For questions about these Terms of Use, please contact us:
+                        {t('terms.sections.contact.content')}
                       </p>
                       <div className="bg-gray-50 p-4 rounded-md">
                         <p className="text-gray-700 mb-2">
-                          <strong>Email:</strong> timetosleep.org@gmail.com
+                          <strong>{t('terms.sections.contact.email.value')}</strong> {t('terms.sections.contact.email.example')}
                         </p>
                         <p className="text-gray-700 mb-2">
-                          <strong>Owner:</strong> Konstantin Dylko
+                          <strong>{t('terms.sections.contact.owner.value')}</strong> {t('terms.sections.contact.owner.example')}
                         </p>
                         <p className="text-gray-700">
-                          <strong>Address:</strong> Available upon request
+                          <strong>{t('terms.sections.contact.address.value')}</strong> {t('terms.sections.contact.address.example')}
                         </p>
                       </div>
                     </section>
 
                     <section className="mb-8">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Changes to Terms</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                        {t('terms.sections.changes.title')}
+                      </h2>
                       <p className="text-gray-700 mb-4">
-                        We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting on the website. Your continued use of the website constitutes acceptance of the modified terms.
+                        {t('terms.sections.changes.content')}
                       </p>
                     </section>
 
                     <section className="mb-8">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Governing Law</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                        {t('terms.sections.law.title')}
+                      </h2>
                       <p className="text-gray-700 mb-4">
-                        These terms shall be governed by and construed in accordance with the laws of the jurisdiction where Konstantin Dylko resides, without regard to its conflict of law provisions.
+                        {t('terms.sections.law.content')}
                       </p>
                     </section>
 
                     <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-md">
                       <p className="text-blue-800 text-sm">
-                        <strong>Note:</strong> These terms are designed to protect the intellectual property of Konstantin Dylko while allowing users to enjoy the content for free. If you have any questions about usage rights, please contact us directly.
+                        <strong>{t('terms.sections.note.label')}</strong> {t('terms.sections.note.content')}
                       </p>
                     </div>
                   </div>
@@ -244,12 +266,20 @@ const TermsOfUsePage: React.FC = () => {
               </div>
             </div>
           </div>
-          
+
           <SimpleFooter />
         </div>
       </div>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ({ locale }: GetStaticPropsContext) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+    }
+  };
 };
 
 export default TermsOfUsePage;

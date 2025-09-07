@@ -5,41 +5,13 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import SimpleHeader from '../../../src/components/SimpleHeader';
 import SimpleFooter from '../../../src/components/SimpleFooter';
 import StoryContent from '../../../src/components/StoryContent';
-
-interface Story {
-  id: string;
-  title: string;
-  description: string;
-  content: string;
-  slug: string;
-  readingTime: number;
-  ageGroup: string;
-  tags: string[];
-  images: Array<{
-    id: string;
-    src: string;
-    alt: string;
-    position: number;
-  }>;
-}
-
-interface Tag {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  color: string;
-}
-
-interface StoryPageProps {
-  tagSlug: string;
-  storySlug: string;
-  story: Story | null;
-  tag: Tag | null;
-}
+import {StoryPageProps} from "../../../src/types/interfaces";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {useTranslation} from "next-i18next";
 
 const StoryPage: React.FC<StoryPageProps> = ({ tagSlug, storySlug, story, tag }) => {
-  if (!story || !tag) {
+    const { t } = useTranslation('common');
+    if (!story || !tag) {
     return (
       <div className="min-h-screen flex flex-col">
         <SimpleHeader />
@@ -47,7 +19,7 @@ const StoryPage: React.FC<StoryPageProps> = ({ tagSlug, storySlug, story, tag })
           <div className="px-4 md:px-8 lg:px-40 flex flex-1 justify-center py-4 md:py-5">
             <div className="w-full max-w-[960px] flex flex-col flex-1">
               <div className="text-center text-red-600 p-4">
-                Story not found
+                  {t("stories.notFound")}
               </div>
             </div>
           </div>
@@ -58,7 +30,6 @@ const StoryPage: React.FC<StoryPageProps> = ({ tagSlug, storySlug, story, tag })
   }
 
   const sortedImages = [...story.images].sort((a, b) => a.position - b.position);
-
   return (
     <>
       <Head>
@@ -137,13 +108,13 @@ const StoryPage: React.FC<StoryPageProps> = ({ tagSlug, storySlug, story, tag })
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Home",
+              "name": t("common.home"),
               "item": "https://timetosleep.org"
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Stories",
+              "name": t("header.stories"),
               "item": "https://timetosleep.org/stories"
             },
             {
@@ -253,11 +224,11 @@ const StoryPage: React.FC<StoryPageProps> = ({ tagSlug, storySlug, story, tag })
               <div className="px-4 py-3">
                 <nav className="flex items-center space-x-2 text-sm text-[#577c8e]">
                   <Link href="/" className="hover:text-[#101619] transition-colors">
-                    Home
+                      {t("common.home")}
                   </Link>
                   <span>/</span>
                   <Link href="/stories" className="hover:text-[#101619] transition-colors">
-                    Stories
+                      {t("header.stories")}
                   </Link>
                   <span>/</span>
                   <Link href={`/stories/${tagSlug}`} className="hover:text-[#101619] transition-colors">
@@ -342,7 +313,7 @@ const StoryPage: React.FC<StoryPageProps> = ({ tagSlug, storySlug, story, tag })
                   href={`/stories/${tagSlug}`}
                   className="inline-flex items-center text-[#577c8e] hover:text-[#101619] transition-colors"
                 >
-                  ← Back to Stories
+                  ← {t("stories.backToStories")}
                 </Link>
               </div>
             </div>
@@ -380,7 +351,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 };
 
-export const getStaticProps: GetStaticProps<StoryPageProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<StoryPageProps> = async ({ params, locale }) => {
   try {
     const { tagSlug, storySlug } = params as { tagSlug: string; storySlug: string };
     
@@ -389,14 +360,15 @@ export const getStaticProps: GetStaticProps<StoryPageProps> = async ({ params })
 
     // Fetch story and tag
     const story = await storiesApi.getBySlug(storySlug);
-    const tag = await tagsApi.getBySlug(tagSlug);
+    const tag = await tagsApi.getBySlugAndLocale(tagSlug, locale);
 
     return {
       props: {
         tagSlug,
         storySlug,
         story,
-        tag
+        tag,
+        ...(await serverSideTranslations(locale ?? 'en', ['common']))
       },
       revalidate: 60
     };
@@ -407,7 +379,8 @@ export const getStaticProps: GetStaticProps<StoryPageProps> = async ({ params })
         tagSlug: '',
         storySlug: '',
         story: null,
-        tag: null
+        tag: null,
+        ...(await serverSideTranslations(locale ?? 'en', ['common']))
       },
       revalidate: 60
     };

@@ -26,7 +26,7 @@ export class SitemapService {
     
     try {
       // Add tag pages
-      const tags = await tagsApi.getAll();
+      const tags = await tagsApi.getAllByLanguage();
       tags.forEach(tag => {
         urls.push({
           url: `/stories/${tag.slug}`,
@@ -37,7 +37,7 @@ export class SitemapService {
       });
       
       // Add story pages
-      const stories = await storiesApi.getAll();
+      const stories = await storiesApi.getAllByLanguage();
       stories.forEach(story => {
         urls.push({
           url: `/stories/${story.slug}`,

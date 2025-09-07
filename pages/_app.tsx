@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { measurePerformance, measurePageLoad } from '../src/utils/performance';
+import { appWithTranslation } from 'next-i18next';
+//import {TranslationProvider} from "../src/contexts/TranslationContext";
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     // Initialize performance monitoring
     measurePerformance();
@@ -43,7 +45,10 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `
       }} />
-      <Component {...pageProps} />
+        {/*<TranslationProvider>*/}
+            <Component {...pageProps} />
+        {/*</TranslationProvider>*/}
     </>
   );
 }
+export default appWithTranslation(App);
