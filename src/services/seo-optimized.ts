@@ -300,18 +300,13 @@ export class SEOOptimizedService {
         story_translation!inner (
           title,
           description,
-          content,
           reading_time
         ),
-        story_images (
+        story_images!inner (
           id,
           src,
           alt,
-          position,
-          file_name,
-          file_size,
-          mime_type,
-          storage_path
+          position
         ),
         story_tags!inner (
           tag_id,
@@ -319,7 +314,6 @@ export class SEOOptimizedService {
             id,
             name,
             slug,
-            description,
             color
           )
         )
@@ -340,7 +334,7 @@ export class SEOOptimizedService {
         // Always use translated content - no fallbacks to base story data
         title: storyTranslation.title,
         description: storyTranslation.description,
-        content: storyTranslation.content,
+        content: '', // No content for home page (loaded separately for individual stories)
         readingTime: storyTranslation.reading_time,
         ageGroup: story.age_group,
         slug: story.slug,
@@ -350,10 +344,10 @@ export class SEOOptimizedService {
           src: img.src,
           alt: img.alt,
           position: img.position,
-          fileName: img.file_name,
-          fileSize: img.file_size,
-          mimeType: img.mime_type,
-          storagePath: img.storage_path
+          fileName: img.file_name || '',
+          fileSize: img.file_size || 0,
+          mimeType: img.mime_type || '',
+          storagePath: img.storage_path || ''
         })) || [],
         createdAt: story.created_at,
         updatedAt: story.updated_at
@@ -414,19 +408,25 @@ export class SEOOptimizedService {
     const { page, limit, language } = options;
     const offset = (page - 1) * limit;
 
-    // First, get the total count
-    const { count, error: countError } = await supabase
+    // First, get the total count by getting all stories and counting them
+    const { data: allStories, error: countError } = await supabase
       .from('stories')
-      .select('*', { count: 'exact', head: true })
-      .not('story_translation', 'is', null)
+      .select(`
+        id,
+        story_translation!inner (
+          language
+        )
+      `)
       .eq('story_translation.language', language);
+    
+    const count = allStories?.length || 0;
 
     if (countError) {
       console.error('Error counting stories:', countError);
       throw countError;
     }
 
-    // Then get the paginated data
+    // Then get the paginated data (optimized for listing - no content)
     const { data, error } = await supabase
       .from('stories')
       .select(`
@@ -438,18 +438,13 @@ export class SEOOptimizedService {
         story_translation!inner (
           title,
           description,
-          content,
           reading_time
         ),
-        story_images (
+        story_images!inner (
           id,
           src,
           alt,
-          position,
-          file_name,
-          file_size,
-          mime_type,
-          storage_path
+          position
         ),
         story_tags!inner (
           tag_id,
@@ -457,7 +452,6 @@ export class SEOOptimizedService {
             id,
             name,
             slug,
-            description,
             color
           )
         )
@@ -479,7 +473,7 @@ export class SEOOptimizedService {
         // Always use translated content - no fallbacks to base story data
         title: storyTranslation.title,
         description: storyTranslation.description,
-        content: storyTranslation.content,
+        content: '', // No content for pagination (loaded separately for individual stories)
         readingTime: storyTranslation.reading_time,
         ageGroup: storyData.age_group,
         slug: storyData.slug,
@@ -490,10 +484,10 @@ export class SEOOptimizedService {
           src: img.src,
           alt: img.alt,
           position: img.position,
-          fileName: img.file_name,
-          fileSize: img.file_size,
-          mimeType: img.mime_type,
-          storagePath: img.storage_path
+          fileName: img.file_name || '',
+          fileSize: img.file_size || 0,
+          mimeType: img.mime_type || '',
+          storagePath: img.storage_path || ''
         })) || [],
         tags: storyData.story_tags?.map((st: any) => st.tags.name) || []
       };
@@ -515,19 +509,30 @@ export class SEOOptimizedService {
     const offset = (page - 1) * limit;
 
     // First, get the total count for this tag
-    const { count, error: countError } = await supabase
+    const { data: allStories, error: countError } = await supabase
       .from('stories')
-      .select('*', { count: 'exact', head: true })
+      .select(`
+        id,
+        story_translation!inner (
+          language
+        ),
+        story_tags!inner (
+          tags!inner (
+            slug
+          )
+        )
+      `)
       .eq('story_tags.tags.slug', tagSlug)
-      .eq('story_translation.language', language)
-      .not('story_translation', 'is', null);
+      .eq('story_translation.language', language);
+    
+    const count = allStories?.length || 0;
 
     if (countError) {
       console.error('Error counting stories by tag:', countError);
       throw countError;
     }
 
-    // Then get the paginated data
+    // Then get the paginated data (optimized for listing - no content)
     const { data, error } = await supabase
       .from('stories')
       .select(`
@@ -539,18 +544,13 @@ export class SEOOptimizedService {
         story_translation!inner (
           title,
           description,
-          content,
           reading_time
         ),
-        story_images (
+        story_images!inner (
           id,
           src,
           alt,
-          position,
-          file_name,
-          file_size,
-          mime_type,
-          storage_path
+          position
         ),
         story_tags!inner (
           tag_id,
@@ -558,7 +558,6 @@ export class SEOOptimizedService {
             id,
             name,
             slug,
-            description,
             color
           )
         )
@@ -581,7 +580,7 @@ export class SEOOptimizedService {
         // Always use translated content - no fallbacks to base story data
         title: storyTranslation.title,
         description: storyTranslation.description,
-        content: storyTranslation.content,
+        content: '', // No content for pagination (loaded separately for individual stories)
         readingTime: storyTranslation.reading_time,
         ageGroup: storyData.age_group,
         slug: storyData.slug,
@@ -592,10 +591,10 @@ export class SEOOptimizedService {
           src: img.src,
           alt: img.alt,
           position: img.position,
-          fileName: img.file_name,
-          fileSize: img.file_size,
-          mimeType: img.mime_type,
-          storagePath: img.storage_path
+          fileName: img.file_name || '',
+          fileSize: img.file_size || 0,
+          mimeType: img.mime_type || '',
+          storagePath: img.storage_path || ''
         })) || [],
         tags: storyData.story_tags?.map((st: any) => st.tags.name) || []
       };

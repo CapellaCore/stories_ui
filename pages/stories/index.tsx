@@ -1,44 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import SimpleHeader from '../../src/components/SimpleHeader';
 import SimpleFooter from '../../src/components/SimpleFooter';
-import StoryCard from '../../src/components/StoryCard';
-import Pagination from '../../src/components/Pagination';
+import LoadMoreButton from '../../src/components/LoadMoreButton';
 import {StoriesPageProps} from "../../src/types/interfaces";
+import StoryCard from "../../src/components/StoryCard";
 import type {GetStaticProps, GetStaticPropsContext} from "next";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useTranslation} from "next-i18next";
 import { seoOptimizedService } from '../../src/services/seo-optimized';
-import { PaginationService } from '../../src/services/pagination';
 import { generateStoriesIndexHreflangLinks, generateStoriesIndexCanonicalUrl } from '../../src/utils/hreflang';
 
-interface StoriesIndexPageProps {
-  stories: any[];
-  pagination: {
-    page: number;
-    limit: number;
-    total: number;
-    totalPages: number;
-    hasNext: boolean;
-    hasPrev: boolean;
-  };
-  paginationUrls: Array<{
-    page: number;
-    url: string;
-    isCurrent: boolean;
-  }>;
-  categories: any[];
-  locale?: string;
-}
+const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories, locale }) => {
+  const [displayedStories, setDisplayedStories] = useState(12);
+  const [loading, setLoading] = useState(false);
 
-const StoriesPage: React.FC<StoriesIndexPageProps> = ({ 
-  stories, 
-  pagination, 
-  paginationUrls, 
-  categories, 
-  locale 
-}) => {
+  const handleLoadMore = () => {
+    setLoading(true);
+    // Simulate loading delay
+    setTimeout(() => {
+      setDisplayedStories(prev => Math.min(prev + 12, allStories.length));
+      setLoading(false);
+    }, 500);
+  };
+
+  const hasMore = displayedStories < allStories.length;
+  const currentStories = allStories.slice(0, displayedStories);
   const { t } = useTranslation('common');
   const currentLocale = locale || 'en';
   
@@ -183,27 +171,26 @@ const StoriesPage: React.FC<StoriesIndexPageProps> = ({
 
               {/* All Stories Section */}
               <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-                  {t("home.allStories")} ({pagination.total})
+                  {t("home.allStories")} ({allStories.length})
               </h2>
               <div className="px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-                  {stories.map(story => (
+                  {currentStories.map(story => (
                     <StoryCard 
                       key={story.id}
                       story={story} 
                       tagSlug={story.tags[0]?.toLowerCase() || 'stories'} 
-                      locale={currentLocale}
                     />
                   ))}
                 </div>
                 
-                {/* Pagination */}
-                <Pagination
-                  urls={paginationUrls}
-                  currentPage={pagination.page}
-                  totalPages={pagination.totalPages}
-                  basePath="/stories"
-                  locale={currentLocale}
+                {/* Load More Button */}
+                <LoadMoreButton
+                  onLoadMore={handleLoadMore}
+                  hasMore={hasMore}
+                  loading={loading}
+                  totalItems={allStories.length}
+                  currentItems={currentStories.length}
                 />
               </div>
             </div>
@@ -224,52 +211,27 @@ export const getStaticProps: GetStaticProps = async ({ locale }: GetStaticPropsC
   try {
     const language = locale || 'en'; // Default to English if no locale
     
-    // Get paginated stories (first page)
-    const result = await seoOptimizedService.getStoriesByLanguagePaginated({
-      page: 1,
-      limit: 12,
-      language
-    });
-
-    // Get categories for the categories section
-    const { categories } = await seoOptimizedService.getStoriesForHomePage(language);
-
-    const paginationUrls = PaginationService.generatePaginationUrls(
-      '/stories',
-      1,
-      result.pagination.totalPages,
-      language
-    );
+    // Get all stories for this language (reverted from pagination)
+    const { stories, categories } = await seoOptimizedService.getStoriesForHomePage(language);
 
     return {
       props: {
-        stories: result.data,
-        pagination: result.pagination,
-        paginationUrls,
         categories,
+        allStories: stories, // All stories for this language
         locale: language,
         ...(await serverSideTranslations(language, ['common'])),
       },
-      revalidate: 3600 // Revalidate every hour
+      revalidate: 60 // Revalidate every minute for fresh content
     };
   } catch (error) {
     console.error('Error fetching data:', error);
     return {
       props: {
-        stories: [],
-        pagination: {
-          page: 1,
-          limit: 12,
-          total: 0,
-          totalPages: 0,
-          hasNext: false,
-          hasPrev: false
-        },
-        paginationUrls: [],
         categories: [],
+        allStories: [],
         ...(await serverSideTranslations(locale ?? 'en', ['common'])),
       },
-      revalidate: 3600
+      revalidate: 60
     };
   }
 };

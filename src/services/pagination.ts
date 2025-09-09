@@ -44,19 +44,29 @@ export class PaginationService {
     const urls: Array<{ page: number; url: string; isCurrent: boolean }> = [];
     const localePrefix = locale && locale !== 'en' ? `/${locale}` : '';
     
-    // Always include first page
-    if (currentPage > 1) {
+    // Add pages around current page
+    const startPage = Math.max(1, currentPage - 2);
+    const endPage = Math.min(totalPages, currentPage + 2);
+
+    // Always include first page if not in the range
+    if (startPage > 1) {
       urls.push({
         page: 1,
         url: `${localePrefix}${basePath}`,
         isCurrent: false,
       });
+      
+      // Add ellipsis if there's a gap
+      if (startPage > 2) {
+        urls.push({
+          page: -1, // Use -1 to indicate ellipsis
+          url: '',
+          isCurrent: false,
+        });
+      }
     }
 
-    // Add pages around current page
-    const startPage = Math.max(1, currentPage - 2);
-    const endPage = Math.min(totalPages, currentPage + 2);
-
+    // Add pages in the range
     for (let i = startPage; i <= endPage; i++) {
       if (i === 1) {
         urls.push({
@@ -73,8 +83,17 @@ export class PaginationService {
       }
     }
 
-    // Always include last page if not already included
-    if (currentPage < totalPages - 2) {
+    // Always include last page if not in the range
+    if (endPage < totalPages) {
+      // Add ellipsis if there's a gap
+      if (endPage < totalPages - 1) {
+        urls.push({
+          page: -1, // Use -1 to indicate ellipsis
+          url: '',
+          isCurrent: false,
+        });
+      }
+      
       urls.push({
         page: totalPages,
         url: `${localePrefix}${basePath}/page/${totalPages}`,

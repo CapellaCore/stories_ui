@@ -233,7 +233,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   try {
     const result = await seoOptimizedService.getStoriesByLanguagePaginated({
       page,
-      limit: 12,
+      limit: 8, // Reduced from 12 to 8 for better performance
       language
     });
 

@@ -48,17 +48,17 @@ const Pagination: React.FC<PaginationProps> = ({
       {/* Page numbers */}
       <div className="flex space-x-1">
         {urls.map((url, index) => {
-          // Add ellipsis for gaps
-          const showEllipsis = index > 0 && urls[index - 1].page < url.page - 1;
+          // Handle ellipsis (page -1)
+          if (url.page === -1) {
+            return (
+              <span key={`ellipsis-${index}`} className="px-3 py-2 text-sm font-medium text-gray-500">
+                ...
+              </span>
+            );
+          }
           
           return (
             <React.Fragment key={url.page}>
-              {showEllipsis && (
-                <span className="px-3 py-2 text-sm font-medium text-gray-500">
-                  ...
-                </span>
-              )}
-              
               {url.isCurrent ? (
                 <span 
                   className="px-3 py-2 text-sm font-medium text-white bg-blue-600 border border-blue-600 rounded-md"
