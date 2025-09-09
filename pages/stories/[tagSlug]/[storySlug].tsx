@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import SimpleHeader from '../../../src/components/SimpleHeader';
 import SimpleFooter from '../../../src/components/SimpleFooter';
-import StoryContent from '../../../src/components/StoryContent';
+import LazyStoryContent from '../../../src/components/LazyStoryContent';
 import {StoryPageProps} from "../../../src/types/interfaces";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useTranslation} from "next-i18next";
@@ -308,9 +308,11 @@ const StoryPage: React.FC<StoryPageProps & { locale?: string }> = ({ tagSlug, st
               {/* Story Content */}
               <div className="px-4 mb-6 md:mb-8">
                 <div className="story-content-text max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-4 md:p-8">
-                  <StoryContent 
+                  <LazyStoryContent
                     content={story.content}
                     images={story.images}
+                    threshold={0.1}
+                    rootMargin="100px"
                   />
                 </div>
               </div>

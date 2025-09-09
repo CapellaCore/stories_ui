@@ -1,5 +1,6 @@
 
 import { supabase } from './supabase';
+import { PaginationOptions, PaginatedResult, PaginationService } from './pagination';
 
 /**
  * SEO-optimized database service for static generation
@@ -404,6 +405,208 @@ export class SEOOptimizedService {
     }) || [];
 
     return { stories, categories };
+  }
+
+  /**
+   * Get paginated stories for a specific language (for dynamic pages)
+   */
+  async getStoriesByLanguagePaginated(options: PaginationOptions): Promise<PaginatedResult<any>> {
+    const { page, limit, language } = options;
+    const offset = (page - 1) * limit;
+
+    // First, get the total count
+    const { count, error: countError } = await supabase
+      .from('stories')
+      .select('*', { count: 'exact', head: true })
+      .not('story_translation', 'is', null)
+      .eq('story_translation.language', language);
+
+    if (countError) {
+      console.error('Error counting stories:', countError);
+      throw countError;
+    }
+
+    // Then get the paginated data
+    const { data, error } = await supabase
+      .from('stories')
+      .select(`
+        id,
+        slug,
+        age_group,
+        created_at,
+        updated_at,
+        story_translation!inner (
+          title,
+          description,
+          content,
+          reading_time
+        ),
+        story_images (
+          id,
+          src,
+          alt,
+          position,
+          file_name,
+          file_size,
+          mime_type,
+          storage_path
+        ),
+        story_tags!inner (
+          tag_id,
+          tags!inner (
+            id,
+            name,
+            slug,
+            description,
+            color
+          )
+        )
+      `)
+      .eq('story_translation.language', language)
+      .order('created_at', { ascending: false })
+      .range(offset, offset + limit - 1);
+
+    if (error) {
+      console.error('Error fetching paginated stories:', error);
+      throw error;
+    }
+
+    const stories = data?.map(storyData => {
+      const storyTranslation = Array.isArray(storyData.story_translation) ? storyData.story_translation[0] : storyData.story_translation;
+      
+      return {
+        id: storyData.id,
+        // Always use translated content - no fallbacks to base story data
+        title: storyTranslation.title,
+        description: storyTranslation.description,
+        content: storyTranslation.content,
+        readingTime: storyTranslation.reading_time,
+        ageGroup: storyData.age_group,
+        slug: storyData.slug,
+        createdAt: storyData.created_at,
+        updatedAt: storyData.updated_at,
+        images: storyData.story_images?.map((img: any) => ({
+          id: img.id,
+          src: img.src,
+          alt: img.alt,
+          position: img.position,
+          fileName: img.file_name,
+          fileSize: img.file_size,
+          mimeType: img.mime_type,
+          storagePath: img.storage_path
+        })) || [],
+        tags: storyData.story_tags?.map((st: any) => st.tags.name) || []
+      };
+    }) || [];
+
+    const pagination = PaginationService.calculatePagination(page, limit, count || 0);
+
+    return {
+      data: stories,
+      pagination
+    };
+  }
+
+  /**
+   * Get paginated stories for a specific tag (for dynamic pages)
+   */
+  async getStoriesByTagPaginated(tagSlug: string, options: PaginationOptions): Promise<PaginatedResult<any>> {
+    const { page, limit, language } = options;
+    const offset = (page - 1) * limit;
+
+    // First, get the total count for this tag
+    const { count, error: countError } = await supabase
+      .from('stories')
+      .select('*', { count: 'exact', head: true })
+      .eq('story_tags.tags.slug', tagSlug)
+      .eq('story_translation.language', language)
+      .not('story_translation', 'is', null);
+
+    if (countError) {
+      console.error('Error counting stories by tag:', countError);
+      throw countError;
+    }
+
+    // Then get the paginated data
+    const { data, error } = await supabase
+      .from('stories')
+      .select(`
+        id,
+        slug,
+        age_group,
+        created_at,
+        updated_at,
+        story_translation!inner (
+          title,
+          description,
+          content,
+          reading_time
+        ),
+        story_images (
+          id,
+          src,
+          alt,
+          position,
+          file_name,
+          file_size,
+          mime_type,
+          storage_path
+        ),
+        story_tags!inner (
+          tag_id,
+          tags!inner (
+            id,
+            name,
+            slug,
+            description,
+            color
+          )
+        )
+      `)
+      .eq('story_tags.tags.slug', tagSlug)
+      .eq('story_translation.language', language)
+      .order('created_at', { ascending: false })
+      .range(offset, offset + limit - 1);
+
+    if (error) {
+      console.error('Error fetching paginated stories by tag:', error);
+      throw error;
+    }
+
+    const stories = data?.map(storyData => {
+      const storyTranslation = Array.isArray(storyData.story_translation) ? storyData.story_translation[0] : storyData.story_translation;
+      
+      return {
+        id: storyData.id,
+        // Always use translated content - no fallbacks to base story data
+        title: storyTranslation.title,
+        description: storyTranslation.description,
+        content: storyTranslation.content,
+        readingTime: storyTranslation.reading_time,
+        ageGroup: storyData.age_group,
+        slug: storyData.slug,
+        createdAt: storyData.created_at,
+        updatedAt: storyData.updated_at,
+        images: storyData.story_images?.map((img: any) => ({
+          id: img.id,
+          src: img.src,
+          alt: img.alt,
+          position: img.position,
+          fileName: img.file_name,
+          fileSize: img.file_size,
+          mimeType: img.mime_type,
+          storagePath: img.storage_path
+        })) || [],
+        tags: storyData.story_tags?.map((st: any) => st.tags.name) || []
+      };
+    }) || [];
+
+    const pagination = PaginationService.calculatePagination(page, limit, count || 0);
+
+    return {
+      data: stories,
+      pagination
+    };
   }
 }
 

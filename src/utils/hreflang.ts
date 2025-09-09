@@ -20,7 +20,7 @@ export function generateStoryHreflangLinks(
   currentLocale: string
 ): HreflangLink[] {
   const baseUrl = 'https://timetosleep.org';
-  const locales = ['en', 'pl'];
+  const locales = ['en', 'pl', 'ru'];
   
   return locales.map(locale => {
     let href: string;
@@ -51,7 +51,7 @@ export function generateTagHreflangLinks(
   currentLocale: string
 ): HreflangLink[] {
   const baseUrl = 'https://timetosleep.org';
-  const locales = ['en', 'pl'];
+  const locales = ['en', 'pl', 'ru'];
   
   return locales.map(locale => {
     let href: string;
@@ -78,7 +78,7 @@ export function generateTagHreflangLinks(
  */
 export function generateHomeHreflangLinks(currentLocale: string): HreflangLink[] {
   const baseUrl = 'https://timetosleep.org';
-  const locales = ['en', 'pl'];
+  const locales = ['en', 'pl', 'ru'];
   
   return locales.map(locale => {
     let href: string;
@@ -105,7 +105,7 @@ export function generateHomeHreflangLinks(currentLocale: string): HreflangLink[]
  */
 export function generateStoriesIndexHreflangLinks(currentLocale: string): HreflangLink[] {
   const baseUrl = 'https://timetosleep.org';
-  const locales = ['en', 'pl'];
+  const locales = ['en', 'pl', 'ru'];
   
   return locales.map(locale => {
     let href: string;
