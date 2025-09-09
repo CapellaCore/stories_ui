@@ -9,11 +9,18 @@ import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useTranslation} from "next-i18next";
 import StoryCard from "../../src/components/StoryCard";
 import {StoriesByTagPageProps} from "../../src/types/interfaces";
+import { seoOptimizedService } from '../../src/services/seo-optimized';
+import { generateTagHreflangLinks, generateTagCanonicalUrl } from '../../src/utils/hreflang';
 
-const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tag, allStories }) => {
+const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tag, allStories, locale }) => {
   const [displayedStories, setDisplayedStories] = useState(12);
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation('common');
+  const currentLocale = locale || 'en';
+  
+  // Generate hreflang links for SEO
+  const hreflangLinks = generateTagHreflangLinks(tag?.slug || '', currentLocale);
+  const canonicalUrl = generateTagCanonicalUrl(tag?.slug || '', currentLocale);
 
   const handleLoadMore = () => {
     setLoading(true);
@@ -52,13 +59,18 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tag, allStories }) 
         <meta name="title" content={`${tag.name} - Stories`} />
         <meta name="description" content={tag.description || `Stories in category ${tag.name}`} />
         <meta name="keywords" content={`${tag.name}, stories, category, time to sleep`} />
-        <link rel="canonical" href={`https://timetosleep.org/stories/${tag.slug}`} />
+        <link rel="canonical" href={canonicalUrl} />
+        
+        {/* Hreflang links for SEO */}
+        {hreflangLinks.map(link => (
+          <link key={link.hrefLang} rel="alternate" hrefLang={link.hrefLang} href={link.href} />
+        ))}
         
         {/* Open Graph */}
         <meta property="og:title" content={`${tag.name} - Stories`} />
         <meta property="og:description" content={tag.description || `Stories in category ${tag.name}`} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://timetosleep.org/stories/${tag.slug}`} />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content="Time to Sleep" />
         <meta property="og:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
         
@@ -81,7 +93,7 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tag, allStories }) 
           "@type": "CollectionPage",
           "name": `${tag.name} - Stories`,
           "description": tag.description || `Stories in category ${tag.name}`,
-          "url": `https://timetosleep.org/stories/${tag.slug}`,
+          "url": canonicalUrl,
           "mainEntity": {
             "@type": "ItemList",
             "itemListElement": allStories.map((story, index) => ({
@@ -122,7 +134,7 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tag, allStories }) 
               "@type": "ListItem",
               "position": 3,
               "name": tag.name,
-              "item": `https://timetosleep.org/stories/${tag.slug}`
+              "item": canonicalUrl
             }
           ]
         })}
@@ -196,21 +208,45 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tag, allStories }) 
   );
 };
 
+/**
+ * OPTIMIZED getStaticPaths for multi-language SEO
+ * Generates paths for both English (no locale) and Polish (with locale)
+ */
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
-    const { tagsApi } = await import('../../src/services/supabase');
-    const tags = await tagsApi.getAll();
-    
-    const paths = tags.map(tag => ({
-      params: { tagSlug: tag.slug }
-    }));
+    const locales = ['en', 'pl']; // Supported locales
+    const paths = [];
 
+    for (const locale of locales) {
+      // Get tags for this locale
+      const tags = await seoOptimizedService.getTagsForStaticPaths(locale);
+      
+      // Generate paths for each tag
+      const localePaths = tags.map(tag => {
+        // English gets no locale in URL, others get locale prefix
+        if (locale === 'en') {
+          return {
+            params: { tagSlug: tag.slug }
+          };
+        } else {
+          return {
+            params: { tagSlug: tag.slug },
+            locale
+          };
+        }
+      });
+      
+      paths.push(...localePaths);
+    }
+
+    console.log(`Generated ${paths.length} static paths for tag pages`);
+    
     return {
       paths,
       fallback: 'blocking'
     };
   } catch (error) {
-    console.error('Error generating paths:', error);
+    console.error('Error generating tag paths:', error);
     return {
       paths: [],
       fallback: 'blocking'
@@ -218,36 +254,37 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 };
 
+/**
+ * OPTIMIZED getStaticProps with proper language handling and fallbacks
+ */
 export const getStaticProps: GetStaticProps<StoriesByTagPageProps> = async ({ params, locale }) => {
   try {
     const { tagSlug } = params as { tagSlug: string };
+    const language = locale || 'en'; // Default to English if no locale
     
-    const { storiesApi } = await import('../../src/services/supabase');
-    const { tagsApi } = await import('../../src/services/supabase');
+    // Get tag and stories data with fallback strategy
+    const { tag, stories } = await seoOptimizedService.getStoriesByTagForStaticProps(tagSlug, language);
 
-    // Fetch tag and stories
-    const tag = await tagsApi.getBySlugAndLocale(tagSlug, locale);
-    const allStories = await storiesApi.getByTagSlug(tagSlug, locale);
+    if (!tag) {
+      return {
+        notFound: true
+      };
+    }
 
     return {
       props: {
         tagSlug,
         tag,
-        allStories, // Pass all stories instead of just the ones that fit in initial view
-          ...(await serverSideTranslations(locale ?? 'en', ['common']))
+        allStories: stories,
+        locale: language,
+        ...(await serverSideTranslations(language, ['common']))
       },
-      revalidate: 60
+      revalidate: 60 // Revalidate every minute for fresh content
     };
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error('Error fetching tag data:', error);
     return {
-      props: {
-        tagSlug: '',
-        tag: null,
-        allStories: [],
-          ...(await serverSideTranslations(locale ?? 'en', ['common'])),
-      },
-      revalidate: 60
+      notFound: true
     };
   }
 };

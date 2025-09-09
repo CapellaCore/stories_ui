@@ -44,11 +44,13 @@ export interface StoriesByTagPageProps {
     tagSlug: string;
     tag: Tag | null;
     allStories: Story[];
+    locale?: string;
 }
 
 export interface StoriesPageProps {
     categories: Tag[];
     allStories: Story[];
+    locale?: string;
 }
 
 export interface Tag {
@@ -62,6 +64,7 @@ export interface Tag {
 export interface HomePageProps {
     featuredStories: Story[];
     categories: Tag[];
+    locale?: string;
 }
 
 export interface Locale {
@@ -74,6 +77,7 @@ export interface StoryPageProps {
     storySlug: string;
     story: Story | null;
     tag: Tag | null;
+    locale?: string;
 }
 
 export interface TranslationContextType {

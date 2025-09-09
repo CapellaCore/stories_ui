@@ -8,8 +8,10 @@ import type { HomePageProps } from '../src/types/interfaces';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { GetStaticProps, GetStaticPropsContext } from 'next';
+import { seoOptimizedService } from '../src/services/seo-optimized';
+import { generateHomeHreflangLinks, generateHomeCanonicalUrl } from '../src/utils/hreflang';
 
-const HomePage: React.FC<HomePageProps> = ({ featuredStories }) => {
+const HomePage: React.FC<HomePageProps> = ({ featuredStories, categories, locale }) => {
   // Helper function to get stories by tag
   const getStoriesByTag = (tagSlug: string) => {
     return featuredStories.filter(story =>
@@ -22,7 +24,12 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories }) => {
   const classicStories = getStoriesByTag('classic');
   const originalStories = getStoriesByTag('originals');
 
-    const { t } = useTranslation('common');
+  const { t } = useTranslation('common');
+  const currentLocale = locale || 'en';
+  
+  // Generate hreflang links for SEO
+  const hreflangLinks = generateHomeHreflangLinks(currentLocale);
+  const canonicalUrl = generateHomeCanonicalUrl(currentLocale);
 
     return (
         <>
@@ -40,7 +47,12 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories }) => {
                     name="keywords"
                     content="bedtime stories, children's stories, stories for children, stories with pictures, time to sleep, family reading"
                 />
-                <link rel="canonical" href="https://timetosleep.org/" />
+                <link rel="canonical" href={canonicalUrl} />
+                
+                {/* Hreflang links for SEO */}
+                {hreflangLinks.map(link => (
+                  <link key={link.hrefLang} rel="alternate" hrefLang={link.hrefLang} href={link.href} />
+                ))}
                 <meta
                     property="og:title"
                     content="Time to Sleep - Bedtime Stories for Your Children"
@@ -50,7 +62,7 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories }) => {
                     content="Time to Sleep - Bedtime Stories for Your Children. Discover magical stories with beautiful illustrations perfect for family reading and helping children fall asleep peacefully."
                 />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://timetosleep.org/" />
+                <meta property="og:url" content={canonicalUrl} />
                 <meta
                     property="og:image"
                     content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg"
@@ -79,7 +91,7 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories }) => {
                         name: 'Time to Sleep - Bedtime Stories for Your Children',
                         description:
                             'Time to Sleep - Bedtime Stories for Your Children. Discover magical stories with beautiful illustrations perfect for family reading and helping children fall asleep peacefully.',
-                        url: 'https://timetosleep.org/',
+                        url: canonicalUrl,
                         potentialAction: {
                             '@type': 'SearchAction',
                             target: `https://timetosleep.org/search?q={search_term_string}`,
@@ -98,7 +110,7 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories }) => {
                                 '@type': 'ListItem',
                                 position: 1,
                                 name: 'Main',
-                                item: 'https://timetosleep.org',
+                                item: canonicalUrl,
                             },
                         ],
                     })}
@@ -241,23 +253,25 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories }) => {
     );
 };
 
+/**
+ * OPTIMIZED getStaticProps with proper language handling and fallbacks
+ * This will be called for both English (no locale) and Polish (with locale)
+ */
 export const getStaticProps: GetStaticProps = async ({ locale }: GetStaticPropsContext) => {
     try {
-        // Import the API functions
-        const { storiesApi } = await import('../src/services/supabase');
-        const { tagsApi } = await import('../src/services/supabase');
-
-        // Fetch data
-        const allStories = await storiesApi.getAllByLanguage(locale ?? 'en');
-        const categories = await tagsApi.getAllActualTags(locale ?? 'en');
+        const language = locale || 'en'; // Default to English if no locale
+        
+        // Get optimized data for home page
+        const { stories, categories } = await seoOptimizedService.getStoriesForHomePage(language, 25);
 
         return {
             props: {
-                featuredStories: allStories.slice(0, 25), // Latest 25 stories
+                featuredStories: stories, // Latest 25 stories
                 categories,
-                ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+                locale: language,
+                ...(await serverSideTranslations(language, ['common'])),
             },
-            revalidate: 1, // Rebuild every 60 seconds
+            revalidate: 60, // Revalidate every minute for fresh content
         };
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -267,7 +281,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }: GetStaticPropsC
                 categories: [],
                 ...(await serverSideTranslations(locale ?? 'en', ['common'])),
             },
-            revalidate: 1,
+            revalidate: 60,
         };
     }
 };

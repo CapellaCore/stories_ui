@@ -1,3 +1,6 @@
+-- Complete database schema for Time to Sleep bedtime stories application
+-- This includes all tables that the application code expects
+
 -- Создание таблицы локалей (языков)
 CREATE TABLE locales (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
@@ -79,7 +82,21 @@ CREATE TABLE story_tags (
   PRIMARY KEY (story_id, tag_id)
 );
 
--- Создание индексов для оптимизации
+-- Создание таблицы контактных запросов
+CREATE TABLE contact_requests (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  subject VARCHAR(255) NOT NULL,
+  message TEXT NOT NULL,
+  status VARCHAR(20) DEFAULT 'pending' CHECK (status IN ('pending', 'read', 'replied', 'archived')),
+  ip_address INET,
+  user_agent TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Создание индексов для оптимизации производительности
 -- Основные индексы
 CREATE INDEX idx_stories_slug ON stories(slug);
 CREATE INDEX idx_tags_slug ON tags(slug);
@@ -101,6 +118,10 @@ CREATE INDEX idx_locales_active ON locales(is_active);
 
 -- Индексы для изображений (Supabase Storage)
 CREATE INDEX idx_story_images_storage_path ON story_images(storage_path);
+
+-- Индексы для контактных запросов
+CREATE INDEX idx_contact_requests_status ON contact_requests(status);
+CREATE INDEX idx_contact_requests_created_at ON contact_requests(created_at);
 
 -- Составные индексы для частых запросов
 CREATE INDEX idx_stories_created_at_desc ON stories(created_at DESC);
@@ -137,6 +158,10 @@ CREATE TRIGGER update_locales_updated_at
   BEFORE UPDATE ON locales 
   FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
+CREATE TRIGGER update_contact_requests_updated_at 
+  BEFORE UPDATE ON contact_requests 
+  FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
 -- Включение Row Level Security (RLS)
 ALTER TABLE stories ENABLE ROW LEVEL SECURITY;
 ALTER TABLE tags ENABLE ROW LEVEL SECURITY;
@@ -145,6 +170,7 @@ ALTER TABLE story_tags ENABLE ROW LEVEL SECURITY;
 ALTER TABLE story_translation ENABLE ROW LEVEL SECURITY;
 ALTER TABLE tag_translation ENABLE ROW LEVEL SECURITY;
 ALTER TABLE locales ENABLE ROW LEVEL SECURITY;
+ALTER TABLE contact_requests ENABLE ROW LEVEL SECURITY;
 
 -- Создание политик для публичного доступа (только чтение)
 CREATE POLICY "Public stories are viewable by everyone" ON stories
@@ -168,6 +194,10 @@ CREATE POLICY "Public tag translations are viewable by everyone" ON tag_translat
 CREATE POLICY "Public locales are viewable by everyone" ON locales
   FOR SELECT USING (true);
 
+-- Политики для контактных запросов (только вставка для публики)
+CREATE POLICY "Anyone can create contact requests" ON contact_requests
+  FOR INSERT WITH CHECK (true);
+
 -- Вставка базовых данных
 INSERT INTO locales (code, name, is_active) VALUES 
   ('en', 'English', true),
@@ -175,5 +205,10 @@ INSERT INTO locales (code, name, is_active) VALUES
 
 -- Комментарии к таблицам
 COMMENT ON TABLE locales IS 'Поддерживаемые языки приложения';
+COMMENT ON TABLE tags IS 'Категории сказок';
+COMMENT ON TABLE tag_translation IS 'Переводы названий и описаний категорий';
+COMMENT ON TABLE stories IS 'Основная таблица сказок (fallback данные)';
 COMMENT ON TABLE story_translation IS 'Переводы сказок на разные языки';
-COMMENT ON TABLE tag_translation IS 'Переводы названий и описаний категорий'; 
+COMMENT ON TABLE story_images IS 'Изображения для сказок';
+COMMENT ON TABLE story_tags IS 'Связь между сказками и категориями (many-to-many)';
+COMMENT ON TABLE contact_requests IS 'Запросы через контактную форму';

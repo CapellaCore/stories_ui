@@ -9,8 +9,10 @@ import StoryCard from "../../src/components/StoryCard";
 import type {GetStaticProps, GetStaticPropsContext} from "next";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useTranslation} from "next-i18next";
+import { seoOptimizedService } from '../../src/services/seo-optimized';
+import { generateStoriesIndexHreflangLinks, generateStoriesIndexCanonicalUrl } from '../../src/utils/hreflang';
 
-const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => {
+const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories, locale }) => {
   const [displayedStories, setDisplayedStories] = useState(12);
   const [loading, setLoading] = useState(false);
 
@@ -26,6 +28,11 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => 
   const hasMore = displayedStories < allStories.length;
   const currentStories = allStories.slice(0, displayedStories);
   const { t } = useTranslation('common');
+  const currentLocale = locale || 'en';
+  
+  // Generate hreflang links for SEO
+  const hreflangLinks = generateStoriesIndexHreflangLinks(currentLocale);
+  const canonicalUrl = generateStoriesIndexCanonicalUrl(currentLocale);
 
   return (
     <>
@@ -34,13 +41,18 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => 
         <meta name="title" content="Stories - Time to Sleep" />
         <meta name="description" content="Browse all story categories and find the perfect bedtime story for your child on Time to Sleep." />
         <meta name="keywords" content="stories, story categories, children's stories, bedtime stories, time to sleep" />
-        <link rel="canonical" href="https://timetosleep.org/stories" />
+        <link rel="canonical" href={canonicalUrl} />
+        
+        {/* Hreflang links for SEO */}
+        {hreflangLinks.map(link => (
+          <link key={link.hrefLang} rel="alternate" hrefLang={link.hrefLang} href={link.href} />
+        ))}
         
         {/* Open Graph */}
         <meta property="og:title" content="Stories - Time to Sleep" />
         <meta property="og:description" content="Browse all story categories and find the perfect bedtime story for your child on Time to Sleep." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://timetosleep.org/stories" />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content="Time to Sleep" />
         <meta property="og:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
         
@@ -63,7 +75,7 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => 
           "@type": "CollectionPage",
           "name": "Stories - Time to Sleep",
           "description": "Browse all story categories and find the perfect bedtime story for your child on Time to Sleep.",
-          "url": "https://timetosleep.org/stories",
+          "url": canonicalUrl,
           "mainEntity": {
             "@type": "ItemList",
             "itemListElement": categories.map((tag, index) => ({
@@ -97,7 +109,7 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => 
               "@type": "ListItem",
               "position": 2,
               "name": t("header.stories"),
-              "item": "https://timetosleep.org/stories"
+              "item": canonicalUrl
             }
           ]
         })}
@@ -191,23 +203,25 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories }) => 
   );
 };
 
+/**
+ * OPTIMIZED getStaticProps with proper language handling and fallbacks
+ * This will be called for both English (no locale) and Polish (with locale)
+ */
 export const getStaticProps: GetStaticProps = async ({ locale }: GetStaticPropsContext) => {
   try {
-    // Import the API functions
-    const { storiesApi } = await import('../../src/services/supabase');
-    const { tagsApi } = await import('../../src/services/supabase');
-
-    // Fetch data
-    const allStories = await storiesApi.getAllByLanguage(locale ?? 'en');
-    const categories = await tagsApi.getAllActualTags(locale ?? 'en');
+    const language = locale || 'en'; // Default to English if no locale
+    
+    // Get optimized data for stories page
+    const { stories, categories } = await seoOptimizedService.getStoriesForHomePage(language);
 
     return {
       props: {
         categories,
-        allStories, // Pass all stories instead of just 6
-          ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+        allStories: stories, // All stories for this language
+        locale: language,
+        ...(await serverSideTranslations(language, ['common'])),
       },
-      revalidate: 60 // Rebuild every 60 seconds
+      revalidate: 60 // Revalidate every minute for fresh content
     };
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -215,7 +229,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }: GetStaticPropsC
       props: {
         categories: [],
         allStories: [],
-          ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+        ...(await serverSideTranslations(locale ?? 'en', ['common'])),
       },
       revalidate: 60
     };
