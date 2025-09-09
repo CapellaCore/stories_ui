@@ -3,6 +3,7 @@ const { createWriteStream } = require('fs');
 require('dotenv').config({ path: '.env.local' });
 
 const BASE_URL = 'https://timetosleep.org';
+const SUPPORTED_LOCALES = ['en', 'pl', 'ru'];
 
 // Static pages with their priorities and change frequencies
 const staticPages = [
@@ -13,6 +14,14 @@ const staticPages = [
   { url: '/terms-of-use', priority: 0.3, changefreq: 'yearly' },
   { url: '/privacy-policy', priority: 0.3, changefreq: 'yearly' }
 ];
+
+// Helper function to generate localized URLs
+const getLocalizedUrl = (locale, path) => {
+  if (locale === 'en') {
+    return path; // English URLs don't have locale prefix
+  }
+  return `/${locale}${path}`;
+};
 
 // Simple Supabase client for sitemap generation
 const { createClient } = require('@supabase/supabase-js');
@@ -91,36 +100,40 @@ async function generateSitemap() {
     // Create sitemap stream
     const sitemap = new SitemapStream({ hostname: BASE_URL });
     
-    // Add static pages
-    console.log('Adding static pages...');
+    // Add static pages for all languages
+    console.log('Adding static pages for all languages...');
     staticPages.forEach(page => {
-      sitemap.write({
-        url: page.url,
-        changefreq: page.changefreq,
-        priority: page.priority,
-        lastmod: new Date().toISOString()
+      SUPPORTED_LOCALES.forEach(locale => {
+        sitemap.write({
+          url: getLocalizedUrl(locale, page.url),
+          changefreq: page.changefreq,
+          priority: page.priority,
+          lastmod: new Date().toISOString()
+        });
       });
     });
     
-    // Add tag pages
-    console.log('Fetching and adding tag pages...');
+    // Add tag pages for all languages
+    console.log('Fetching and adding tag pages for all languages...');
     let tags = [];
     try {
       tags = await tagsApi.getAll();
       tags.forEach(tag => {
-        sitemap.write({
-          url: `/stories/${tag.slug}`,
-          changefreq: 'weekly',
-          priority: 0.8,
-          lastmod: new Date().toISOString()
+        SUPPORTED_LOCALES.forEach(locale => {
+          sitemap.write({
+            url: getLocalizedUrl(locale, `/stories/${tag.slug}`),
+            changefreq: 'weekly',
+            priority: 0.8,
+            lastmod: new Date().toISOString()
+          });
         });
       });
     } catch (error) {
       console.error('Error fetching tags:', error);
     }
     
-    // Add story pages with their actual tag relationships
-    console.log('Fetching and adding story pages...');
+    // Add story pages with their actual tag relationships for all languages
+    console.log('Fetching and adding story pages for all languages...');
     let stories = [];
     let storyUrls = new Set(); // To avoid duplicate URLs
     try {
@@ -128,16 +141,19 @@ async function generateSitemap() {
       stories.forEach(story => {
         // Generate URLs for each tag the story belongs to
         story.tags.forEach(tag => {
-          const storyUrl = `/stories/${tag.slug}/${story.slug}`;
-          if (!storyUrls.has(storyUrl)) {
-            storyUrls.add(storyUrl);
-            sitemap.write({
-              url: storyUrl,
-              changefreq: 'monthly',
-              priority: 0.7,
-              lastmod: story.updatedAt || story.createdAt || new Date().toISOString()
-            });
-          }
+          const baseStoryUrl = `/stories/${tag.slug}/${story.slug}`;
+          SUPPORTED_LOCALES.forEach(locale => {
+            const storyUrl = getLocalizedUrl(locale, baseStoryUrl);
+            if (!storyUrls.has(storyUrl)) {
+              storyUrls.add(storyUrl);
+              sitemap.write({
+                url: storyUrl,
+                changefreq: 'monthly',
+                priority: 0.7,
+                lastmod: story.updatedAt || story.createdAt || new Date().toISOString()
+              });
+            }
+          });
         });
       });
     } catch (error) {
@@ -161,10 +177,14 @@ async function generateSitemap() {
     writeStream.end();
     
     console.log('Sitemap generated successfully at public/sitemap.xml');
-    console.log(`Total URLs: ${staticPages.length + tags.length + storyUrls.size}`);
-    console.log(`- Static pages: ${staticPages.length}`);
-    console.log(`- Tag pages: ${tags.length}`);
-    console.log(`- Story pages: ${storyUrls.size}`);
+    const totalStaticUrls = staticPages.length * SUPPORTED_LOCALES.length;
+    const totalTagUrls = tags.length * SUPPORTED_LOCALES.length;
+    const totalStoryUrls = storyUrls.size;
+    console.log(`Total URLs: ${totalStaticUrls + totalTagUrls + totalStoryUrls}`);
+    console.log(`- Static pages: ${totalStaticUrls} (${staticPages.length} pages × ${SUPPORTED_LOCALES.length} languages)`);
+    console.log(`- Tag pages: ${totalTagUrls} (${tags.length} tags × ${SUPPORTED_LOCALES.length} languages)`);
+    console.log(`- Story pages: ${totalStoryUrls} (stories × ${SUPPORTED_LOCALES.length} languages)`);
+    console.log(`Supported languages: ${SUPPORTED_LOCALES.join(', ')}`);
     console.log(`Available tags: ${tags.map(t => t.name).join(', ')}`);
     
   } catch (error) {

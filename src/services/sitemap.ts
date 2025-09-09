@@ -1,4 +1,5 @@
 import { storiesApi, tagsApi } from './supabase';
+import { seoOptimizedService } from './seo-optimized';
 
 export interface SitemapUrl {
   url: string;
@@ -8,6 +9,7 @@ export interface SitemapUrl {
 }
 
 const BASE_URL = 'https://timetosleep.org';
+const SUPPORTED_LOCALES = ['en', 'pl', 'ru'];
 
 // Static pages configuration
 const STATIC_PAGES: SitemapUrl[] = [
@@ -20,30 +22,54 @@ const STATIC_PAGES: SitemapUrl[] = [
   { url: '/privacy-policy', priority: 0.3, changefreq: 'yearly' }
 ];
 
+// Helper function to generate localized URLs
+const getLocalizedUrl = (locale: string, path: string): string => {
+  if (locale === 'en') {
+    return path; // English URLs don't have locale prefix
+  }
+  return `/${locale}${path}`;
+};
+
 export class SitemapService {
   static async generateSitemapUrls(): Promise<SitemapUrl[]> {
-    const urls: SitemapUrl[] = [...STATIC_PAGES];
+    const urls: SitemapUrl[] = [];
     
     try {
-      // Add tag pages
-      const tags = await tagsApi.getAllByLanguage();
-      tags.forEach(tag => {
-        urls.push({
-          url: `/stories/${tag.slug}`,
-          changefreq: 'weekly',
-          priority: 0.8,
-          lastmod: new Date().toISOString()
+      // Add static pages for all languages
+      STATIC_PAGES.forEach(page => {
+        SUPPORTED_LOCALES.forEach(locale => {
+          urls.push({
+            url: getLocalizedUrl(locale, page.url),
+            changefreq: page.changefreq,
+            priority: page.priority,
+            lastmod: new Date().toISOString()
+          });
         });
       });
       
-      // Add story pages
-      const stories = await storiesApi.getAllByLanguage();
+      // Add tag pages for all languages
+      const tags = await seoOptimizedService.getAllActualTagsByLanguage('en'); // Get base tags
+      tags.forEach(tag => {
+        SUPPORTED_LOCALES.forEach(locale => {
+          urls.push({
+            url: getLocalizedUrl(locale, `/stories/${tag.slug}`),
+            changefreq: 'weekly',
+            priority: 0.8,
+            lastmod: new Date().toISOString()
+          });
+        });
+      });
+      
+      // Add story pages for all languages
+      const stories = await seoOptimizedService.getAllStoriesForStaticPaths();
       stories.forEach(story => {
-        urls.push({
-          url: `/stories/${story.slug}`,
-          changefreq: 'monthly',
-          priority: 0.7,
-          lastmod: story.updatedAt || story.createdAt || new Date().toISOString()
+        SUPPORTED_LOCALES.forEach(locale => {
+          urls.push({
+            url: getLocalizedUrl(locale, `/stories/${story.tagSlug}/${story.storySlug}`),
+            changefreq: 'monthly',
+            priority: 0.7,
+            lastmod: story.updatedAt || story.createdAt || new Date().toISOString()
+          });
         });
       });
       
