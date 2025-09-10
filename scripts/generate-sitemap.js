@@ -20,6 +20,10 @@ const getLocalizedUrl = (locale, path) => {
   if (locale === 'en') {
     return path; // English URLs don't have locale prefix
   }
+  // Special handling for root path to avoid trailing slash
+  if (path === '/') {
+    return `/${locale}`;
+  }
   return `/${locale}${path}`;
 };
 

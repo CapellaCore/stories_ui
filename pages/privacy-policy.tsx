@@ -6,9 +6,19 @@ import SimpleFooter from '../src/components/SimpleFooter';
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import type {GetStaticProps, GetStaticPropsContext} from "next";
 import {useTranslation} from "next-i18next";
+import { generatePrivacyPolicyHreflangLinks, generatePrivacyPolicyCanonicalUrl } from '../src/utils/hreflang';
 
-const PrivacyPolicyPage: React.FC = () => {
+interface PrivacyPolicyPageProps {
+  locale?: string;
+}
+
+const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ locale }) => {
   const { t } = useTranslation('common');
+  const currentLocale = locale || 'en';
+  
+  // Generate hreflang links and canonical URL for SEO
+  const hreflangLinks = generatePrivacyPolicyHreflangLinks(currentLocale);
+  const canonicalUrl = generatePrivacyPolicyCanonicalUrl(currentLocale);
   return (
     <>
       <Head>
@@ -16,13 +26,18 @@ const PrivacyPolicyPage: React.FC = () => {
         <meta name="title" content={t('privacy.title')} />
         <meta name="description" content={t('privacy.description')} />
         <meta name="keywords" content={t('privacy.keywords')} />
-        <link rel="canonical" href="https://timetosleep.org/privacy-policy" />
+        <link rel="canonical" href={canonicalUrl} />
+        
+        {/* Hreflang links for SEO */}
+        {hreflangLinks.map(link => (
+          <link key={link.hrefLang} rel="alternate" hrefLang={link.hrefLang} href={link.href} />
+        ))}
 
         {/* Open Graph */}
         <meta property="og:title" content={t('privacy.title')} />
         <meta property="og:description" content={t('privacy.description')} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://timetosleep.org/privacy-policy" />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content="Time to Sleep" />
         <meta property="og:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
 
@@ -36,7 +51,7 @@ const PrivacyPolicyPage: React.FC = () => {
         {/* Additional meta tags for better SEO */}
         <meta name="author" content="Konstantin Dylko" />
         <meta name="robots" content="index, follow" />
-        <meta name="language" content="en" />
+        <meta name="language" content={currentLocale} />
 
         {/* Structured Data */}
         <script
@@ -47,7 +62,7 @@ const PrivacyPolicyPage: React.FC = () => {
               "@type": "WebPage",
               "name": t('privacy.pageTitle'),
               "description": t('privacy.description'),
-              "url": "https://timetosleep.org/privacy-policy",
+              "url": canonicalUrl,
               "mainEntity": {
                 "@type": "Organization",
                 "name": "Time to Sleep",
@@ -237,6 +252,7 @@ const PrivacyPolicyPage: React.FC = () => {
 export const getStaticProps: GetStaticProps = async ({ locale }: GetStaticPropsContext) => {
   return {
     props: {
+      locale: locale || 'en',
       ...(await serverSideTranslations(locale ?? 'en', ['common'])),
     }
   };

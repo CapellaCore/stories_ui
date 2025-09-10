@@ -7,9 +7,13 @@ import { contactRequestsApi } from '../src/services/supabase';
 import {useTranslation} from "next-i18next";
 import type { GetStaticProps, GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { generateContactHreflangLinks, generateContactCanonicalUrl } from '../src/utils/hreflang';
 
+interface ContactPageProps {
+  locale?: string;
+}
 
-const ContactPage: React.FC = () => {
+const ContactPage: React.FC<ContactPageProps> = ({ locale }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,6 +23,11 @@ const ContactPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const { t } = useTranslation('common');
+  const currentLocale = locale || 'en';
+  
+  // Generate hreflang links and canonical URL for SEO
+  const hreflangLinks = generateContactHreflangLinks(currentLocale);
+  const canonicalUrl = generateContactCanonicalUrl(currentLocale);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -55,31 +64,36 @@ const ContactPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Contact Us - Time to Sleep</title>
-        <meta name="title" content="Contact Us - Time to Sleep" />
-        <meta name="description" content="Get in touch with us. We'd love to hear from you about our bedtime stories or any questions you might have." />
-        <meta name="keywords" content="contact, contact us, feedback, questions, time to sleep, bedtime stories" />
-        <link rel="canonical" href="https://timetosleep.org/contact" />
+        <title>{t('contact.title')}</title>
+        <meta name="title" content={t('contact.title')} />
+        <meta name="description" content={t('contact.description')} />
+        <meta name="keywords" content={t('contact.keywords')} />
+        <link rel="canonical" href={canonicalUrl} />
+        
+        {/* Hreflang links for SEO */}
+        {hreflangLinks.map(link => (
+          <link key={link.hrefLang} rel="alternate" hrefLang={link.hrefLang} href={link.href} />
+        ))}
         
         {/* Open Graph */}
-        <meta property="og:title" content="Contact Us - Time to Sleep" />
-        <meta property="og:description" content="Get in touch with us. We'd love to hear from you about our bedtime stories or any questions you might have." />
+        <meta property="og:title" content={t('contact.title')} />
+        <meta property="og:description" content={t('contact.description')} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://timetosleep.org/contact" />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content="Time to Sleep" />
         <meta property="og:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
         
         {/* Twitter Card */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Contact Us - Time to Sleep" />
-        <meta property="twitter:description" content="Get in touch with us. We'd love to hear from you about our bedtime stories or any questions you might have." />
+        <meta property="twitter:title" content={t('contact.title')} />
+        <meta property="twitter:description" content={t('contact.description')} />
         <meta property="twitter:site" content="@timetosleep" />
         <meta property="twitter:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
         
         {/* Additional meta tags for better SEO */}
         <meta name="author" content="Konstantin Dylko" />
         <meta name="robots" content="index, follow" />
-        <meta name="language" content="en" />
+        <meta name="language" content={currentLocale} />
         
         {/* Structured Data */}
         <script
@@ -90,7 +104,7 @@ const ContactPage: React.FC = () => {
               "@type": "ContactPage",
               "name": "Contact Us - Time to Sleep",
               "description": "Get in touch with us. We'd love to hear from you about our bedtime stories or any questions you might have.",
-              "url": "https://timetosleep.org/contact",
+              "url": canonicalUrl,
               "mainEntity": {
                 "@type": "Organization",
                 "name": "Time to Sleep",
@@ -123,7 +137,7 @@ const ContactPage: React.FC = () => {
                   "@type": "ListItem",
                   "position": 2,
                   "name": t("common.contact"),
-                  "item": "https://timetosleep.org/contact"
+                  "item": canonicalUrl
                 }
               ]
             })
@@ -344,6 +358,7 @@ const ContactPage: React.FC = () => {
 export const getStaticProps: GetStaticProps = async ({ locale }: GetStaticPropsContext) => {
     return {
         props: {
+            locale: locale || 'en',
             ...(await serverSideTranslations(locale ?? 'en', ['common'])),
         }
     };

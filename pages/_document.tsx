@@ -1,9 +1,22 @@
 import React from 'react';
 import { Html, Head, Main, NextScript } from 'next/document';
+import { DocumentContext } from 'next/document';
 
-export default function Document() {
+interface DocumentProps {
+  locale?: string;
+}
+
+Document.getInitialProps = async (ctx: DocumentContext) => {
+  const initialProps = await ctx.defaultGetInitialProps(ctx);
+  return {
+    ...initialProps,
+    locale: ctx.locale,
+  };
+};
+
+export default function Document({ locale }: DocumentProps) {
   return (
-    <Html lang="en">
+    <Html lang={locale || 'en'}>
       <Head>
         {/* Critical CSS to prevent FOUC */}
         <style dangerouslySetInnerHTML={{

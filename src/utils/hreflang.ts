@@ -7,6 +7,16 @@ export interface HreflangLink {
   hrefLang: string;
 }
 
+const BASE_URL = 'https://timetosleep.org';
+const SUPPORTED_LOCALES = ['en', 'pl', 'ru'];
+
+const getLocalizedPath = (locale: string, path: string): string => {
+  if (locale === 'en') {
+    return `${BASE_URL}${path}`;
+  }
+  return `${BASE_URL}/${locale}${path}`;
+};
+
 /**
  * Generate hreflang links for a story page
  * @param storySlug - The story slug
@@ -192,5 +202,121 @@ export function generateStoriesIndexCanonicalUrl(currentLocale: string): string 
     return `${baseUrl}/stories`;
   } else {
     return `${baseUrl}/${currentLocale}/stories`;
+  }
+}
+
+export function generatePrivacyPolicyHreflangLinks(currentLocale: string): HreflangLink[] {
+  const links: HreflangLink[] = [];
+  const basePath = '/privacy-policy';
+
+  SUPPORTED_LOCALES.forEach(locale => {
+    links.push({
+      hrefLang: locale,
+      href: getLocalizedPath(locale, basePath),
+    });
+  });
+
+  links.push({
+    hrefLang: 'x-default',
+    href: getLocalizedPath('en', basePath),
+  });
+
+  return links;
+}
+
+export function generatePrivacyPolicyCanonicalUrl(currentLocale: string): string {
+  const baseUrl = 'https://timetosleep.org';
+  
+  if (currentLocale === 'en') {
+    return `${baseUrl}/privacy-policy`;
+  } else {
+    return `${baseUrl}/${currentLocale}/privacy-policy`;
+  }
+}
+
+export function generateTermsOfUseHreflangLinks(currentLocale: string): HreflangLink[] {
+  const links: HreflangLink[] = [];
+  const basePath = '/terms-of-use';
+
+  SUPPORTED_LOCALES.forEach(locale => {
+    links.push({
+      hrefLang: locale,
+      href: getLocalizedPath(locale, basePath),
+    });
+  });
+
+  links.push({
+    hrefLang: 'x-default',
+    href: getLocalizedPath('en', basePath),
+  });
+
+  return links;
+}
+
+export function generateTermsOfUseCanonicalUrl(currentLocale: string): string {
+  const baseUrl = 'https://timetosleep.org';
+  
+  if (currentLocale === 'en') {
+    return `${baseUrl}/terms-of-use`;
+  } else {
+    return `${baseUrl}/${currentLocale}/terms-of-use`;
+  }
+}
+
+export function generateContactHreflangLinks(currentLocale: string): HreflangLink[] {
+  const links: HreflangLink[] = [];
+  const basePath = '/contact';
+
+  SUPPORTED_LOCALES.forEach(locale => {
+    links.push({
+      hrefLang: locale,
+      href: getLocalizedPath(locale, basePath),
+    });
+  });
+
+  links.push({
+    hrefLang: 'x-default',
+    href: getLocalizedPath('en', basePath),
+  });
+
+  return links;
+}
+
+export function generateContactCanonicalUrl(currentLocale: string): string {
+  const baseUrl = 'https://timetosleep.org';
+  
+  if (currentLocale === 'en') {
+    return `${baseUrl}/contact`;
+  } else {
+    return `${baseUrl}/${currentLocale}/contact`;
+  }
+}
+
+export function generateSearchHreflangLinks(currentLocale: string): HreflangLink[] {
+  const links: HreflangLink[] = [];
+  const basePath = '/search';
+
+  SUPPORTED_LOCALES.forEach(locale => {
+    links.push({
+      hrefLang: locale,
+      href: getLocalizedPath(locale, basePath),
+    });
+  });
+
+  links.push({
+    hrefLang: 'x-default',
+    href: getLocalizedPath('en', basePath),
+  });
+
+  return links;
+}
+
+export function generateSearchCanonicalUrl(currentLocale: string): string {
+  const baseUrl = 'https://timetosleep.org';
+  
+  if (currentLocale === 'en') {
+    return `${baseUrl}/search`;
+  } else {
+    return `${baseUrl}/${currentLocale}/search`;
   }
 }

@@ -9,6 +9,7 @@ import StoryCard from "../src/components/StoryCard";
 import {SSRConfig, useTranslation} from 'next-i18next';
 import { GetServerSideProps } from 'next';
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import { generateSearchHreflangLinks, generateSearchCanonicalUrl } from '../src/utils/hreflang';
 
 
 const SearchPage: React.FC<SearchPageProps & SSRConfig> = ({ initialStories, query: initialQuery }) => {
@@ -18,6 +19,10 @@ const SearchPage: React.FC<SearchPageProps & SSRConfig> = ({ initialStories, que
   const router = useRouter();
   const locale = router.locale ?? 'en';
   const { t } = useTranslation('common');
+  
+  // Generate hreflang links and canonical URL for SEO
+  const hreflangLinks = generateSearchHreflangLinks(locale);
+  const canonicalUrl = generateSearchCanonicalUrl(locale);
 
 
     useEffect(() => {
@@ -60,40 +65,45 @@ const SearchPage: React.FC<SearchPageProps & SSRConfig> = ({ initialStories, que
   return (
     <>
       <Head>
-        <title>Search - Time to Sleep</title>
-        <meta name="title" content="Search - Time to Sleep" />
-        <meta name="description" content="Find the perfect bedtime story for your child on Time to Sleep. Search by title, description, or content." />
-        <meta name="keywords" content="search stories, story search, children's stories, bedtime stories, time to sleep" />
-        <link rel="canonical" href={`https://timetosleep.org/search${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ''}`} />
+        <title>{t('search.title')}</title>
+        <meta name="title" content={t('search.title')} />
+        <meta name="description" content={t('search.description')} />
+        <meta name="keywords" content={t('search.keywords')} />
+        <link rel="canonical" href={`${canonicalUrl}${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ''}`} />
+        
+        {/* Hreflang links for SEO */}
+        {hreflangLinks.map(link => (
+          <link key={link.hrefLang} rel="alternate" hrefLang={link.hrefLang} href={link.href} />
+        ))}
         
         {/* Open Graph */}
-        <meta property="og:title" content="Search - Time to Sleep" />
-        <meta property="og:description" content="Find the perfect bedtime story for your child on Time to Sleep. Search by title, description, or content." />
+        <meta property="og:title" content={t('search.title')} />
+        <meta property="og:description" content={t('search.description')} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://timetosleep.org/search${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ''}`} />
+        <meta property="og:url" content={`${canonicalUrl}${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ''}`} />
         <meta property="og:site_name" content="Time to Sleep" />
         <meta property="og:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
         
         {/* Twitter Card */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Search - Time to Sleep" />
-        <meta property="twitter:description" content="Find the perfect bedtime story for your child on Time to Sleep. Search by title, description, or content." />
+        <meta property="twitter:title" content={t('search.title')} />
+        <meta property="twitter:description" content={t('search.description')} />
         <meta property="twitter:site" content="@timetosleep" />
         <meta property="twitter:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
         
         {/* Additional meta tags for better SEO */}
         <meta name="author" content="Konstantin Dylko" />
         <meta name="robots" content="index, follow" />
-        <meta name="language" content="en" />
+        <meta name="language" content={locale} />
         
         {/* Structured Data */}
         <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SearchResultsPage",
-          "name": "Search - Time to Sleep",
-          "description": "Find the perfect bedtime story for your child on Time to Sleep. Search by title, description, or content.",
-          "url": `https://timetosleep.org/search${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ''}`,
+          "name": t('search.title'),
+          "description": t('search.description'),
+          "url": `${canonicalUrl}${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ''}`,
           "mainEntity": {
             "@type": "ItemList",
             "itemListElement": stories.map((story, index) => ({

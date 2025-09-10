@@ -27,6 +27,10 @@ const getLocalizedUrl = (locale: string, path: string): string => {
   if (locale === 'en') {
     return path; // English URLs don't have locale prefix
   }
+  // Special handling for root path to avoid trailing slash
+  if (path === '/') {
+    return `/${locale}`;
+  }
   return `/${locale}${path}`;
 };
 
@@ -71,7 +75,7 @@ export class SitemapService {
               priority: 0.7,
               lastmod: new Date().toISOString()
             });
-          });
+has c          });
         });
       });
       
