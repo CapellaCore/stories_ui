@@ -48,7 +48,7 @@ export class SitemapService {
       });
       
       // Add tag pages for all languages
-      const tags = await seoOptimizedService.getAllActualTagsByLanguage('en'); // Get base tags
+      const tags = await seoOptimizedService.getTagsForStaticPaths('en'); // Get base tags
       tags.forEach(tag => {
         SUPPORTED_LOCALES.forEach(locale => {
           urls.push({
@@ -61,14 +61,16 @@ export class SitemapService {
       });
       
       // Add story pages for all languages
-      const stories = await seoOptimizedService.getAllStoriesForStaticPaths();
+      const stories = await seoOptimizedService.getStoriesForStaticPaths('en');
       stories.forEach(story => {
-        SUPPORTED_LOCALES.forEach(locale => {
-          urls.push({
-            url: getLocalizedUrl(locale, `/stories/${story.tagSlug}/${story.storySlug}`),
-            changefreq: 'monthly',
-            priority: 0.7,
-            lastmod: story.updatedAt || story.createdAt || new Date().toISOString()
+        story.tags.forEach(tag => {
+          SUPPORTED_LOCALES.forEach(locale => {
+            urls.push({
+              url: getLocalizedUrl(locale, `/stories/${tag.slug}/${story.slug}`),
+              changefreq: 'monthly',
+              priority: 0.7,
+              lastmod: new Date().toISOString()
+            });
           });
         });
       });
