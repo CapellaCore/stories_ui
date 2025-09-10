@@ -75,7 +75,7 @@ export class SitemapService {
               priority: 0.7,
               lastmod: new Date().toISOString()
             });
-has c          });
+          });
         });
       });
       
