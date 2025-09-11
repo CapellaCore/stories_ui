@@ -37,10 +37,10 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories, local
   return (
     <>
       <Head>
-        <title>Stories - Time to Sleep</title>
-        <meta name="title" content="Stories - Time to Sleep" />
-        <meta name="description" content="Browse all story categories and find the perfect bedtime story for your child on Time to Sleep." />
-        <meta name="keywords" content="stories, story categories, children's stories, bedtime stories, time to sleep" />
+        <title>{t('stories.title')}</title>
+        <meta name="title" content={t('stories.title')} />
+        <meta name="description" content={t('stories.description')} />
+        <meta name="keywords" content={t('stories.keywords')} />
         <link rel="canonical" href={canonicalUrl} />
         
         {/* Hreflang links for SEO */}
@@ -49,8 +49,8 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories, local
         ))}
         
         {/* Open Graph */}
-        <meta property="og:title" content="Stories - Time to Sleep" />
-        <meta property="og:description" content="Browse all story categories and find the perfect bedtime story for your child on Time to Sleep." />
+        <meta property="og:title" content={t('stories.title')} />
+        <meta property="og:description" content={t('stories.description')} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content="Time to Sleep" />
@@ -58,8 +58,8 @@ const StoriesPage: React.FC<StoriesPageProps> = ({ categories, allStories, local
         
         {/* Twitter Card */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Stories - Time to Sleep" />
-        <meta property="twitter:description" content="Browse all story categories and find the perfect bedtime story for your child on Time to Sleep." />
+        <meta property="twitter:title" content={t('stories.title')} />
+        <meta property="twitter:description" content={t('stories.description')} />
         <meta property="twitter:site" content="@timetosleep" />
         <meta property="twitter:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
         

@@ -34,32 +34,32 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories, categories, locale
     return (
         <>
             <Head>
-                <title>Time to Sleep - Bedtime Stories for Your Children</title>
+                <title>{t('home.title')}</title>
                 <meta
                     name="title"
-                    content="Time to Sleep - Bedtime Stories for Your Children"
+                    content={t('home.title')}
                 />
                 <meta
                     name="description"
-                    content="Time to Sleep - Bedtime Stories for Your Children. Discover magical stories with beautiful illustrations perfect for family reading and helping children fall asleep peacefully."
+                    content={t('home.description')}
                 />
                 <meta
                     name="keywords"
-                    content="bedtime stories, children's stories, stories for children, stories with pictures, time to sleep, family reading"
+                    content={t('home.keywords')}
                 />
                 <link rel="canonical" href={canonicalUrl} />
                 
                 {/* Hreflang links for SEO */}
                 {hreflangLinks.map(link => (
-                  <link key={link.hrefLang} rel="alternate" hrefLang={link.hrefLang} href={link.href} />
+                    <link key={link.hrefLang} rel="alternate" hrefLang={link.hrefLang} href={link.href} />
                 ))}
                 <meta
                     property="og:title"
-                    content="Time to Sleep - Bedtime Stories for Your Children"
+                    content={t('home.title')}
                 />
                 <meta
                     property="og:description"
-                    content="Time to Sleep - Bedtime Stories for Your Children. Discover magical stories with beautiful illustrations perfect for family reading and helping children fall asleep peacefully."
+                    content={t('home.description')}
                 />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={canonicalUrl} />
@@ -72,11 +72,11 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories, categories, locale
                 <meta property="twitter:card" content="summary_large_image" />
                 <meta
                     property="twitter:title"
-                    content="Time to Sleep - Bedtime Stories for Your Children"
+                    content={t('home.title')}
                 />
                 <meta
                     property="twitter:description"
-                    content="Time to Sleep - Bedtime Stories for Your Children. Discover magical stories with beautiful illustrations perfect for family reading and helping children fall asleep peacefully."
+                    content={t('home.description')}
                 />
                 <meta
                     property="twitter:image"
@@ -88,9 +88,8 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories, categories, locale
                     {JSON.stringify({
                         '@context': 'https://schema.org',
                         '@type': 'WebSite',
-                        name: 'Time to Sleep - Bedtime Stories for Your Children',
-                        description:
-                            'Time to Sleep - Bedtime Stories for Your Children. Discover magical stories with beautiful illustrations perfect for family reading and helping children fall asleep peacefully.',
+                        name: t('home.title'),
+                        description: t('home.description'),
                         url: canonicalUrl,
                         potentialAction: {
                             '@type': 'SearchAction',
