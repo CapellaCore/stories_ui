@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import {Locale, TagStory} from "../types/interfaces";
+import {Locale, TagStory, StoryAudio} from "../types/interfaces";
 
 // Type definitions
 interface Story {
@@ -25,6 +25,21 @@ interface StoryImage {
   fileSize?: number;
   mimeType?: string;
   storagePath?: string;
+}
+
+interface StoryAudioDB {
+  id: string;
+  story_id: string;
+  language: string;
+  audio_url: string;
+  file_name?: string;
+  file_size?: number;
+  duration?: number;
+  mime_type: string;
+  storage_path?: string;
+  narrator_name?: string;
+  created_at: string;
+  updated_at: string;
 }
 
 interface Tag {
@@ -815,3 +830,91 @@ export const localesApi = {
         return data as Locale[];
     }
 }
+
+// Helper function to transform story audio data
+const transformStoryAudio = (audio: StoryAudioDB): StoryAudio => ({
+  id: audio.id,
+  storyId: audio.story_id,
+  language: audio.language,
+  audioUrl: audio.audio_url,
+  fileName: audio.file_name,
+  fileSize: audio.file_size,
+  duration: audio.duration,
+  mimeType: audio.mime_type,
+  storagePath: audio.storage_path,
+  narratorName: audio.narrator_name,
+  createdAt: audio.created_at,
+  updatedAt: audio.updated_at
+});
+
+// Audio API
+export const audioApi = {
+  // Get audio for a specific story and language
+  async getByStoryAndLanguage(storyId: string, language: string): Promise<StoryAudio | null> {
+    const { data, error } = await supabase
+      .from('story_audio')
+      .select('*')
+      .eq('story_id', storyId)
+      .eq('language', language)
+      .single();
+
+    if (error) {
+      if (error.code === 'PGRST116') {
+        // No audio found for this story/language combination
+        return null;
+      }
+      console.error('Error fetching story audio:', error);
+      throw error;
+    }
+
+    return transformStoryAudio(data);
+  },
+
+  // Get all audio files for a story
+  async getByStory(storyId: string): Promise<StoryAudio[]> {
+    const { data, error } = await supabase
+      .from('story_audio')
+      .select('*')
+      .eq('story_id', storyId)
+      .order('language');
+
+    if (error) {
+      console.error('Error fetching story audio files:', error);
+      throw error;
+    }
+
+    return data?.map(transformStoryAudio) || [];
+  },
+
+  // Get all audio files for a specific language
+  async getByLanguage(language: string): Promise<StoryAudio[]> {
+    const { data, error } = await supabase
+      .from('story_audio')
+      .select('*')
+      .eq('language', language)
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Error fetching audio files by language:', error);
+      throw error;
+    }
+
+    return data?.map(transformStoryAudio) || [];
+  },
+
+  // Get audio by ID
+  async getById(audioId: string): Promise<StoryAudio | null> {
+    const { data, error } = await supabase
+      .from('story_audio')
+      .select('*')
+      .eq('id', audioId)
+      .single();
+
+    if (error) {
+      console.error('Error fetching audio by ID:', error);
+      throw error;
+    }
+
+    return data ? transformStoryAudio(data) : null;
+  }
+};

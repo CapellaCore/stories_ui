@@ -106,6 +106,19 @@ export class SEOOptimizedService {
           mime_type,
           storage_path
         ),
+        story_audio!left (
+          id,
+          language,
+          audio_url,
+          file_name,
+          file_size,
+          duration,
+          mime_type,
+          storage_path,
+          narrator_name,
+          created_at,
+          updated_at
+        ),
         story_tags!inner (
           tag_id,
           tags!inner (
@@ -129,6 +142,23 @@ export class SEOOptimizedService {
     // Ensure story_translation is an object, not an array
     const storyTranslation = Array.isArray(storyData.story_translation) ? storyData.story_translation[0] : storyData.story_translation;
     
+    // Transform audio data if available (filter by language)
+    const audioData = storyData.story_audio?.find((audio: any) => audio.language === language);
+    const audio = audioData ? {
+      id: audioData.id,
+      storyId: storyData.id,
+      language: language,
+      audioUrl: audioData.audio_url,
+      fileName: audioData.file_name,
+      fileSize: audioData.file_size,
+      duration: audioData.duration,
+      mimeType: audioData.mime_type,
+      storagePath: audioData.storage_path,
+      narratorName: audioData.narrator_name,
+      createdAt: audioData.created_at,
+      updatedAt: audioData.updated_at
+    } : null;
+
     const story = {
       id: storyData.id,
       // Always use translated content - no fallbacks to base story data
@@ -149,6 +179,7 @@ export class SEOOptimizedService {
         mimeType: img.mime_type,
         storagePath: img.storage_path
       })) || [],
+      audio: audio, // Include audio data if available
       createdAt: storyData.created_at,
       updatedAt: storyData.updated_at
     };

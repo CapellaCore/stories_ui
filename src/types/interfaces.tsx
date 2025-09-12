@@ -18,6 +18,22 @@ export interface Story {
         alt: string;
         position: number;
     }>;
+    audio?: StoryAudio; // Optional audio file
+}
+
+export interface StoryAudio {
+    id: string;
+    storyId: string;
+    language: string;
+    audioUrl: string;
+    fileName?: string;
+    fileSize?: number;
+    duration?: number; // in seconds
+    mimeType: string;
+    storagePath?: string;
+    narratorName?: string;
+    createdAt: string;
+    updatedAt: string;
 }
 
 export interface LoadMoreButtonProps {
@@ -112,5 +128,11 @@ export interface LanguageSelectorProps {
 export interface SearchPageProps {
     initialStories: Story[];
     query: string | null;
+}
+
+export interface AudioPlayerProps {
+    audio: StoryAudio;
+    storyTitle: string;
+    className?: string;
 }
 

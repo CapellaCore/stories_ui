@@ -425,5 +425,19 @@
   "tag": {
     "storiesInCategory": "Bajki w kategorii",
     "noStories": "Brak bajek w tej kategorii"
+  },
+  "audio": {
+    "listenToStory": "Posłuchaj bajki",
+    "narratedBy": "Czyta",
+    "play": "Odtwórz",
+    "pause": "Pauza",
+    "download": "Pobierz",
+    "speed": "Prędkość",
+    "volume": "Głośność",
+    "loading": "Ładowanie audio...",
+    "error": "Błąd ładowania audio",
+    "notAvailable": "Audio nie jest dostępne dla tej bajki",
+    "duration": "Czas trwania",
+    "fileSize": "Rozmiar pliku"
   }
 }

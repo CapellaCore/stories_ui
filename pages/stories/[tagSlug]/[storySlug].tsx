@@ -5,6 +5,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import SimpleHeader from '../../../src/components/SimpleHeader';
 import SimpleFooter from '../../../src/components/SimpleFooter';
 import LazyStoryContent from '../../../src/components/LazyStoryContent';
+import AudioPlayer from '../../../src/components/AudioPlayer';
 import {StoryPageProps} from "../../../src/types/interfaces";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useTranslation} from "next-i18next";
@@ -107,7 +108,24 @@ const StoryPage: React.FC<StoryPageProps & { locale?: string }> = ({ tagSlug, st
             "@type": "Organization",
             "name": "Time to Sleep",
             "url": "https://timetosleep.org"
-          }
+          },
+          ...(story.audio && {
+            "audio": {
+              "@type": "AudioObject",
+              "name": story.title,
+              "description": story.description,
+              "contentUrl": story.audio.audioUrl,
+              "encodingFormat": story.audio.mimeType,
+              "duration": story.audio.duration ? `PT${story.audio.duration}S` : undefined,
+              "author": story.audio.narratorName ? {
+                "@type": "Person",
+                "name": story.audio.narratorName
+              } : {
+                "@type": "Person",
+                "name": "Time to Sleep"
+              }
+            }
+          })
         })}
         </script>
 
@@ -304,6 +322,19 @@ const StoryPage: React.FC<StoryPageProps & { locale?: string }> = ({ tagSlug, st
                   </div>
                 )}
               </div>
+
+              {/* Audio Player */}
+              {story.audio && (
+                <div className="px-4 mb-6 md:mb-8">
+                  <div className="max-w-4xl mx-auto">
+                    <AudioPlayer 
+                      audio={story.audio} 
+                      storyTitle={story.title}
+                      className="mb-4"
+                    />
+                  </div>
+                </div>
+              )}
 
               {/* Story Content */}
               <div className="px-4 mb-6 md:mb-8">
