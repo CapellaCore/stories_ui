@@ -13,7 +13,8 @@
     "legal": "Informacje prawne",
     "copyright": "© 2025 Time to Sleep. Wszystkie prawa zastrzeżone.",
     "createdWithLove": "Stworzone z miłością dla dzieci i ich rodziców",
-    "breadcrumbs": "Nawigacja okruszkowa"
+    "breadcrumbs": "Nawigacja okruszkowa",
+    "siteName": "Bajki na dobranoc"
   },
   "categories": {
     "animals":"Zwierzęta",
@@ -29,8 +30,8 @@
     "stories": "Bajki"
   },
   "home": {
-    "title": "Time to Sleep - Bajki na dobranoc dla Twoich dzieci",
-    "description": "Time to Sleep - Bajki na dobranoc dla Twoich dzieci. Odkryj magiczne historie z pięknymi ilustracjami idealne do rodzinnego czytania i pomagające dzieciom spokojnie zasnąć.",
+    "title": "Time to Sleep - Bajki na dobranoc dla dzieci",
+    "description": "Time to Sleep - Bajki na dobranoc dla dzieci. Odkryj magiczne historie z pięknymi ilustracjami idealne do rodzinnego czytania i pomagające dzieciom spokojnie zasnąć.",
     "keywords": "bajki na dobranoc, bajki dla dzieci, historie dla dzieci, bajki z obrazkami, time to sleep, rodzinne czytanie",
     "welcomeTitle": "Witamy w Time to Sleep!",
     "welcomeDescription": "Odkryj magiczne bajki na dobranoc z pięknymi ilustracjami. Idealne do rodzinnego czytania i pomagające dzieciom spokojnie zasnąć.",

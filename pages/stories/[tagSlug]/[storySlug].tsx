@@ -41,8 +41,8 @@ const StoryPage: React.FC<StoryPageProps & { locale?: string }> = ({ tagSlug, st
   return (
     <>
       <Head>
-        <title>{`${story.title} - Time to Sleep`}</title>
-        <meta name="title" content={`${story.title} - Time to Sleep`} />
+        <title>{`${story.title} - ${t('common.siteName')}`}</title>
+        <meta name="title" content={`${story.title} - ${t('common.siteName')}`} />
         <meta name="description" content={story.description} />
         <meta name="keywords" content={story.tags.join(', ')} />
         <link rel="canonical" href={canonicalUrl} />
@@ -57,7 +57,7 @@ const StoryPage: React.FC<StoryPageProps & { locale?: string }> = ({ tagSlug, st
         <meta property="og:description" content={story.description} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:site_name" content="Time to Sleep" />
+        <meta property="og:site_name" content={t('common.siteName')} />
         <meta property="og:image" content={sortedImages[0]?.src || "https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg"} />
         
         {/* Twitter Card */}

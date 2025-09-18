@@ -71,7 +71,7 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tag, allStories, lo
         <meta property="og:description" content={tag.description || `Stories in category ${tag.name}`} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:site_name" content="Time to Sleep" />
+        <meta property="og:site_name" content={t('common.siteName')} />
         <meta property="og:image" content="https://timetosleep.org/images/-a-friendly--smiling-moon-is-reading-a-book-under-.svg" />
         
         {/* Twitter Card */}

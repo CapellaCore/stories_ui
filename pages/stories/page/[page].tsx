@@ -47,16 +47,16 @@ const StoriesPage: React.FC<StoriesPageProps> = ({
       <Head>
         <title>
           {pagination.page > 1 
-            ? `Stories - Page ${pagination.page} - Time to Sleep` 
-            : 'Stories - Time to Sleep'
+            ? `Stories - Page ${pagination.page} - ${t('common.siteName')}` 
+            : `Stories - ${t('common.siteName')}`
           }
         </title>
         <meta 
           name="title" 
           content={
             pagination.page > 1 
-              ? `Stories - Page ${pagination.page} - Time to Sleep` 
-              : 'Stories - Time to Sleep'
+              ? `Stories - Page ${pagination.page} - ${t('common.siteName')}` 
+              : `Stories - ${t('common.siteName')}`
           } 
         />
         <meta 
@@ -76,15 +76,15 @@ const StoriesPage: React.FC<StoriesPageProps> = ({
         ))}
         
         {/* Open Graph */}
-        <meta property="og:title" content={pagination.page > 1 ? `Stories - Page ${pagination.page} - Time to Sleep` : 'Stories - Time to Sleep'} />
+        <meta property="og:title" content={pagination.page > 1 ? `Stories - Page ${pagination.page} - ${t('common.siteName')}` : `Stories - ${t('common.siteName')}`} />
         <meta property="og:description" content="Browse all story categories and find the perfect bedtime story for your child on Time to Sleep." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:site_name" content="Time to Sleep" />
+        <meta property="og:site_name" content={t('common.siteName')} />
         
         {/* Twitter Card */}
         <meta property="twitter:card" content="summary" />
-        <meta property="twitter:title" content={pagination.page > 1 ? `Stories - Page ${pagination.page} - Time to Sleep` : 'Stories - Time to Sleep'} />
+        <meta property="twitter:title" content={pagination.page > 1 ? `Stories - Page ${pagination.page} - ${t('common.siteName')}` : `Stories - ${t('common.siteName')}`} />
         <meta property="twitter:description" content="Browse all story categories and find the perfect bedtime story for your child on Time to Sleep." />
         <meta property="twitter:site" content="@timetosleep" />
         
