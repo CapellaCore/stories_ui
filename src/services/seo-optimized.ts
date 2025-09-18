@@ -315,12 +315,12 @@ export class SEOOptimizedService {
   /**
    * Get all stories for home page with language support
    */
-  async getStoriesForHomePage(language: string, limit: number = 25): Promise<{
+  async getStoriesForHomePage(language: string, limit: number = 50): Promise<{
     stories: any[];
     categories: any[];
   }> {
     // Get stories
-    const { data: storiesData, error: storiesError } = await supabase
+    let query = supabase
       .from('stories')
       .select(`
         id,
@@ -350,8 +350,12 @@ export class SEOOptimizedService {
         )
       `)
       .eq('story_translation.language', language)
-      .order('created_at', { ascending: false })
-      .limit(limit);
+      .order('created_at', { ascending: false });
+    
+    // Apply limit
+    query = query.limit(limit);
+    
+    const { data: storiesData, error: storiesError } = await query;
 
     if (storiesError) {
       console.error('Error fetching stories for home page:', storiesError);
