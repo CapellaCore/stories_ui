@@ -126,12 +126,17 @@ export class SEOOptimizedService {
             name,
             slug,
             description,
-            color
+            color,
+            tag_translation!inner (
+              name,
+              description
+            )
           )
         )
       `)
       .eq('slug', storySlug)
       .eq('story_translation.language', language)
+      .eq('story_tags.tags.tag_translation.language', language)
       .single();
 
     if (storyError || !storyData) {
@@ -189,9 +194,10 @@ export class SEOOptimizedService {
     const firstTag = Array.isArray(firstTagData) ? firstTagData[0] : firstTagData;
     const tag = firstTag ? {
       id: firstTag.id,
-      name: firstTag.name,
+      // Use translated tag name and description
+      name: (Array.isArray(firstTag.tag_translation) ? firstTag.tag_translation[0]?.name : firstTag.tag_translation?.name) || firstTag.name,
       slug: firstTag.slug,
-      description: firstTag.description,
+      description: (Array.isArray(firstTag.tag_translation) ? firstTag.tag_translation[0]?.description : firstTag.tag_translation?.description) || firstTag.description,
       color: firstTag.color
     } : null;
 
