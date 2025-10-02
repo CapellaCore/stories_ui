@@ -648,6 +648,78 @@ export class SEOOptimizedService {
       pagination
     };
   }
+
+  /**
+   * Get all stories for admin interface (including stories without images)
+   */
+  async getAllStoriesForAdmin(language: string): Promise<any[]> {
+    const { data: storiesData, error: storiesError } = await supabase
+      .from('stories')
+      .select(`
+        id,
+        slug,
+        age_group,
+        created_at,
+        updated_at,
+        story_translation!inner (
+          title,
+          description,
+          reading_time
+        ),
+        story_images (
+          id,
+          src,
+          alt,
+          position,
+          file_name,
+          file_size,
+          mime_type,
+          storage_path
+        ),
+        story_tags!inner (
+          tag_id,
+          tags!inner (
+            id,
+            name,
+            slug,
+            color
+          )
+        )
+      `)
+      .eq('story_translation.language', language)
+      .order('created_at', { ascending: false });
+
+    if (storiesError) {
+      console.error('Error fetching stories for admin:', storiesError);
+      throw storiesError;
+    }
+
+    return storiesData?.map(storyData => {
+      const storyTranslation = Array.isArray(storyData.story_translation) ? storyData.story_translation[0] : storyData.story_translation;
+      
+      return {
+        id: storyData.id,
+        title: storyTranslation.title,
+        description: storyTranslation.description,
+        readingTime: storyTranslation.reading_time,
+        ageGroup: storyData.age_group,
+        slug: storyData.slug,
+        createdAt: storyData.created_at,
+        updatedAt: storyData.updated_at,
+        images: storyData.story_images?.map((img: any) => ({
+          id: img.id,
+          src: img.src,
+          alt: img.alt,
+          position: img.position,
+          fileName: img.file_name || '',
+          fileSize: img.file_size || 0,
+          mimeType: img.mime_type || '',
+          storagePath: img.storage_path || ''
+        })) || [],
+        tags: storyData.story_tags?.map((st: any) => st.tags.name) || []
+      };
+    }) || [];
+  }
 }
 
 // Export singleton instance

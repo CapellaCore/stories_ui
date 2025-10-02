@@ -285,8 +285,8 @@ export const getServerSideProps: GetServerSideProps<AdminPageProps> = async ({ l
   try {
     const language = locale || 'en';
     
-    // Get all stories for the admin interface
-    const { stories } = await seoOptimizedService.getStoriesForHomePage(language);
+    // Get all stories for the admin interface (including stories without images)
+    const stories = await seoOptimizedService.getAllStoriesForAdmin(language);
 
     return {
       props: {
