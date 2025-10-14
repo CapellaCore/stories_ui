@@ -30,7 +30,7 @@
     "stories": "Bajki"
   },
   "home": {
-    "title": "Bajki na dobranoc dla dzieci",
+    "title": "Bajki na dobranoc",
     "description": "Bajki na dobranoc dla dzieci. Odkryj magiczne historie z pięknymi ilustracjami idealne do rodzinnego czytania i pomagające dzieciom spokojnie zasnąć.",
     "keywords": "bajki na dobranoc, bajki dla dzieci, historie dla dzieci, bajki z obrazkami, time to sleep, rodzinne czytanie",
     "welcomeTitle": "Witamy w Time to Sleep!",
@@ -43,8 +43,8 @@
     "noStoriesAvailable": "Niestety nie ma jeszcze żadnej historii dla tego języka, ale pracujemy nad tym"
   },
   "stories": {
-    "title": "Bajki - Time to Sleep",
-    "description": "Przeglądaj wszystkie kategorie bajek i znajdź idealną bajkę na dobranoc dla swojego dziecka na Time to Sleep.",
+    "title": "Bajki dla dzieci",
+    "description": "Przeglądaj wszystkie kategorie bajek i znajdź idealną bajkę na dobranoc dla swojego dziecka",
     "keywords": "bajki, kategorie bajek, historie dla dzieci, bajki na dobranoc, time to sleep",
     "pageTitle": "Wszystkie kategorie bajek",
     "pageDescription": "Wybierz kategorię, która Cię interesuje i odkryj magiczne historie dla dzieci na Time to Sleep.",
@@ -53,8 +53,8 @@
     "errorLoadingTags": "Błąd ładowania kategorii:"
   },
   "search": {
-    "title": "Szukaj - Time to Sleep",
-    "description": "Znajdź idealną bajkę na dobranoc dla swojego dziecka na Time to Sleep. Szukaj według tytułu, opisu lub treści.",
+    "title": "Szukaj Bajki na dobranoc do czytania",
+    "description": "Znajdź idealną bajkę na dobranoc dla swojego dziecka. Szukaj według tytułu, opisu lub treści.",
     "keywords": "szukaj bajek, wyszukiwanie bajek, bajki dla dzieci, bajki na dobranoc, time to sleep",
     "pageTitle": "Szukaj bajek",
     "pageDescription": "Wprowadź słowa kluczowe, aby znaleźć bajki, które Cię interesują na Time to Sleep.",
@@ -72,8 +72,8 @@
     "clear": "Wyczyść wyszukiwanie"
   },
   "storiesByTag": {
-    "title": "Bajki",
-    "description": "Bajki w kategorii",
+    "title": "Bajki na dobranoc w kategorii",
+    "description": "Znajdź idealną bajkę na dobranoc dla swojego dziecka. Szukaj według kategorii",
     "keywords": "bajki, kategoria, time to sleep",
     "storiesTitle": "Bajki",
     "storiesInCategory": "Bajki w kategorii",

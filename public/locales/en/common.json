@@ -44,8 +44,8 @@
     "noStoriesAvailable": "Unfortunately there is no any story for this language yet, but we are working on this"
   },
   "stories": {
-    "title": "Stories - Time to Sleep",
-    "description": "Browse all story categories and find the perfect bedtime story for your child on Time to Sleep.",
+    "title": "Bedtime Stories for Children",
+    "description": "Browse all story categories and find the perfect bedtime story for your child",
     "keywords": "stories, story categories, children's stories, bedtime stories, time to sleep",
     "pageTitle": "All Story Categories",
     "pageDescription": "Choose a category that interests you and discover magical stories for children on Time to Sleep.",
@@ -56,7 +56,7 @@
     "backToStories": "Back to stories"
   },
   "search": {
-    "title": "Search - Time to Sleep",
+    "title": "Search Bedtime Stories for Children",
     "description": "Find the perfect bedtime story for your child on Time to Sleep. Search by title, description, or content.",
     "keywords": "search stories, story search, children's stories, bedtime stories, time to sleep",
     "pageTitle": "Search Stories",
@@ -75,8 +75,8 @@
     "clear": "Clear search"
   },
   "storiesByTag": {
-    "title": "Stories",
-    "description": "Stories in category",
+    "title": "Bedtime Stories in Category",
+    "description": "Find the perfect bedtime story for your child. Search by category",
     "keywords": "stories, category, time to sleep",
     "storiesTitle": "Stories",
     "storiesInCategory": "Stories in category",
@@ -86,7 +86,7 @@
     "backToStories": "Back to stories"
   },
   "about": {
-    "title": "About Us - Time to Sleep",
+    "title": "About Us",
     "description": "Learn more about Time to Sleep. Our mission is to create high-quality bedtime stories for children and families.",
     "keywords": "about us, mission, stories, children's stories, family reading, time to sleep",
     "pageTitle": "About Time to Sleep",
