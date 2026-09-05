@@ -4,8 +4,10 @@ import Link from 'next/link';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import SimpleHeader from '../../../src/components/SimpleHeader';
 import SimpleFooter from '../../../src/components/SimpleFooter';
-import LazyStoryContent from '../../../src/components/LazyStoryContent';
+import StoryContent from '../../../src/components/StoryContent';
 import AudioPlayer from '../../../src/components/AudioPlayer';
+import OptimizedImage from '../../../src/components/OptimizedImage';
+import { ISR_REVALIDATE_SECONDS, SUPPORTED_LOCALES, localeStaticPath } from '../../../src/constants';
 import {StoryPageProps} from "../../../src/types/interfaces";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useTranslation} from "next-i18next";
@@ -163,81 +165,6 @@ const StoryPage: React.FC<StoryPageProps & { locale?: string }> = ({ tagSlug, st
         })}
         </script>
 
-        {/* Custom CSS for improved typography */}
-        <style>{`
-          .story-content-text {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.8;
-            color: #2d3748;
-            font-size: 1.125rem;
-          }
-          
-          .story-paragraph {
-            margin-bottom: 1.5rem;
-            text-align: justify;
-            text-indent: 2rem;
-            letter-spacing: 0.01em;
-            word-spacing: 0.05em;
-          }
-          
-          .story-content-text h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin: 2rem 0 1rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-          }
-          
-          .story-content-text h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #4a5568;
-            margin: 1.5rem 0 0.75rem 0;
-          }
-          
-          .story-content-text strong {
-            color: #2d3748;
-            font-weight: 600;
-          }
-          
-          .story-content-text em {
-            font-style: italic;
-            color: #4a5568;
-          }
-          
-          .story-content-text blockquote {
-            border-left: 4px solid #4c51bf;
-            padding-left: 1rem;
-            margin: 1.5rem 0;
-            font-style: italic;
-            color: #4a5568;
-            background-color: #f7fafc;
-            padding: 1rem;
-            border-radius: 0.375rem;
-          }
-          
-          .story-content-text ul, .story-content-text ol {
-            margin: 1rem 0;
-            padding-left: 2rem;
-          }
-          
-          .story-content-text li {
-            margin-bottom: 0.5rem;
-          }
-          
-          @media (max-width: 768px) {
-            .story-content-text {
-              font-size: 1rem;
-              line-height: 1.7;
-            }
-            
-            .story-paragraph {
-              text-indent: 1.5rem;
-              margin-bottom: 1.25rem;
-            }
-          }
-        `}</style>
       </Head>
 
       <div className="min-h-screen flex flex-col">
@@ -269,10 +196,13 @@ const StoryPage: React.FC<StoryPageProps & { locale?: string }> = ({ tagSlug, st
               <div className="px-4 mb-4 md:mb-6">
                 {sortedImages.length > 0 ? (
                   <div className="relative w-full aspect-[3/2] rounded-lg overflow-hidden shadow-lg">
-                    <img
+                    <OptimizedImage
                       src={sortedImages[0].src}
                       alt={sortedImages[0].alt || story.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      priority
+                      className="object-cover"
+                      sizes="(max-width: 960px) 100vw, 960px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-3 md:p-6 text-white">
@@ -339,11 +269,9 @@ const StoryPage: React.FC<StoryPageProps & { locale?: string }> = ({ tagSlug, st
               {/* Story Content */}
               <div className="px-4 mb-6 md:mb-8">
                 <div className="story-content-text max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-4 md:p-8">
-                  <LazyStoryContent
+                  <StoryContent
                     content={story.content}
                     images={story.images}
-                    threshold={0.1}
-                    rootMargin="100px"
                   />
                 </div>
               </div>
@@ -373,34 +301,17 @@ const StoryPage: React.FC<StoryPageProps & { locale?: string }> = ({ tagSlug, st
  */
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
-    const locales = ['en', 'pl']; // Supported locales
     const paths: any[] = [];
 
-    for (const locale of locales) {
-      // Get stories for this locale
+    for (const locale of SUPPORTED_LOCALES) {
       const stories = await seoOptimizedService.getStoriesForStaticPaths(locale);
-      
-      // Generate paths for each story
+
       const localePaths = stories.map(story => {
         const tagSlug = story.tags[0]?.slug || 'stories';
-        
-        // English gets no locale in URL, others get locale prefix
-        if (locale === 'en') {
-          return {
-            params: { 
-              tagSlug,
-              storySlug: story.slug 
-            }
-          };
-        } else {
-          return {
-            params: { 
-              tagSlug,
-              storySlug: story.slug 
-            },
-            locale
-          };
-        }
+        return localeStaticPath(locale, {
+          tagSlug,
+          storySlug: story.slug,
+        });
       });
       
       paths.push(...localePaths);
@@ -447,7 +358,7 @@ export const getStaticProps: GetStaticProps<StoryPageProps> = async ({ params, l
         locale: language,
         ...(await serverSideTranslations(language, ['common']))
       },
-      revalidate: 60 // Revalidate every minute for fresh content
+      revalidate: ISR_REVALIDATE_SECONDS
     };
   } catch (error) {
     console.error('Error fetching story data:', error);

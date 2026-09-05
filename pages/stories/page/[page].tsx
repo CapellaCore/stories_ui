@@ -10,6 +10,7 @@ import { useTranslation } from 'next-i18next';
 import { seoOptimizedService } from '../../../src/services/seo-optimized';
 import { PaginationService } from '../../../src/services/pagination';
 import { generateStoriesIndexHreflangLinks, generateStoriesIndexCanonicalUrl } from '../../../src/utils/hreflang';
+import { ISR_REVALIDATE_SECONDS, STORIES_PER_PAGE, SUPPORTED_LOCALES, localeStaticPath } from '../../../src/constants';
 
 interface StoriesPageProps {
   stories: any[];
@@ -160,7 +161,7 @@ const StoriesPage: React.FC<StoriesPageProps> = ({
                   <StoryCard
                     key={story.id}
                     story={story}
-                    locale={currentLocale}
+                    tagSlug={story.tags[0]?.toLowerCase() || 'stories'}
                   />
                 ))}
               </div>
@@ -183,37 +184,20 @@ const StoriesPage: React.FC<StoriesPageProps> = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const languages = ['en', 'pl'];
   const paths: any[] = [];
 
-  for (const language of languages) {
+  for (const language of SUPPORTED_LOCALES) {
     try {
-      // Get total count of stories for this language
       const result = await seoOptimizedService.getStoriesByLanguagePaginated({
         page: 1,
-        limit: 12, // Same limit as used in getStaticProps
+        limit: STORIES_PER_PAGE,
         language
       });
 
       const totalPages = result.pagination.totalPages;
 
-      // Generate paths for each page
-      for (let page = 1; page <= totalPages; page++) {
-        if (page === 1) {
-          // Page 1 is handled by the main /stories route
-          continue;
-        }
-
-        if (language === 'en') {
-          paths.push({
-            params: { page: page.toString() }
-          });
-        } else {
-          paths.push({
-            params: { page: page.toString() },
-            locale: language
-          });
-        }
+      for (let page = 2; page <= totalPages; page++) {
+        paths.push(localeStaticPath(language, { page: page.toString() }));
       }
     } catch (error) {
       console.error(`Error generating paths for language ${language}:`, error);
@@ -233,7 +217,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   try {
     const result = await seoOptimizedService.getStoriesByLanguagePaginated({
       page,
-      limit: 8, // Reduced from 12 to 8 for better performance
+      limit: STORIES_PER_PAGE,
       language
     });
 
@@ -252,7 +236,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
         locale: language,
         ...(await serverSideTranslations(language, ['common']))
       },
-      revalidate: 3600 // Revalidate every hour
+      revalidate: ISR_REVALIDATE_SECONDS
     };
   } catch (error) {
     console.error('Error fetching paginated stories:', error);

@@ -198,7 +198,7 @@ export const storiesApi = {
             // Use translated fields if available, otherwise fall back to original story fields
             title: story.story_translation?.title || story.title,
             description: story.story_translation?.description || story.description,
-            content: story.story_translation?.content || story.content,
+            content: '',
             tags: story.story_tags?.map((st: any) => st.tags.name) || [],
             images: transformStoryImages(story.story_images),
             readingTime: story.story_translation?.reading_time || story.reading_time,
@@ -371,7 +371,7 @@ export const storiesApi = {
             // Use translated fields if available, otherwise fall back to original story fields
             title: story.story_translation?.title || story.title,
             description: story.story_translation?.description || story.description,
-            content: story.story_translation?.content || story.content,
+            content: '',
             tags: story.story_tags?.map((st: any) => st.tags.name) || [],
             images: transformStoryImages(story.story_images),
             readingTime: story.story_translation?.reading_time || story.reading_time,
@@ -490,7 +490,7 @@ export const storiesApi = {
             // Use translated fields if available, otherwise fall back to original story fields
             title: story.story_translation?.title || story.title,
             description: story.story_translation?.description || story.description,
-            content: story.story_translation?.content || story.content,
+            content: '',
             tags: story.story_tags?.map((st: any) => st.tags.name) || [],
             images: transformStoryImages(story.story_images),
             readingTime: story.story_translation?.reading_time || story.reading_time,

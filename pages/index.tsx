@@ -10,6 +10,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { GetStaticProps, GetStaticPropsContext } from 'next';
 import { seoOptimizedService } from '../src/services/seo-optimized';
 import { generateHomeHreflangLinks, generateHomeCanonicalUrl } from '../src/utils/hreflang';
+import { ISR_REVALIDATE_SECONDS } from '../src/constants';
 
 const HomePage: React.FC<HomePageProps> = ({ featuredStories, categories, locale }) => {
   // Helper function to get stories by tag
@@ -270,7 +271,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }: GetStaticPropsC
                 locale: language,
                 ...(await serverSideTranslations(language, ['common'])),
             },
-            revalidate: 60, // Revalidate every minute for fresh content
+            revalidate: ISR_REVALIDATE_SECONDS,
         };
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -280,7 +281,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }: GetStaticPropsC
                 categories: [],
                 ...(await serverSideTranslations(locale ?? 'en', ['common'])),
             },
-            revalidate: 60,
+            revalidate: ISR_REVALIDATE_SECONDS,
         };
     }
 };

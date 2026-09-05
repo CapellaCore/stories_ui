@@ -1,80 +1,52 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
+import Image from 'next/image';
 
 interface OptimizedImageProps {
   src: string;
   alt: string;
   className?: string;
+  fill?: boolean;
   width?: number;
   height?: number;
   priority?: boolean;
+  sizes?: string;
 }
 
-const OptimizedImage: React.FC<OptimizedImageProps> = ({ 
-  src, 
-  alt, 
-  className = '', 
-  width = 1600, 
-  height = 900,
-  priority = false
+const OptimizedImage: React.FC<OptimizedImageProps> = ({
+  src,
+  alt,
+  className = '',
+  fill = false,
+  width,
+  height,
+  priority = false,
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
 }) => {
-  const [imageError, setImageError] = useState(false);
-  const [imageLoading, setImageLoading] = useState(true);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const [failed, setFailed] = useState(false);
 
-  useEffect(() => {
-    // Preload image if priority is true
-    if (priority && src) {
-      const img = new Image();
-      img.onload = () => {
-        setImageLoading(false);
-      };
-      img.onerror = () => {
-        setImageError(true);
-        setImageLoading(false);
-      };
-      img.src = src;
-    }
-  }, [src, priority]);
-
-  // If image failed to load, show placeholder
-  if (imageError) {
+  if (!src || failed) {
     return (
-      <div 
-        className={`${className} bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white rounded-lg`}
-        style={{ width: `${width}px`, height: `${height}px` }}
+      <div
+        className={`${className} bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white`}
       >
-        <div className="text-4xl mb-2">🌙</div>
+        <span className="text-4xl" aria-hidden="true">🌙</span>
       </div>
     );
   }
 
   return (
-    <div className={`optimized-image-container relative ${className}`}>
-      {imageLoading && (
-        <div 
-          className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-lg"
-        >
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-        </div>
-      )}
-      <img
-        ref={imgRef}
-        src={src}
-        alt={alt}
-        className={`optimized-image w-full h-full ${imageLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300 rounded-lg object-cover`}
-        onLoad={() => {
-          setImageLoading(false);
-        }}
-        onError={() => {
-          setImageError(true);
-          setImageLoading(false);
-        }}
-        loading={priority ? 'eager' : 'lazy'}
-        decoding="async"
-        fetchPriority={priority ? 'high' : 'auto'}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      />
-    </div>
+    <Image
+      src={src}
+      alt={alt}
+      className={className}
+      fill={fill}
+      width={fill ? undefined : width}
+      height={fill ? undefined : height}
+      priority={priority}
+      sizes={sizes}
+      unoptimized={src.endsWith('.svg')}
+      onError={() => setFailed(true)}
+    />
   );
 };
 

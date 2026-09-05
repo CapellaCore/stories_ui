@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import SimpleHeader from '../src/components/SimpleHeader';
 import SimpleFooter from '../src/components/SimpleFooter';
-import { contactRequestsApi } from '../src/services/supabase';
 import {useTranslation} from "next-i18next";
 import type { GetStaticProps, GetStaticPropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -44,6 +43,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ locale }) => {
 
     try {
       // Submit to Supabase using the contact requests API
+      const { contactRequestsApi } = await import('../src/services/supabase');
       await contactRequestsApi.create({
         name: formData.name,
         email: formData.email,

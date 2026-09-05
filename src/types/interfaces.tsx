@@ -18,7 +18,7 @@ export interface Story {
         alt: string;
         position: number;
     }>;
-    audio?: StoryAudio; // Optional audio file
+    audio?: StoryAudio;
 }
 
 export interface StoryAudio {
@@ -28,7 +28,7 @@ export interface StoryAudio {
     audioUrl: string;
     fileName?: string;
     fileSize?: number;
-    duration?: number; // in seconds
+    duration?: number;
     mimeType: string;
     storagePath?: string;
     narratorName?: string;
@@ -36,12 +36,36 @@ export interface StoryAudio {
     updatedAt: string;
 }
 
-export interface LoadMoreButtonProps {
-    onLoadMore: () => void;
-    hasMore: boolean;
-    loading: boolean;
-    totalItems: number;
-    currentItems: number;
+export interface PaginationMeta {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+    hasNext: boolean;
+    hasPrev: boolean;
+}
+
+export interface PaginationUrl {
+    page: number;
+    url: string;
+    isCurrent: boolean;
+}
+
+export interface StoriesByTagPageProps {
+    tagSlug: string;
+    tag: Tag | null;
+    stories: Story[];
+    pagination: PaginationMeta;
+    paginationUrls: PaginationUrl[];
+    locale?: string;
+}
+
+export interface StoriesPageProps {
+    categories: Tag[];
+    stories: Story[];
+    pagination: PaginationMeta;
+    paginationUrls: PaginationUrl[];
+    locale?: string;
 }
 
 export interface StoryImage {
@@ -54,19 +78,6 @@ export interface StoryImage {
 export interface StoryContentProps {
     content: string;
     images: StoryImage[];
-}
-
-export interface StoriesByTagPageProps {
-    tagSlug: string;
-    tag: Tag | null;
-    allStories: Story[];
-    locale?: string;
-}
-
-export interface StoriesPageProps {
-    categories: Tag[];
-    allStories: Story[];
-    locale?: string;
 }
 
 export interface Tag {
@@ -84,8 +95,8 @@ export interface HomePageProps {
 }
 
 export interface Locale {
-    code: string; // e.g. "en", "pl"
-    name: string; // e.g. "English", "Polish"
+    code: string;
+    name: string;
 }
 
 export interface StoryPageProps {
@@ -106,7 +117,7 @@ export interface TranslationContextType {
 export interface TagStory {
     id: string;
     name: string;
-    slug: string; // для URL
+    slug: string;
     description: string;
     color: string;
     story_tags: StoryTag[];
@@ -135,4 +146,3 @@ export interface AudioPlayerProps {
     storyTitle: string;
     className?: string;
 }
-

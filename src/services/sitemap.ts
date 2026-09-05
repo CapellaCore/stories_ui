@@ -1,4 +1,3 @@
-import { storiesApi, tagsApi } from './supabase';
 import { seoOptimizedService } from './seo-optimized';
 
 export interface SitemapUrl {
@@ -16,7 +15,6 @@ const STATIC_PAGES: SitemapUrl[] = [
   { url: '/', priority: 1.0, changefreq: 'daily' },
   { url: '/stories', priority: 0.9, changefreq: 'daily' },
   { url: '/search', priority: 0.7, changefreq: 'weekly' },
-  { url: '/about', priority: 0.6, changefreq: 'monthly' },
   { url: '/contact', priority: 0.5, changefreq: 'monthly' },
   { url: '/terms-of-use', priority: 0.3, changefreq: 'yearly' },
   { url: '/privacy-policy', priority: 0.3, changefreq: 'yearly' }

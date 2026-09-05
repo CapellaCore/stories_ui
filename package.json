@@ -4,24 +4,24 @@
   "description": "Веб-сайт со сказками на ночь",
   "private": true,
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
+    "@next/swc-darwin-arm64": "^16.3.4",
     "@supabase/supabase-js": "^2.50.5",
     "@types/node": "^20.0.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "emailjs-com": "^3.2.0",
     "i18next": "25.5.0",
     "next": "^15.5.0",
     "next-i18next": "^15.4.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-i18next": "15.7.3",
-    "react-router-dom": "7.8.2",
-    "sitemap": "^8.0.0",
-    "web-vitals": "^3.0.0"
+    "react-i18next": "15.7.3"
   },
   "devDependencies": {
+    "autoprefixer": "^10.5.4",
     "dotenv": "^16.0.0",
+    "postcss": "^8.5.26",
+    "sitemap": "^9.0.1",
+    "tailwindcss": "^3.4.19",
     "typescript": "5.9.2"
   },
   "scripts": {

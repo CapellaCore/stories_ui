@@ -4,7 +4,16 @@ const { i18n } = require('./next-i18next.config');
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['supabase.co', 'timetosleep.org'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.supabase.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 'timetosleep.org',
+      },
+    ],
     formats: ['image/webp', 'image/avif'],
   },
   i18n,

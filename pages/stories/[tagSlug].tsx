@@ -1,38 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import SimpleHeader from '../../src/components/SimpleHeader';
 import SimpleFooter from '../../src/components/SimpleFooter';
-import LoadMoreButton from '../../src/components/LoadMoreButton';
+import Pagination from '../../src/components/Pagination';
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useTranslation} from "next-i18next";
 import StoryCard from "../../src/components/StoryCard";
 import {StoriesByTagPageProps} from "../../src/types/interfaces";
 import { seoOptimizedService } from '../../src/services/seo-optimized';
+import { PaginationService } from '../../src/services/pagination';
 import { generateTagHreflangLinks, generateTagCanonicalUrl } from '../../src/utils/hreflang';
+import { ISR_REVALIDATE_SECONDS, STORIES_PER_PAGE, SUPPORTED_LOCALES, localeStaticPath } from '../../src/constants';
 
-const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tag, allStories, locale }) => {
-  const [displayedStories, setDisplayedStories] = useState(12);
-  const [loading, setLoading] = useState(false);
+const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tag, stories, pagination, paginationUrls, locale }) => {
   const { t } = useTranslation('common');
   const currentLocale = locale || 'en';
   
   // Generate hreflang links for SEO
   const hreflangLinks = generateTagHreflangLinks(tag?.slug || '', currentLocale);
   const canonicalUrl = generateTagCanonicalUrl(tag?.slug || '', currentLocale);
-
-  const handleLoadMore = () => {
-    setLoading(true);
-    // Simulate loading delay
-    setTimeout(() => {
-      setDisplayedStories(prev => Math.min(prev + 12, allStories.length));
-      setLoading(false);
-    }, 500);
-  };
-
-  const hasMore = displayedStories < allStories.length;
-  const currentStories = allStories.slice(0, displayedStories);
 
   if (!tag) {
     return (
@@ -96,7 +84,7 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tag, allStories, lo
           "url": canonicalUrl,
           "mainEntity": {
             "@type": "ItemList",
-            "itemListElement": allStories.map((story, index) => ({
+            "itemListElement": stories.map((story, index) => ({
               "@type": "ListItem",
               "position": index + 1,
               "item": {
@@ -176,11 +164,11 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tag, allStories, lo
 
               {/* Stories Section */}
               <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-                  {t("storiesByTag.description")} ({allStories.length})
+                  {t("storiesByTag.description")} ({pagination.total})
               </h2>
               <div className="px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-                  {currentStories.map(story => (
+                  {stories.map(story => (
                     <StoryCard 
                       key={story.id}
                       story={story} 
@@ -189,13 +177,12 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tag, allStories, lo
                   ))}
                 </div>
                 
-                {/* Load More Button */}
-                <LoadMoreButton
-                  onLoadMore={handleLoadMore}
-                  hasMore={hasMore}
-                  loading={loading}
-                  totalItems={allStories.length}
-                  currentItems={currentStories.length}
+                <Pagination
+                  urls={paginationUrls}
+                  currentPage={pagination.page}
+                  totalPages={pagination.totalPages}
+                  basePath={`/stories/${tag.slug}`}
+                  locale={currentLocale}
                 />
               </div>
             </div>
@@ -214,27 +201,11 @@ const StoriesByTagPage: React.FC<StoriesByTagPageProps> = ({ tag, allStories, lo
  */
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
-    const locales = ['en', 'pl']; // Supported locales
     const paths = [];
 
-    for (const locale of locales) {
-      // Get tags for this locale
+    for (const locale of SUPPORTED_LOCALES) {
       const tags = await seoOptimizedService.getTagsForStaticPaths(locale);
-      
-      // Generate paths for each tag
-      const localePaths = tags.map(tag => {
-        // English gets no locale in URL, others get locale prefix
-        if (locale === 'en') {
-          return {
-            params: { tagSlug: tag.slug }
-          };
-        } else {
-          return {
-            params: { tagSlug: tag.slug },
-            locale
-          };
-        }
-      });
+      const localePaths = tags.map(tag => localeStaticPath(locale, { tagSlug: tag.slug }));
       
       paths.push(...localePaths);
     }
@@ -263,7 +234,7 @@ export const getStaticProps: GetStaticProps<StoriesByTagPageProps> = async ({ pa
     const language = locale || 'en'; // Default to English if no locale
     
     // Get tag and stories data with fallback strategy
-    const { tag, stories } = await seoOptimizedService.getStoriesByTagForStaticProps(tagSlug, language);
+    const tag = await seoOptimizedService.getTagForStaticProps(tagSlug, language);
 
     if (!tag) {
       return {
@@ -271,15 +242,30 @@ export const getStaticProps: GetStaticProps<StoriesByTagPageProps> = async ({ pa
       };
     }
 
+    const result = await seoOptimizedService.getStoriesByTagPaginated(tagSlug, {
+      page: 1,
+      limit: STORIES_PER_PAGE,
+      language,
+    });
+
+    const paginationUrls = PaginationService.generatePaginationUrls(
+      `/stories/${tagSlug}`,
+      1,
+      result.pagination.totalPages,
+      language
+    );
+
     return {
       props: {
         tagSlug,
         tag,
-        allStories: stories,
+        stories: result.data,
+        pagination: result.pagination,
+        paginationUrls,
         locale: language,
         ...(await serverSideTranslations(language, ['common']))
       },
-      revalidate: 60 // Revalidate every minute for fresh content
+      revalidate: ISR_REVALIDATE_SECONDS
     };
   } catch (error) {
     console.error('Error fetching tag data:', error);

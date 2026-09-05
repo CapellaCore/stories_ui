@@ -5,8 +5,6 @@ export const measurePerformance = () => {
     const observer = new PerformanceObserver((list) => {
       const entries = list.getEntries();
       const lastEntry = entries[entries.length - 1];
-      console.log('LCP:', lastEntry.startTime);
-      
       // Send to analytics if needed
       if (window.gtag) {
         window.gtag('event', 'LCP', {
@@ -27,8 +25,6 @@ export const measurePerformance = () => {
         if (entry.entryType === 'first-input') {
           const firstInputEntry = entry as PerformanceEventTiming;
           const fid = firstInputEntry.processingStart - firstInputEntry.startTime;
-          console.log('FID:', fid);
-          
           if (window.gtag) {
             window.gtag('event', 'FID', {
               value: Math.round(fid),
@@ -56,8 +52,6 @@ export const measurePerformance = () => {
         }
       });
       
-      console.log('CLS:', clsValue);
-      
       if (window.gtag) {
         window.gtag('event', 'CLS', {
           value: Math.round(clsValue * 1000) / 1000,
@@ -74,8 +68,6 @@ export const measurePerformance = () => {
 export const measurePageLoad = () => {
   window.addEventListener('load', () => {
     const loadTime = performance.now();
-    console.log('Page Load Time:', loadTime);
-    
     if (window.gtag) {
       window.gtag('event', 'page_load_time', {
         value: Math.round(loadTime),

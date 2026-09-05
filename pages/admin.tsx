@@ -7,7 +7,9 @@ import { useTranslation } from 'next-i18next';
 import SimpleHeader from '../src/components/SimpleHeader';
 import SimpleFooter from '../src/components/SimpleFooter';
 import ImageUpload from '../src/components/ImageUpload';
+import OptimizedImage from '../src/components/OptimizedImage';
 import { seoOptimizedService } from '../src/services/seo-optimized';
+import { isAdminAuthorized, rejectUnauthorized } from '../src/lib/admin-auth';
 
 interface Story {
   id: string;
@@ -201,11 +203,15 @@ const AdminPage: React.FC<AdminPageProps> = ({ stories, locale }) => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {uploadedImages.map((image, index) => (
                         <div key={index} className="border border-gray-200 rounded-lg p-4 bg-white">
-                          <img
-                            src={image.src}
-                            alt={image.alt}
-                            className="w-full h-32 object-cover rounded-md mb-2"
-                          />
+                          <div className="relative w-full h-32 rounded-md mb-2 overflow-hidden">
+                            <OptimizedImage
+                              src={image.src}
+                              alt={image.alt}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, 33vw"
+                            />
+                          </div>
                           <div className="text-sm space-y-1 text-[#577c8e]">
                             <p><strong>File:</strong> {image.fileName}</p>
                             <p><strong>Size:</strong> {(image.fileSize / 1024).toFixed(1)} KB</p>
@@ -231,11 +237,15 @@ const AdminPage: React.FC<AdminPageProps> = ({ stories, locale }) => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {selectedStory.images.map((image) => (
                         <div key={image.id} className="border border-gray-200 rounded-lg p-4 bg-white">
-                          <img
-                            src={image.src}
-                            alt={image.alt}
-                            className="w-full h-32 object-cover rounded-md mb-2"
-                          />
+                          <div className="relative w-full h-32 rounded-md mb-2 overflow-hidden">
+                            <OptimizedImage
+                              src={image.src}
+                              alt={image.alt}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, 33vw"
+                            />
+                          </div>
                           <div className="text-sm space-y-1 text-[#577c8e]">
                             <p><strong>Alt Text:</strong> {image.alt}</p>
                             <p><strong>Position:</strong> {image.position}</p>
@@ -281,7 +291,12 @@ const AdminPage: React.FC<AdminPageProps> = ({ stories, locale }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<AdminPageProps> = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps<AdminPageProps> = async ({ req, res, locale }) => {
+  if (!isAdminAuthorized(req)) {
+    rejectUnauthorized(res);
+    return { props: {} as AdminPageProps };
+  }
+
   try {
     const language = locale || 'en';
     

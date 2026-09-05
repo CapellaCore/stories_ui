@@ -205,6 +205,41 @@ export class SEOOptimizedService {
   }
 
   /**
+   * Get a single translated tag without loading stories
+   */
+  async getTagForStaticProps(tagSlug: string, language: string): Promise<any | null> {
+    const { data: tagData, error: tagError } = await supabase
+      .from('tags')
+      .select(`
+        id,
+        name,
+        slug,
+        description,
+        color,
+        tag_translation!inner (
+          name,
+          description
+        )
+      `)
+      .eq('slug', tagSlug)
+      .eq('tag_translation.language', language)
+      .single();
+
+    if (tagError || !tagData) {
+      return null;
+    }
+
+    const tagTranslation = Array.isArray(tagData.tag_translation) ? tagData.tag_translation[0] : tagData.tag_translation;
+    return {
+      id: tagData.id,
+      name: tagTranslation.name,
+      description: tagTranslation.description,
+      slug: tagData.slug,
+      color: tagData.color
+    };
+  }
+
+  /**
    * Get stories for a specific tag and language
    * Only returns tags and stories that have translations in the requested language
    */
@@ -295,7 +330,7 @@ export class SEOOptimizedService {
         // Always use translated content - no fallbacks to base story data
         title: storyTranslation.title,
         description: storyTranslation.description,
-        content: storyTranslation.content,
+        content: '',
         readingTime: storyTranslation.reading_time,
         ageGroup: story.age_group,
         slug: story.slug,
@@ -449,18 +484,10 @@ export class SEOOptimizedService {
     const { page, limit, language } = options;
     const offset = (page - 1) * limit;
 
-    // First, get the total count by getting all stories and counting them
-    const { data: allStories, error: countError } = await supabase
+    const { count, error: countError } = await supabase
       .from('stories')
-      .select(`
-        id,
-        story_translation!inner (
-          language
-        )
-      `)
+      .select('id, story_translation!inner(language)', { count: 'exact', head: true })
       .eq('story_translation.language', language);
-    
-    const count = allStories?.length || 0;
 
     if (countError) {
       console.error('Error counting stories:', countError);
@@ -549,8 +576,7 @@ export class SEOOptimizedService {
     const { page, limit, language } = options;
     const offset = (page - 1) * limit;
 
-    // First, get the total count for this tag
-    const { data: allStories, error: countError } = await supabase
+    const { count, error: countError } = await supabase
       .from('stories')
       .select(`
         id,
@@ -562,11 +588,9 @@ export class SEOOptimizedService {
             slug
           )
         )
-      `)
+      `, { count: 'exact', head: true })
       .eq('story_tags.tags.slug', tagSlug)
       .eq('story_translation.language', language);
-    
-    const count = allStories?.length || 0;
 
     if (countError) {
       console.error('Error counting stories by tag:', countError);

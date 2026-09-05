@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import SimpleHeader from '../src/components/SimpleHeader';
@@ -25,17 +25,17 @@ const SearchPage: React.FC<SearchPageProps & SSRConfig> = ({ initialStories, que
   const canonicalUrl = generateSearchCanonicalUrl(locale);
 
 
-    useEffect(() => {
+  const skipInitialFetch = useRef(true);
+
+  useEffect(() => {
+    if (skipInitialFetch.current) {
+      skipInitialFetch.current = false;
+      return;
+    }
+
     const searchStories = async () => {
       if (!searchQuery.trim()) {
-        // If no query, show all stories
-        try {
-          const { storiesApi } = await import('../src/services/supabase');
-          const allStories = await storiesApi.getAllByLanguage(locale ?? 'en');
-          setStories(allStories);
-        } catch (error) {
-          console.error('Error fetching all stories:', error);
-        }
+        setStories([]);
         return;
       }
 
@@ -52,7 +52,6 @@ const SearchPage: React.FC<SearchPageProps & SSRConfig> = ({ initialStories, que
       }
     };
 
-    // Debounce search
     const timeoutId = setTimeout(searchStories, 300);
     return () => clearTimeout(timeoutId);
   }, [searchQuery, locale]);
@@ -270,8 +269,8 @@ export const getServerSideProps: GetServerSideProps<SearchPageProps & SSRConfig>
       const { storiesApi } = await import('../src/services/supabase');
 
       const stories = q
-          ? await storiesApi.search(q)
-          : await storiesApi.getAllByLanguage(locale ?? 'en');
+          ? await storiesApi.search(q, locale ?? 'en')
+          : [];
 
 
       return {

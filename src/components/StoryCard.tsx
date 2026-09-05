@@ -1,51 +1,57 @@
 import { Story } from '../types/interfaces';
 import Link from "next/link";
 import React from "react";
+import OptimizedImage from "./OptimizedImage";
 
-class StoryCard extends React.Component<{ story: Story; tagSlug: string }> {
-    render() {
-        const { story, tagSlug } = this.props;
-        const storyUrl = `/stories/${tagSlug}/${story.slug}`;
-        const sortedImages = [...story.images].sort((a, b) => a.position - b.position);
+const StoryCard: React.FC<{ story: Story; tagSlug: string; priority?: boolean }> = ({
+    story,
+    tagSlug,
+    priority = false,
+}) => {
+    const storyUrl = `/stories/${tagSlug}/${story.slug}`;
+    const sortedImages = [...story.images].sort((a, b) => a.position - b.position);
+    const cover = sortedImages[0];
 
-        return (
-            <Link
-                href={storyUrl}
-                className="flex h-full flex-1 flex-col gap-3 rounded-lg min-w-64 bg-white shadow-sm hover:shadow-md transition-shadow duration-200"
-            >
-                <div className="relative w-full aspect-[3/2] rounded-t-lg overflow-hidden">
-                    {sortedImages.length > 0 ? (
-                        <img
-                            src={sortedImages[0].src}
-                            alt={sortedImages[0].alt || story.title}
-                            className="w-full h-full object-cover"
-                        />
-                    ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white">
-                            <div className="text-4xl mb-2">🌙</div>
-                        </div>
+    return (
+        <Link
+            href={storyUrl}
+            className="flex h-full flex-1 flex-col gap-3 rounded-lg min-w-64 bg-white shadow-sm hover:shadow-md transition-shadow duration-200"
+        >
+            <div className="relative w-full aspect-[3/2] rounded-t-lg overflow-hidden">
+                {cover ? (
+                    <OptimizedImage
+                        src={cover.src}
+                        alt={cover.alt || story.title}
+                        fill
+                        priority={priority}
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white">
+                        <div className="text-4xl mb-2">🌙</div>
+                    </div>
+                )}
+                <div className="absolute top-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
+                    ⏱️ {story.readingTime} min
+                </div>
+            </div>
+            <div className="p-3 flex flex-col gap-2">
+                <h3 className="text-[#101619] text-base font-semibold leading-tight line-clamp-2">
+                    {story.title}
+                </h3>
+                <p className="text-[#577c8e] text-sm leading-normal line-clamp-2">
+                    {story.description}
+                </p>
+                <div className="flex items-center gap-2 text-xs text-gray-500">
+                    <span>👶 {story.ageGroup}</span>
+                    {story.tags.length > 0 && (
+                        <span className="text-blue-600">#{story.tags[0]}</span>
                     )}
-                    <div className="absolute top-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
-                        ⏱️ {story.readingTime} min
-                    </div>
                 </div>
-                <div className="p-3 flex flex-col gap-2">
-                    <h3 className="text-[#101619] text-base font-semibold leading-tight line-clamp-2">
-                        {story.title}
-                    </h3>
-                    <p className="text-[#577c8e] text-sm leading-normal line-clamp-2">
-                        {story.description}
-                    </p>
-                    <div className="flex items-center gap-2 text-xs text-gray-500">
-                        <span>👶 {story.ageGroup}</span>
-                        {story.tags.length > 0 && (
-                            <span className="text-blue-600">#{story.tags[0]}</span>
-                        )}
-                    </div>
-                </div>
-            </Link>
-        );
-    }
-}
+            </div>
+        </Link>
+    );
+};
 
 export default StoryCard;
