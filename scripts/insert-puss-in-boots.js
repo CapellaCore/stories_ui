@@ -84,11 +84,7 @@ The young man never forgot his true friend.
 
 “You did not make me rich with tricks alone,” he told Puss. “You taught me to be brave, polite, and grateful.”
 
-And every evening, after the castle lamps were lit, Puss would stretch by the fire, clean his boots, and purr a soft bedtime song.
-
-The end.
-
-Based on the public domain tale by Charles Perrault, gently adapted for bedtime.`;
+And every evening, after the castle lamps were lit, Puss would stretch by the fire, clean his boots, and purr a soft bedtime song.`;
 
 const pl = `Dawno temu żył młynarz, który miał trzech synów. Gdy się zestarzał, najstarszemu zostawił młyn, średniemu osła, a najmłodszemu tylko kota.
 
@@ -150,11 +146,7 @@ Młodzieniec nigdy nie zapomniał prawdziwego przyjaciela.
 
 „Nie wzbogaciłeś mnie samymi fortelami” — powiedział Kotu. „Nauczyłeś mnie odwagi, uprzejmości i wdzięczności.”
 
-A każdego wieczoru, gdy zapalano lampy w zamku, Kot przeciągał się przy kominku, czyścił buty i mruczał miękką kołysankę.
-
-Koniec.
-
-Na podstawie baśni Charles’a Perraulta z domeny publicznej, łagodnie zaadaptowanej na dobranoc.`;
+A każdego wieczoru, gdy zapalano lampy w zamku, Kot przeciągał się przy kominku, czyścił buty i mruczał miękką kołysankę.`;
 
 const ru = `Жил-был мельник, у которого было три сына. Когда он состарился, старшему оставил мельницу, среднему — осла, а младшему — только кота.
 
@@ -216,11 +208,7 @@ const ru = `Жил-был мельник, у которого было три с
 
 «Ты обогатил меня не одними хитростями, — сказал он Коту. — Ты научил меня смелости, вежливости и благодарности.»
 
-А каждый вечер, когда в замке зажигали лампы, Кот потягивался у огня, чистил сапоги и мурлыкал мягкую колыбельную.
-
-Конец.
-
-По мотивам сказки Шарля Перро из общественного достояния, мягко адаптированной для чтения на ночь.`;
+А каждый вечер, когда в замке зажигали лампы, Кот потягивался у огня, чистил сапоги и мурлыкал мягкую колыбельную.`;
 
 async function main() {
   const imageFiles = [

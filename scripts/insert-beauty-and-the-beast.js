@@ -89,11 +89,7 @@ At her words soft light filled the garden. The Beast’s fur faded. In his place
 
 Beauty and the prince were married in the castle of roses. The merchant lived nearby in comfort. Even Beauty’s sisters learned, slowly, that envy makes a colder home than a cottage filled with love.
 
-And on quiet evenings Beauty still read books in the library—sometimes alone, sometimes with the prince beside her—while the roses outside nodded in the moonlight.
-
-The end.
-
-Based on the public domain tale by Jeanne-Marie Leprince de Beaumont, gently adapted for bedtime.`;
+And on quiet evenings Beauty still read books in the library—sometimes alone, sometimes with the prince beside her—while the roses outside nodded in the moonlight.`;
 
 const pl = `Dawno temu żył kupiec z trzema córkami. Dwie starsze kochały piękne suknie i zabawy. Najmłodsza kochała książki, ogrody i cichą dobroć. Wszyscy nazywali ją Piękną.
 
@@ -161,11 +157,7 @@ Na te słowa miękkie światło wypełniło ogród. Futro Bestii zniknęło. Na 
 
 Piękna i książę wzięli ślub w zamku róż. Kupiec mieszkał niedaleko w spokoju. Nawet siostry Pięknej uczyły się powoli, że zazdrość czyni dom zimniejszym niż chatka pełna miłości.
 
-A w ciche wieczory Piękna wciąż czytała w bibliotece — czasem sama, czasem z księciem u boku — podczas gdy róże za oknem kiwały się w świetle księżyca.
-
-Koniec.
-
-Na podstawie baśni Jeanne-Marie Leprince de Beaumont z domeny publicznej, łagodnie zaadaptowanej na dobranoc.`;
+A w ciche wieczory Piękna wciąż czytała w bibliotece — czasem sama, czasem z księciem u boku — podczas gdy róże za oknem kiwały się w świetle księżyca.`;
 
 const ru = `Жил-был купец с тремя дочерьми. Две старшие любили нарядные платья и праздники. Младшая любила книги, сады и тихую доброту. Все звали её Красавицей.
 
@@ -233,11 +225,7 @@ const ru = `Жил-был купец с тремя дочерьми. Две ст
 
 Красавица и принц поженились в замке роз. Купец жил рядом в покое. Даже сёстры Красавицы медленно учились тому, что зависть делает дом холоднее, чем хижина, полная любви.
 
-А в тихие вечера Красавица всё так же читала в библиотеке — иногда одна, иногда с принцем рядом, — пока розы за окном кивали в лунном свете.
-
-Конец.
-
-По мотивам сказки Жанны-Мари Лепренс де Бомон из общественного достояния, мягко адаптированной для чтения на ночь.`;
+А в тихие вечера Красавица всё так же читала в библиотеке — иногда одна, иногда с принцем рядом, — пока розы за окном кивали в лунном свете.`;
 
 const images = [
   {

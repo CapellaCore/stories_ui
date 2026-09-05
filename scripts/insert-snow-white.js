@@ -87,11 +87,7 @@ News of her waking traveled farther than birdsong. The jealous queen’s power f
 
 She visited the dwarfs often, bringing cakes and stories. And on quiet nights, when the moon hung above the silver forest, the seven friends still hummed the songs Snow White had taught them.
 
-And so Snow White lived surrounded by friendship, and the cottage in the woods remained a place where goodness was always welcome.
-
-The end.
-
-Based on the public domain tale by the Brothers Grimm, gently adapted for bedtime.`;
+And so Snow White lived surrounded by friendship, and the cottage in the woods remained a place where goodness was always welcome.`;
 
 const pl = `Dawno temu, w królestwie otulonym łagodnymi wzgórzami i srebrnymi lasami, królowa siedziała zimą przy oknie i szyła. Patrząc na padający śnieg, zapragnęła dziecka białego jak śnieg, z ustami czerwonymi jak płatki róży i włosami czarnymi jak heban.
 
@@ -157,11 +153,7 @@ Wieść o jej przebudzeniu pobiegła dalej niż śpiew ptaków. Władza zazdrosn
 
 Często odwiedzała krasnoludki, przynosząc ciasta i opowieści. A w ciche noce, gdy księżyc zawisał nad srebrnym lasem, siedmiu przyjaciół nadal nuciło piosenki, których nauczyła ich Śnieżka.
 
-I tak Śnieżka żyła otoczona przyjaźnią, a chatka w lesie pozostała miejscem, gdzie dobro zawsze było mile widziane.
-
-Koniec.
-
-Na podstawie baśni braci Grimm z domeny publicznej, łagodnie zaadaptowanej na dobranoc.`;
+I tak Śnieżka żyła otoczona przyjaźnią, a chatka w lesie pozostała miejscem, gdzie dobro zawsze było mile widziane.`;
 
 const ru = `Давным-давно в королевстве среди мягких холмов и серебряных лесов королева сидела зимой у окна и шила. Глядя на падающий снег, она загадала желание: пусть родится ребёнок белый, как снег, с губами алыми, как лепестки розы, и волосами чёрными, как чёрное дерево.
 
@@ -227,11 +219,7 @@ const ru = `Давным-давно в королевстве среди мяг�
 
 Она часто навещала гномов, принося пироги и истории. А в тихие ночи, когда луна висела над серебряным лесом, семь друзей всё так же напевали песни, которым научила их Белоснежка.
 
-И так Белоснежка жила в окружении дружбы, а домик в лесу оставался местом, где доброте всегда были рады.
-
-Конец.
-
-По мотивам сказки братьев Гримм из общественного достояния, мягко адаптированной для чтения на ночь.`;
+И так Белоснежка жила в окружении дружбы, а домик в лесу оставался местом, где доброте всегда были рады.`;
 
 const images = [
   {

@@ -89,11 +89,7 @@ Then they hopped out the door and away down the street, waving farewell.
 
 The elves never came to sew again—but they had given enough kindness for a lifetime. The shoemaker and his wife kept their shop with grateful hearts and always left a warm welcome for anyone in need.
 
-And on quiet nights, if you listen closely near an old cobbler’s window, you might still hear tiny stitches singing in your dreams.
-
-The end.
-
-Based on the public domain tale by the Brothers Grimm, gently adapted for bedtime.`;
+And on quiet nights, if you listen closely near an old cobbler’s window, you might still hear tiny stitches singing in your dreams.`;
 
 const elvesPl = `Żył kiedyś dobry szewc, który ciężko pracował każdego dnia. Lecz czasy były trudne i wreszcie zostało mu skóry tylko na jedną parę butów.
 
@@ -122,11 +118,7 @@ Potem wyskoczyły za drzwi i pobiegły ulicą, machając na pożegnanie.
 
 Elfy już nigdy nie przyszły szyć — lecz dały dość dobroci na całe życie. Szewc i żona prowadzili sklep z wdzięcznym sercem i zawsze gościli każdego potrzebującego.
 
-A w ciche noce, jeśli przysuniesz ucho do starego szewskiego okna, może usłyszysz w snach maleńkie ściegi.
-
-Koniec.
-
-Na podstawie baśni braci Grimm z domeny publicznej, łagodnie zaadaptowanej na dobranoc.`;
+A w ciche noce, jeśli przysuniesz ucho do starego szewskiego okna, może usłyszysz w snach maleńkie ściegi.`;
 
 const elvesRu = `Жил-был добрый сапожник, который трудился каждый день. Но времена были трудные, и в конце концов у него осталось кожи лишь на одну пару башмаков.
 
@@ -155,11 +147,7 @@ const elvesRu = `Жил-был добрый сапожник, который т�
 
 Эльфы больше никогда не приходили шить — но подарили достаточно доброты на всю жизнь. Сапожник с женой вели лавку с благодарным сердцем и всегда привечали нуждающихся.
 
-А в тихие ночи, если приложить ухо к старому сапожному окошку, можно ещё услышать во сне крошечные стежки.
-
-Конец.
-
-По мотивам сказки братьев Гримм из общественного достояния, мягко адаптированной для чтения на ночь.`;
+А в тихие ночи, если приложить ухо к старому сапожному окошку, можно ещё услышать во сне крошечные стежки.`;
 
 const frogEn = `Once a young princess loved to play with a golden ball in the castle garden. She tossed it high among the roses until—splash!—it fell into a deep, clear well.
 
@@ -187,11 +175,7 @@ For three days the frog visited as a true friend. On the third morning the princ
 
 The princess smiled, a little shy and very glad. They became good friends, and often walked in the garden where the golden ball had fallen. Sometimes they still sat by the well and thanked the clear water for bringing them together.
 
-And whenever the princess made a promise after that, she remembered the frog’s soft knock at the door—and she kept her word.
-
-The end.
-
-Based on the public domain tale by the Brothers Grimm, gently adapted for bedtime.`;
+And whenever the princess made a promise after that, she remembered the frog’s soft knock at the door—and she kept her word.`;
 
 const frogPl = `Pewna młoda księżniczka uwielbiała bawić się złotą piłką w zamkowym ogrodzie. Podrzucała ją wysoko wśród róż, aż — plusk! — wpadła do głębokiej, czystej studni.
 
@@ -219,11 +203,7 @@ Przez trzy dni żaba przychodziła jak prawdziwa przyjaciółka. Trzeciego poran
 
 Księżniczka uśmiechnęła się, trochę nieśmiało i bardzo radośnie. Zostali dobrymi przyjaciółmi i często spacerowali po ogrodzie, gdzie spadła złota piłka. Czasem siadali jeszcze przy studni i dziękowali czystej wodzie za to, że ich połączyła.
 
-A ilekroć księżniczka składała potem obietnicę, pamiętała miękkie pukanie żaby do drzwi — i dotrzymywała słowa.
-
-Koniec.
-
-Na podstawie baśni braci Grimm z domeny publicznej, łagodnie zaadaptowanej na dobranoc.`;
+A ilekroć księżniczka składała potem obietnicę, pamiętała miękkie pukanie żaby do drzwi — i dotrzymywała słowa.`;
 
 const frogRu = `Жила-была юная принцесса, которая любила играть золотым мячиком в замковом саду. Она подбрасывала его высоко среди роз, пока — плюх! — он не упал в глубокий чистый колодец.
 
@@ -251,11 +231,7 @@ const frogRu = `Жила-была юная принцесса, которая л
 
 Принцесса улыбнулась — немного смущённо и очень радостно. Они стали хорошими друзьями и часто гуляли в саду, где упал золотой мячик. Иногда они всё ещё сидели у колодца и благодарили чистую воду за то, что свела их вместе.
 
-А когда принцесса после этого давала обещание, она вспоминала мягкий стук лягушки в дверь — и держала слово.
-
-Конец.
-
-По мотивам сказки братьев Гримм из общественного достояния, мягко адаптированной для чтения на ночь.`;
+А когда принцесса после этого давала обещание, она вспоминала мягкий стук лягушки в дверь — и держала слово.`;
 
 async function main() {
   await insertStory({

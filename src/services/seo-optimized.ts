@@ -484,9 +484,13 @@ export class SEOOptimizedService {
     const { page, limit, language } = options;
     const offset = (page - 1) * limit;
 
+    // Count must use the same joins as the data query so pagination stays in sync
     const { count, error: countError } = await supabase
       .from('stories')
-      .select('id, story_translation!inner(language)', { count: 'exact', head: true })
+      .select(
+        'id, story_translation!inner(language), story_images!inner(id), story_tags!inner(tag_id)',
+        { count: 'exact', head: true }
+      )
       .eq('story_translation.language', language);
 
     if (countError) {
@@ -576,12 +580,16 @@ export class SEOOptimizedService {
     const { page, limit, language } = options;
     const offset = (page - 1) * limit;
 
+    // Count must use the same joins as the data query so pagination stays in sync
     const { count, error: countError } = await supabase
       .from('stories')
       .select(`
         id,
         story_translation!inner (
           language
+        ),
+        story_images!inner (
+          id
         ),
         story_tags!inner (
           tags!inner (

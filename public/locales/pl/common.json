@@ -50,7 +50,13 @@
     "pageDescription": "Wybierz kategorię, która Cię interesuje i odkryj magiczne historie dla dzieci na Time to Sleep.",
     "categories": "Kategorie bajek",
     "loadingTags": "Ładowanie kategorii...",
-    "errorLoadingTags": "Błąd ładowania kategorii:"
+    "errorLoadingTags": "Błąd ładowania kategorii:",
+    "notFound": "Nie znaleziono bajki",
+    "backToStories": "Powrót do bajek",
+    "allStories": "Wszystkie bajki",
+    "page": "Strona",
+    "of": "z",
+    "storiesFound": "znalezionych bajek"
   },
   "search": {
     "title": "Szukaj Bajki na dobranoc do czytania",

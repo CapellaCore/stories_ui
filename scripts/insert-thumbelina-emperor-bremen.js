@@ -84,11 +84,7 @@ Spring arrived in golden light. Thumbelina climbed onto the swallow’s back. Th
 
 “Will you stay and be my friend?” he asked kindly.
 
-Thumbelina smiled. She had found a place where she truly belonged. The swallow sang above them, and the flower petals shone like little lanterns of joy.
-
-The end.
-
-Based on the public domain tale by Hans Christian Andersen, gently adapted for bedtime.`;
+Thumbelina smiled. She had found a place where she truly belonged. The swallow sang above them, and the flower petals shone like little lanterns of joy.`;
 
 const thumbPl = `Pewna dobra kobieta bardzo pragnęła mieć dziecko. Przyjazna wróżka dała jej magiczne ziarenko jęczmienia. Kobieta zasadziła je w doniczce, a wkrótce otworzył się piękny kwiat. W środku siedziała maleńka dziewczynka, nie większa od kciuka.
 
@@ -112,11 +108,7 @@ Wiosna nadeszła w złotym świetle. Calineczka wspięła się na grzbiet jaskó
 
 „Czy zostaniesz i będziesz moją przyjaciółką?” — zapytał łagodnie.
 
-Calineczka uśmiechnęła się. Znalazła miejsce, gdzie naprawdę należała. Jaskółka śpiewała nad nimi, a płatki kwiatów świeciły jak małe latarenki radości.
-
-Koniec.
-
-Na podstawie baśni Hansa Christiana Andersena z domeny publicznej, łagodnie zaadaptowanej na dobranoc.`;
+Calineczka uśmiechnęła się. Znalazła miejsce, gdzie naprawdę należała. Jaskółka śpiewała nad nimi, a płatki kwiatów świeciły jak małe latarenki radości.`;
 
 const thumbRu = `Жила-была добрая женщина, которая очень хотела ребёнка. Добрая волшебница дала ей волшебное ячменное зёрнышко. Женщина посадила его в горшок, и вскоре раскрылся прекрасный цветок. Внутри сидела крошечная девочка ростом не больше большого пальца.
 
@@ -140,11 +132,7 @@ const thumbRu = `Жила-была добрая женщина, которая �
 
 «Останешься ли ты и будешь моей подругой?» — ласково спросил он.
 
-Дюймовочка улыбнулась. Она нашла место, где ей было по-настоящему хорошо. Ласточка пела над ними, а лепестки сияли, словно маленькие фонарики радости.
-
-Конец.
-
-По мотивам сказки Ханса Кристиана Андерсена из общественного достояния, мягко адаптированной для чтения на ночь.`;
+Дюймовочка улыбнулась. Она нашла место, где ей было по-настоящему хорошо. Ласточка пела над ними, а лепестки сияли, словно маленькие фонарики радости.`;
 
 const empEn = `Long ago there lived an emperor who loved new clothes more than anything else. He spent his gold on robes, coats, and shining hats, and cared little for walking in his gardens.
 
@@ -176,11 +164,7 @@ A soft laugh moved through the crowd. Then another. The truth spread like sunshi
 
 That evening he thanked the child. “You reminded me that honesty is better than empty praise,” he said. He sent the tricksters away and spent more time with his people than with his wardrobe.
 
-And if anyone ever brought him “invisible” gifts again, he only smiled and asked for something he could truly see and share.
-
-The end.
-
-Based on the public domain tale by Hans Christian Andersen, gently adapted for bedtime.`;
+And if anyone ever brought him “invisible” gifts again, he only smiled and asked for something he could truly see and share.`;
 
 const empPl = `Dawno temu żył cesarz, który kochał nowe ubrania bardziej niż cokolwiek innego. Wydawał złoto na szaty, płaszcze i lśniące kapelusze, a mało dbał o spacery po ogrodach.
 
@@ -212,11 +196,7 @@ Miękki śmiech przeszedł przez tłum. Potem kolejny. Prawda rozeszła się jak
 
 Tego wieczoru podziękował dziecku. „Przypomniałeś mi, że uczciwość jest lepsza niż puste pochwały” — rzekł. Odesłał oszustów i spędzał więcej czasu z ludźmi niż z garderobą.
 
-A jeśli ktoś znów przynosił mu „niewidzialne” dary, tylko się uśmiechał i prosił o coś, co naprawdę można zobaczyć i podzielić.
-
-Koniec.
-
-Na podstawie baśni Hansa Christiana Andersena z domeny publicznej, łagodnie zaadaptowanej na dobranoc.`;
+A jeśli ktoś znów przynosił mu „niewidzialne” dary, tylko się uśmiechał i prosił o coś, co naprawdę można zobaczyć i podzielić.`;
 
 const empRu = `Давным-давно жил император, который любил новую одежду больше всего на свете. Он тратил золото на мантии, плащи и блестящие шляпы и мало заботился о прогулках по садам.
 
@@ -248,11 +228,7 @@ const empRu = `Давным-давно жил император, который
 
 Тем же вечером он поблагодарил ребёнка. «Ты напомнил мне, что честность лучше пустой похвалы», — сказал он. Он прогнал обманщиков и стал больше времени проводить с народом, чем с гардеробом.
 
-А если кто-нибудь снова приносил ему «невидимые» дары, он только улыбался и просил что-нибудь такое, что можно по-настоящему увидеть и разделить.
-
-Конец.
-
-По мотивам сказки Ханса Кристиана Андерсена из общественного достояния, мягко адаптированной для чтения на ночь.`;
+А если кто-нибудь снова приносил ему «невидимые» дары, он только улыбался и просил что-нибудь такое, что можно по-настоящему увидеть и разделить.`;
 
 const bremenEn = `A donkey grew old and could no longer carry heavy sacks. His master planned to send him away. So the donkey set off down the road toward the town of Bremen. “I can still make music,” he thought. “I shall become a town musician.”
 
@@ -290,11 +266,7 @@ The four friends looked at one another.
 
 “Perhaps we do not need Bremen after all,” said the donkey gently. “We have a warm house, good company, and music enough.”
 
-And so they stayed, singing soft songs each evening—four true friends who had found a home.
-
-The end.
-
-Based on the public domain tale by the Brothers Grimm, gently adapted for bedtime.`;
+And so they stayed, singing soft songs each evening—four true friends who had found a home.`;
 
 const bremenPl = `Osioł się zestarzał i nie mógł już nosić ciężkich worków. Pan chciał go odesłać. Więc osioł wyruszył drogą ku miastu Brema. „Wciąż potrafię robić muzykę” — pomyślał. „Zostanę miejskim muzykantem.”
 
@@ -332,11 +304,7 @@ Czterech przyjaciół spojrzało na siebie.
 
 „Może wcale nie potrzebujemy Bremy” — rzekł łagodnie osioł. „Mamy ciepły dom, dobre towarzystwo i dość muzyki.”
 
-I tak zostali, śpiewając miękkie piosenki każdego wieczoru — czterej prawdziwi przyjaciele, którzy znaleźli dom.
-
-Koniec.
-
-Na podstawie baśni braci Grimm z domeny publicznej, łagodnie zaadaptowanej na dobranoc.`;
+I tak zostali, śpiewając miękkie piosenki każdego wieczoru — czterej prawdziwi przyjaciele, którzy znaleźli dom.`;
 
 const bremenRu = `Осёл состарился и уже не мог носить тяжёлые мешки. Хозяин собирался его прогнать. Тогда осёл отправился по дороге в город Бремен. «Я всё ещё умею делать музыку, — подумал он. — Стану городским музыкантом.»
 
@@ -374,11 +342,7 @@ const bremenRu = `Осёл состарился и уже не мог носит
 
 «Может, нам и не нужен Бремен, — мягко сказал осёл. — У нас тёплый дом, хорошая компания и достаточно музыки.»
 
-И они остались, напевая мягкие песни каждый вечер — четверо верных друзей, нашедших дом.
-
-Конец.
-
-По мотивам сказки братьев Гримм из общественного достояния, мягко адаптированной для чтения на ночь.`;
+И они остались, напевая мягкие песни каждый вечер — четверо верных друзей, нашедших дом.`;
 
 async function main() {
   await insertStory({

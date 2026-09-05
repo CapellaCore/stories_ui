@@ -82,11 +82,7 @@ When the little man appeared, she asked calmly, “Is your name Conrad?”
 
 The little man’s eyes grew wide. “The goblins told you! The goblins told you!” he cried. He stamped his foot so hard that his boot stuck in the floor, then hopped away into the forest, never to trouble the queen again.
 
-The queen hugged her baby and whispered thank-you to the kind messenger. From that day she told only honest stories, and her castle was filled with laughter, not boasts.
-
-The end.
-
-Based on the public domain tale by the Brothers Grimm, gently adapted for bedtime.`;
+The queen hugged her baby and whispered thank-you to the kind messenger. From that day she told only honest stories, and her castle was filled with laughter, not boasts.`;
 
 const pl = `Dawno temu biedny młynarz miał bystrą córkę. Pewnego dnia, chcąc wydać się ważnym, powiedział królowi: „Moja córka potrafi prząść złoto ze słomy!”
 
@@ -155,11 +151,7 @@ Gdy ludzik się pojawił, spokojnie zapytała: „Czy masz na imię Konrad?”
 
 Oczy ludzika zrobiły się wielkie. „Hobgobliny ci powiedziały! Hobgobliny ci powiedziały!” — krzyknął. Uderzył nogą tak mocno, że but utknął w podłodze, po czym odskoczył do lasu i już nigdy nie niepokoił królowej.
 
-Królowa przytuliła dziecko i podziękowała dobremu posłańcowi. Od tego dnia opowiadała tylko prawdziwe historie, a jej zamek pełen był śmiechu, nie przechwałek.
-
-Koniec.
-
-Na podstawie baśni braci Grimm z domeny publicznej, łagodnie zaadaptowanej na dobranoc.`;
+Królowa przytuliła dziecko i podziękowała dobremu posłańcowi. Od tego dnia opowiadała tylko prawdziwe historie, a jej zamek pełen był śmiechu, nie przechwałek.`;
 
 const ru = `Давным-давно у бедного мельника была смышлёная дочь. Однажды, желая показаться важным, он сказал королю: «Моя дочь умеет прясть из соломы золото!»
 
@@ -228,11 +220,7 @@ const ru = `Давным-давно у бедного мельника была 
 
 Глаза человечка стали огромными. «Лесные духи тебе сказали! Лесные духи тебе сказали!» — закричал он. Он топнул ногой так сильно, что сапог застрял в полу, а потом ускакал в лес и больше никогда не тревожил королеву.
 
-Королева обняла малыша и поблагодарила доброго гонца. С того дня она рассказывала только правдивые истории, и её замок был полон смеха, а не хвастовства.
-
-Конец.
-
-По мотивам сказки братьев Гримм из общественного достояния, мягко адаптированной для чтения на ночь.`;
+Королева обняла малыша и поблагодарила доброго гонца. С того дня она рассказывала только правдивые истории, и её замок был полон смеха, а не хвастовства.`;
 
 async function insertStory({ slug, title, age_group, reading_time, description, en, pl, ru, plTitle, plDesc, ruTitle, ruDesc, images, tags }) {
   const { data: existing } = await supabase.from('stories').select('id').eq('slug', slug).maybeSingle();
@@ -318,11 +306,7 @@ The queen smiled. Only a real princess could feel a pea through so many mattress
 
 The prince was overjoyed. Here at last was someone delicate, honest, and truly of royal heart. They were married with music and cake, and the little pea was placed in the royal museum—where, if you visit quietly, you may still hear people whisper, “Can you believe she felt that?”
 
-And on rainy nights the princess slept on an ordinary soft bed, for she had already proved she was a princess—and now she was also loved.
-
-The end.
-
-Based on the public domain tale by Hans Christian Andersen, gently adapted for bedtime.`;
+And on rainy nights the princess slept on an ordinary soft bed, for she had already proved she was a princess—and now she was also loved.`;
 
   const peaPl = `Żył kiedyś książę, który pragnął poślubić prawdziwą księżniczkę. Podróżował daleko i szeroko, spotykając wiele panien. Jedne były dobre, inne mądre, jeszcze inne nosiły wspaniałe suknie — lecz nigdy nie był pewien, czy to prawdziwe księżniczki. Wrócił więc do domu trochę smutny.
 
@@ -344,11 +328,7 @@ Królowa uśmiechnęła się. Tylko prawdziwa księżniczka mogła poczuć groch
 
 Książę był uradowany. Oto wreszcie ktoś delikatny, szczery i prawdziwie królewskiego serca. Wzięli ślub przy muzyce i cieście, a maleńki groch trafił do królewskiego muzeum — gdzie, jeśli przyjdziesz cicho, wciąż możesz usłyszeć szept: „Czy wierzysz, że ona to poczuła?”
 
-A w deszczowe noce księżniczka spała już na zwykłym miękkim łóżku, bo udowodniła, że jest księżniczką — a teraz była także kochana.
-
-Koniec.
-
-Na podstawie baśni Hansa Christiana Andersena z domeny publicznej, łagodnie zaadaptowanej na dobranoc.`;
+A w deszczowe noce księżniczka spała już na zwykłym miękkim łóżku, bo udowodniła, że jest księżniczką — a teraz była także kochana.`;
 
   const peaRu = `Жил-был принц, который хотел жениться на настоящей принцессе. Он ездил далеко и широко и встречал много девушек. Одни были добры, другие умны, третьи носили пышные платья — но он никогда не был уверен, что это настоящие принцессы. Поэтому вернулся домой немного грустный.
 
@@ -370,11 +350,7 @@ Na podstawie baśni Hansa Christiana Andersena z domeny publicznej, łagodnie za
 
 Принц был в восторге. Наконец-то нашёлся кто-то нежный, честный и с поистине королевским сердцем. Они поженились под музыку и с тортом, а крошечную горошину положили в королевский музей — где, если прийти тихо, до сих пор можно услышать шёпот: «Веришь ли, что она её почувствовала?»
 
-А в дождливые ночи принцесса спала уже на обычной мягкой кровати: она доказала, что она принцесса, — и теперь её ещё и любили.
-
-Конец.
-
-По мотивам сказки Ханса Кристиана Андерсена из общественного достояния, мягко адаптированной для чтения на ночь.`;
+А в дождливые ночи принцесса спала уже на обычной мягкой кровати: она доказала, что она принцесса, — и теперь её ещё и любили.`;
 
   await insertStory({
     slug: 'princess-and-the-pea',

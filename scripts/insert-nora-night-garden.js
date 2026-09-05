@@ -134,9 +134,7 @@ And Nora slept.
 
 Outside her burrow, the little seed opened just a little, glowing gently until morning.
 
-And from that night on, whenever Nora grew restless, she remembered the Night Garden: how quiet work can be wonderful, how kindness helps others rest, and how every brave little mouse deserves soft dreams.
-
-The end.`,
+And from that night on, whenever Nora grew restless, she remembered the Night Garden: how quiet work can be wonderful, how kindness helps others rest, and how every brave little mouse deserves soft dreams.`,
 };
 
 const translations = {
@@ -263,9 +261,7 @@ I Nora zasnęła.
 
 Za norką maleńkie nasionko otworzyło się odrobinę, świecąc łagodnie aż do rana.
 
-A od tamtej nocy, ilekroć Nora robiła się niespokojna, wspominała Ogród Nocy: że cicha praca może być wspaniała, że dobroć pomaga innym odpocząć i że każda dzielna mała myszka zasługuje na miękkie sny.
-
-Koniec.`,
+A od tamtej nocy, ilekroć Nora robiła się niespokojna, wspominała Ogród Nocy: że cicha praca może być wspaniała, że dobroć pomaga innym odpocząć i że każda dzielna mała myszka zasługuje na miękkie sny.`,
   },
   ru: {
     title: 'Нора и Ночной сад',
@@ -384,9 +380,7 @@ Koniec.`,
 
 Возле норки крошечное семечко чуть-чуть раскрылось и мягко светилось до утра.
 
-А с той ночи, когда бы Нора ни становилась беспокойной, она вспоминала Ночной сад: что тихая работа может быть чудесной, что доброта помогает другим отдыхать, и что каждая храбрая маленькая мышка заслуживает мягких снов.
-
-Конец.`,
+А с той ночи, когда бы Нора ни становилась беспокойной, она вспоминала Ночной сад: что тихая работа может быть чудесной, что доброта помогает другим отдыхать, и что каждая храбрая маленькая мышка заслуживает мягких снов.`,
   },
 };
 

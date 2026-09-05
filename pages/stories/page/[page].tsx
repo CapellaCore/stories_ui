@@ -221,6 +221,10 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
       language
     });
 
+    if (page > result.pagination.totalPages || result.data.length === 0) {
+      return { notFound: true };
+    }
+
     const paginationUrls = PaginationService.generatePaginationUrls(
       '/stories',
       page,
