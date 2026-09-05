@@ -135,36 +135,6 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories, categories, locale
                                 </div>
                             </div>
 
-                            {/* Animals Category Section */}
-                            {animalStories.length > 0 && (
-                                <section className="mb-10">
-                                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 px-4">
-                                        <div>
-                                            <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight">
-                                                <Link
-                                                    href="/stories/animals"
-                                                    className="hover:underline"
-                                                >
-                                                    {t('categories.animals')}
-                                                </Link>
-                                            </h2>
-                                            <p className="text-[#577c8e] text-sm md:text-base">
-                                                {t('categories.animals_desc')}
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="mt-4">
-                                        <div className="flex overflow-x-auto gap-3 p-4">
-                                            {animalStories.slice(0, 12).map(story => (
-                                                <div key={story.id} className="flex-shrink-0 w-64">
-                                                    <StoryCard story={story} tagSlug="animals" />
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </section>
-                            )}
-
                             {/* Classic Category Section */}
                             {classicStories.length > 0 && (
                                 <section className="mb-10">
@@ -188,6 +158,36 @@ const HomePage: React.FC<HomePageProps> = ({ featuredStories, categories, locale
                                             {classicStories.slice(0, 12).map(story => (
                                                 <div key={story.id} className="flex-shrink-0 w-64">
                                                     <StoryCard story={story} tagSlug="classic" />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </section>
+                            )}
+
+                            {/* Animals Category Section */}
+                            {animalStories.length > 0 && (
+                                <section className="mb-10">
+                                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 px-4">
+                                        <div>
+                                            <h2 className="text-[#101619] text-lg md:text-xl lg:text-[22px] font-bold leading-tight">
+                                                <Link
+                                                    href="/stories/animals"
+                                                    className="hover:underline"
+                                                >
+                                                    {t('categories.animals')}
+                                                </Link>
+                                            </h2>
+                                            <p className="text-[#577c8e] text-sm md:text-base">
+                                                {t('categories.animals_desc')}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="mt-4">
+                                        <div className="flex overflow-x-auto gap-3 p-4">
+                                            {animalStories.slice(0, 12).map(story => (
+                                                <div key={story.id} className="flex-shrink-0 w-64">
+                                                    <StoryCard story={story} tagSlug="animals" />
                                                 </div>
                                             ))}
                                         </div>
